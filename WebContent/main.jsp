@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="css/main.css" rel="stylesheet">
 </head>
 <body>
 <div class="container-fluid pl-0 pr-0">

@@ -5,10 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>WebProject</title>
+
+<!-- css -->
+<link href="css/all.min.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- js -->
 <script src="js/jquery-3.4.1.js"></script>
-<link href="css/common.css" rel="stylesheet">
-<link href="css/main.css" rel="stylesheet">
+
 <style>
 body { padding-top: 40px; }
 </style>
@@ -20,7 +24,7 @@ body { padding-top: 40px; }
 	
 	<!-- content -->
 	<div class='content'>
-		<jsp:include page="main.jsp"/>
+  		<jsp:include page="main.jsp"/>
 	</div>
 	
 	<!-- bottom.jsp -->

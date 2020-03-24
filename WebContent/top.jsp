@@ -5,23 +5,40 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+#top_list_k li{
+	padding:0px 5px;
+}
+#top_list_k li>a{
+	color:#faa;
+}
+#top_list_k li a:hover{
+	color:#fff;
+}
+#search_k{
+	border:none;
+	background-color:rgba(0,0,0,0);
+}
+#search_k{
+	border:none;
+	background-color:rgba(0,0,0,0);
+}
+</style>
 </head>
 <body>
-<div class="container m-0">
-
-			<nav class="navbar navbar-expand-lg navbar-light bg-danger fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-danger fixed-top justify-content-center">
+	<div class="container p-0">
 				 
-				<a class="navbar-brand ml-auto" href="#">logo</a>
+				<a class="navbar-brand ml-2" href="#">logo</a>
 					
 					<form class="form-inline ml-auto mr-2">
-						<!-- <input class="form-control" type="text" placeholder="Default input"> -->
-						<input class="form-control mr-sm-2" type="text" /> 
-						<button class="btn btn-primary my-2 my-sm-0" type="submit">
-							Search
+						<input class="form-control mr-2" type="text" placeholder="지역, 숙소명"/> 
+						<button class="btn btn-primary my-2 my-sm-0" id="search_k" type="button">
+							<i class="fas fa-search"></i>
 						</button>
 					</form>
 					
-					<ul class="navbar-nav mr-auto">
+					<ul class="navbar-nav" id="top_list_k">
 						<li class="nav-item">
 							 <a class="nav-link" href="#">예약 내역</a>
 						</li>
@@ -36,8 +53,8 @@
 							 <a class="nav-link" href="#">로그인</a>
 						</li>
 					</ul>
-			</nav>
+	</div>
+</nav>
 
-</div>
 </body>
 </html>
