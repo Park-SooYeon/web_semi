@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel='stylesheet' type='text/css' href='../css/f_roomsCss.css'/>
+<link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'/>
 <script src="../js/jquery-3.4.1.js"></script>
 <script src='../js/f_roomsJs.js'></script>
 </head>
@@ -13,6 +14,23 @@
 	<div id='roomsView_f'>
 		<div id='view_f'>
 			<div id='view_top_f'>
+			<div id='view_top_right' class='btn pull-right'>
+			  <div id='view_top_right1'>
+			   <span class="badge badge-pill badge-info">레지던스</span>
+			   <h4>메리어트 이즈제큐티브 아파트먼트</h4>
+			   <span class="badge badge-pill badge-warning">8.0</span> <span class='text-warning'>만족해요</span>
+			   <br>
+			    <h5>서울 강남구 삼성동112-5</h5>
+			   </div>
+			   <div class="card border-secondary mb-3" style="max-width: 20rem;">
+               <div class="card-header">사장님 한마디</div>
+               <div class="card-body">
+                <p class="card-text">비즈니스와 문화의 중심지인 강남구 삼성동에 위치하고 있으며,코엑스 전시장과 도심 공항 터미널과 가까이 있습니다
+                      오랜 경험과 국제적인 서비스가 여러분의 미팅과 모임을 성공적으로 연출해 드릴 것이며, 
+                      또한 도심 속 선릉공원의 아름다운 경관은 여러분의 마음을 한층 포근하게 해드릴 것입니다</p>
+               </div>	
+             </div>
+			</div>
 				<div id='view_top_left_f'>
 					<div id='view_top_left_main_f'>
 						<img src=''/>
@@ -32,61 +50,17 @@
 						</div>
 					</div>
 				</div>
-				<div id='view_top_right_f'>
-					<div id='view_info_f'>
-						서울 라마다 호텔
-					</div>
-					<div id='view_score_f'>
-						별점 : <span>8.0</span> (848)
-					</div>
-					<div id='view_place_f'>
-						강남구
-					</div>
-					<div id='view_soga_f'>
-						노랑 봄맞이!!!!!!!!!!!!!!!!!!!!!!!!!
-					</div>
-					<div id='view_price_f'>
-						가격 : 45,000원
-					</div>
-					<input type='button' id='v_btnReserve_f' value='예약하기'/>
-				</div>
-			</div>
-			<div id='view_bottom_f'>
-				<hr/>
-				<div id='view_bottom_score_f'>
-					<div id='starForm_f'>
-						<div id='star_f'><input type="checkbox" name='star' id='star1_f' value=''/><label for='star1_f'><span></span></label></div>
-						<div id='star_f'><input type="checkbox" name='star' id='star2_f' value=''/><label for='star2_f'><span></span></label></div>
-						<div id='star_f'><input type="checkbox" name='star' id='star3_f' value=''/><label for='star3_f'><span></span></label></div>
-						<div id='star_f'><input type="checkbox" name='star' id='star4_f' value=''/><label for='star4_f'><span></span></label></div>
-						<div id='star_f'><input type="checkbox" name='star' id='star5_f' value=''/><label for='star5_f'><span></span></label></div>
-					</div>
-					<br/><span>별점 : 8.0</span><br/><br/><br/>
-					<span>전체리뷰 <b>848</b> &nbsp;&nbsp;|&nbsp;&nbsp; 제휴점 답변 <b>343</b></span>
-				</div>
-				<hr/>
-				
-				<div id='view_bottom_review_f'>
-					<div id='review_img_f'>
-						<img src=''/>
-					</div>
-					<div id='review_coment_f'>
-						<span>나쁘지 않아요</span><br/><br/>
-						<span>별점 : 3.9</span><br/><br/>
-						아늑하고 푹신하고<br/>
-						편안한 쉼이 되는곳..<br/>
-						직원들도 친절하고..<br/>
-						오래된 부분이 조금은<br/>
-						아쉽지만..<br/>
-						도심속 이만한 공간도<br/>
-						많지는 않아서...<br/>
-						좋아요..<br/>
-						자주 이용하는 곳이에요<br/>
-					</div>
-				</div>
-				<hr/>
-				
-			</div>
+		</div>
+		<div id='view_button'>
+			<button  id='btnHotel'>
+			<span class='text-danger'>객실안내/예약</span>
+			</button>
+			<button  id='btnLodging'>
+			<span class='text-danger'>숙소정보</span>
+			</button>
+			<button  id='btnReview'>
+			<span class='text-danger'>리뷰</span>
+			</button>
 		</div>
 	</div>
 </body>
