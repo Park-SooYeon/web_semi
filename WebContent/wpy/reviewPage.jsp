@@ -11,12 +11,6 @@
 <script src='../js/f_roomsJs.js'></script>
 </head>
 <body>
-	<div id='view_score_f'>
-		별점 : <span>8.0</span> (848)
-	</div>
-	<div id='view_place_f'>강남구</div>
-	<div id='view_soga_f'>노랑 봄맞이!!!!!!!!!!!!!!!!!!!!!!!!!</div>
-	
 <div id='view_bottom_f'>
 				<hr/>
 				<div id='view_bottom_score_f'>
