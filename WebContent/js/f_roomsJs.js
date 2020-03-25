@@ -25,6 +25,7 @@ let event_f = function(){
 			$('#pricename').text('낮은가격순');
 		})
 	}
+	//베드타입 클릭시 css변경
 	if($('#bed1_f')!=null){
 		$('#bed1_f').click(function(){
 			$('#bed1_f').css('background-image',"url('../image/bedcl1_f.jpg')");
