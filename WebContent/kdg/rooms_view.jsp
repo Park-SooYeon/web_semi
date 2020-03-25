@@ -11,6 +11,12 @@
 <script src='./js/f_roomsJs.js'></script>
 </head>
 <body>
+	<%
+		String inc_f = "../roomReview";
+		if(request.getParameter("inc_f")!=null){
+			inc_f = request.getParameter("inc_f");
+		}
+	%>
 	<div id='roomsView_f'>
 		<div id='view_f'>
 			<div id='view_top_f'>
@@ -62,7 +68,7 @@
 			<span class='text-danger'>리뷰</span>
 			</button>
 		</div>
-		<jsp:include page="../wpy/roomReview.jsp"></jsp:include>
+		<jsp:include page=<%=inc_f %>></jsp:include>
 	</div>
 	</div>
 </body>

@@ -19,13 +19,16 @@
 	<!-- menu -->
 		<div class='m_menu bg-white'>
 			<ul>
-				<li><a href="index.jsp?middle=./kdg/mrooms.jsp?aType=1"><span class="ico_01">&nbsp;</span><p>모텔</p></a></li>
-				<li><a href="index.jsp?middle=./kdg/hrooms.jsp?aType=2"><span class="ico_02">&nbsp;</span><p>호텔</p></a></li>
-				<li><a href="index.jsp?middle=./kdg/prooms.jsp?aType=3"><span class="ico_03">&nbsp;</span><p>펜션</p></a></li>
-				<li><a href="index.jsp?middle=./kdg/grooms.jsp?aType=4"><span class="ico_04">&nbsp;</span><p>게스트하우스</p></a></li>
+				<li id='ht_f'><a onclick="motel()"><span class="ico_01">&nbsp;</span><p>모텔</p></a></li>
+				<li id='mt_f'><a onclick="hotel()"><span class="ico_02">&nbsp;</span><p>호텔</p></a></li>
+				<li id='ps_f'><a onclick="pension()"><span class="ico_03">&nbsp;</span><p>펜션</p></a></li>
+				<li id='gh_f'><a onclick="gesthouse()"><span class="ico_04">&nbsp;</span><p>게스트하우스</p></a></li>
 			</ul>
 		</div>
-		
+		<form id='frm_f' name='frm_f' method='post'>
+			<input type='hidden' name='aType' id='aType' value=''/>
+		</form>
+											
 		<h2 class="pt-5">공지사항 및 소식</h2>
 		<ul class="list-group list-group-horizontal pt-3">
 			<li class="list-group-item" style="border:1px solid #00f; width:50%;">
@@ -79,7 +82,24 @@
 			</li>
 		</ul>
 		
-		
+		<script>
+			let motel = function(){
+				$('#aType').val('1');
+				$('#frm_f').attr('action','motel.ff').submit();
+			}
+			let hotel = function(){
+				$('#aType').val('2');
+				$('#frm_f').attr('action','hotel.ff').submit();
+			}
+			let pension = function(){
+				$('#aType').val('3');
+				$('#frm_f').attr('action','penshion.ff').submit();
+			}
+			let gesthouse = function(){
+				$('#aType').val('4');
+				$('#frm_f').attr('action','gesthouse.ff').submit();
+			}
+		</script>
 		
 </div>
 </body>
