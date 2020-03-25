@@ -41,20 +41,28 @@
             <p class="space_or">
             	<span>또는</span>
             </p>
-            <form class="was-validated">
+            <div class="inp_type_1 ico_email form-errors inp_error"><!-- focus / err -->
+                <input type="email" name="uid" placeholder="이메일 주소" required="" class="required" value="" data-msg-required="이메일 주소를 입력해 주세요." aria-invalid="true"><label id="uid-error" class="error help-block" for="uid">이메일 주소를 입력해 주세요.</label>
+            <button type="button" class="reset_val show">초기화</button></div>
+            <div class="inp_type_1 ico_pw form-errors">
+                <input type="password" name="upw" placeholder="비밀번호" required="" class="required" data-msg-required="비밀번호를 입력해 주세요.">
+          		<button type="button" class="reset_val">초기화</button>
+            </div>
+            <!-- <form class="was-validated">
             <div class="form-group">
-			      <input type="text" class="form-control" id="uname_c" placeholder="이메일 주소" name="uname"
+			       <input type="text" class="form-control" id="uname_c" placeholder="이메일 주소" name="uname"
 			      pattern="^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[a-zA-Z])*.[a-zA-Z]{2,3}$"
 			      title="형식  semi@abc.abc" autofocus required>
-			     <!--  <div class="valid-feedback" id="chkOk">Valid.</div> -->
+			     <div class="valid-feedback" id="chkOk"></div>
+			     <div></div>
 			      <div class="invalid-feedback" id="chkFail">유효하지 않은 E-Mail주소입니다.</div>
 			</div>
 			<div class="form-group">
 			    <input type="password" class="form-control" id="pwd" placeholder="비밀번호" name="pswd" required>
-			    <!-- <div class="valid-feedback">Valid.</div> -->
+			    <div class="valid-feedback">Valid.</div>
 				<div class="invalid-feedback">비밀번호를 입력해 주세요.</div>
 			</div>
-			</form>
+			</form> -->
             <button type="button" class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>로그인</button>
             <div class='pw_email_c'>
             	<a href="./pw_email.jsp">비밀번호 재설정</a>
@@ -80,7 +88,68 @@ $('#uname_c').keypress(function() {
 	let str = $('#uname_c').val();
 	validateEmail(str);
 });
+
+var yeogiUser = {
+    idCheck : function(id){
+        var regExp = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;
+        return regExp.test(id);
+    },
+
+    pwCheck : function(pw){
+        pw = pw.trim();
+        if(pw == '') return false;
+        return true;
+    }
+};
 </script> -->
+<script>
+/* 인풋 리셋 버튼 */
+function btn_reset(){
+
+	$('.inp_type_1 input, .inp_wrap input, .wrap_inp input').each(function(){
+        var html = '<button type="button" class="reset_val">초기화</button>';
+        
+        if($(this).parent().hasClass('remove')){
+            null;
+        }else{
+            $(this).parent().append(html);
+
+            var wrap = $(this).parent();
+
+            $('.reset_val').each(function(){
+                $(this).click(function(){
+
+                    var wrap = $(this).parent();
+                    $('input',wrap).val('');
+                    $(this).removeClass('show');
+                    $('input',wrap).focus();
+
+                });
+            });
+
+            $(this).on('input',function(){
+                $('button',wrap).addClass('show');
+            });
+
+            $(this).focus(function(){
+                $(this).parent().addClass('inp_ok');
+
+                var this_val = $(this).val();
+                if (this_val == ""){
+                    null;
+                }
+                else{
+                $('button',wrap).addClass('show');
+                }
+            });
+            $(this).blur(function(){
+                $(this).parent().removeClass('inp_ok');
+            });
+        }
+
+	});
+}
+</script>
 <script src='../js/bootstrap.bundle.min.js'></script>
 <body>
 
