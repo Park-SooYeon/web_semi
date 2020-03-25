@@ -25,17 +25,22 @@
 	background-color:rgba(0,0,0,0);
 }
 
-#searchbox{
+
+#searchbox_main{
+	width:100%;
+	height: 422px;
 	position:absolute;
 	top:0px;
-	left:280px;
-	width: 787px;
-	height: 422px;
 	display: none;
+}
+#searchbox{
+	margin:auto;
+	width: 717px;
+	height: 422px;
 	
 }
 #searchbox #search_top{
-	width:787px;
+	width:717px;
 	height: 72px;
 	background-color:#f6323e;
 }
@@ -48,7 +53,7 @@
 }
 #searchbox #search_top #top_middle{
 	float:left;
-	width:643px;
+	width:573px;
 	height: 72px;
 }
 #searchbox #search_top #top_right{
@@ -59,7 +64,7 @@
 	cursor: pointer;
 }
 #searchbox #search_top #top_middle #findStr{
-	width: 642px;
+	width: 572px;
 	height: 71px;
 	border: 1px solid #f6323e;
 	background-color: #f6323e;
@@ -67,7 +72,7 @@
 	color:#eee;
 }
 #searchbox #search_botoom{
-	width:787px;
+	width:717px;
 	height: 352px;
 	background-color:#fff;
 	box-sizing: border-box;
@@ -103,6 +108,7 @@
 						</li>
 					</ul>
 	</div>
+				<div id ='searchbox_main'>
 					<div id ='searchbox'>
 						<div id='search_top'>
 							<div id='top_left' onclick=''>
@@ -116,14 +122,15 @@
 						<div id='search_botoom'>
 						</div>
 					</div>
+				</div>
 </nav>
 	<script>
 		$('#search_k').click(function(){
-			$('#searchbox').slideToggle(100);
+			$('#searchbox_main').slideToggle(100);
 		})
 		if($('#top_right')!=null){
 			$('#top_right').click(function(){
-				$('#searchbox').slideToggle(100);
+				$('#searchbox_main').slideToggle(100);
 			})
 		}
 	</script>
