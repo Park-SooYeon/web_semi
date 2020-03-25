@@ -40,7 +40,7 @@ public class MpDao {
 	}
 	
 	public List<ReListVo> reList(String eMail) {
-		String query = "select a.rname, a.rplace, a.ginfo, a.orifile, a.sysfile, a.address from rooms a join reserve b on a.rcode=b.rno where b.email=?";
+		String query = "select a.rcode, a.rname, a.rplace, a.ginfo, a.orifile, a.sysfile, a.address from rooms a join reserve b on a.rcode=b.rno where b.email=?";
 		PreparedStatement pstmt = null;
 		ResultSet set = null;
 		ReListVo vo = null;
@@ -53,6 +53,7 @@ public class MpDao {
 			
 			while(set.next()){
 				vo = new ReListVo();
+				vo.setrCode(set.getInt("rcode"));
 				vo.setrName(set.getString("rname"));
 				vo.setrPlace(set.getString("rplace"));
 				vo.setgInfo(set.getString("ginfo"));
@@ -66,5 +67,34 @@ public class MpDao {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	
+	public ResVo resView(String rCode) {
+		PreparedStatement pstmt;
+		ResultSet set = null;
+		ResVo vo = null;
+		String query = "select * from reserve where rCode=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, rCode);
+			set=pstmt.executeQuery();
+			
+			if(set.next()) {
+				vo = new ResVo();
+				vo.setrNo(set.getInt("rno"));
+				vo.setrName(set.getString("rname"));
+				vo.setrPhone(set.getString("rphone"));
+				vo.setrCode(set.getInt("rcode"));
+				vo.setrDate(set.getDate("rDate"));
+				vo.setPeriod(set.getInt("period"));
+				vo.setPayment(set.getString("payment"));
+				vo.setPrice(set.getInt("price"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
 	}
 }

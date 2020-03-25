@@ -60,6 +60,8 @@ public class MpController extends HttpServlet {
 			command = new ReserveList();
 			command.execute(req, res);
 			viewPage =  url+"reserveList.jsp";
+		}else if(com.equals("/user/resView.mp")) {
+			
 		}
 		RequestDispatcher dis = req.getRequestDispatcher(viewPage);
 		dis.forward(req, res);
