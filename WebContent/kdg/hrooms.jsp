@@ -5,17 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel='stylesheet' type='text/css' href='../css/f_roomsCss.css'/>
-<script src="../js/jquery-3.4.1.js"></script>
-<script src='../js/f_roomsJs.js'></script>
+<link rel='stylesheet' type='text/css' href='./css/f_roomsCss.css'/>
+<script src="./js/jquery-3.4.1.js"></script>
+<script src='./js/f_roomsJs.js'></script>
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="./jquery-ui-1.12.1/datepicker-ko.js"></script>
 
 </head>
 <body>
+	
 	<div id ='main_f'><!-- 메인 -->
 		<form id='frm_f' name='frm_f' method='post'>
 		<div id ='top_f'><!-- 위에 -->
@@ -118,30 +118,7 @@
 						<div id='page_change'>
 							<h4 id='pricename'>낮은 가격순</h4>
 							
-							<div id ='searched_frame_f'>
-								<div id='main_img_f'>
-									<img src=''/>
-								</div>
-								
-								<div id='searched_f'>
-									<div id='info_f'>
-										<span>노랑 봄맞이!!!!!!!!!!!!!!!!!!!!!!!!!</span>
-									</div>
-									<div id='name_f'>
-										<strong>서울 라마다 호텔</strong>
-										<p>
-											별점 : &nbsp;<em>5.0</em> &nbsp; (934)
-										</p>
-										<p>
-											서울시 종로구 333-33
-										</p>
-									</div>
-									<div id='price_f'>
-										<span>56,000원</span>
-									</div>
-								</div>
-							</div>
-						</div>
+							<jsp:include page='rooms_list.jsp'/>
 						
 					</div>
 				</div>

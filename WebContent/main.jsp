@@ -8,6 +8,8 @@
 <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
+
+
 <div class="container-fluid pl-0 pr-0">
 	<div class="jumbotron text-center pt-0 pb-0 bg-danger">
 		<img src="./image/main.png" style="height:454px;"/>
@@ -17,10 +19,10 @@
 	<!-- menu -->
 		<div class='m_menu bg-white'>
 			<ul>
-				<li><a href="#"><span class="ico_01">&nbsp;</span><p>모텔</p></a></li>
-				<li><a href="#"><span class="ico_02">&nbsp;</span><p>호텔</p></a></li>
-				<li><a href="#"><span class="ico_03">&nbsp;</span><p>펜션</p></a></li>
-				<li><a href="#"><span class="ico_04">&nbsp;</span><p>게스트하우스</p></a></li>
+				<li><a href="index.jsp?middle=./kdg/mrooms.jsp?aType=1"><span class="ico_01">&nbsp;</span><p>모텔</p></a></li>
+				<li><a href="index.jsp?middle=./kdg/hrooms.jsp?aType=2"><span class="ico_02">&nbsp;</span><p>호텔</p></a></li>
+				<li><a href="index.jsp?middle=./kdg/prooms.jsp?aType=3"><span class="ico_03">&nbsp;</span><p>펜션</p></a></li>
+				<li><a href="index.jsp?middle=./kdg/grooms.jsp?aType=4"><span class="ico_04">&nbsp;</span><p>게스트하우스</p></a></li>
 			</ul>
 		</div>
 		
@@ -76,6 +78,8 @@
 				<img src="./image/ad2.png" alt="사진2" class="img-fluid">
 			</li>
 		</ul>
+		
+		
 		
 </div>
 </body>

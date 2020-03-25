@@ -118,12 +118,15 @@ let event_f = function(){
    }); 
 	 
 	 
-	       
+	 //리스트 클릭하면 view페이지로 이동
 	
 
 	
 		
 
+}
+let view = function(){
+	location.href = "index.jsp?middle=./kdg/rooms_view.jsp"
 }
 
 

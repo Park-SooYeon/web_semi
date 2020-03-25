@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel='stylesheet' type='text/css' href='../css/f_roomsCss.css'/>
-<link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'/>
-<script src="../js/jquery-3.4.1.js"></script>
-<script src='../js/f_roomsJs.js'></script>
+<link rel='stylesheet' type='text/css' href='./css/f_roomsCss.css'/>
+<link rel='stylesheet' type='text/css' href='./css/bootstrap.min.css'/>
+<script src="./js/jquery-3.4.1.js"></script>
+<script src='./js/f_roomsJs.js'></script>
 </head>
 <body>
 	<div id='roomsView_f'>
@@ -62,6 +62,8 @@
 			<span class='text-danger'>리뷰</span>
 			</button>
 		</div>
+		<jsp:include page="../wpy/roomReview.jsp"></jsp:include>
+	</div>
 	</div>
 </body>
 </html>

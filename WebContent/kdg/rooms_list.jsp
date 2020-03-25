@@ -5,12 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel='stylesheet' type='text/css' href='../css/f_roomsCss.css'/>
-<script src="../js/jquery-3.4.1.js"></script>
-<script src='../js/f_roomsJs.js'></script>
+<link rel='stylesheet' type='text/css' href='./css/f_roomsCss.css'/>
 </head>
 <body>
-							<div id ='searched_frame_f' onclick=''>
+							<div id ='searched_frame_f' onclick='view()'>
 								<form id='frm_f' name='frm_f' method='post'>
 								<div id='main_img_f'>
 									<img src=''/>
@@ -35,5 +33,6 @@
 								</div>
 								</form>
 							</div>
+		
 </body>
 </html>
