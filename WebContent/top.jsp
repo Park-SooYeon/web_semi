@@ -35,8 +35,16 @@
 	height: 72px;
 	background-color:#00f;
 }
+#searchbox #search_top #top_left{
+	
+}
+#searchbox #search_top #top_middle{
+
+}
+#searchbox #search_top #top_right{
+}
 #searchbox #search_botoom{
-	float:right;
+	float:left;
 	width:787px;
 	height: 352px;
 	background-color:#0f0;
@@ -55,19 +63,6 @@
 							<i class="fas fa-search"></i>
 						</button>
 					</form>
-					<div id ='searchbox'>
-						<div id='search_top'>
-							<div id='top_left'>
-							</div>
-							<div id='top_middle'>
-							
-							</div>
-							<div id='top_right'>
-							</div>
-						</div>
-						<div id='search_botoom'>
-						</div>
-					</div>
 					<ul class="navbar-nav" id="top_list_k">
 						<li class="nav-item">
 							 <a class="nav-link" href="#">예약 내역</a>
@@ -84,6 +79,19 @@
 						</li>
 					</ul>
 	</div>
+					<div id ='searchbox'>
+						<div id='search_top'>
+							<div id='top_left'>
+							</div>
+							<div id='top_middle'>
+							
+							</div>
+							<div id='top_right'>
+							</div>
+						</div>
+						<div id='search_botoom'>
+						</div>
+					</div>
 </nav>
 
 </body>
