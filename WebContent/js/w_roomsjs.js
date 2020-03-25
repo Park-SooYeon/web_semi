@@ -2,6 +2,16 @@
  * 
  */
 //체크인 체크아웃 데이트 설정
+let btnFunc_w = function(){
+	
+	if($('#btnHotel')!= null){
+	  $('#btnHotel').click(function(){
+		$('#frm').attr('action','roomReview.vi').submit();  
+	  })
+	}
+	
+	
+	
 	var deadLine = new Date(),
     y = deadLine.getFullYear(),
     m = deadLine.getMonth()+1,
@@ -53,3 +63,9 @@
  
  
    }); 
+	
+   
+	
+	
+	
+}
