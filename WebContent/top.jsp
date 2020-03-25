@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="js/jquery-3.4.1.js"></script>
 <style>
 #top_list_k li{
 	padding:0px 5px;
@@ -24,30 +25,59 @@
 	background-color:rgba(0,0,0,0);
 }
 
-#searchbox{
-	width: 787px;
+
+#searchbox_main{
+	width:100%;
 	height: 422px;
-	background-color:#ff0;
+	position:absolute;
+	top:0px;
+	display: none;
 }
-#searchbox #search_top{
-	float:left;
-	width:787px;
-	height: 72px;
-	background-color:#00f;
-}
-#searchbox #search_top #top_left{
+#searchbox{
+	margin:auto;
+	width: 717px;
+	height: 422px;
 	
 }
+#searchbox #search_top{
+	width:717px;
+	height: 72px;
+	background-color:#f6323e;
+}
+#searchbox #search_top #top_left{
+	float:left;
+	width:72px;
+	height: 72px;
+	background-image: url('./image/find.jpg');
+	cursor: pointer;
+}
 #searchbox #search_top #top_middle{
-
+	float:left;
+	width:573px;
+	height: 72px;
 }
 #searchbox #search_top #top_right{
+	float:left;
+	width:72px;
+	height: 72px;
+	background-image: url('./image/exit.jpg');
+	cursor: pointer;
+}
+#searchbox #search_top #top_middle #findStr{
+	width: 572px;
+	height: 71px;
+	border: 1px solid #f6323e;
+	background-color: #f6323e;
+	font-size: 1.1em;
+	color:#eee;
 }
 #searchbox #search_botoom{
-	float:left;
-	width:787px;
+	width:717px;
 	height: 352px;
-	background-color:#0f0;
+	background-color:#fff;
+	box-sizing: border-box;
+	padding: 25px;
+	border-radius: 0px 0px 10px 10px;
 }
 </style>
 </head>
@@ -57,8 +87,7 @@
 				 
 				<a class="navbar-brand ml-2" href="#">logo</a>
 					
-					<form class="form-inline ml-auto mr-2">
-						<input class="form-control mr-2" type="text" placeholder="지역, 숙소명"/> 
+					<form class="form-inline ml-auto mr-2"> 
 						<button class="btn btn-primary my-2 my-sm-0" id="search_k" type="button">
 							<i class="fas fa-search"></i>
 						</button>
@@ -79,12 +108,13 @@
 						</li>
 					</ul>
 	</div>
+				<div id ='searchbox_main'>
 					<div id ='searchbox'>
 						<div id='search_top'>
-							<div id='top_left'>
+							<div id='top_left' onclick=''>
 							</div>
 							<div id='top_middle'>
-							
+								<input type='text' name='findStr' id='findStr' placeholder="지역, 숙소명"/>
 							</div>
 							<div id='top_right'>
 							</div>
@@ -92,7 +122,17 @@
 						<div id='search_botoom'>
 						</div>
 					</div>
+				</div>
 </nav>
-
+	<script>
+		$('#search_k').click(function(){
+			$('#searchbox_main').slideToggle(100);
+		})
+		if($('#top_right')!=null){
+			$('#top_right').click(function(){
+				$('#searchbox_main').slideToggle(100);
+			})
+		}
+	</script>
 </body>
 </html>
