@@ -15,13 +15,52 @@ let event_f = function(){
 		$('.btnDsc_f').click(function(){
 			$('.btnDsc_f').css('color','#f62a4b');
 			$('.btnAsc_f').css('color','#aaa');
+			$('#pricename').text('높은가격순');
 		})
 	}
 	if($('.btnAsc_f')!=null){
 		$('.btnAsc_f').click(function(){
 			$('.btnAsc_f').css('color','#f62a4b');
 			$('.btnDsc_f').css('color','#aaa');
+			$('#pricename').text('낮은가격순');
 		})
+	}
+	//베드타입 클릭시 css변경
+	if($('#bed1_f')!=null){
+		$('#bed1_f').click(function(){
+			$('#bed1_f').css('background-image',"url('../image/bedcl1_f.jpg')");
+			$('#bed2_f').css('background-image',"url('../image/bed2_f.jpg')");
+			$('#bed3_f').css('background-image',"url('../image/bed3_f.jpg')");
+			$('#bed4_f').css('background-image',"url('../image/bed4_f.jpg')");
+			$('#bedtype_f').val('1');
+		});
+	}
+	if($('#bed2_f')!=null){
+		$('#bed2_f').click(function(){
+			$('#bed1_f').css('background-image',"url('../image/bed1_f.JPG')");
+			$('#bed2_f').css('background-image',"url('../image/bedcl2_f.jpg')");
+			$('#bed3_f').css('background-image',"url('../image/bed3_f.jpg')");
+			$('#bed4_f').css('background-image',"url('../image/bed4_f.jpg')");
+			$('#bedtype_f').val('2');
+		});
+	}
+	if($('#bed3_f')!=null){
+		$('#bed3_f').click(function(){
+			$('#bed1_f').css('background-image',"url('../image/bed1_f.JPG')");
+			$('#bed2_f').css('background-image',"url('../image/bed2_f.jpg')");
+			$('#bed3_f').css('background-image',"url('../image/bedcl3_f.jpg')");
+			$('#bed4_f').css('background-image',"url('../image/bed4_f.jpg')");
+			$('#bedtype_f').val('3');
+		});
+	}
+	if($('#bed4_f')!=null){
+		$('#bed4_f').click(function(){
+			$('#bed1_f').css('background-image',"url('../image/bed1_f.JPG')");
+			$('#bed2_f').css('background-image',"url('../image/bed2_f.jpg')");
+			$('#bed3_f').css('background-image',"url('../image/bed3_f.jpg')");
+			$('#bed4_f').css('background-image',"url('../image/bedcl4_f.jpg')");
+			$('#bedtype_f').val('4');
+		});
 	}
 	
      

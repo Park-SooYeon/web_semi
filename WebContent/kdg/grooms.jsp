@@ -16,6 +16,7 @@
 </head>
 <body>
 	<div id ='main_f'><!-- 메인 -->
+		<form id='frm_f' name='frm_f' method='post'>
 		<div id ='top_f'><!-- 위에 -->
 			<div id='top_in_f'>
 				<h1>게스트하우스</h1>
@@ -67,23 +68,15 @@
 						</select>
 						
 						<h4 class='bed_f'>베드타입</h4>
-						<input type='hidden' name='bedtype' value=''/><!-- 베드 타일 보낼 히든 태그 -->
+						<input type='hidden' name='bedtype' value='1' id='bedtype_f'/><!-- 베드 타일 보낼 히든 태그 -->
 						<div id='bed_f'>
 							<div id='bed1_f'>
-								<div></div>
-								<span>싱글</span>
 							</div>
 							<div id='bed2_f'>
-								<div></div>
-								<span>더블</span>
 							</div>
 							<div id='bed3_f'>
-								<div></div>
-								<span>트윈</span>
 							</div>
 							<div id='bed4_f'>
-								<div></div>
-								<span>온돌</span>
 							</div>
 						</div>
 						
@@ -118,7 +111,7 @@
 						</div>
 						
 						<div id='page_change'>
-							<h4>낮은 가격순</h4>
+							<h4 id='pricename'>낮은 가격순</h4>
 							
 							<div id ='searched_frame_f'>
 								<div id='main_img_f'>
@@ -149,6 +142,7 @@
 				</div>
 			</div>
 		</div>
+		</form>
 	</div>
 	
 	
