@@ -155,8 +155,10 @@ body, html {
 	box-shadow : 0.2px 0.2px 1px 1px #ccc inset;
 }
 #mid_in_f #left_f #check_f input[type='checkbox']:checked+label span{
-	background-color: #f62a4b;
+	background-image: url("../image/checked_f.JPG");
 	border: 1px solid #f62a4b;
+	background-repeat : no-repeat;
+	background-size : cover;
 	box-shadow : 0.2px 0.2px 1px 1px #f62a4b inset;
 }
 #mid_in_f #left_f #check_f label{
@@ -190,15 +192,22 @@ body, html {
 	float : left;
 	width:53px;
 	height: 53px;
-	background-color:#aaa;
 	margin-left:4px;
 	text-align: center;
 	cursor: pointer;
 }
-#mid_in_f #left_f #check_f #bed_f #bed1_f>div,#bed2_f>div,#bed3_f>div,#bed4_f>div{
-	width:53px;
-	height: 35px;
-	background-color:#eee;
+
+#mid_in_f #left_f #check_f #bed_f #bed1_f{
+	background-image: url('../image/bed1_f.JPG');
+}
+#mid_in_f #left_f #check_f #bed_f #bed2_f{
+	background-image: url('../image/bed2_f.jpg');
+}
+#mid_in_f #left_f #check_f #bed_f #bed3_f{
+	background-image: url('../image/bed3_f.jpg');
+}
+#mid_in_f #left_f #check_f #bed_f #bed4_f{
+	background-image: url('../image/bed4_f.jpg');
 }
 
 
