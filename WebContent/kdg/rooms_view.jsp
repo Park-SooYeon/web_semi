@@ -5,16 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="./js/jquery-3.4.1.js"></script>
 <link rel='stylesheet' type='text/css' href='./css/f_roomsCss.css'/>
 <link rel='stylesheet' type='text/css' href='./css/bootstrap.min.css'/>
-<script src="./js/jquery-3.4.1.js"></script>
-<script src='./js/f_roomsJs.js'></script>
-<script src='../js/w_roomsjs.js'></script>
 </head>
 
 <body>
 	<%
-		String inc_f = "../roomReview";
+		String inc_f = "../wpy/total_w.jsp";
 		if(request.getParameter("inc_f")!=null){
 			inc_f = request.getParameter("inc_f");
 		}
@@ -72,8 +70,14 @@
 			<span class='text-danger' style='font-size: 20px;' >리뷰</span>
 			</button>
 		</div>
-		<jsp:include page=<%=inc_f %>></jsp:include>
-	</div>
+	  </div>
+	 </div>
+		<div id = 'jsform'>
+	    <%@ include file="../wpy/total_w.jsp" %>
+	   </div>
+<script>
+ btnFunc_w();
+ </script>
 </body>
 </html>
 

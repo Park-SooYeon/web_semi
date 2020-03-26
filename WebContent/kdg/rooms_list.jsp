@@ -7,13 +7,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel='stylesheet' type='text/css' href='./css/f_roomsCss.css'/>
+
 </head>
 <body>
 							<c:forEach var="vo" items="${list_f }">
 							<div id ='searched_frame_f' onclick='view()'>
+								
+								
 								<div id='main_img_f'>
 									<img src="./upload/${vo.sysFile }.jpg"/>
 								</div>
+								
 								
 								<div id='searched_f'>
 									<div id='info_f'>
@@ -34,6 +38,6 @@
 								</div>
 							</div>
 							</c:forEach>
-		
+
 </body>
 </html>

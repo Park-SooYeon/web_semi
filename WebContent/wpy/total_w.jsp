@@ -5,15 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="../js/jquery-3.4.1.js"></script>
+<script src="./js/jquery-3.4.1.js"></script>
+<script src='./js/jquery.colorbox-min.js'></script>
+<script src="./js/w_roomsjs.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src='../js/w_roomsjs.js'></script>
-<script src='../js/f_roomsJs.js'></script>
-<script src='../js/bootstrap.bundle.min.js'></script>
+<link rel='stylesheet' href='./css/colorbox.css'/>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel='stylesheet' type='text/css' href='../css/f_roomsCss.css'/>
-<link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'/>
 </head>
 <body>
 <div id = 'view1_w'>
@@ -36,7 +34,10 @@
      <span>가격</span> 
      <span id='sub_price_w'>79,600원</span>
      <hr/>
-     <button id='btn_w'  class="btn btn-outline-light text-left text-muted">객실 이용 안내</button>
+     <button id="btnViewR_w"  class="btn btn-outline-light text-left text-muted">
+       객실 이용 안내
+     </button>
+     
      </div>
      <button type='button' class='	btn btn-danger' id='btnR_w' >예약</button>
      </div>
@@ -161,6 +162,8 @@
 	</div>
 </div>
 <script>
+
+
 btnFunc_w();
 </script>
 </body>
