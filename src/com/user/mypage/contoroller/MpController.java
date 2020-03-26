@@ -9,13 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.user.mypage.command.LastPlaceView;
 import com.user.mypage.command.MpCommand;
 import com.user.mypage.command.MpView;
 import com.user.mypage.command.ReserveList;
+import com.user.mypage.command.ReserveView;
 
-/**
- * Servlet implementation class mp_controller
- */
 @WebServlet("*.mp")
 public class MpController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -60,6 +59,14 @@ public class MpController extends HttpServlet {
 			command = new ReserveList();
 			command.execute(req, res);
 			viewPage =  url+"reserveList.jsp";
+		}else if(com.equals("/user/resView.mp")) {
+			command = new ReserveView();
+			command.execute(req, res);
+			viewPage = url+"resView.jsp";
+		}else if(com.equals("/user/lastPlace.mp")) {
+			command = new LastPlaceView();
+			command.execute(req, res);
+			viewPage = url+"lastPlace.jsp";
 		}
 		RequestDispatcher dis = req.getRequestDispatcher(viewPage);
 		dis.forward(req, res);

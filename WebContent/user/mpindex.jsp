@@ -5,10 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<link href="../css/bootstrap.min.css" rel="stylesheet">
 <script src="../js/jquery-3.4.1.js"></script>
-<link href="../css/common.css" rel="stylesheet">
-<link href="../css/main.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="css/all.min.css" rel="stylesheet">
 <link href="../css/user_s.css" rel="stylesheet">
 </head>
 <body>

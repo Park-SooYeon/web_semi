@@ -9,6 +9,7 @@
 <link rel='stylesheet' type='text/css' href='../login/login.css'>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src='../js/jquery-3.4.1.js'></script>
+<script src='./login.js'></script>
 </head>
 <body>
 
@@ -41,21 +42,20 @@
             <p class="space_or">
             	<span>또는</span>
             </p>
-            <form class="was-validated">
-            <div class="form-group">
-			      <input type="text" class="form-control" id="uname_c" placeholder="이메일 주소" name="uname"
-			      pattern="^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[a-zA-Z])*.[a-zA-Z]{2,3}$"
-			      title="형식  semi@abc.abc" autofocus required>
-			     <!--  <div class="valid-feedback" id="chkOk">Valid.</div> -->
-			      <div class="invalid-feedback" id="chkFail">유효하지 않은 E-Mail주소입니다.</div>
-			</div>
-			<div class="form-group">
-			    <input type="password" class="form-control" id="pwd" placeholder="비밀번호" name="pswd" required>
-			    <!-- <div class="valid-feedback">Valid.</div> -->
-				<div class="invalid-feedback">비밀번호를 입력해 주세요.</div>
-			</div>
+            <form id='frm_c' name='frm_c' method='post' class="was-validated">
+	            <div class="form-group">
+				       <input type="email" class="form-control" id="email_c" placeholder="이메일 주소" name="email_c" autofocus required>
+				     <div class="valid-feedback" id="chkOk"></div>
+				     <div></div>
+				      <div class="invalid-feedback" id="chkFail">유효하지 않은 E-Mail주소입니다.</div>
+				</div>
+				<div class="form-group">
+				    <input type="password" class="form-control" id="pwd_c" placeholder="비밀번호" name="pwd_c" required>
+				    <div class="valid-feedback">Valid.</div>
+					<div class="invalid-feedback">비밀번호를 입력해 주세요.</div>
+				</div>
 			</form>
-            <button type="button" class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>로그인</button>
+            <button id='btnLogin_c' type="button" class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>로그인</button>
             <div class='pw_email_c'>
             	<a href="./pw_email.jsp">비밀번호 재설정</a>
             </div>
@@ -65,22 +65,7 @@
 		</div>
 	</div>
 </div>
-	
-<!-- <script>
-function validateEmail(sEmail) {
-	var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-	if (filter.test(sEmail)) {
-		return true;
-	}else {
-		return false;
-	}
-};
-	
-$('#uname_c').keypress(function() {
-	let str = $('#uname_c').val();
-	validateEmail(str);
-});
-</script> -->
+<script>btnFunc();</script>
 <script src='../js/bootstrap.bundle.min.js'></script>
 <body>
 

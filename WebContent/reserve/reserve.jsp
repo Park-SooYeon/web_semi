@@ -5,8 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>예약 확인 페이지</title>
+<!-- 결제 CDN -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+
 <link href="colorbox/colorbox.css" rel="stylesheet">
 <link href="css/reserve_insert_k.css" type="text/css" rel="stylesheet">
+
 <script src="js/jquery.colorbox-min.js"></script>
 <script src="js/reserve_insert_k.js"></script>
 <style>
@@ -17,25 +22,29 @@
 <div class="container">
 <div class="row mt-5">
 		<div class="col-9">
+			<form id="rsForm_k" name="rsForm_k" method="post">
 			<section class="mb-5">
 				<h3 class="mb-5">예약자 정보</h3>
 				<div class="form-group mt-2 mb-5">
   					<label class="col-form-label col-form-label-lg" for="reserve_name_k">예약자 이름</label>
-  					<input type="text" class="form-control form-control-lg w-75" placeholder="체크인시 필요한 정보입니다." id="reserve_name_k">
+  					<input type="text" class="form-control form-control-lg w-75" placeholder="체크인시 필요한 정보입니다."
+  						name="reserve_name_k" id="reserve_name_k">
 				</div>
 				<div class="form-group">
   					<label class="col-form-label col-form-label-lg p-0" for="reserve_Phone_k">휴대폰 번호</label><br/>
 					<!-- <span>개인 정보 보호를 위해 안심번호로 숙소에 전송합니다.</span> -->
-  					<input type="text" class="form-control form-control-lg w-75 mt-2" placeholder="체크인시 필요한 정보입니다." id="reserve_Phone_k">
+  					<input type="text" class="form-control form-control-lg w-75 mt-2" placeholder="체크인시 필요한 정보입니다."
+  						name="reserve_Phone_k" id="reserve_Phone_k">
 				</div>
 			</section>
 			<section>
 				<h3 class="mb-3">결제수단 선택</h3>
-      			<select class="form-control w-25" id="paySelect_k">
+      			<select class="form-control w-25" id="paySelect_k" name="paySelect_k">
        	 			<option value='1'>신용/체크카드</option>
         			<option value='2'>페이</option>
       			</select>
 			</section>
+			</form>
 			<section class="pt-3 ml-4">
 				<div class="custom-control custom-checkbox p-1">
   					<input type="checkbox" class="custom-control-input" id="checkAll_k">
@@ -94,10 +103,9 @@
 </div>
 
 <script>
-ck_status();
-btnFunc();
+removeChar(); // '-' 입력 불가능
+ck_status_k(); // 전체 동의 체크
+btnFunc_k();
 </script>
-
-<!-- <script src="../js/bootstrap.bundle.min.js"></script> -->
 </body>
 </html>

@@ -2,6 +2,26 @@
  * 
  */
 //체크인 체크아웃 데이트 설정
+let btnFunc_w = function(){
+	
+	$('#btnHotel').click(function(){
+		$('#view2_w').attr('style','display:none');
+		$('#view3_w').attr('style','display:none');
+		$('#view1_w').removeAttr('style','display:block');
+	});
+	$('#btnLodging').click(function(){
+		$('#view1_w').attr('style','display:none');
+		$('#view3_w').attr('style','display:none');
+		$('#view2_w').removeAttr('style','display:block');
+	});
+	$('#btnReview').click(function(){
+		$('#view1_w').attr('style','display:none');
+		$('#view2_w').attr('style','display:none');
+		$('#view3_w').removeAttr('style','display:block');
+	});
+	
+	
+	
 	var deadLine = new Date(),
     y = deadLine.getFullYear(),
     m = deadLine.getMonth()+1,
@@ -53,3 +73,9 @@
  
  
    }); 
+	
+   
+	
+	
+	
+}

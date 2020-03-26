@@ -28,37 +28,37 @@ let event_f = function(){
 	//베드타입 클릭시 css변경
 	if($('#bed1_f')!=null){
 		$('#bed1_f').click(function(){
-			$('#bed1_f').css('background-image',"url('../image/bedcl1_f.jpg')");
-			$('#bed2_f').css('background-image',"url('../image/bed2_f.jpg')");
-			$('#bed3_f').css('background-image',"url('../image/bed3_f.jpg')");
-			$('#bed4_f').css('background-image',"url('../image/bed4_f.jpg')");
+			$('#bed1_f').css('background-image',"url('./image/bedcl1_f.jpg')");
+			$('#bed2_f').css('background-image',"url('./image/bed2_f.jpg')");
+			$('#bed3_f').css('background-image',"url('./image/bed3_f.jpg')");
+			$('#bed4_f').css('background-image',"url('./image/bed4_f.jpg')");
 			$('#bedtype_f').val('1');
 		});
 	}
 	if($('#bed2_f')!=null){
 		$('#bed2_f').click(function(){
-			$('#bed1_f').css('background-image',"url('../image/bed1_f.JPG')");
-			$('#bed2_f').css('background-image',"url('../image/bedcl2_f.jpg')");
-			$('#bed3_f').css('background-image',"url('../image/bed3_f.jpg')");
-			$('#bed4_f').css('background-image',"url('../image/bed4_f.jpg')");
+			$('#bed1_f').css('background-image',"url('./image/bed1_f.JPG')");
+			$('#bed2_f').css('background-image',"url('./image/bedcl2_f.jpg')");
+			$('#bed3_f').css('background-image',"url('./image/bed3_f.jpg')");
+			$('#bed4_f').css('background-image',"url('./image/bed4_f.jpg')");
 			$('#bedtype_f').val('2');
 		});
 	}
 	if($('#bed3_f')!=null){
 		$('#bed3_f').click(function(){
-			$('#bed1_f').css('background-image',"url('../image/bed1_f.JPG')");
-			$('#bed2_f').css('background-image',"url('../image/bed2_f.jpg')");
-			$('#bed3_f').css('background-image',"url('../image/bedcl3_f.jpg')");
-			$('#bed4_f').css('background-image',"url('../image/bed4_f.jpg')");
+			$('#bed1_f').css('background-image',"url('./image/bed1_f.JPG')");
+			$('#bed2_f').css('background-image',"url('./image/bed2_f.jpg')");
+			$('#bed3_f').css('background-image',"url('./image/bedcl3_f.jpg')");
+			$('#bed4_f').css('background-image',"url('./image/bed4_f.jpg')");
 			$('#bedtype_f').val('3');
 		});
 	}
 	if($('#bed4_f')!=null){
 		$('#bed4_f').click(function(){
-			$('#bed1_f').css('background-image',"url('../image/bed1_f.JPG')");
-			$('#bed2_f').css('background-image',"url('../image/bed2_f.jpg')");
-			$('#bed3_f').css('background-image',"url('../image/bed3_f.jpg')");
-			$('#bed4_f').css('background-image',"url('../image/bedcl4_f.jpg')");
+			$('#bed1_f').css('background-image',"url('./image/bed1_f.JPG')");
+			$('#bed2_f').css('background-image',"url('./image/bed2_f.jpg')");
+			$('#bed3_f').css('background-image',"url('./image/bed3_f.jpg')");
+			$('#bed4_f').css('background-image',"url('./image/bedcl4_f.jpg')");
 			$('#bedtype_f').val('4');
 		});
 	}
@@ -118,12 +118,15 @@ let event_f = function(){
    }); 
 	 
 	 
-	       
+	 //리스트 클릭하면 view페이지로 이동
 	
 
 	
 		
 
+}
+let view = function(){
+	location.href = "index.jsp?middle=./kdg/rooms_view.jsp"
 }
 
 

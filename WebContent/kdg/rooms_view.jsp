@@ -5,12 +5,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel='stylesheet' type='text/css' href='../css/f_roomsCss.css'/>
-<link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'/>
-<script src="../js/jquery-3.4.1.js"></script>
-<script src='../js/f_roomsJs.js'></script>
+<link rel='stylesheet' type='text/css' href='./css/f_roomsCss.css'/>
+<link rel='stylesheet' type='text/css' href='./css/bootstrap.min.css'/>
+<script src="./js/jquery-3.4.1.js"></script>
+<script src='./js/f_roomsJs.js'></script>
+<script src='../js/w_roomsjs.js'></script>
 </head>
+
 <body>
+	<%
+		String inc_f = "../roomReview";
+		if(request.getParameter("inc_f")!=null){
+			inc_f = request.getParameter("inc_f");
+		}
+	%>
 	<div id='roomsView_f'>
 		<div id='view_f'>
 			<div id='view_top_f'>
@@ -51,17 +59,20 @@
 					</div>
 				</div>
 		</div>
+	
 		<div id='view_button'>
-			<button  id='btnHotel'>
-			<span class='text-danger'>객실안내/예약</span>
+			<button class='btn btn-link' id='btnHotel'>
+			<span class='text-danger' style='font-size: 20px;'>객실안내/예약</span>
+			
 			</button>
-			<button  id='btnLodging'>
-			<span class='text-danger'>숙소정보</span>
+			<button class='btn btn-link' id='btnLodging'>
+			<span class='text-danger' style='font-size: 20px;' >숙소정보</span>
 			</button>
-			<button  id='btnReview'>
-			<span class='text-danger'>리뷰</span>
+			<button class='btn btn-link' id='btnReview'>
+			<span class='text-danger' style='font-size: 20px;' >리뷰</span>
 			</button>
 		</div>
+		<jsp:include page=<%=inc_f %>></jsp:include>
 	</div>
 </body>
 </html>

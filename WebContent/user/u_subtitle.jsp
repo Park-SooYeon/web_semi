@@ -9,7 +9,7 @@
 </head>
 <body>
 <%
-	String inc2 = "mypage.jsp";
+	String inc2 = "../review/rvInsert.jsp";
 	if(request.getParameter("inc2") != null){
 		inc2 = request.getParameter("inc2");
 	}
@@ -17,7 +17,7 @@
 
 <div class="container-fluid pl-0 pr-0">
 	<div class="jumbotron text-center pt-0 pb-0 bg-danger">
-		<img src="../image/user_main_s.PNG"/>
+		<img src="../image/user_main_s.PNG" class="img-fluid"/>
 	</div>
 </div>
 <div class="container" style="padding-top: 30px">
@@ -29,10 +29,10 @@
 					<a class="nav-link active" href="mpindex.jsp?inc2=mypage.jsp">내 정보 관리</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="mpindex.jsp?inc2=reserve_list.jsp">예약 현황</a>
+					<a class="nav-link" href="mpindex.jsp?inc2=reserveList.jsp">예약 현황</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="mpindex.jsp?inc2=last_place.jsp">이용현황</a>
+					<a class="nav-link" href="mpindex.jsp?inc2=lastPlace.jsp">이용현황</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">포인트</a>
