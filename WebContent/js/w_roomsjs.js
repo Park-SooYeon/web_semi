@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 //체크인 체크아웃 데이트 설정
 let btnFunc_w = function(){
 	
@@ -19,9 +20,16 @@ let btnFunc_w = function(){
 		$('#view2_w').attr('style','display:none');
 		$('#view3_w').removeAttr('style','display:block');
 	});
+ 
+	$('#btnViewR_w').click(function(){
+		$('a').colorbox({
+			 inline:true,
+		     width:550
+		 });
+	});
+   
 	
-	
-	
+
 	var deadLine = new Date(),
     y = deadLine.getFullYear(),
     m = deadLine.getMonth()+1,
@@ -70,12 +78,5 @@ let btnFunc_w = function(){
 	        ,prevText:"이전달"
 	        ,dateFormat:"yy-mm-dd"
 	   });
- 
- 
    }); 
-	
-   
-	
-	
-	
 }
