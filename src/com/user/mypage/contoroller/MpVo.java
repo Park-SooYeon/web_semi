@@ -25,6 +25,8 @@ public class MpVo {
 				
 	}
 
+	
+	
 	public int getmNo() {
 		return mNo;
 	}
@@ -88,7 +90,6 @@ public class MpVo {
 	public void setmAdmin(int mAdmin) {
 		this.mAdmin = mAdmin;
 	}
-	
-	
+
 	
 }

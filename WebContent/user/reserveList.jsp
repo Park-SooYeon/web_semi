@@ -5,13 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>예약현황</title>
+<script src="../js/jquery3.4.1.js"></script>
+<script src="../js/user_s.js"></script>
 </head>
 <body>
 <h3>예약현황</h3>
 
 <div class="d-flex flex-column" >
+	<form method="post" name="frm" id="frm">
 	<!-- 내부 빨간박스 -->
-	<div class="p-4 rlist">
+	<div class="p-4 rlist" onclick="view('${param.email}')">
 		<div class="row">
 			<div class="col-3">
 				<img src="../image/user_mypage_s.png" class="img-thumbnail" style="width:200px; height:200px; ">
@@ -32,6 +35,7 @@
 			</div>
 			<div class="col-3">
 				<button type="button" class="btn btn-primary btn-lg btnrlist">예약변경/취소</button>
+				<input type="hidden" id="rCode" name="rCode" value=""/>
 			</div>
 		</div>
 	</div>
@@ -59,6 +63,10 @@
 			</div>
 		</div>
 	</div>
+	</form>
 </div>
+<script>
+user()
+</script>
 </body>
 </html>

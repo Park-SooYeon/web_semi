@@ -1,6 +1,7 @@
 package com.user.mypage.contoroller;
 
 public class ReListVo {
+	int rCode;
 	String rName;
 	String rPlace;
 	String gInfo;
@@ -9,7 +10,8 @@ public class ReListVo {
 	String address;
 	
 	public ReListVo(){};
-	public ReListVo(String rName, String rPlace, String gInfo, String oriFile, String sysFile, String address){
+	public ReListVo(int rCode, String rName, String rPlace, String gInfo, String oriFile, String sysFile, String address){
+		this.rCode=rCode;
 		this.rName=rName;
 		this.rPlace=rPlace;
 		this.gInfo=gInfo;
@@ -64,6 +66,12 @@ public class ReListVo {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public int getrCode() {
+		return rCode;
+	}
+	public void setrCode(int rCode) {
+		this.rCode = rCode;
 	}
 	
 	
