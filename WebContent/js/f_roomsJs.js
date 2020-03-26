@@ -62,30 +62,8 @@ let event_f = function(){
 			$('#bedtype_f').val('4');
 		});
 	}
-	//구선택시 히든태그에 지역 지정
-	if($('#goo_list_f')!=null){
-		$('#goo1_f').click(function(){
-			$('#place_f').val("도봉구,강북구,노원구,성북구");
-		});
-		$('#goo2_f').click(function(){
-			$('#place_f').val("중랑구,동대문구,성동구,광진구");
-		});
-		$('#goo3_f').click(function(){
-			$('#place_f').val("은평구,종로구,서대문구");
-		});
-		$('#goo4_f').click(function(){
-			$('#place_f').val("중구,마포구,용산구");
-		});
-		$('#goo5_f').click(function(){
-			$('#place_f').val("강동구,송파구,강남구");
-		});
-		$('#goo6_f').click(function(){
-			$('#place_f').val("서초구,동장구,관악구,금천구");
-		});
-		$('#goo7_f').click(function(){
-			$('#place_f').val("강서구,양천구,구로구,영등포구");
-		});
-	}
+	
+	
 	
      
 	//체크인 체크아웃 데이트 설정
@@ -159,9 +137,37 @@ let goPage = function(nowPage){
 	$('#frm_f').attr('action','hotel.ff').submit();
 }
 //구 리스트 클릭시
-let goo = function(){
-	$('#frm_f').attr('action','gooSelect.ff');
+let goo1 = function(){
+	$('#place_f').val('도봉구,강북구,노원구,성북구');
+	$('#frm_f').attr('action','gooSelect.ff').submit();
 }
+let goo2 = function(){
+	$('#place_f').val('중랑구,동대문구,성동구,광진구');
+	$('#frm_f').attr('action','gooSelect.ff').submit();
+}
+let goo3 = function(){
+	$('#place_f').val('은평구,종로구,서대문구,.')
+	$('#frm_f').attr('action','gooSelect.ff').submit();
+}
+let goo4 = function(){
+	$('#place_f').val('중구,마포구,용산구,.');
+	$('#frm_f').attr('action','gooSelect.ff').submit();
+}
+let goo5 = function(){
+	$('#place_f').val('강동구,송파구,강남구,.');
+	$('#frm_f').attr('action','gooSelect.ff').submit();
+}
+let goo6 = function(){
+	$('#place_f').val('서초구,동장구,관악구,금천구');
+	$('#frm_f').attr('action','gooSelect.ff').submit();
+}
+let goo7 = function(){
+	$('#place_f').val('강서구,양천구,구로구,영등포구');
+	$('#frm_f').attr('action','gooSelect.ff').submit();
+}
+
+
+
 
 
 //버튼함수

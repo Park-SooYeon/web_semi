@@ -31,17 +31,17 @@
 				<h1>호텔</h1>
 				<div id='goo_select_f'>
 					<div id='goo_f'>
-						<span>호텔전체 > 구 전체호텔 ▼</span>
+						<span>호텔전체 > ${empty param.place_f?'구전체호텔':param.place_f } ▼</span>
 					</div>
 					<div id='goo_list_f'>
-						<input type="hidden" name='place' id='place_f' value=''/>
-						<div id='goo1_f' onclick='goo()'>도봉구 · 강북구 · 노원구 · 성북구</div>
-						<div id='goo2_f' onclick='goo()'>중랑구 · 동대문구 · 성동구 · 광진구</div>
-						<div id='goo3_f' onclick='goo()'>은평구 · 종로구 · 서대문구</div>
-						<div id='goo4_f' onclick='goo()'>중구 · 마포구 · 용산구</div>
-						<div id='goo5_f' onclick='goo()'>강동구 · 송파구 · 강남구</div>
-						<div id='goo6_f' onclick='goo()'>서초구 · 동작구 · 관악구 · 금천구</div>
-						<div id='goo7_f' onclick='goo()'>강서구 · 양천구 · 구로구 · 영등포구</div>
+						<div id='goo1_f' onclick='goo1()'>도봉구 · 강북구 · 노원구 · 성북구</div>
+						<div id='goo2_f' onclick='goo2()'>중랑구 · 동대문구 · 성동구 · 광진구</div>
+						<div id='goo3_f' onclick='goo3()'>은평구 · 종로구 · 서대문구</div>
+						<div id='goo4_f' onclick='goo4()'>중구 · 마포구 · 용산구</div>
+						<div id='goo5_f' onclick='goo5()'>강동구 · 송파구 · 강남구</div>
+						<div id='goo6_f' onclick='goo6()'>서초구 · 동작구 · 관악구 · 금천구</div>
+						<div id='goo7_f' onclick='goo7()'>강서구 · 양천구 · 구로구 · 영등포구</div>
+						<input type="hidden" name='place_f' id='place_f' value=''/>
 					</div>
 				</div>
 				<div id='topImg_f'>
@@ -59,8 +59,8 @@
 						<input type="text" name="checkOut" id="checkOut_f" value="체크아웃 날짜 선택"><br/>				
 						<hr/>
 						
-						<input type='hidden' name='nowPage_f' id='nowPage_f' value='${empty param.nowPage_f? 1:param.nowPage_f }'/>
-						<input type='hidden' name='aType' id='aType' value='${param.aType }'/>
+						<input type='hidden' name='nowPage_f' id='nowPage_f' value='${empty param.nowPage_f?1:param.nowPage_f }'/>
+						<input type='hidden' name='aType' id='aType' value='2'/>
 						
 						
 						<h3>상세조건</h3>

@@ -23,7 +23,6 @@ public class KDGServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("두포스트");
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html; charset=utf-8");
 		String temp = req.getRequestURI();
@@ -145,7 +144,6 @@ public class KDGServlet extends HttpServlet {
 		rd.forward(req, resp);
 	}
 	public void roomView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		System.out.println("꺼져");
 		int rCode=0;
 		String checkIn="";
 		String checkOut="";
@@ -174,7 +172,7 @@ public class KDGServlet extends HttpServlet {
 		int nowPage_f = 1;
 		String target ="";
 		if(req.getParameter("target")!=null) {
-			target = req.getParameter("target"));
+			target = req.getParameter("target");
 		}
 		if(req.getParameter("nowPage_f")!=null) {
 			nowPage_f = Integer.parseInt(req.getParameter("nowPage_f"));
@@ -182,8 +180,8 @@ public class KDGServlet extends HttpServlet {
 		if(req.getParameter("aType")!=null) {
 			aType = Integer.parseInt(req.getParameter("aType"));
 		}
-		if(req.getParameter("place")!=null) {
-			place = req.getParameter("place");
+		if(req.getParameter("place_f")!=null) {
+			place = req.getParameter("place_f");
 		}
 		page p_f = new page();
 		p_f.setNowPage(nowPage_f);
@@ -191,8 +189,9 @@ public class KDGServlet extends HttpServlet {
 		RoomsDao dao = new RoomsDao();
 		List<RoomsListVo> list = dao.selectGoo(aType, p_f,place);
 		
-		req.setAttribute("list", list);
+		req.setAttribute("list_f", list);
 		req.setAttribute("p_f", p_f);
+		req.setAttribute("place_f", place);
 		
 		String path = url + target;
 		RequestDispatcher rd = req.getRequestDispatcher(path);

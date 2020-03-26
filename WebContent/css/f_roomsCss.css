@@ -484,6 +484,17 @@ body, html {
 	background-repeat:no-repeat;
 	background-size:cover;
 }
+
+/*---------------------------페이징--------------------------*/
+#paging_f{
+	margin-top : 50px;
+	text-align:center;
+	width: auto;
+	height: auto;
+	margin: auto;
+}
+
+
 /*객실 안내 페이지  */
 #room_w{
 	border : 1px solid #eee;
