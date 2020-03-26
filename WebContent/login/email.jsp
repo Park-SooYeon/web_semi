@@ -8,6 +8,7 @@
 <link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'>
 <link rel='stylesheet' type='text/css' href='../login/login.css'>
 <script src='../js/jquery-3.4.1.js'></script>
+<script src='./login.js'></script>
 </head>
 <body>
 <div class='container'>
@@ -19,26 +20,24 @@
 				<br/>
 				본인확인은 전자상거래상 필수조치로 안전하게 관리됩니다.
 			</div>
-			<label class='label_c'>이메일 주소</label>
-			<br/>
-			<input type='text' class='email_c' placeholder="이메일 주소">
-			<button type="button" class="btn btn-secondary disabled">인증번호 전송</button>
-			<br/>
-			<label class='label_c'>인증번호</label>
-			<br/>
-			<input type='text' class='email_c' placeholder="인증번호">
-			<button type="button" class="btn btn-secondary disabled" style='width:125px;'>확인</button>
+			<form id='frm_c' name='frm_c' method='post'>
+				<label class='label_c'>이메일 주소</label>
+				<br/>
+				<input type='text' name='email_c' class='email_c' placeholder="이메일 주소">
+				<button type="button" id='btnSend_c' class="btn btn-secondary disabled">인증번호 전송</button>
+				<br/>
+				<label class='label_c'>인증번호</label>
+				<br/>
+				<input type='text' name='number_c' class='email_c' placeholder="인증번호">
+				<button type="button" id='btnSendNum_c' class="btn btn-secondary disabled" style='width:125px;'>확인</button>
+			</form>
 			<div align='center'>
-				<button type="button" id='btn_next_c' class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>다음</button>
+				<button type="button" id='btnNext_c' class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>다음</button>
 			</div>
 		</div>
 	</div>
 </div>
-<script>
-	$('#btn_next_c').click(function(){
-		location.href="./membership.jsp";
-	});
-</script>
+<script>btnFunc();</script>
 <script src='../js/bootstrap.bundle.min.js'></script>
 </body>
 </html>
