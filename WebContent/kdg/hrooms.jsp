@@ -17,7 +17,10 @@
 </head>
 <body>
 	<%
-		String aType = request.getParameter("aType");
+		String rooms_list = "rooms_list.jsp";
+		if(request.getParameter("rooms_list")!=null){
+			rooms_list = request.getParameter("rooms_list");
+		}
 	%>
 	<div id ='main_f'><!-- 메인 -->
 		<form id='frm_f' name='frm_f' method='post'>
@@ -121,31 +124,7 @@
 						<div id='page_change'>
 							<h4 id='pricename'>낮은 가격순</h4>
 							
-							<c:forEach var="vo" items="${list_f }">
-							<div id ='searched_frame_f' onclick='view()'>
-								<div id='main_img_f'>
-									<img src="./upload/${vo.sysFile }.jpg"/>
-								</div>
-								
-								<div id='searched_f'>
-									<div id='info_f'>
-										<span>${vo.gInfo}</span>
-									</div>
-									<div id='name_f'>
-										<strong>${vo.rName }서울 라마다 호텔</strong>
-										<p>
-											별점 : &nbsp;<em>${vo.stars}</em> &nbsp; (934)
-										</p>
-										<p>
-											${vo.address}
-										</p>
-									</div>
-									<div id='price_f'>
-										<span>${vo.price}</span>
-									</div>
-								</div>
-							</div>
-							</c:forEach>
+							<jsp:include page="<%=rooms_list %>"></jsp:include>
 						
 					</div>
 				</div>
