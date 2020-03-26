@@ -26,6 +26,9 @@
 	<div id ='main_f'><!-- 메인 -->
 		<form id='frm_f' name='frm_f' method='post'>
 			<input type="hidden" name='target' value="/hrooms.jsp"/>
+			<input type='hidden' name='nowPage_f' id='nowPage_f' value='${empty param.nowPage_f?1:param.nowPage_f }'/>
+			<input type='hidden' name='aType' id='aType' value='2'/>
+			<input type="hidden" name='place_f' id='place_f' value=''/>
 		<div id ='top_f'><!-- 위에 -->
 			<div id='top_in_f'>
 				<h1>호텔</h1>
@@ -41,7 +44,6 @@
 						<div id='goo5_f' onclick='goo5()'>강동구 · 송파구 · 강남구</div>
 						<div id='goo6_f' onclick='goo6()'>서초구 · 동작구 · 관악구 · 금천구</div>
 						<div id='goo7_f' onclick='goo7()'>강서구 · 양천구 · 구로구 · 영등포구</div>
-						<input type="hidden" name='place_f' id='place_f' value=''/>
 					</div>
 				</div>
 				<div id='topImg_f'>
@@ -59,18 +61,17 @@
 						<input type="text" name="checkOut" id="checkOut_f" value="체크아웃 날짜 선택"><br/>				
 						<hr/>
 						
-						<input type='hidden' name='nowPage_f' id='nowPage_f' value='${empty param.nowPage_f?1:param.nowPage_f }'/>
-						<input type='hidden' name='aType' id='aType' value='2'/>
+						
 						
 						
 						<h3>상세조건</h3>
-						<input type='button' name='btnReset' id='h_btnReset_f' class='btnReset_f' value='초기화'/>
+						<input type='submit' name='btnReset' id='h_btnReset_f' class='btnReset_f' value='초기화'/>
 						<input type='button' name='btnApply' id='h_btnApply_f' class='btnApply_f' value='적용'/><br/>
 						
 						<h4>호텔유형</h4>
-						<div id='chk_f'><input type="checkbox" name='kind' id='htype1_f' value='1'/><label for='htype1_f'><span></span>&nbsp;&nbsp;&nbsp;5성급</label></div>
-						<div id='chk_f'><input type="checkbox" name='kind' id='htype2_f' value='2'/><label for='htype2_f'><span></span>&nbsp;&nbsp;&nbsp;특1급</label></div>
-						<div id='chk_f'><input type="checkbox" name='kind' id='htype3_f' value='3'/><label for='htype3_f'><span></span>&nbsp;&nbsp;&nbsp;특급</label></div>
+						<div id='chk_f'><input type="radio" name='kind' id='htype1_f' value='1'/><label for='htype1_f'><span></span>&nbsp;&nbsp;&nbsp;5성급</label></div>
+						<div id='chk_f'><input type="radio" name='kind' id='htype2_f' value='2'/><label for='htype2_f'><span></span>&nbsp;&nbsp;&nbsp;특1급</label></div>
+						<div id='chk_f'><input type="radio" name='kind' id='htype3_f' value='3'/><label for='htype3_f'><span></span>&nbsp;&nbsp;&nbsp;특급</label></div>
 						
 						<h4>인원</h4>
 						
@@ -137,15 +138,15 @@
 							
 							<div id ='paging_f'>
 							<c:if test="${p_f.nowPage > p_f.blockSize }">
-								<input type='button' value='처음' onclick='goPage(1)'/>
+								<input type='button'  class='btnBefore_f' onclick='goPage(1)'/>
 							</c:if>
 							
 							<c:forEach var='i' begin='${p_f.startPage }' end='${p_f.endPage }'>
-								<input type='button' id='btn' value='${i }' ${(i==p_f.nowPage)? "class='here_f'":""} onclick='goPage(${i})'/>
+								<input type='button' id='btnMiddle_f' value='' ${(i==p_f.nowPage)? "class='here_f'":""} onclick='goPage(${i})'/>
 							</c:forEach>
 							
 							<c:if test="${p_f.nowPage <p_f.totPage }">
-								<input type='button' value='다음' onclick='goPage(${p_f.nowPage+1})'/>
+								<input type='button'  class='btnAfter_f' onclick='goPage(${p_f.nowPage+1})'/>
 							</c:if>
 							</div>
 						

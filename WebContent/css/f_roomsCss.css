@@ -170,6 +170,29 @@ body, html {
 	background-size : cover;
 	box-shadow : 0.2px 0.2px 1px 1px #f62a4b inset;
 }
+#mid_in_f #left_f #check_f input[type='radio'] {
+	display: none;
+}
+#mid_in_f #left_f #check_f input[type='radio']+label span{
+	display: inline-block;
+	width:20px;
+	height: 20px;
+	background-color:#fff;
+	border: 1px solid #aaa;
+	cursor:pointer;
+	border-radius: 3px;
+	vertical-align:middle;
+	box-shadow : 0.2px 0.2px 1px 1px #ccc inset;
+}
+#mid_in_f #left_f #check_f input[type='radio']:checked+label span{
+	background-image: url("../image/checked_f.JPG");
+	border: 1px solid #f62a4b;
+	background-repeat : no-repeat;
+	background-size : cover;
+	box-shadow : 0.2px 0.2px 1px 1px #f62a4b inset;
+}
+
+
 #mid_in_f #left_f #check_f label{
 	margin-bottom:50px;
 	font-size: 0.8em;
@@ -491,8 +514,44 @@ body, html {
 	text-align:center;
 	width: auto;
 	height: auto;
-	margin: auto;
+	margin-top:50px;
+	
+	
 }
+.btnBefore_f{
+	width:20px;
+	height:20px;
+	background-image: url("../image/back_f.jpg");
+	background-repeat : no-repeat;
+	background-size : cover;
+	border:0;
+	outline:0;
+}
+.here_f{
+	background-image: url("../image/selected_f.jpg") ;
+}
+#btnMiddle_f{
+	width:20px;
+	height:20px;
+	background-image: url("../image/select_f.jpg");
+	background-repeat : no-repeat;
+	background-size : cover;
+	border:0;
+	outline:0;
+}
+.btnAfter_f{
+	width:20px;
+	height:20px;
+	background-image: url("../image/go_f.jpg");
+	background-repeat : no-repeat;
+	background-size : cover;
+	border:0;
+	outline:0;
+}
+
+
+
+
 
 
 /*객실 안내 페이지  */

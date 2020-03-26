@@ -203,9 +203,24 @@ let btnFunc_f = function(){
 	
 	
 	//초기화 버튼 클릭시 페이지 새로고침 
-	if($('.btnReset')!=null){
-		$('.btnReset').click(function(){
-			
+	if($('#h_btnReset_f')!=null){
+		$('#h_btnReset_f').click(function(){
+			$('#frm_f').attr('action','hotel.ff');
+		})
+	}
+	if($('#m_btnReset_f')!=null){
+		$('#m_btnReset_f').click(function(){
+			$('#frm_f').attr('action','motel.ff');
+		})
+	}
+	if($('#p_btnReset_f')!=null){
+		$('#p_btnReset_f').click(function(){
+			$('#frm_f').attr('action','penshion.ff');
+		})
+	}
+	if($('#g_btnReset_f')!=null){
+		$('#g_btnReset_f').click(function(){
+			$('#frm_f').attr('action','guesthouse.ff');
 		})
 	}
 	

@@ -35,11 +35,11 @@ public class KDGServlet extends HttpServlet {
 		case "/motel.ff":
 			motel(req,resp);		
 			break;
-		case "/pension.ff":
-			pension(req,resp);
+		case "/penshion.ff":
+			penshion(req,resp);
 			break;
-		case "/gesthous.ff":
-			gesthouse(req,resp);
+		case "/guesthouse.ff":
+			guesthouse(req,resp);
 			break;
 		case "/roomView.ff":
 			roomView(req,resp);
@@ -97,7 +97,7 @@ public class KDGServlet extends HttpServlet {
 		RequestDispatcher rd = req.getRequestDispatcher(path);
 		rd.forward(req, resp);	
 	}
-	public void pension(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+	public void penshion(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		int aType=0;
 		if(req.getParameter("aType")!=null) {
 			aType = Integer.parseInt(req.getParameter("aType"));
@@ -120,7 +120,7 @@ public class KDGServlet extends HttpServlet {
 		RequestDispatcher rd = req.getRequestDispatcher(path);
 		rd.forward(req, resp);
 	}
-	public void gesthouse(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+	public void guesthouse(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		int aType=0;
 		if(req.getParameter("aType")!=null) {
 			aType = Integer.parseInt(req.getParameter("aType"));
