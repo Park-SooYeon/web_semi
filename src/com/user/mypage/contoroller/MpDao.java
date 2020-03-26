@@ -40,7 +40,7 @@ public class MpDao {
 	}
 	
 	public List<ReListVo> reList(String eMail) {
-		String query = "select a.rcode, a.rname, a.rplace, a.ginfo, a.orifile, a.sysfile, a.address from rooms a join reserve b on a.rcode=b.rno where b.email=?";
+		String query = "select a.rcode, a.rname, a.rplace, a.ginfo, a.orifile, a.sysfile, a.address, b.price from rooms a join reserve b on a.rcode=b.rno where b.email=?";
 		PreparedStatement pstmt = null;
 		ResultSet set = null;
 		ReListVo vo = null;
@@ -60,6 +60,7 @@ public class MpDao {
 				vo.setOriFile(set.getString("orifile"));
 				vo.setSysFile(set.getString("sysfile"));
 				vo.setAddress(set.getString("address"));
+				vo.setPrice(set.getInt("price"));
 				
 				list.add(vo);
 			}
@@ -103,7 +104,7 @@ public class MpDao {
 		LogVo vo = null;
 		PreparedStatement pstmt = null;
 		ResultSet set = null;
-		String query = "select logDate, rName, rPlace, sysFile from a_log a join rooms b on a.rCode=b.rCode where eMail=?";
+		String query = "select a.logno, a.rcode, a.email, a.logDate,  a.price, b.rName, b.rPlace, b.sysFile from a_log a join rooms b on a.rCode=b.rCode where eMail=?";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -112,11 +113,14 @@ public class MpDao {
 			
 			while(set.next()) {
 				vo = new LogVo();
+				vo.setLogNo(set.getInt("logno"));
+				vo.setrCode(set.getInt("rcode"));
+				vo.seteMail(set.getString("email"));
 				vo.setLogDate(set.getDate("logDate"));
 				vo.setrName(set.getString("rName"));
 				vo.setrPlace(set.getString("rPlace"));
 				vo.setSysFile(set.getString("sysFile"));
-				
+				vo.setPrice(set.getInt("price"));
 				list.add(vo);
 			}
 		} catch (Exception e) {

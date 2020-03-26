@@ -6,69 +6,46 @@
 <head>
 <meta charset="UTF-8">
 <title>지난 방문지</title>
-<script src="../js/user_s.js"></script>
+<script src="./js/jquery3.4.1.js"></script>
+<script src="./js/user_s.js"></script>
 </head>
 <body>
 <h3>지난방문지</h3>
 	<div class="d-flex flex-column" >
-		<form method="post" name="frm" id="frm">
+		<form method="post" name="frm_rvv" id="frm_rvv">
+		<c:forEach var="list" items="${list}">
 			<!-- 내부 빨간박스 -->
 			<div class="p-4 rlist">
 				<div class="row">
 					<div class="col-3">
-						<img src="../image/user_mypage_s.png" class="img-thumbnail" style="width:200px; height:200px; ">
+						<img src="./image/user_mypage_s.png" class="img-thumbnail" style="width:200px; height:200px; ">
 					</div>
 					<div class="col-6">
 						<div class="row">
-							<a class="h3" >이태원 G 게스트하우스</a><br/>
+							<a class="h3" >${list.rName}</a><br/>
 						</div>
 						<div class="row">
-							<a class="h4" >용산구 | 이태원역 도보 2분</a><br/>
+							<a class="h4" >${list.rPlace} | ${list.logDate}일</a><br/>
 						</div>
 						<div class="row">
-							<small class="text-muted"><a class="h4" >용산구 | 이태원역 도보 2분</a></small>
+							<small class="text-muted"><a class="h4" >지난 방문지입니다.</a></small>
 						</div>
 						<div class="row rprice">
-							12,900원
+							${list.price}원
 						</div>
 					</div>
 					<div class="col-3">
-						<button type="button" class="btn btn-primary btn-lg btnrlist">리뷰작성</button>
+						<button type="button" id="btnRe_s" class="btn btn-primary btn-lg btnrlist">리뷰작성</button>
+						<input type="hidden" name="rCode" value="${list.rCode}"/>
+						<input type="hidden" name="eMail" value="${list.eMail}"/>
 					</div>
 				</div>
 			</div>
-			<div class="p-4 rlist">
-				<div class="row">
-					<div class="col-3">
-						<img src="../image/user_mypage_s.png" class="img-thumbnail" style="width:200px; height:200px; ">
-					</div>
-					<div class="col-6">
-						<div class="row">
-							<a class="h3" >이태원 G 게스트하우스</a><br/>
-						</div>
-						<div class="row">
-							<a class="h4" >용산구 | 이태원역 도보 2분</a><br/>
-						</div>
-						<div class="row">
-							<small class="text-muted"><a class="h4" >용산구 | 이태원역 도보 2분</a></small>
-						</div>
-						<div class="row" style="float:right; margin-top: 80px;">
-							12,900원
-						</div>
-					</div>
-					<div class="col-3">
-						<button type="button" id="btnRee_s" class="btn btn-primary btn-lg btnrlist">리뷰작성</button>
-					</div>
-				</div>
-			</div>
+		</c:forEach>
 		</form>
 	</div>
 <script>
-if($('#btnRee_s')!=null){
-	$('#btnRee_s').click(function(){
-		$('#frm').attr('action', 'review.rv').submit();
-	})
-}
+user()
 </script>
 </body>
 </html>

@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="js/jquery-3.4.1.js"></script>
+<script src="js/user_s.js"></script>
 <style>
 #top_list_k li{
 	padding:0px 5px;
@@ -87,14 +88,15 @@
 				 
 				<a class="navbar-brand ml-2" href="index.jsp?middle=main.jsp">logo</a>
 					
-					<form class="form-inline ml-auto mr-2"> 
+					<form class="form-inline ml-auto mr-2" id="frm" name="frm"> 
 						<button class="btn btn-primary my-2 my-sm-0" id="search_k" type="button">
 							<i class="fas fa-search"></i>
 						</button>
+						<input type="hidden" name="eMail" id="eMail"/>
 					</form>
 					<ul class="navbar-nav" id="top_list_k">
 						<li class="nav-item">
-							 <a class="nav-link" href="index.jsp?middle=./user/u_subtitle.jsp">예약 내역</a>
+							 <a class="nav-link" onclick="myPage('ddddd')">예약 내역</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">더보기</a>
@@ -125,6 +127,7 @@
 				</div>
 </nav>
 	<script>
+		user()
 		$('#search_k').click(function(){
 			$('#searchbox_main').slideToggle(100);
 		})

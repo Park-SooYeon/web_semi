@@ -10,7 +10,7 @@
 <body>
 
 <h3>마이 페이지</h3>
-<img src="../image/user_mypage_s.png" class="img-thumbnail" style="width:200px; height:200px; margin-top: 10px">
+<img src="./image/user_mypage_s.png" class="img-thumbnail" style="width:200px; height:200px; margin-top: 10px">
 
 <form method="post" name="frm" id="frm">
 	<div class="form-group">

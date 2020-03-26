@@ -13,11 +13,7 @@ public class MpView implements MpCommand{
 		String mId = req.getParameter("mId");
 		MpDao dao = new MpDao();
 		MpVo vo = dao.mpView(mId);
-		
-		System.out.println(vo.getmName());
-		System.out.println(vo.getuName());
-		System.out.println(vo.geteMail());
-		System.out.println(vo.getPhone());
+	
 		req.setAttribute("vo", vo);
 	}
 }

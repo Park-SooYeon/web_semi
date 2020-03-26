@@ -61,12 +61,6 @@ public class MemberDao_m {
 		}
 		return list;
 	}
-
-	public String insert(MemberVo_m) {
-		String msg ="게시물이 정상적으로 등록 되었습니다.";
-	}
-	
-	
 	
 	
 	

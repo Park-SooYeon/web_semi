@@ -8,9 +8,10 @@ public class ReListVo {
 	String oriFile;
 	String sysFile;
 	String address;
+	int price;
 	
 	public ReListVo(){};
-	public ReListVo(int rCode, String rName, String rPlace, String gInfo, String oriFile, String sysFile, String address){
+	public ReListVo(int rCode, String rName, String rPlace, String gInfo, String oriFile, String sysFile, String address, int price){
 		this.rCode=rCode;
 		this.rName=rName;
 		this.rPlace=rPlace;
@@ -18,6 +19,7 @@ public class ReListVo {
 		this.oriFile=oriFile;
 		this.sysFile=sysFile;
 		this.address=address;
+		this.price=price;
 	}
 
 	public String getrName() {
@@ -73,7 +75,12 @@ public class ReListVo {
 	public void setrCode(int rCode) {
 		this.rCode = rCode;
 	}
-	
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	
 	
 }
