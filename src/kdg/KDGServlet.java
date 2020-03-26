@@ -23,6 +23,7 @@ public class KDGServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("두포스트");
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html; charset=utf-8");
 		String temp = req.getRequestURI();
@@ -41,9 +42,14 @@ public class KDGServlet extends HttpServlet {
 		case "/gesthous.ff":
 			gesthouse(req,resp);
 			break;
-		case " /roomView.ff":
+		case "/roomView.ff":
 			roomView(req,resp);
+			break;
+		case "/gooSelect.ff":
+			gooSelect(req,resp);
+			break;
 		}
+			
 	}
 	public void hotel(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		int aType=0;
@@ -70,8 +76,13 @@ public class KDGServlet extends HttpServlet {
 		
 	}
 	public void motel(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		int aType = Integer.parseInt(req.getParameter("aType"));
-		//페이징 작업
+		int aType=0;
+		if(req.getParameter("aType")!=null) {
+			aType = Integer.parseInt(req.getParameter("aType"));
+		}else {
+			aType = 2;
+		}
+		//페이징작업
 		int nowPage_f = 1;
 		if(req.getParameter("nowPage_f")!=null) {
 			nowPage_f = Integer.parseInt(req.getParameter("nowPage_f"));
@@ -82,13 +93,19 @@ public class KDGServlet extends HttpServlet {
 		RoomsDao dao = new RoomsDao();
 		List<RoomsListVo> list =dao.select(aType,p_f);
 		req.setAttribute("list_f", list);
+		req.setAttribute("p_f", p_f);
 		String path = url + "/mrooms.jsp";
 		RequestDispatcher rd = req.getRequestDispatcher(path);
 		rd.forward(req, resp);	
 	}
 	public void pension(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		int aType = Integer.parseInt(req.getParameter("aType"));
-		
+		int aType=0;
+		if(req.getParameter("aType")!=null) {
+			aType = Integer.parseInt(req.getParameter("aType"));
+		}else {
+			aType = 2;
+		}
+		//페이징작업
 		int nowPage_f = 1;
 		if(req.getParameter("nowPage_f")!=null) {
 			nowPage_f = Integer.parseInt(req.getParameter("nowPage_f"));
@@ -98,16 +115,20 @@ public class KDGServlet extends HttpServlet {
 		
 		RoomsDao dao = new RoomsDao();
 		List<RoomsListVo> list =dao.select(aType,p_f);
-		
 		req.setAttribute("list_f", list);
-		
+		req.setAttribute("p_f", p_f);
 		String path = url + "/prooms.jsp";
 		RequestDispatcher rd = req.getRequestDispatcher(path);
 		rd.forward(req, resp);
 	}
 	public void gesthouse(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		int aType = Integer.parseInt(req.getParameter("aType"));
-		
+		int aType=0;
+		if(req.getParameter("aType")!=null) {
+			aType = Integer.parseInt(req.getParameter("aType"));
+		}else {
+			aType = 2;
+		}
+		//페이징작업
 		int nowPage_f = 1;
 		if(req.getParameter("nowPage_f")!=null) {
 			nowPage_f = Integer.parseInt(req.getParameter("nowPage_f"));
@@ -117,24 +138,124 @@ public class KDGServlet extends HttpServlet {
 		
 		RoomsDao dao = new RoomsDao();
 		List<RoomsListVo> list =dao.select(aType,p_f);
-		
 		req.setAttribute("list_f", list);
-		
+		req.setAttribute("p_f", p_f);
 		String path = url + "/grooms.jsp";
 		RequestDispatcher rd = req.getRequestDispatcher(path);
 		rd.forward(req, resp);
 	}
 	public void roomView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+		System.out.println("꺼져");
 		int rCode=0;
+		String checkIn="";
+		String checkOut="";
 		if(req.getParameter("rCode")!=null) {
 			rCode = Integer.parseInt(req.getParameter("rCode"));
 		}
+		if(req.getParameter("checkIn")!=null) {
+			checkIn = req.getParameter("checkIn");
+		}
+		if(req.getParameter("checkOut")!=null) {
+			checkOut = req.getParameter("checkOut");
+		}
 		
 		req.setAttribute("rCode", rCode);
+		req.setAttribute("checkIn", checkIn);
+		req.setAttribute("checkOut", checkOut);
 		
-		String path = url +"/rooms_view.jsp";
+		String path =url + "/rooms_view.jsp";
 		RequestDispatcher rd = req.getRequestDispatcher(path);
 		rd.forward(req, resp);
 	}
+	//구 선택시
+	public void gooSelect(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+		String place ="";
+		int aType=0;
+		int nowPage_f = 1;
+		String target ="";
+		if(req.getParameter("target")!=null) {
+			target = req.getParameter("target"));
+		}
+		if(req.getParameter("nowPage_f")!=null) {
+			nowPage_f = Integer.parseInt(req.getParameter("nowPage_f"));
+		}
+		if(req.getParameter("aType")!=null) {
+			aType = Integer.parseInt(req.getParameter("aType"));
+		}
+		if(req.getParameter("place")!=null) {
+			place = req.getParameter("place");
+		}
+		page p_f = new page();
+		p_f.setNowPage(nowPage_f);
+		
+		RoomsDao dao = new RoomsDao();
+		List<RoomsListVo> list = dao.selectGoo(aType, p_f,place);
+		
+		req.setAttribute("list", list);
+		req.setAttribute("p_f", p_f);
+		
+		String path = url + target;
+		RequestDispatcher rd = req.getRequestDispatcher(path);
+		rd.forward(req, resp);
+		
+		
+	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
