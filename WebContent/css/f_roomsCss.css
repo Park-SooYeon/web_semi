@@ -120,10 +120,14 @@ body, html {
 
 #mid_in_f #left_f #check_f h3:first-child {
 	margin-top: 0px;
+	font-size:1.17em;
+	font-weight: bold;
 }
 
 #mid_in_f #left_f #check_f h3 {
 	margin-top: 30px;
+	font-size:1.17em;
+	font-weight: bold;
 }
 
 #mid_in_f #left_f #check_f hr {
@@ -175,7 +179,10 @@ body, html {
 }
 #mid_in_f #left_f #check_f h4{
 	margin-top: 40px;
+	font-size:1em;
+	font-weight:bold;
 	color:#444;
+	margin-bottom: 20px;
 }
 #mid_in_f #left_f #check_f .bed_f{
 	margin-top: 0px;
@@ -263,6 +270,7 @@ body, html {
 }
 #mid_in_f #search_f h4{
 	color:#999;
+	font-size:1.2em;
 	font-weight: 800;
 }
 #mid_in_f #search_f #searched_frame_f{

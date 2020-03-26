@@ -94,7 +94,7 @@
 					</form>
 					<ul class="navbar-nav" id="top_list_k">
 						<li class="nav-item">
-							 <a class="nav-link" href="index.jsp?middle=./user/reserveList.jsp">예약 내역</a>
+							 <a class="nav-link" href="index.jsp?middle=./user/u_subtitle.jsp">예약 내역</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">더보기</a>

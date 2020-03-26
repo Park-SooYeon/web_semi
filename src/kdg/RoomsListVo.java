@@ -30,7 +30,7 @@ public class RoomsListVo {
 	public String getSysFile() {
 		return sysFile;
 	}
-	public void setSysFile(String oriFile) {
+	public void setSysFile(String sysFile) {
 		this.sysFile = sysFile;
 	}
 	public int getStars() {
@@ -42,7 +42,7 @@ public class RoomsListVo {
 	public String getAddress() {
 		return address;
 	}
-	public void setAddress(String adress) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 	public int getPrice() {
