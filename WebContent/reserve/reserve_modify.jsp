@@ -9,14 +9,6 @@
 <link href="css/reserve_insert_k.css" type="text/css" rel="stylesheet">
 <script src="js/jquery.colorbox-min.js"></script>
 <script src="js/reserve_insert_k.js"></script>
-<style>
-#reserveDel_k strong{
-	font-size:25px;
-}
-#reserveDel_k span{
-	font-size:20px;
-}
-</style>
 </head>
 <body>
 <div class="col-5 border p-5">
@@ -30,6 +22,7 @@
 			<p class="w-50"><strong class="text-secondary br-5">체크아웃</strong>체크아웃 날짜</p>
 		</div>
 		<div class="border-bottom pb-3">
+			<p class="w-50 mb-2"><strong class="text-secondary">예약번호</strong>번호오</p>
 			<p class="w-50 mb-2"><strong class="text-secondary">예약자 이름</strong>이르음</p>
 			<p class="w-50"><strong class="text-secondary">휴대폰 번호</strong>번호</p>
 		</div>
@@ -42,7 +35,7 @@
 </div>
 
 <script>
-btnFunc();
+btnFunc_k();
 </script>
 </body>
 </html>

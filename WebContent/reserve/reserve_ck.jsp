@@ -36,7 +36,7 @@
 </div>
 
 <script>
-btnFunc();
+btnFunc_k();
 </script>
 </body>
 </html>
