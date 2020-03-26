@@ -27,6 +27,7 @@
 		</div>
 		<form id='frm_f' name='frm_f' method='post'>
 			<input type='hidden' name='aType' id='aType' value=''/>
+			<input type='hidden' name='nowPage_f' id='nowPage_f' value='1'/>
 		</form>
 											
 		<h2 class="pt-5">공지사항 및 소식</h2>

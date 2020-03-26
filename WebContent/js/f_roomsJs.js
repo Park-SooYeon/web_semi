@@ -126,7 +126,11 @@ let event_f = function(){
 
 }
 let view = function(){
-	location.href = "index.jsp?middle=./kdg/rooms_view.jsp"
+	$('#frm_f').attr('action','roomView.ff').submit();
+}
+let goPage = function(nowPage){
+	$('#nowPage_f').val(nowPage);
+	$('#frm_f').attr('action','hotel.ff').submit();
 }
 
 

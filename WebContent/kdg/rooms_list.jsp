@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +14,7 @@
 							<div id ='searched_frame_f' onclick='view()'>
 								<div id='main_img_f'>
 									<img src="./upload/${vo.sysFile }.jpg"/>
+									<input type='hidden' name='rCode' id='rCode' value='${vo.rCode }'/>
 								</div>
 								
 								<div id='searched_f'>
@@ -20,7 +22,7 @@
 										<span>${vo.gInfo}</span>
 									</div>
 									<div id='name_f'>
-										<strong>${vo.rName }서울 라마다 호텔</strong>
+										<strong>${vo.rName }</strong>
 										<p>
 											별점 : &nbsp;<em>${vo.stars}</em> &nbsp; (934)
 										</p>
@@ -29,11 +31,15 @@
 										</p>
 									</div>
 									<div id='price_f'>
-										<span>${vo.price}</span>
+										<span>${vo.price} 원</span>
 									</div>
 								</div>
 							</div>
 							</c:forEach>
+							
+							
+						
+		
 		
 </body>
 </html>

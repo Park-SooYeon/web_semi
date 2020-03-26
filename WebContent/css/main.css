@@ -10,3 +10,7 @@ img { max-width: 100%; height: auto; }
 .m_menu .ico_02{background:url('../image/icon.png') -96px 0 no-repeat;background-size:144px auto}
 .m_menu .ico_03{background:url('../image/icon.png') -48px -96px no-repeat;background-size:144px auto}
 .m_menu .ico_04{background:url('../image/icon.png') 0 -48px no-repeat;background-size:144px auto}
+
+.ico_01 , .ico_02 , .ico_03 , .ico_04 {
+	cursor: pointer;
+}

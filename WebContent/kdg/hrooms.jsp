@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel='stylesheet' type='text/css' href='./css/f_roomsCss.css'/>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="./js/jquery-3.4.1.js"></script>
 <script src='./js/f_roomsJs.js'></script>
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -24,6 +25,7 @@
 	%>
 	<div id ='main_f'><!-- 메인 -->
 		<form id='frm_f' name='frm_f' method='post'>
+		
 		<div id ='top_f'><!-- 위에 -->
 			<div id='top_in_f'>
 				<h1>호텔</h1>
@@ -55,6 +57,10 @@
 						<label>체크아웃</label><br/>
 						<input type="text" name="" id="checkOut_f" value="체크아웃 날짜 선택"><br/>				
 						<hr/>
+						
+						<input type='hidden' name='nowPage_f' id='nowPage_f' value='${empty param.nowPage_f? 1:param.nowPage_f }'/>
+						<input type='hidden' name='aType' id='aType' value='${param.aType }'/>
+						
 						
 						<h3>상세조건</h3>
 						<input type='button' name='btnReset' id='h_btnReset_f' class='btnReset_f' value='초기화'/>
@@ -125,6 +131,21 @@
 							<h4 id='pricename'>낮은 가격순</h4>
 							
 							<jsp:include page="<%=rooms_list %>"></jsp:include>
+							
+							
+							<div id ='paging_f'>
+							<c:if test="${p_f.nowPage > p_f.blockSize }">
+								<input type='button' value='처음' onclick='goPage(1)'/>
+							</c:if>
+							
+							<c:forEach var='i' begin='${p_f.startPage }' end='${p_f.endPage }'>
+								<input type='button' id='btn' value='${i }' ${(i==p_f.nowPage)? "class='here_f'":""} onclick='goPage(${i})'/>
+							</c:forEach>
+							
+							<c:if test="${p_f.nowPage <p_f.totPage }">
+								<input type='button' value='다음' onclick='goPage(${p_f.nowPage+1})'/>
+							</c:if>
+							</div>
 						
 					</div>
 				</div>

@@ -14,7 +14,7 @@
 
 <body>
 	<%
-		String inc_f = "../roomReview";
+		String inc_f = "../wpy/roomReview";
 		if(request.getParameter("inc_f")!=null){
 			inc_f = request.getParameter("inc_f");
 		}
@@ -73,6 +73,7 @@
 			</button>
 		</div>
 		<jsp:include page=<%=inc_f %>></jsp:include>
+	</div>
 	</div>
 </body>
 </html>

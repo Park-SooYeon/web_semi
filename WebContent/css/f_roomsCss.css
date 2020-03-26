@@ -28,6 +28,7 @@ body, html {
 	font-weight:bold;
 	color: #fff;
 	padding-top: 74px;
+	margin-bottom: 40px;
 }
 
 #goo_f {
@@ -297,7 +298,7 @@ body, html {
 #mid_in_f #search_f #searched_f #info_f{
 }
 #mid_in_f #search_f #searched_f #info_f span{
-	opacity: 0.1;
+	opacity: 0.6;
 	background-color: #000;
 	color:#fff;
 	font-size: 1.1em;	
