@@ -97,4 +97,31 @@ public class MpDao {
 		}
 		return vo;
 	}
+	
+	public List<LogVo> lastPlaceView(String eMail){
+		List<LogVo> list = new ArrayList<LogVo>();
+		LogVo vo = null;
+		PreparedStatement pstmt = null;
+		ResultSet set = null;
+		String query = "select logDate, rName, rPlace, sysFile from a_log a join rooms b on a.rCode=b.rCode where eMail=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, eMail);
+			set = pstmt.executeQuery();
+			
+			while(set.next()) {
+				vo = new LogVo();
+				vo.setLogDate(set.getDate("logDate"));
+				vo.setrName(set.getString("rName"));
+				vo.setrPlace(set.getString("rPlace"));
+				vo.setSysFile(set.getString("sysFile"));
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }
