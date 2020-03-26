@@ -4,11 +4,21 @@
 //체크인 체크아웃 데이트 설정
 let btnFunc_w = function(){
 	
-	if($('#btnHotel')!= null){
-	  $('#btnHotel').click(function(){
-		$('#frm').attr('action','roomReview.vi').submit();  
-	  })
-	}
+	$('#btnHotel').click(function(){
+		$('#view2_w').attr('style','display:none');
+		$('#view3_w').attr('style','display:none');
+		$('#view1_w').removeAttr('style','display:block');
+	});
+	$('#btnLodging').click(function(){
+		$('#view1_w').attr('style','display:none');
+		$('#view3_w').attr('style','display:none');
+		$('#view2_w').removeAttr('style','display:block');
+	});
+	$('#btnReview').click(function(){
+		$('#view1_w').attr('style','display:none');
+		$('#view2_w').attr('style','display:none');
+		$('#view3_w').removeAttr('style','display:block');
+	});
 	
 	
 	

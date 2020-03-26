@@ -13,13 +13,7 @@
 </head>
 
 <body>
-<%
-String view = "../wpy/roomReview.jsp";
-if(request.getParameter("view")!=null){
-	view = request.getParameter("view");
-}
 
-%>
 	<div id='roomsView_f'>
 		<div id='view_f'>
 			<div id='view_top_f'>
@@ -75,8 +69,8 @@ if(request.getParameter("view")!=null){
 		</div>
 	</div>
 	<div id = 'jsform'>
-	<jsp:include page="<%=view %>"></jsp:include>
-	
+	<jsp:include page="../wpy/total_w.jsp"></jsp:include>
+
 	</div>
 	
 <script>

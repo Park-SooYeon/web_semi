@@ -18,6 +18,7 @@ body { padding-top: 40px; }
 </style>
 </head>
 <body>
+
 <div id='main'>
 	<!-- top.jsp -->
 	<%@ include file="top.jsp" %>
