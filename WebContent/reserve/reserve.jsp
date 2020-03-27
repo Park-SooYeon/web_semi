@@ -14,9 +14,7 @@
 
 <script src="js/jquery.colorbox-min.js"></script>
 <script src="js/reserve_insert_k.js"></script>
-<style>
 
-</style>
 </head>
 <body>
 <div class="container">
@@ -44,6 +42,12 @@
         			<option value='2'>페이</option>
       			</select>
 			</section>
+			<!-- ${param.rCode } ${param.roomCode } -->
+			<input type='hidden' name='rCode' id='rCode' value='1'/>
+			<input type='hidden' name='roomCode' id='roomCode' value='1'/>
+			<input type='hidden' name='checkIn' id='checkIn' value='2020-01-10 18:00'/>
+			<input type='hidden' name='checkOut' id='checkOut' value='2020-01-11 12:00'/>
+			<input type='hidden' name='period' id='period' value='1'/>
 			</form>
 			<section class="pt-3 ml-4">
 				<div class="custom-control custom-checkbox p-1">
@@ -69,19 +73,19 @@
 			<section class="border-bottom m-4 pt-4">
 				<p>
 					<strong>숙소 이름</strong><br/>
-					숙소명
+					${vo.rName }
 				</p>
 				<p>
 					<strong>객실 타입/기간</strong><br/>
-					객실 정보 / 1박
+					${vo.roomName } / ${vo.period }박
 				</p>
 				<p>
 					<strong>체크인</strong><br/>
-					체크인 날짜 및 시간
+					${vo.checkIn }
 				</p>
 				<p>
 					<strong>체크아웃</strong><br/>
-					체크아웃 날짜 및 시간
+					${vo.checkOut }
 				</p>
 			</section>
 			<section class="m-4">
@@ -90,7 +94,7 @@
                 		<b>총 결제 금액</b>(VAT포함)
                 	</strong>
                 </p>
-               	<span class="text-danger" id="price_k">258,500원</span>
+               	<span class="text-danger" id="price_k">${vo.price }원</span>
                 <ul class="pl-4 mt-2">
                     <li>해당 객실가는 세금, 봉사료가 포함된 금액입니다</li>
                     <li>결제완료 후 <span class="text-danger">예약자 이름</span>으로 바로 <span class="text-danger">체크인</span> 하시면 됩니다</li>
@@ -101,6 +105,10 @@
 		</div>
 	</div>
 </div>
+
+<script>
+roomViewAjax();
+</script>
 
 <script>
 removeChar(); // '-' 입력 불가능

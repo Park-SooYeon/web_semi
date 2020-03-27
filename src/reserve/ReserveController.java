@@ -20,19 +20,19 @@ public class ReserveController extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("doGet");
-		doAaction(req, resp);
+		doAction_Get(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("doPost");
-		doAaction(req, resp);
+		doAction_Post(req, resp);
 	}
-	
-	protected void doAaction(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doAction_Get(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html; charset=UTF-8"); // 응답 인코딩 설정(한글깨짐 방지)
-		String msg = "ajax 혼내준다ㅡㅡ"; // 예약 or 예약 취소할 때, 성공 or 실패 메세지 반환
+		ReserveVo vo = new ReserveVo(); // DB select
+		PrintWriter out = resp.getWriter();
 		
 		// 요청받은 url 확인
 		String temp = req.getRequestURI();
@@ -41,8 +41,42 @@ public class ReserveController extends HttpServlet{
 		System.out.println(tempUrl);
 		
 		ReserveAction ra = new ReserveAction();
-		Map<String, String[]> param = req.getParameterMap();
-		System.out.println(param.get("reserve_name_k")[0]);
+/*		Map<String, String[]> param = req.getParameterMap();
+		System.out.println(param.get("reserve_name_k")[0]);*/
+		switch(tempUrl) {
+		case "/rsView.rs":
+			// 예약 현황 테이블에서 데이터 가져오기
+			vo = ra.rsSelect(req, resp);
+			break;
+		case "/rsRoom.rs":
+			// 예약 시, 룸 정보 가져오기
+			vo = ra.roomSelect(req, resp);
+			break;
+		}
+		
+		
+		//req.setAttribute("vo", vo);
+		String json = vo.toJSON();
+		System.out.println(json);
+		// 데이터 반환
+		out.print(json);
+		out.flush();
+	}
+	
+	protected void doAction_Post(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/html; charset=UTF-8"); // 응답 인코딩 설정(한글깨짐 방지)
+		PrintWriter out = resp.getWriter(); // ajax 데이터 반환시 사용
+		String msg = null; // 예약 or 예약 취소할 때, 성공 or 실패 메세지 반환
+		
+		// 요청받은 url 확인
+		String temp = req.getRequestURI();
+		int pos = temp.lastIndexOf("/");
+		String tempUrl = temp.substring(pos);
+		System.out.println(tempUrl);
+		
+		ReserveAction ra = new ReserveAction();
+/*		Map<String, String[]> param = req.getParameterMap();
+		System.out.println(param.get("reserve_name_k")[0]);*/
 		switch(tempUrl) {
 		case "/rsInsert.rs":
 			// 예약 현황 테이블에 데이터 추가
@@ -50,11 +84,11 @@ public class ReserveController extends HttpServlet{
 			break;
 		case "/rsDelete.rs":
 			// 예약 현황 테이블에서 데이터 제거
+			msg = ra.rsDelete(req, resp);
 			break;
 		}
 		
 		// 데이터 반환
-		PrintWriter out = resp.getWriter();
 		out.print(msg);
 		out.flush();
 	}

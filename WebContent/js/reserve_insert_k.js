@@ -9,7 +9,7 @@ var href_k = ""; // 팝업창으로 띄울 페이지의 url경로
 //-------------------------------------------------------------------
 //결제 API에 쓰이는 함수 및 변수들
 //-------------------------------------------------------------------
-var IMP = window.IMP;
+/*var IMP = window.IMP;
 IMP.init('imp07869343');
 
 let rName = '방이름'; // 방이름
@@ -54,7 +54,7 @@ let pay_iamport = function() {
 	    }
 	    alert(msg_k);
 	});
-}
+}*/
 
 //-------------------------------------------------------------------
 // reserve.jsp에 사용되는 변수 및 함수, 기능들
@@ -125,35 +125,12 @@ let reserveR_k = function(link) {
 // 예약할 때, 사용할 ajax
 let insertAjax_k = function() {
 	let param = $('#rsForm_k').serialize();
-	console.log("param : ", param);
+	console.log($('#price_k').text());
 	$.ajax({
 		url : "rsInsert.rs",
 		method : "post",
 		data : param,
-		dataType : "text", // 서버에서 받을 데이터 형식(msg(String형)만 반환해주므로 text타입으로 데이터를 받아옴
-		timeout: 3000, // ajax 대기시간 3초로 설정
-		success : function(data) {
-			alert("예약 성공!");
-			console.log("data : ", data);
-			msg_k = data;
-		},
-		error : function(e) {
-			alert("에러!!");
-			//msg_k = "에러가 발생했습니다.";
-		},
-		complete : function() {
-			reserveR_k("reserve/reserve_ok.jsp");
-		}
-	});
-}
-
-// 예약 취소할 때, 사용할 ajax
-let deleteAjax_k = function() {
-	$.ajax({
-		url : "rsDelete.rs",
-		method : "post",
-		data : param,
-		dataType : "text", // 서버에서 받을 데이터 형식(msg(String형)만 반환해주므로 text타입으로 데이터를 받아옴
+		dataType : "text", // 서버에서 받을 데이터 형식(msg(String형)만 반환해주므로 text타입으로 데이터를 받아옴)
 		timeout: 3000, // ajax 대기시간 3초로 설정
 		success : function(data) {
 			alert("예약 성공!");
@@ -169,6 +146,86 @@ let deleteAjax_k = function() {
 		}
 	});
 }
+
+// 예약 취소할 때, 사용할 ajax
+let deleteAjax_k = function() {
+	$.ajax({
+		url : "rsDelete.rs",
+		method : "post",
+		data : param,
+		dataType : "text", // 서버에서 받을 데이터 형식(msg(String형)만 반환해주므로 text타입으로 데이터를 받아옴)
+		timeout: 3000, // ajax 대기시간 3초로 설정
+		success : function(data) {
+			alert("예약 취소 성공!");
+			console.log("data : ", data);
+			msg_k = data;
+		},
+		error : function(e) {
+			alert("에러!!");
+			msg_k = "에러가 발생했습니다.";
+		},
+		complete : function() {
+			reserveR_k("reserve/reserve_ok.jsp");
+		}
+	});
+}
+
+// 예약 상세 조회할 때 사용할 Ajax
+let rsViewAjax = function() {
+	// 예약 번호 가져오기
+	let rNo = $('#rNo').val();
+	console.log(rNo);
+	$.ajax({
+		url : "rsView.rs",
+		method : "get",
+		data : {"rNo" : rNo },
+		dataType : "json", // 서버에서 받을 데이터 형식(msg(String형)만 반환해주므로 text타입으로 데이터를 받아옴
+		timeout: 3000, // ajax 대기시간 3초로 설정
+		success : function(data) {
+			alert("예약 조회 성공!");
+			console.log("data : ", data);
+			msg_k = data;
+		},
+		error : function(e) {
+			alert("에러!!");
+			msg_k = "에러가 발생했습니다.";
+		},
+		complete : function() {
+			reserveR_k("reserve/reserve_ok.jsp");
+		}
+	});
+}
+
+// 객실 상세 조회할 때 사용할 Ajax
+let roomViewAjax = function() {
+	// 숙소 번호, 객체 번호 가져오기
+	let rCode = $('#rCode').val();
+	let roomCode = $('#roomCode').val();
+	console.log(rCode);
+	console.log(roomCode);
+	$.ajax({
+		url : "rsRoom.rs",
+		method : "get",
+		data : { 
+					"rCode" : rCode,
+					"roomCode" : roomCode
+			   },
+		/*dataType : "json",*/ // 서버에서 받을 데이터 형식
+		timeout: 3000, // ajax 대기시간 3초로 설정
+		success : function(data) {
+			alert("객실 조회 성공!");
+			$('#r')
+		},
+		error : function(e) {
+			alert("에러!!");
+			msg_k = "에러가 발생했습니다.";
+		},
+		complete : function() {
+			reserveR_k("reserve/reserve_ok.jsp");
+		}
+	});
+}
+
 
 //-------------------------------------------------------------------
 // reserve.jsp에 사용되는 체크박스 클릭 이벤트
