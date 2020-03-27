@@ -26,7 +26,7 @@ body { padding-top: 40px; }
 	String middle = "main.jsp";
 	if(request.getParameter("middle")!=null){
 		middle = request.getParameter("middle");
-	}
+	}	
 %>
 
 <div id='main'>
@@ -37,12 +37,9 @@ body { padding-top: 40px; }
 	<div class='content'>
   		<jsp:include page='<%=middle %>'/>
 	</div>
-	
 	<!-- bottom.jsp -->
 	<%@ include file="bottom.jsp" %>
 </div>
-
-
 <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

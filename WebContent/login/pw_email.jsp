@@ -6,8 +6,9 @@
 <meta charset="UTF-8">
 <title>pw_email</title>
 <link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'>
-<link rel='stylesheet' type='text/css' href='../login/login.css'>
+<link rel='stylesheet' type='text/css' href='../css/login.css'>
 <script src='../js/jquery-3.4.1.js'></script>
+<script src='../js/login.js'></script>
 </head>
 <body>
 <div class='container'>

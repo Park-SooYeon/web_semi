@@ -6,8 +6,9 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'>
-<link rel='stylesheet' type='text/css' href='../login/login.css'>
+<link rel='stylesheet' type='text/css' href='../css/login.css'>
 <script src='../js/jquery-3.4.1.js'></script>
+<script src='../js/login.js'></script>
 </head>
 <body>
 
@@ -22,22 +23,22 @@
 			</div>
 			<div class='mform_c'>
 				<label class='label_c'>이메일 아이디</label><br/>
-				<input type='text' readonly>
+				<input type='text' value='<%=request.getParameter("email_c") %>' readonly>
 				<br/>
 				<label class='label_c'>생년월일</label><br/>
 				<input type='date'>
 				<br/>
 				<label class='label_c'>비밀번호</label><br/>
-				<input type='text' placeholder=" 비밀번호를 입력해주세요.">
+				<input type='text' placeholder=" 비밀번호를 입력해주세요." maxlength="10">
 				<br/>
 				<label class='label_c'>비밀번호 확인</label><br/>
-				<input type='text' placeholder=" 비밀번호를 입력해주세요.">
+				<input type='text' placeholder=" 비밀번호를 입력해주세요." maxlength="10">
 				<br/>
 				<label class='label_c'>핸드폰번호</label><br/>
-				<input type='text' placeholder=" - 빼고 입력해주세요. ">
+				<input type='text' placeholder=" - 빼고 입력해주세요. " maxlength="11">
 				<br/>
 				<label class='label_c'>닉네임</label><br/>
-				<input type='text' >
+				<input type='text' maxlength="10">
 				<br/>
 			</div>
 			<div class='mNotice_c' align='center'>

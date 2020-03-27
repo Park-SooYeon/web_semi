@@ -6,18 +6,20 @@ import javax.servlet.http.HttpServletResponse;
 import com.login.controller.LoginDao;
 import com.login.controller.LoginVo;
 
-public class Login implements LogCommand{
-
-	@Override
-	public void logInter(HttpServletRequest req, HttpServletResponse resp) {
+public class Login{
+	
+	public boolean login(HttpServletRequest req, HttpServletResponse resp) {
 		LoginDao dao = new LoginDao();
 
 		String email = req.getParameter("email_c");
 		String pwd = req.getParameter("pwd_c");
-	
 		LoginVo vo = dao.login(email, pwd);
-		req.setAttribute("email", vo.getEmail());
-		req.setAttribute("nName", vo.getnName());
+		
+		req.getSession().setAttribute("email", vo.getEmail());
+		req.getSession().setAttribute("nName", vo.getnName());
+		boolean flag = vo.isFlag();
+		
+		return flag;
 	}
 	
 }

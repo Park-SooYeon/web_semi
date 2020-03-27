@@ -79,6 +79,18 @@
 	padding: 25px;
 	border-radius: 0px 0px 10px 10px;
 }
+#btnMy_c{
+	background-color:#E10000;
+	border:none;
+}
+#nName_c{
+	color:#000;
+	font-weight:bold;
+	font-size:1em;
+}
+#logout_c{
+	cursor:pointer;
+}
 </style>
 </head>
 <body>
@@ -104,7 +116,31 @@
 							</div>
 						</li>
 						<li class="nav-item">
-							 <a class="nav-link" href="./login/login.jsp">로그인</a>
+							<%
+								String email = (String)request.getSession().getAttribute("email");
+								String nName = (String)request.getSession().getAttribute("nName");
+								if(email != null){
+									session.setAttribute("email", email);		
+								} 
+								if(session.getAttribute("email") == null){%>
+							 		<a class="nav-link" href="./login/login.jsp">로그인</a>
+							<% }else{ %>
+									<div class="dropdown">
+							  			<button type="button" id='btnMy_c' class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+							   			  	<a href="#">
+							   			  		<img src='./image/myLogo_c.png'>
+							   			  	</a>
+							   			 </button>
+							   		<div class="dropdown-menu">
+											<div class="dropdown-header" id='nName_c'><%=nName %></div>
+							      			<div class="dropdown-divider"></div>
+							     			<a class="dropdown-item" href="#">내정보</a>
+							     			<a class="dropdown-item" href="#">예약내역</a>
+							     			<a class="dropdown-item" href="#">지난 방문지</a>
+							     			<a class="dropdown-item" id='logout_c'>로그아웃</a>
+							   			</div>
+							  		</div>
+							<% } %>
 						</li>
 					</ul>
 	</div>
@@ -133,6 +169,10 @@
 				$('#searchbox_main').slideToggle(100);
 			})
 		}
+		$('#logout_c').click(function(){
+			<% session.removeAttribute("email"); %>
+			location.href = './index.jsp';
+		});
 	</script>
 </body>
 </html>

@@ -22,11 +22,11 @@ public class LoginDao {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, email);
 			ps.setString(2, pwd);
-			
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				vo.setEmail(rs.getString("email"));
 				vo.setnName(rs.getString("nName"));
+				vo.setFlag(true);
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
