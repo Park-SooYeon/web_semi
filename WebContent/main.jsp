@@ -21,12 +21,13 @@
 			<ul>
 				<li id='ht_f'><a onclick="motel()"><span class="ico_01">&nbsp;</span><p>모텔</p></a></li>
 				<li id='mt_f'><a onclick="hotel()"><span class="ico_02">&nbsp;</span><p>호텔</p></a></li>
-				<li id='ps_f'><a onclick="pension()"><span class="ico_03">&nbsp;</span><p>펜션</p></a></li>
-				<li id='gh_f'><a onclick="gesthouse()"><span class="ico_04">&nbsp;</span><p>게스트하우스</p></a></li>
+				<li id='ps_f'><a onclick="penshion()"><span class="ico_03">&nbsp;</span><p>펜션</p></a></li>
+				<li id='gh_f'><a onclick="guesthouse()"><span class="ico_04">&nbsp;</span><p>게스트하우스</p></a></li>
 			</ul>
 		</div>
 		<form id='frm_f' name='frm_f' method='post'>
 			<input type='hidden' name='aType' id='aType' value=''/>
+			<input type='hidden' name='nowPage_f' id='nowPage_f' value='1'/>
 		</form>
 											
 		<h2 class="pt-5">공지사항 및 소식</h2>
@@ -91,13 +92,13 @@
 				$('#aType').val('2');
 				$('#frm_f').attr('action','hotel.ff').submit();
 			}
-			let pension = function(){
+			let penshion = function(){
 				$('#aType').val('3');
 				$('#frm_f').attr('action','penshion.ff').submit();
 			}
-			let gesthouse = function(){
+			let guesthouse = function(){
 				$('#aType').val('4');
-				$('#frm_f').attr('action','gesthouse.ff').submit();
+				$('#frm_f').attr('action','guesthouse.ff').submit();
 			}
 		</script>
 		
