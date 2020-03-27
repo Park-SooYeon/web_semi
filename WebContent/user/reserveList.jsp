@@ -8,12 +8,15 @@
 <title>예약현황</title>
 <script src="./js/jquery3.4.1.js"></script>
 <script src="./js/user_s.js"></script>
+<script src="./js/reserve_insert_k.js"></script>
 </head>
 <body>
 <h3>예약현황</h3>
 
 <div class="d-flex flex-column" >
-	<form method="post" name="frm" id="frm">
+	<form method="post" name="frm_k" id="frm_k">
+		<input type="hidden" id="rCode" name="rCode" value=""/>
+		<input type="hidden" id="rNo" name="rNo" value=""/>
 	<c:forEach var="list" items="${list}">
 	<!-- 내부 빨간박스 -->
 	<div class="p-4 rlist" onclick="">
@@ -36,8 +39,7 @@
 				</div>
 			</div>
 			<div class="col-3">
-				<button type="button" class="btn btn-primary btn-lg btnrlist">예약변경/취소</button>
-				<input type="hidden" id="rCode" name="rCode" value=""/>
+				<button type="button" class="btn btn-primary btn-lg btnrlist" onclick="rsView_k(${list.rNo}, ${list.rCode})">예약변경/취소</button>
 			</div>
 		</div>
 	</div>

@@ -8,6 +8,7 @@
 <script src="./js/jquery-3.4.1.js"></script>
 <script src="./js/w_roomsjs.js"></script>
 <script src="./js/f_roomsJs.js"></script>
+<script src="./js/reserve_insert_k.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -15,10 +16,14 @@
 <body>
 <div id = 'view1_w'>
 
-<label id='check_w'>체크인</label><br/>
-<input type="text" name="" id="checkIn_w" value="${checkIn }"><br/>
-<label id='check2_w'>체크아웃</label><br/>
-<input type="text" name="" id="checkOut_w" value="${checkOut }"><br/>				
+<form id="frm_room_k" name="frm_room_k">
+	<label id='check_w'>체크인</label><br/>
+	<input type="text" name="checkIn_w" id="checkIn_w" value="${checkIn }"><br/>
+	<label id='check2_w'>체크아웃</label><br/>
+	<input type="text" name="checkOut_w" id="checkOut_w" value="${checkOut }"><br/>				
+    <input type="hidden" id="rCode" name="rCode" value="1">
+    <input type="hidden" id="roomCode" name="roomCode" value="1">
+</form>
 <hr/>
 
 <div id='room_w' >
@@ -39,7 +44,7 @@
      </button>
    
      </div>
-     <button type='button' class='	btn btn-danger' id='btnR_w' >예약</button>
+     <button type='button' class='	btn btn-danger' id='btnR_w' onclick="roomView_k(1,1)">예약</button>
      </div>
    </div>
  <BR/>

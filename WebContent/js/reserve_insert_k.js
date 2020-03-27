@@ -119,6 +119,37 @@ let reserveR_k = function(link) {
 
 
 //-------------------------------------------------------------------
+// 숙소 조회 or 예약 조회 페이지 이동에 사용될 함수들
+//-------------------------------------------------------------------
+
+// total_w.jsp의 예약 버튼 클릭시 페이지 이동
+let roomView_k = function(rCode, roomCode) {
+	console.log("rCode : ", rCode);
+	console.log("roomCode : ", roomCode);
+	console.log("checkIn : ", $('#checkIn_w').val());
+	console.log("checkOut : ", $('#checkOut_w').val());
+	frm_room_k.rCode.value = rCode;
+	frm_room_k.roomCode.value = roomCode;
+	$('#checkIn_w').val($('#checkIn_w').val());
+	$('#checkOut_w').val($('#checkOut_w').val());
+	frm_room_k.method = 'get';
+	$('#frm_room_k').attr('action', 'rsRoom.rs').submit();
+}
+
+// reserveList.jsp의 예약 취소 버튼 클릭시 페이지 이동
+let rsView_k = function(rNo, rCode) {
+	console.log("rNo : ", rNo);
+	console.log("rCode : ", rCode);
+	frm_k.rNo.value = rNo;
+	frm_k.rCode.value = rCode;
+	frm_k.method = 'get';
+	$('#frm_k').attr('action', 'rsView.rs').submit();
+	/*location.href="./index.jsp?middle=./user/u_subtitle.jsp&inc2=../reserve/reserve_modify.jsp";*/
+	
+}
+
+
+//-------------------------------------------------------------------
 // ajax를 위한 함수
 //-------------------------------------------------------------------
 
@@ -149,10 +180,15 @@ let insertAjax_k = function() {
 
 // 예약 취소할 때, 사용할 ajax
 let deleteAjax_k = function() {
+	let rNo = $('#rNo').val();
+	let rCode = $('#rCode').val();
 	$.ajax({
 		url : "rsDelete.rs",
 		method : "post",
-		data : param,
+		data : {
+			"rNo" : rNo,
+			"rCode" : rCode
+		},
 		dataType : "text", // 서버에서 받을 데이터 형식(msg(String형)만 반환해주므로 text타입으로 데이터를 받아옴)
 		timeout: 3000, // ajax 대기시간 3초로 설정
 		success : function(data) {
@@ -170,7 +206,7 @@ let deleteAjax_k = function() {
 	});
 }
 
-// 예약 상세 조회할 때 사용할 Ajax
+/*// 예약 상세 조회할 때 사용할 Ajax
 let rsViewAjax = function() {
 	// 예약 번호 가져오기
 	let rNo = $('#rNo').val();
@@ -210,7 +246,7 @@ let roomViewAjax = function() {
 					"rCode" : rCode,
 					"roomCode" : roomCode
 			   },
-		/*dataType : "json",*/ // 서버에서 받을 데이터 형식
+		dataType : "json", // 서버에서 받을 데이터 형식
 		timeout: 3000, // ajax 대기시간 3초로 설정
 		success : function(data) {
 			alert("객실 조회 성공!");
@@ -224,7 +260,7 @@ let roomViewAjax = function() {
 			reserveR_k("reserve/reserve_ok.jsp");
 		}
 	});
-}
+}*/
 
 
 //-------------------------------------------------------------------
@@ -294,7 +330,7 @@ let btnFunc_k = function() {
 	}
 //--------------------------------------------------------------------------------------------------
 
-	// reserve_modify.jsp의 예약 변경 버튼
+	// reserve_modify.jsp의 예약 취소 버튼
 	if($('#btnDelete_k') != null) {
 		$('#btnDelete_k').click(function() {
 			deleteAjax_k();

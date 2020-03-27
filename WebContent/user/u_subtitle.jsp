@@ -31,10 +31,10 @@
 					<a class="nav-link active" href="#" onclick="myPage('ddddd')">내 정보 관리</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#" onclick="reserveList('${vo.eMail}')">예약 현황</a>
+					<a class="nav-link" href="#" onclick="reserveList('ddddd')">예약 현황</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#" onclick="lastPlace('${vo.eMail}')">이용현황</a>
+					<a class="nav-link" href="#" onclick="lastPlace('ddddd')">이용현황</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">포인트</a>
@@ -49,8 +49,8 @@
 		</div>
 	</div>
 </div>
-<form method="post" name="frm" id="frm">
+<%-- <form method="post" name="frm" id="frm">
 	<input type="hidden" name="eMail" id="eMail" value="${vo.eMail}"/>
-</form>
+</form> --%>
 </body>
 </html>

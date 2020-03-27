@@ -63,12 +63,12 @@ public class ReserveDao {
 		
 		try {
 			sql = "delete from reserve "
-				+ " where rNo = ? and rCode = ? and roomCode = ? and email = ? ";
+				+ " where rNo = ? and rCode = ? ";// and roomCode = ? and email = ? ";
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, rNo);
 			ps.setInt(2, rCode);
-			ps.setInt(3, roomCode);
-			ps.setString(4, email);
+			/*ps.setInt(3, roomCode);
+			ps.setString(4, email);*/
 			
 			int cnt = ps.executeUpdate();
 			if(cnt > 0) { // delete 성공
@@ -100,8 +100,8 @@ public class ReserveDao {
 			if(rs.next()) { // select 결과
 				vo = new ReserveVo();
 				vo.setrName(rs.getString("c"));
-				vo.setCheckIn(checkIn + rs.getString("d"));
-				vo.setCheckOut(checkOut + rs.getString("e"));
+				vo.setCheckIn(checkIn + " " + rs.getString("d"));
+				vo.setCheckOut(checkOut + " " + rs.getString("e"));
 				vo.setRoomName(rs.getString("f"));
 				vo.setPrice(rs.getInt("g"));
 			}
@@ -116,12 +116,12 @@ public class ReserveDao {
 		ReserveVo vo = null;
 		
 		try {
-			/*sql = "select rName a, roomName b, period c, to_char(checkin, 'mm.dd dy hh24:mi') d, to_char(checkout, 'mm.dd dy hh24:mi') e, rNo f, rsName g, rPhone h, price i "
+			sql = "select rName a, roomName b, period c, to_char(checkin, 'mm.dd dy hh24:mi') d, to_char(checkout, 'mm.dd dy hh24:mi') e, rNo f, rsName g, rPhone h, price i "
 				+ " from reserve "
-				+ " where rNo = ?";*/
-			sql = "select rName a, period c, to_char(checkin, 'mm.dd dy hh24:mi') d, to_char(checkout, 'mm.dd dy hh24:mi') e, rNo f, rPhone h, price i "
+				+ " where rNo = ?";
+/*			sql = "select rName a, period c, to_char(checkin, 'mm.dd dy hh24:mi') d, to_char(checkout, 'mm.dd dy hh24:mi') e, rNo f, rPhone h, price i "
 					+ " from reserve "
-					+ " where rNo = ?";
+					+ " where rNo = ?";*/
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, rNo);
 			
@@ -129,12 +129,12 @@ public class ReserveDao {
 			if(rs.next()) {
 				vo = new ReserveVo();
 				vo.setrName(rs.getString("a"));
-				//vo.setRoomName(rs.getString("b"));
+				vo.setRoomName(rs.getString("b"));
 				vo.setPeriod(rs.getInt("c"));
 				vo.setCheckIn(rs.getString("d"));
 				vo.setCheckOut(rs.getString("e"));
 				vo.setrNo(rs.getInt("f"));
-				//vo.setRsName(rs.getString("g"));
+				vo.setRsName(rs.getString("g"));
 				vo.setrPhone(rs.getString("h"));
 				vo.setPrice(rs.getInt("i"));
 			}

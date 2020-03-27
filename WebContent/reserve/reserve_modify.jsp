@@ -11,7 +11,7 @@
 <script src="js/reserve_insert_k.js"></script>
 </head>
 <body>
-<div class="col-5 border p-5">
+<div class="col-12 border p-5">
 	<div class="mb-5" id="reserveDel_k">
 		<strong>${vo.rName }</strong><br/>
 		<span>${vo.roomName }/${vo.period }박</span>	
@@ -32,11 +32,11 @@
 		</div>
 	</section>
 	<input type='hidden' name='rNo' id='rNo' value='${vo.rNo }'/>
+	<input type='hidden' name='rCode' id='rCode' value='${vo.rCode }'/>
 	<button type="button" class="btn btn-danger btn-lg mt-3" id="btnDelete_k">예약 취소</button>
 </div>
 
 <script>
-rsViewAjax();
 btnFunc_k();
 </script>
 </body>

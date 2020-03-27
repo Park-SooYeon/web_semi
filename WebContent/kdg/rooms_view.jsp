@@ -41,7 +41,7 @@
              </div>
 			</div>
 				<div id='view_top_left_f'>
-				   <c:forEach var = 'item' items  = '${vo }'>
+				  <%--  <c:forEach var = 'item' items  = '${vo }'>
 					<div id='view_top_left_main_f'>
 						<img src='./upload/${item.sysFile }.jpg'/>
 					</div>
@@ -59,7 +59,7 @@
 							<img src='./upload/${item.sysFile }.jpg'/>
 						</div>
 					</div>
-					</c:forEach>
+					</c:forEach> --%>
 				</div>
 		</div>
 	
