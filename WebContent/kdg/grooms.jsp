@@ -27,6 +27,8 @@
 			<input type="hidden" name='target' value="/grooms.jsp"/>
 			<input type='hidden' name='nowPage_f' id='nowPage_f' value='${empty param.nowPage_f?1:param.nowPage_f }'/>
 			<input type='hidden' name='aType' id='aType' value='4'/>
+			<input type="hidden" name='place_f' id='place_f' value='구전체게하'/>
+			<input type="hidden" name='sort_f' id='sort_f' value='asc'/>
 		<div id ='top_f'><!-- 위에 -->
 			<div id='top_in_f'>
 				<h1>게스트하우스</h1>
@@ -42,7 +44,6 @@
 						<div id='goo5_f' onclick='goo5()'>강동구 · 송파구 · 강남구</div>
 						<div id='goo6_f' onclick='goo6()'>서초구 · 동작구 · 관악구 · 금천구</div>
 						<div id='goo7_f' onclick='goo7()'>강서구 · 양천구 · 구로구 · 영등포구</div>
-						<input type="hidden" name='place_f' id='place_f' value=''/>
 					</div>
 				</div>
 				<div id='topImg_f'>
@@ -62,7 +63,7 @@
 						
 						<h3>상세조건</h3>
 						<input type='submit' name='btnReset' id='g_btnReset_f' class='btnReset_f' value='초기화'/>
-						<input type='button' name='btnApply' id='g_btnApply_f' class='btnApply_f' value='적용'/><br/>
+						<input type='submit' name='btnApply' id='g_btnApply_f' class='btnApply_f' value='적용'/><br/>
 						
 						<h4>인원</h4>
 						<select id='maxPeople'>

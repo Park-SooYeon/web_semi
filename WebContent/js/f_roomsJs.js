@@ -10,12 +10,13 @@ let event_f = function(){
 			$('#goo_list_f').slideToggle(10);
 		});	
 	}
-	//낮은가격,높은가격 버튼클릭시 생상변경
+	//낮은가격,높은가격 버튼클릭시 생상 , hidden태그 변경
 	if($('.btnDsc_f')!=null){
 		$('.btnDsc_f').click(function(){
 			$('.btnDsc_f').css('color','#f62a4b');
 			$('.btnAsc_f').css('color','#aaa');
 			$('#pricename').text('높은가격순');
+			$('#sort_f').val('dsc');
 		})
 	}
 	if($('.btnAsc_f')!=null){
@@ -23,6 +24,7 @@ let event_f = function(){
 			$('.btnAsc_f').css('color','#f62a4b');
 			$('.btnDsc_f').css('color','#aaa');
 			$('#pricename').text('낮은가격순');
+			$('#sort_f').val('asc');
 		})
 	}
 	//베드타입 클릭시 css변경
@@ -62,6 +64,7 @@ let event_f = function(){
 			$('#bedtype_f').val('4');
 		});
 	}
+	
 	
 	
 	
@@ -175,29 +178,22 @@ let btnFunc_f = function(){
 	//호텔 페이지 적용버튼 클릭시
 	if($('#h_btnApply_f')!=null){
 		$('#h_btnApply_f').click(function(){
-			$('.btnAsc_f').css('color','#f62a4b');//적용 클릭시 낮은가격순으로 정렬할것이기에 이벤트추가
-			$('.btnDsc_f').css('color','#aaa');
+			$('#frm_f').attr('action','fillter.ff');
 		})
 	}
 	//모텔 페이지 적용버튼 클릭시
 	if($('#m_btnApply_f')!=null){
 		$('#m_btnApply_f').click(function(){
-			$('.btnAsc_f').css('color','#f62a4b');//적용 클릭시 낮은가격순으로 정렬할것이기에 이벤트추가
-			$('.btnDsc_f').css('color','#aaa');
 		})
 	}
 	//게하 페이지 적용버튼 클릭시
 	if($('#g_btnApply_f')!=null){
 		$('#g_btnApply_f').click(function(){
-			$('.btnAsc_f').css('color','#f62a4b');//적용 클릭시 낮은가격순으로 정렬할것이기에 이벤트추가
-			$('.btnDsc_f').css('color','#aaa');
 		})
 	}
 	//캠핑 페이지 적용버튼 클릭시
 	if($('#c_btnApply_f')!=null){
 		$('#c_btnApply_f').click(function(){
-			$('.btnAsc_f').css('color','#f62a4b');//적용 클릭시 낮은가격순으로 정렬할것이기에 이벤트추가
-			$('.btnDsc_f').css('color','#aaa');
 		})
 	}
 	

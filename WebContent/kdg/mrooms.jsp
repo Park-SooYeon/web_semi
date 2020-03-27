@@ -28,7 +28,8 @@
 			<input type="hidden" name='target' value="/mrooms.jsp"/>
 			<input type='hidden' name='nowPage_f' id='nowPage_f' value='${empty param.nowPage_f?1:param.nowPage_f }'/>
 			<input type='hidden' name='aType' id='aType' value='1'/>
-			<input type="hidden" name='place_f' id='place_f' value=''/>
+			<input type="hidden" name='place_f' id='place_f' value='구전체모텔'/>
+			<input type="hidden" name='sort_f' id='sort_f' value='asc'/>
 		<div id ='top_f'><!-- 위에 -->
 			<div id='top_in_f'>
 				<h1>모텔</h1>
@@ -64,7 +65,7 @@
 						
 						<h3>상세조건</h3>
 						<input type='submit' name='btnReset' id='m_btnReset_f' class='btnReset_f' value='초기화'/>
-						<input type='button' name='btnApply' id='m_btnApply_f' class='btnApply_f' value='적용'/><br/>
+						<input type='submit' name='btnApply' id='m_btnApply_f' class='btnApply_f' value='적용'/><br/>
 						
 						
 						<h4>인원</h4>

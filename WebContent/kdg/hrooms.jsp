@@ -28,7 +28,8 @@
 			<input type="hidden" name='target' value="/hrooms.jsp"/>
 			<input type='hidden' name='nowPage_f' id='nowPage_f' value='${empty param.nowPage_f?1:param.nowPage_f }'/>
 			<input type='hidden' name='aType' id='aType' value='2'/>
-			<input type="hidden" name='place_f' id='place_f' value=''/>
+			<input type="hidden" name='place_f' id='place_f' value='구전체호텔,.,.,.'/>
+			<input type="hidden" name='sort_f' id='sort_f' value='asc'/>
 		<div id ='top_f'><!-- 위에 -->
 			<div id='top_in_f'>
 				<h1>호텔</h1>
@@ -66,7 +67,7 @@
 						
 						<h3>상세조건</h3>
 						<input type='submit' name='btnReset' id='h_btnReset_f' class='btnReset_f' value='초기화'/>
-						<input type='button' name='btnApply' id='h_btnApply_f' class='btnApply_f' value='적용'/><br/>
+						<input type='submit' name='btnApply' id='h_btnApply_f' class='btnApply_f' value='적용'/><br/>
 						
 						<h4>호텔유형</h4>
 						<div id='chk_f'><input type="radio" name='kind' id='htype1_f' value='1'/><label for='htype1_f'><span></span>&nbsp;&nbsp;&nbsp;5성급</label></div>
@@ -75,7 +76,7 @@
 						
 						<h4>인원</h4>
 						
-						<select id='maxPeople'>
+						<select id='maxPeople' name='maxPeople'>
 							<option value="1">1명</option>
 							<option value="2">2명</option>
 							<option value="3">3명</option>
@@ -89,7 +90,7 @@
 						</select>
 						
 						<h4 class='bed_f'>베드타입</h4>
-						<input type='hidden' name='bedtype' value='1' id='bedtype_f'/><!-- 베드 타일 보낼 히든 태그 -->
+						<input type='hidden' name='bedtype' value='5' id='bedtype_f'/><!-- 베드 타일 보낼 히든 태그 -->
 						<div id='bed_f'>
 							<div id='bed1_f'>
 							</div>
@@ -102,25 +103,25 @@
 						</div>
 						
 						<h4>공용시설</h4>
-						<div id='chk_f'><input type="checkbox" name='pt' id='public1_f' value=''/><label for='public1_f'><span></span>&nbsp;&nbsp;&nbsp;피트니스</label></div>
-						<div id='chk_f'><input type="checkbox" name='swim' id='public2_f' value=''/><label for='public2_f'><span></span>&nbsp;&nbsp;&nbsp;수영장</label></div>
-						<div id='chk_f'><input type="checkbox" name='rest' id='public3_f' value=''/><label for='public3_f'><span></span>&nbsp;&nbsp;&nbsp;레스토랑</label></div>
-						<div id='chk_f'><input type="checkbox" name='cafe' id='public4_f' value=''/><label for='public4_f'><span></span>&nbsp;&nbsp;&nbsp;카페</label></div>
-						<div id='chk_f'><input type="checkbox" name='bar' id='public5_f' value=''/><label for='public5_f'><span></span>&nbsp;&nbsp;&nbsp;BAR</label></div>
+						<div id='chk_f'><input type="checkbox" name='pt' id='public1_f' /><label for='public1_f'><span></span>&nbsp;&nbsp;&nbsp;피트니스</label></div>
+						<div id='chk_f'><input type="checkbox" name='swim' id='public2_f' /><label for='public2_f'><span></span>&nbsp;&nbsp;&nbsp;수영장</label></div>
+						<div id='chk_f'><input type="checkbox" name='rest' id='public3_f' /><label for='public3_f'><span></span>&nbsp;&nbsp;&nbsp;레스토랑</label></div>
+						<div id='chk_f'><input type="checkbox" name='cafe' id='public4_f' /><label for='public4_f'><span></span>&nbsp;&nbsp;&nbsp;카페</label></div>
+						<div id='chk_f'><input type="checkbox" name='bar' id='public5_f'/><label for='public5_f'><span></span>&nbsp;&nbsp;&nbsp;BAR</label></div>
 						
 						<h4>객실내 시설</h4>
-						<div id='chk_f'><input type="checkbox" name='tv' id='private1_f' value=''/><label for='private1_f'><span></span>&nbsp;&nbsp;&nbsp;TV</label></div>
-						<div id='chk_f'><input type="checkbox" name='wifi' id='private2_f' value=''/><label for='private2_f'><span></span>&nbsp;&nbsp;&nbsp;WIFI</label></div>
-						<div id='chk_f'><input type="checkbox" name='spa' id='private3_f' value=''/><label for='private3_f'><span></span>&nbsp;&nbsp;&nbsp;스파</label></div>
-						<div id='chk_f'><input type="checkbox" name='tub' id='private4_f' value=''/><label for='private4_f'><span></span>&nbsp;&nbsp;&nbsp;욕조</label></div>
-						<div id='chk_f'><input type="checkbox" name='iron' id='private5_f' value=''/><label for='private5_f'><span></span>&nbsp;&nbsp;&nbsp;다리미</label></div>
+						<div id='chk_f'><input type="checkbox" name='tv' id='private1_f' /><label for='private1_f'><span></span>&nbsp;&nbsp;&nbsp;TV</label></div>
+						<div id='chk_f'><input type="checkbox" name='wifi' id='private2_f' /><label for='private2_f'><span></span>&nbsp;&nbsp;&nbsp;WIFI</label></div>
+						<div id='chk_f'><input type="checkbox" name='spa' id='private3_f' /><label for='private3_f'><span></span>&nbsp;&nbsp;&nbsp;스파</label></div>
+						<div id='chk_f'><input type="checkbox" name='tub' id='private4_f' /><label for='private4_f'><span></span>&nbsp;&nbsp;&nbsp;욕조</label></div>
+						<div id='chk_f'><input type="checkbox" name='iron' id='private5_f' /><label for='private5_f'><span></span>&nbsp;&nbsp;&nbsp;다리미</label></div>
 					
 						<h4>기타</h4>
-						<div id='chk_f'><input type="checkbox" name='pet' id='etc1_f' value=''/><label for='etc1_f'><span></span>&nbsp;&nbsp;&nbsp;반려동물 동반</label></div>
-						<div id='chk_f'><input type="checkbox" name='smoke' id='etc2_f' value=''/><label for='etc2_f'><span></span>&nbsp;&nbsp;&nbsp;객실내 흡연</label></div>
-						<div id='chk_f'><input type="checkbox" name='noSmoke' id='etc3_f' value=''/><label for='etc3_f'><span></span>&nbsp;&nbsp;&nbsp;금연</label></div>
-						<div id='chk_f'><input type="checkbox" name='parking' id='etc4_f' value=''/><label for='etc4_f'><span></span>&nbsp;&nbsp;&nbsp;주차</label></div>
-						<div id='chk_f'><input type="checkbox" name='breakfast' id='etc5_f' value=''/><label for='etc5_f'><span></span>&nbsp;&nbsp;&nbsp;조식</label></div>
+						<div id='chk_f'><input type="checkbox" name='pet' id='etc1_f' /><label for='etc1_f'><span></span>&nbsp;&nbsp;&nbsp;반려동물 동반</label></div>
+						<div id='chk_f'><input type="checkbox" name='smoke' id='etc2_f' /><label for='etc2_f'><span></span>&nbsp;&nbsp;&nbsp;객실내 흡연</label></div>
+						<div id='chk_f'><input type="checkbox" name='noSmoke' id='etc3_f' /><label for='etc3_f'><span></span>&nbsp;&nbsp;&nbsp;금연</label></div>
+						<div id='chk_f'><input type="checkbox" name='parking' id='etc4_f' /><label for='etc4_f'><span></span>&nbsp;&nbsp;&nbsp;주차</label></div>
+						<div id='chk_f'><input type="checkbox" name='breakfast' id='etc5_f' /><label for='etc5_f'><span></span>&nbsp;&nbsp;&nbsp;조식</label></div>
 					</div>
 				</div>
 				<div id ='right_f'>

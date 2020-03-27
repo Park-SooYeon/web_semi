@@ -28,6 +28,8 @@
 			<input type="hidden" name='target' value="/prooms.jsp"/>
 			<input type='hidden' name='nowPage_f' id='nowPage_f' value='${empty param.nowPage_f?1:param.nowPage_f }'/>
 			<input type='hidden' name='aType' id='aType' value='3'/>
+			<input type="hidden" name='place_f' id='place_f' value='구전체펜션'/>
+			<input type="hidden" name='sort_f' id='sort_f' value='asc'/>
 		<div id ='top_f'><!-- 위에 -->
 			<div id='top_in_f'>
 				<h1>펜션</h1>
@@ -43,7 +45,6 @@
 						<div id='goo5_f' onclick='goo5()'>강동구 · 송파구 · 강남구</div>
 						<div id='goo6_f' onclick='goo6()'>서초구 · 동작구 · 관악구 · 금천구</div>
 						<div id='goo7_f' onclick='goo7()'>강서구 · 양천구 · 구로구 · 영등포구</div>
-						<input type="hidden" name='place_f' id='place_f' value=''/>
 					</div>
 				</div>
 				<div id='topImg_f'>
@@ -63,12 +64,12 @@
 						
 						<h3>상세조건</h3>
 						<input type='submit' name='btnReset' id='c_btnReset_f' class='btnReset_f' value='초기화'/>
-						<input type='button' name='btnApply' id='c_btnApply_f' class='btnApply_f' value='적용'/><br/>
+						<input type='submit' name='btnApply' id='c_btnApply_f' class='btnApply_f' value='적용'/><br/>
 						
 						<h4>펜션유형</h4>
-						<div id='chk_f'><input type="radio" name='kind' id='htype1_f' value=''/><label for='htype1_f'><span></span>&nbsp;&nbsp;&nbsp;펜션</label></div>
-						<div id='chk_f'><input type="radio" name='kind' id='htype2_f' value=''/><label for='htype2_f'><span></span>&nbsp;&nbsp;&nbsp;풀빌라</label></div>
-						<div id='chk_f'><input type="radio" name='kind' id='htype3_f' value=''/><label for='htype3_f'><span></span>&nbsp;&nbsp;&nbsp;럭셔리</label></div>
+						<div id='chk_f'><input type="radio" name='kind' id='htype1_f' value='1'/><label for='htype1_f'><span></span>&nbsp;&nbsp;&nbsp;펜션</label></div>
+						<div id='chk_f'><input type="radio" name='kind' id='htype2_f' value='2'/><label for='htype2_f'><span></span>&nbsp;&nbsp;&nbsp;풀빌라</label></div>
+						<div id='chk_f'><input type="radio" name='kind' id='htype3_f' value='3'/><label for='htype3_f'><span></span>&nbsp;&nbsp;&nbsp;럭셔리</label></div>
 						
 						<h4>인원</h4>
 						<select id='maxPeople'>
