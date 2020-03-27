@@ -28,7 +28,7 @@
 			<input type="hidden" name='target' value="/hrooms.jsp"/>
 			<input type='hidden' name='nowPage_f' id='nowPage_f' value='${empty param.nowPage_f?1:param.nowPage_f }'/>
 			<input type='hidden' name='aType' id='aType' value='2'/>
-			<input type="hidden" name='place_f' id='place_f' value='구전체호텔,.,.,.'/>
+			<input type="hidden" name='place_f' id='place_f' value="${empty param.place_f?'구전체호텔,.,.,.':param.place_f }"/>
 			<input type="hidden" name='sort_f' id='sort_f' value='asc'/>
 		<div id ='top_f'><!-- 위에 -->
 			<div id='top_in_f'>
@@ -147,7 +147,7 @@
 							</c:forEach>
 							
 							<c:if test="${p_f.nowPage <p_f.totPage }">
-								<input type='button'  class='btnAfter_f' onclick='goPage(${p_f.nowPage+1})'/>
+								<input type='button'  class ='btnAfter_f' onclick='goPage(${p_f.nowPage+1})'/>
 							</c:if>
 							</div>
 						
