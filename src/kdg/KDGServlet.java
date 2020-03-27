@@ -267,145 +267,145 @@ public class KDGServlet extends HttpServlet {
 		if(req.getParameter("pt")!=null) {
 			if(req.getParameter("pt")=="on") {
 				fillter.add(" and R.pt = 1 ");
-				pagingSql.add(" and pt =1 ");
+				pagingSql.add(" and R.pt =1 ");
 			}	
 		}
 		if(req.getParameter("swim")!=null) {
 			if(req.getParameter("swim")=="on") {
 				fillter.add(" and S.swim = 1 ");
-				pagingSql.add(" and swim =1 ");
+				pagingSql.add(" and S.swim =1 ");
 			}	
 		}
 		if(req.getParameter("rest")!=null) {
 			if(req.getParameter("rest")=="on") {
 				fillter.add(" and S.rest = 1 ");
-				pagingSql.add(" and rest =1 ");
+				pagingSql.add(" and S.rest =1 ");
 			}	
 		}
 		if(req.getParameter("cafe")!=null) {
 			if(req.getParameter("cafe")=="on") {
 				fillter.add(" and S.cafe = 1 ");
-				pagingSql.add(" and cafe =1 ");
+				pagingSql.add(" and S.cafe =1 ");
 			}	
 		}
 		if(req.getParameter("bar")!=null) {
 			if(req.getParameter("bar")=="on") {
 				fillter.add(" and S.bar = 1 ");
-				pagingSql.add(" and bar =1 ");
+				pagingSql.add(" and S.bar =1 ");
 			}	
 		}
 		if(req.getParameter("tv")!=null) {
 			if(req.getParameter("tv")=="on") {
 				fillter.add(" and R.tv = 1 ");
-				pagingSql.add(" and tv =1 ");
+				pagingSql.add(" and R.tv =1 ");
 			}	
 		}
 		if(req.getParameter("wifi")!=null) {
 			if(req.getParameter("wifi")=="on") {
 				fillter.add(" and R.wifi = 1 ");
-				pagingSql.add(" and wifi =1 ");
+				pagingSql.add(" and R.wifi =1 ");
 			}	
 		}
 		if(req.getParameter("spa")!=null) {
 			if(req.getParameter("spa")=="on") {
 				fillter.add(" and R.spa = 1 ");
-				pagingSql.add(" and spa =1 ");
+				pagingSql.add(" and R.spa =1 ");
 			}	
 		}
 		if(req.getParameter("tub")!=null) {
 			if(req.getParameter("tub")=="on") {
 				fillter.add(" and R.tub = 1 ");
-				pagingSql.add(" and tub =1 ");
+				pagingSql.add(" and R.tub =1 ");
 			}	
 		}
 		if(req.getParameter("iron")!=null) {
 			if(req.getParameter("iron")=="on") {
 				fillter.add(" and R.iron = 1 ");
-				pagingSql.add(" and iron =1 ");
+				pagingSql.add(" and R.iron =1 ");
 			}	
 		}
 		if(req.getParameter("computer")!=null) {
 			if(req.getParameter("computer")=="on") {
-				fillter.add(" and R.iron = 1 ");
-				pagingSql.add(" and computer =1 ");
+				fillter.add(" and R.computer = 1 ");
+				pagingSql.add(" and R.computer =1 ");
 			}	
 		}
 		if(req.getParameter("refr")!=null) {
 			if(req.getParameter("refr")=="on") {
 				fillter.add(" and R.refr = 1 ");
-				pagingSql.add(" and refr =1 ");
+				pagingSql.add(" and R.refr =1 ");
 			}	
 		}
 		if(req.getParameter("aircon")!=null) {
 			if(req.getParameter("aircon")=="on") {
 				fillter.add(" and R.aircon = 1 ");
-				pagingSql.add(" and aircon =1 ");
+				pagingSql.add(" and R.aircon =1 ");
 			}	
 		}
 		if(req.getParameter("socket")!=null) {
 			if(req.getParameter("socket")=="on") {
 				fillter.add(" and R.socket = 1 ");
-				pagingSql.add(" and socket =1 ");
+				pagingSql.add(" and R.socket =1 ");
 			}	
 		}
 		if(req.getParameter("pet")!=null) {
 			if(req.getParameter("pet")=="on") {
 				fillter.add(" and S.pet = 1 ");
-				pagingSql.add(" and pet =1 ");
+				pagingSql.add(" and S.pet =1 ");
 			}	
 		}
 		if(req.getParameter("smoke")!=null) {
 			if(req.getParameter("smoke")=="on") {
 				fillter.add(" and S.smoke = 1 ");
-				pagingSql.add(" and smoke =1 ");
+				pagingSql.add(" and S.smoke =1 ");
 			}	
 		}
 		if(req.getParameter("noSmoke")!=null) {
 			if(req.getParameter("noSmoke")=="on") {
 				fillter.add(" and S.noSmoke = 1 ");
-				pagingSql.add(" and noSmoke =1 ");
+				pagingSql.add(" and S.noSmoke =1 ");
 			}	
 		}
 		if(req.getParameter("parking")!=null) {
 			if(req.getParameter("parking")=="on") {
 				fillter.add(" and S.parking = 1 ");
-				pagingSql.add(" and parking =1 ");
+				pagingSql.add(" and S.parking =1 ");
 			}	
 		}
 		if(req.getParameter("breakfast")!=null) {
 			if(req.getParameter("breakfast")=="on") {
 				fillter.add(" and S.breakfast = 1 ");
-				pagingSql.add(" and breakfast =1 ");
+				pagingSql.add(" and S.breakfast =1 ");
 			}	
 		}
 		if(req.getParameter("washer")!=null) {
 			if(req.getParameter("washer")=="on") {
 				fillter.add(" and S.washer = 1 ");
-				pagingSql.add(" and wqsher =1 ");
+				pagingSql.add(" and S.wqsher =1 ");
 			}	
 		}
 		if(req.getParameter("lounge")!=null) {
 			if(req.getParameter("lounge")=="on") {
 				fillter.add(" and S.lounge = 1 ");
-				pagingSql.add(" and lounge =1 ");
+				pagingSql.add(" and S.lounge =1 ");
 			}	
 		}
 		if(req.getParameter("kitchen")!=null) {
 			if(req.getParameter("kitchen")=="on") {
 				fillter.add(" and S.kitchen = 1 ");
-				pagingSql.add(" and kitchen =1 ");
+				pagingSql.add(" and S.kitchen =1 ");
 			}	
 		}
 		if(req.getParameter("dryer")!=null) {
 			if(req.getParameter("dryer")=="on") {
 				fillter.add(" and S.dryer = 1");
-				pagingSql.add(" and dryer =1");
+				pagingSql.add(" and S.dryer =1");
 			}	
 		}
 		if(req.getParameter("talsu")!=null) {
 			if(req.getParameter("talsu")=="on") {
 				fillter.add(" and S.talsu = 1 ");
-				pagingSql.add(" and talsu =1 ");
+				pagingSql.add(" and S.talsu =1 ");
 			}	
 		}
 		
