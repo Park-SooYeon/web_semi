@@ -10,15 +10,39 @@ let user = function(){
 	
 	if($('#btnRe_s')!=null){
 		$('#btnRe_s').click(function(){
-			$('#frm_rvv').attr('action', 'review.rv').submit();
+			$('#frm_rvv_s').attr('action', 'review.rv').submit();
+	 	});
+	 }
+	
+	if($('#btnMu_s')!=null){
+		$('#btnMu_s').click(function(){
+			$('#frm_up_s').attr('action', 'mpUp.mp').submit();
+	 	});
+	 }
+	
+	if($('#btnUpdate_s')!=null){
+		$('#btnUpdate_s').click(function(){
+			$('#frm_update_s').attr('action', 'mpUpdate.mp').submit();
 	 	});
 	 }
 	 
 	 if($('#btnRee_s')!=null){
 		$('#btnRee_s').click(function(){
-			$('#frm_rv').attr('action', 'reviewInsert.rv').submit();
+			$('#frm_rv_s').attr('action', 'reviewInsert.rv').submit();
 		})
-	}
+	 }
+	 
+	 if($('#btnRv_Mo_s')!=null){
+		$('#btnRv_Mo_s').click(function(){
+			$('#frm_rvSe_s').attr('action', 'reviewModify.rv').submit();
+		})
+	 }
+	 
+	 if($('#btnSe_s')!=null){
+		$('#btnSe_s').click(function(){
+			$('#frm_rvv_s').attr('action', 'reviewSelect.rv').submit();
+		})
+	 }
 	 
 	$('.starRev span').click(function(){
 		  $(this).parent().children('span').removeClass('on');

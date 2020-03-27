@@ -12,13 +12,13 @@
 <body>
 <h3>지난방문지</h3>
 	<div class="d-flex flex-column" >
-		<form method="post" name="frm_rvv" id="frm_rvv">
+		<form method="post" name="frm_rvv_s" id="frm_rvv_s">
 		<c:forEach var="list" items="${list}">
 			<!-- 내부 빨간박스 -->
 			<div class="p-4 rlist">
 				<div class="row">
 					<div class="col-3">
-						<img src="./image/user_mypage_s.png" class="img-thumbnail" style="width:200px; height:200px; ">
+						<img src="./upload/${list.sysFile}.jpg" class="img-thumbnail" style="width:200px; height:200px; ">
 					</div>
 					<div class="col-6">
 						<div class="row">
@@ -36,6 +36,7 @@
 					</div>
 					<div class="col-3">
 						<button type="button" id="btnRe_s" class="btn btn-primary btn-lg btnrlist">리뷰작성</button>
+						<button type="button" id="btnSe_s" class="btn btn-primary btn-lg btnrlist">리뷰보기</button>
 						<input type="hidden" name="rCode" value="${list.rCode}"/>
 						<input type="hidden" name="eMail" value="${list.eMail}"/>
 					</div>

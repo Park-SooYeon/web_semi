@@ -19,7 +19,7 @@
 	<div class="p-4 rlist" onclick="">
 		<div class="row">
 			<div class="col-3">
-				<img src="./image/user_mypage_s.png" class="img-thumbnail" style="width:200px; height:200px; ">
+				<img src="./upload/${list.sysFile}.jpg" class="img-thumbnail" style="width:200px; height:200px; ">
 			</div>
 			<div class="col-6">
 				<div class="row">

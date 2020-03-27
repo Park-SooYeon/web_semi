@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.user.mypage.command.LastPlaceView;
 import com.user.mypage.command.MpCommand;
+import com.user.mypage.command.MpUpdate;
 import com.user.mypage.command.MpView;
 import com.user.mypage.command.ReserveList;
 import com.user.mypage.command.ReserveView;
@@ -55,6 +56,14 @@ public class MpController extends HttpServlet {
 			command = new MpView();
 			command.execute(req, res);
 			viewPage = url+"mypage.jsp";
+		}else if(com.equals("/mpUp.mp")){
+			command = new MpView();
+			command.execute(req, res);
+			viewPage = url+"mpUpdate.jsp";
+		}else if(com.equals("/mpUpdate.mp")) {
+			command = new MpUpdate();
+			command.execute(req, res);
+			viewPage = "mpview.mp";
 		}else if(com.equals("/reserveList.mp")) {
 			command = new ReserveList();
 			command.execute(req, res);

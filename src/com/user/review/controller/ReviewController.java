@@ -13,6 +13,7 @@ import com.user.mypage.command.LastPlaceView;
 import com.user.mypage.command.MpCommand;
 import com.user.review.command.RvCommand;
 import com.user.review.command.RvInsert;
+import com.user.review.command.RvSelect;
 
 /**
  * Servlet implementation class ReviewController
@@ -67,6 +68,12 @@ public class ReviewController extends HttpServlet {
 			command2 = new LastPlaceView();
 			command2.execute(req, res);
 			viewPage = url + "lastPlace.jsp";
+		}else if(com.equals("/reviewSelect.rv")) {
+			command = new RvSelect();
+			command.execute(req, res);
+			viewPage = url+"../review/rvSelect.jsp";
+		}else if(com.equals("/reviewModify.rv")) {
+			viewPage = "/reviewSelect.rv";
 		}
 		RequestDispatcher dis = req.getRequestDispatcher(viewPage);
 		dis.forward(req, res);

@@ -10,7 +10,7 @@
 </head>
 <body>
 <h3>리뷰 작성</h3>
-<form method="post" name="frm_rv" id="frm_rv">
+<form method="post" name="frm_rv_s" id="frm_rv_s">
 <div class="form-group">
 	<label for="exampleInputPassword1">제목</label>
 	<input type="text" class="form-control" id="exampleInputPassword1" placeholder="제목" name="title">

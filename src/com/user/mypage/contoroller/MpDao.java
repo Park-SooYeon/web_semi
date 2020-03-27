@@ -28,7 +28,7 @@ public class MpDao {
 				vo.seteMail(set.getString("email"));
 				vo.setPwd(set.getString("pwd"));
 				vo.setPhone(set.getString("phone"));
-				vo.setmName(set.getString("nname"));
+				vo.setnName(set.getString("nname"));
 				vo.setBirth(set.getDate("birth"));
 				vo.setuName(set.getString("uname"));
 				vo.setmAdmin(set.getInt("madmin"));
@@ -127,5 +127,22 @@ public class MpDao {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	public void mpUpdate(String nName, String uName, String phone, String eMail) {
+		PreparedStatement pstmt = null;
+		String query= "update membership set nName=?, uName=?, phone=? where eMail=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, nName);
+			pstmt.setString(2, uName);
+			pstmt.setString(3, phone);
+			pstmt.setString(4, eMail);
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
