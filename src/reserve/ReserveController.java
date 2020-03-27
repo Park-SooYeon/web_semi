@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,6 +31,8 @@ public class ReserveController extends HttpServlet{
 		doAction_Post(req, resp);
 	}
 	protected void doAction_Get(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String path = "./index.jsp?middle=";
+		String subPath = "";
 		resp.setContentType("text/html; charset=UTF-8"); // 응답 인코딩 설정(한글깨짐 방지)
 		ReserveVo vo = new ReserveVo(); // DB select
 		PrintWriter out = resp.getWriter();
@@ -46,21 +49,27 @@ public class ReserveController extends HttpServlet{
 		switch(tempUrl) {
 		case "/rsView.rs":
 			// 예약 현황 테이블에서 데이터 가져오기
+			subPath = "./user/u_subtitle.jsp&inc2=../reserve/reserve_modify.jsp";
 			vo = ra.rsSelect(req, resp);
 			break;
 		case "/rsRoom.rs":
 			// 예약 시, 룸 정보 가져오기
+			subPath = "./reserve/reserve.jsp";
 			vo = ra.roomSelect(req, resp);
 			break;
 		}
 		
 		
-		//req.setAttribute("vo", vo);
-		String json = vo.toJSON();
-		System.out.println(json);
+		req.setAttribute("vo", vo);
+//		resp.sendRedirect("./index.jsp?middle=./user/u_subtitle.jsp&inc2=../reserve/reserve_modify.jsp");
+		RequestDispatcher dis = req.getRequestDispatcher(path + subPath);
+		dis.forward(req, resp);
+		
+		/*String json = vo.toJSON();
+		System.out.println(json);*/
 		// 데이터 반환
-		out.print(json);
-		out.flush();
+		/*out.print(json);
+		out.flush();*/
 	}
 	
 	protected void doAction_Post(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

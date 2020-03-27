@@ -40,7 +40,7 @@ public class MpDao {
 	}
 	
 	public List<ReListVo> reList(String eMail) {
-		String query = "select a.rcode, a.rname, a.rplace, a.ginfo, a.orifile, a.sysfile, a.address, b.price from rooms a join reserve b on a.rcode=b.rno where b.email=?";
+		String query = "select b.rno, a.rcode, a.rname, a.rplace, a.ginfo, a.orifile, a.sysfile, a.address, b.price from rooms a join reserve b on a.rcode=b.rcode where b.email=?";
 		PreparedStatement pstmt = null;
 		ResultSet set = null;
 		ReListVo vo = null;
@@ -53,6 +53,7 @@ public class MpDao {
 			
 			while(set.next()){
 				vo = new ReListVo();
+				vo.setrNo(set.getInt("rno"));
 				vo.setrCode(set.getInt("rcode"));
 				vo.setrName(set.getString("rname"));
 				vo.setrPlace(set.getString("rplace"));

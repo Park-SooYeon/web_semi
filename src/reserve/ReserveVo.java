@@ -35,16 +35,17 @@ public class ReserveVo {
 	}
 	
 	void diffDay() {
-		int diffDay = 0;
+		double diffDay = 0;
 		if(checkIn != null && checkOut != null) {
 			try {
 				Date startDate = sdf.parse(checkIn);
 				Date endDate = sdf.parse(checkOut);
 				
 				long diff = endDate.getTime() - startDate.getTime();
-				diffDay = (int) (diff / (24*60*60*1000));		
-				
-				this.period = diffDay;
+				System.out.println("diff : " + diff);
+				diffDay = Math.ceil(diff / (double)(24*60*60*1000));		
+				System.out.println("diffDay : " + diffDay);
+				this.period = (int) diffDay;
 			} catch (ParseException e) {
 				System.out.println("기간 계산 시 오류 발생");
 				e.printStackTrace();

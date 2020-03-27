@@ -75,14 +75,15 @@ public class ReserveAction {
 		// 예약번호, 숙소번호, 객실번호, 로그인 아이디 가져오면 됨!!
 		String rNo = req.getParameter("rNo");
 		String rCode = req.getParameter("rCode"); // 숙소 코드
-		String roomCode = req.getParameter("roomCode"); // 객실 코드
+		/*String roomCode = req.getParameter("roomCode"); // 객실 코드
 		String email = req.getParameter("email"); // 로그인 아이디
-		
+*/		
 		System.out.println("rNo : " + rNo);
 		System.out.println("rCode : " + rCode);
-		System.out.println("roomCode : " + roomCode);
-		System.out.println("email : " + email);
+/*		System.out.println("roomCode : " + roomCode);
+		System.out.println("email : " + email);*/
 		
+		System.out.println("진짜 삭제??");
 		// 데이터베이스에서 delete
 		//flag = dao.delete();
 		if(flag) { // insert 성공!
@@ -111,8 +112,8 @@ public class ReserveAction {
 		
 		String rCode = req.getParameter("rCode"); // 숙소 코드
 		String roomCode = req.getParameter("roomCode"); // 객실 코드
-		String checkIn = req.getParameter("checkIn");
-		String checkOut = req.getParameter("checkOut");
+		String checkIn = req.getParameter("checkIn_w");
+		String checkOut = req.getParameter("checkOut_w");
 		
 		
 		System.out.println("rCode : " + rCode);
