@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="#">
 <link href="css/all.min.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet">
-
+<link href="css/user_s.css" rel="stylesheet">
 <!-- js -->
 <script src="js/jquery-3.4.1.js"></script>
 

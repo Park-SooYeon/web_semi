@@ -7,26 +7,23 @@ public class MpVo {
 	String eMail;
 	String pwd;
 	String phone;
-	String mName;
+	String nName;
 	Date birth;
 	String uName;
 	int mAdmin;
 	
 	public MpVo() {}
-	public MpVo(int mNo, String eMail, String pwd, String phone, String mName, Date birth, String uName, int mAdmin) {
+	public MpVo(int mNo, String eMail, String pwd, String phone, String nName, Date birth, String uName, int mAdmin) {
 		this.mNo=mNo;
 		this.eMail=eMail;
 		this.pwd=pwd;
 		this.phone=phone;
-		this.mName=mName;
+		this.nName=nName;
 		this.birth=birth;
 		this.uName=uName;
 		this.mAdmin=mAdmin;
-				
 	}
 
-	
-	
 	public int getmNo() {
 		return mNo;
 	}
@@ -59,12 +56,12 @@ public class MpVo {
 		this.phone = phone;
 	}
 
-	public String getmName() {
-		return mName;
+	public String getnName() {
+		return nName;
 	}
 
-	public void setmName(String mName) {
-		this.mName = mName;
+	public void setnName(String nName) {
+		this.nName = nName;
 	}
 
 	public Date getBirth() {

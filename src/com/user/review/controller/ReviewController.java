@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.user.mypage.command.LastPlaceView;
 import com.user.mypage.command.MpCommand;
+import com.user.review.command.RvCommand;
 import com.user.review.command.RvInsert;
+import com.user.review.command.RvSelect;
 
 /**
  * Servlet implementation class ReviewController
@@ -43,20 +46,34 @@ public class ReviewController extends HttpServlet {
 	
 	private void actionDo(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
 		req.setCharacterEncoding("utf-8");
-		String url="";
+		String url="index.jsp?middle=./user/u_subtitle.jsp?inc2=";
 		String viewPage = "";
+		RvCommand command = null;
+		MpCommand command2 = null;
 		
-		MpCommand command = null;
 		String uri = req.getRequestURI();
 		String conPath = req.getContextPath();
 		String com = uri.substring(conPath.length());
 		
-		if(com.equals("/review/review.rv")) {
-			viewPage = "/user/mpindex.jsp?inc2=../review/rvInsert.jsp";
-		}else if(com.equals("/review/rvInsert.rv")) {
+		System.out.println(com);
+		if(com.equals("/review.rv")) {
+			String eMail = req.getParameter("eMail");
+			int rCode = Integer.parseInt(req.getParameter("rCode"));
+			viewPage = url + "../review/rvInsert.jsp?eMail="+eMail+"& rCode="+rCode;
+		}else if(com.equals("/reviewInsert.rv")) {
 			command = new RvInsert();
 			command.execute(req, res);
-			viewPage = "/user/mpindex.jsp?inc2=lastPlace.jsp";
+			viewPage = "/lastPlace.mp";
+		}else if(com.equals("/lastPlace.mp")) {
+			command2 = new LastPlaceView();
+			command2.execute(req, res);
+			viewPage = url + "lastPlace.jsp";
+		}else if(com.equals("/reviewSelect.rv")) {
+			command = new RvSelect();
+			command.execute(req, res);
+			viewPage = url+"../review/rvSelect.jsp";
+		}else if(com.equals("/reviewModify.rv")) {
+			viewPage = "/reviewSelect.rv";
 		}
 		RequestDispatcher dis = req.getRequestDispatcher(viewPage);
 		dis.forward(req, res);

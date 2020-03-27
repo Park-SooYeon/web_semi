@@ -25,3 +25,42 @@
 		float:right; 
 		margin-top: 80px;
 	}
+ 	.starR{
+		background: url('../image/star1_f.png') no-repeat right 0;
+		background-size: auto 100%;
+		width: 30px;
+		height: 30px;
+		display: inline-block;
+		text-indent: -9999px;
+		cursor: pointer;
+	}
+	.starRev{
+		width:200px;
+		height:40px;
+	}
+	.starR.on{	
+		background: url('../image/star2_f.png') no-repeat right 0;
+		background-size: auto 100%;
+		width: 30px;
+		height: 30px;
+		display: inline-block;
+		text-indent: -9999px;
+		cursor: pointer;
+	} 
+/* 	.starRev input[type='checkbox'] {
+   		display: none;
+	}
+	.starRev input[type='checkbox']+label label{
+	   display: inline-block;
+	   width:20px;
+	   height: 20px;
+	   cursor:pointer;
+	   background-image: url("../image/star1_f.png");
+	   background-repeat:no-repeat;
+	   background-size:cover;
+	}
+	.starRev input[type='checkbox']:checked+label label{
+	   background-image: url("../image/star2_f.png");
+	   background-repeat:no-repeat;
+	   background-size:cover;
+	} */
