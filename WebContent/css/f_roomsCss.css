@@ -562,7 +562,6 @@ body, html {
 	height: 275px;
 }
 #room_w > #roomview_photo_w {
-	border : 2px solid #aaaaff;
 	width: 376px;
 	height: 226px;
 	float: left;
