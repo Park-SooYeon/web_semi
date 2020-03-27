@@ -91,6 +91,51 @@ public class RvDao {
 		return list;
 	}
 	
+	public RvVo rvMoView(int rNo) {
+		RvVo vo = null;
+		PreparedStatement pstmt = null;
+		ResultSet set = null;
+		String query = "select * from review where rNo=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, rNo);
+			set = pstmt.executeQuery();
+			
+			if(set.next()) {
+				vo = new RvVo();
+				vo.setrNo(set.getInt("rNo"));
+				vo.setrCode(set.getInt("rCode"));
+				vo.seteMail(set.getString("eMail"));
+				vo.setrContent(set.getString("rContent"));
+				vo.setrDate(sdf.format(set.getDate("rDate")));
+				vo.setrGroup(set.getInt("rgroup"));
+				vo.setrStep(set.getInt("rStep"));
+				vo.setrIndent(set.getInt("rIndent"));
+				vo.setStars(set.getInt("stars"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
+	
+	public void rvModify(String content, int stars, int rNo) {
+		PreparedStatement pstmt = null;
+		String query = "update review set rcontent=?, rdate=sysdate, stars=? where rno=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, content);
+			pstmt.setInt(2, stars);
+			pstmt.setInt(3, rNo);
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public int rvCnt(int rCode) {
 		int rvCnt = 0;
 		PreparedStatement pstmt = null;
