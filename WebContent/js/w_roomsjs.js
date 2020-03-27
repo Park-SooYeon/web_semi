@@ -24,10 +24,9 @@ let btnFunc_w = function(){
 	$('#btnViewR_w').click(function(){
 		$('a').colorbox({
 			 inline:true,
-		     width:550
-		 });
+		    width:550
+		});
 	});
-   
 	
 
 	var deadLine = new Date(),

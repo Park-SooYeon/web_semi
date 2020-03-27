@@ -145,7 +145,7 @@ public class KDGServlet extends HttpServlet {
 		rd.forward(req, resp);
 	}
 	public void roomView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		System.out.println("꺼져");
+	
 		int rCode=0;
 		String checkIn="";
 		String checkOut="";
@@ -158,12 +158,16 @@ public class KDGServlet extends HttpServlet {
 		if(req.getParameter("checkOut")!=null) {
 			checkOut = req.getParameter("checkOut");
 		}
+		RoomsDao2 dao2 = new RoomsDao2();
 		
+		RoomsVo vo = dao2.view(rCode);
+		
+		req.setAttribute("vo", vo);
 		req.setAttribute("rCode", rCode);
 		req.setAttribute("checkIn", checkIn);
 		req.setAttribute("checkOut", checkOut);
 		
-		String path =url + "/rooms_view.jsp";
+		String path = url + "/rooms_view.jsp";
 		RequestDispatcher rd = req.getRequestDispatcher(path);
 		rd.forward(req, resp);
 	}
@@ -174,7 +178,7 @@ public class KDGServlet extends HttpServlet {
 		int nowPage_f = 1;
 		String target ="";
 		if(req.getParameter("target")!=null) {
-			target = req.getParameter("target"));
+			target = req.getParameter("target");
 		}
 		if(req.getParameter("nowPage_f")!=null) {
 			nowPage_f = Integer.parseInt(req.getParameter("nowPage_f"));

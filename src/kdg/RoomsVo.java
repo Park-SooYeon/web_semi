@@ -1,13 +1,18 @@
 package kdg;
 
 import java.util.Date;
+import java.util.List;
+
 
 public class RoomsVo {
 	int rCode;//숙소코드
 	String rName;//숙소이름
 	String rPlace;//구이름
-	String gInfo;//숙소타입
+	String gInfo;//소개
+	String aType;//숙소타입
 	String OriFile;//사진 이름
+	String SysFile;//사진 가져오기
+	
 	int stars;//별점
 	Date checkin;//체크인시간
 	Date checkout;//체크아웃시간
@@ -32,7 +37,16 @@ public class RoomsVo {
 	int dryer;//건조기
 	int talsu;//탈수기
 	
+	List<RoomsPhoto> photos;
 	
+	public List<RoomsPhoto> getPhotos() {
+		return photos;
+	}
+
+	public void setPhotos(List<RoomsPhoto> photos) {
+		this.photos = photos;
+	}
+
 	public RoomsVo() {}
 
 	public int getrCode() {
@@ -66,6 +80,13 @@ public class RoomsVo {
 	public void setgInfo(String gInfo) {
 		this.gInfo = gInfo;
 	}
+	public String getaType() {
+		return aType;
+	}
+	
+	public void setaType(String aType) {
+		this.aType = aType;
+	}
 
 	public String getOriFile() {
 		return OriFile;
@@ -73,6 +94,14 @@ public class RoomsVo {
 
 	public void setOriFile(String oriFile) {
 		OriFile = oriFile;
+	}
+    
+	public String getSysFile() {
+		return SysFile;
+	}
+
+	public void setSysFile(String sysFile) {
+		SysFile = sysFile;
 	}
 
 	public int getStars() {
