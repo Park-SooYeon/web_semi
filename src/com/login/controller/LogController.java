@@ -1,22 +1,16 @@
 package com.login.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.jasper.tagplugins.jstl.core.Redirect;
-
-import com.login.command.LogCommand;
 import com.login.command.Login;
 import com.login.command.MsendEmail;
-import com.user.mypage.command.MpCommand;
-import com.user.mypage.command.MpView;
-import com.user.mypage.command.ReserveList;
 
 @WebServlet("*.lg")
 public class LogController extends HttpServlet{
@@ -34,23 +28,32 @@ public class LogController extends HttpServlet{
 	private void all(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
 		String path = null;
-		LogCommand command = null;
 		
 		String url = req.getRequestURI();
 		int pos = url.lastIndexOf("/");
 		String tempUrl = url.substring(pos);
-		
 		if(tempUrl.equals("/login.lg")) {
-			command = new Login();
-			command.logInter(req, resp);
-			path = "../index.jsp";
-		}else if(tempUrl.equals("/email.lg")) {
-			command = new MsendEmail();
-			command.logInter(req, resp);
 			
+			Login log = new Login();
+			boolean flag = log.login(req, resp);
+			
+			if(flag) {
+				path = "../index.jsp";				
+			}else {
+				path = "./login.jsp";
+			}
+			
+		}else if(tempUrl.equals("/email.lg")) {
+			String toEmail = req.getParameter("email");
+			System.out.println(toEmail);
+			MsendEmail mse = new MsendEmail();
+			String num = mse.send(toEmail);
+			PrintWriter out = resp.getWriter();
+			out.print(num);
+			out.flush();
+			return;
 		}
 		resp.sendRedirect(path);
-
 	}
 	
 }

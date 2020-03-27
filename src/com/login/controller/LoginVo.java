@@ -10,6 +10,7 @@ public class LoginVo {
 	String pwd;
 	String phone;
 	String nName;
+	boolean flag = false;
 	
 	public LoginVo() {}
 	public LoginVo(String email, Date birth, String pwd, String phone, String nName) {
@@ -60,6 +61,12 @@ public class LoginVo {
 	}
 	public void setnName(String nName) {
 		this.nName = nName;
+	}
+	public boolean isFlag() {
+		return flag;
+	}
+	public void setFlag(boolean flag) {
+		this.flag = flag;
 	}
 	
 }

@@ -6,10 +6,9 @@
 <meta charset="UTF-8">
 <title>로그인  | 어때</title>
 <link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'>
-<link rel='stylesheet' type='text/css' href='../login/login.css'>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<link rel='stylesheet' type='text/css' href='../css/login.css'>
 <script src='../js/jquery-3.4.1.js'></script>
-<script src='./login.js'></script>
+<script src='../js/login.js'></script>
 </head>
 <body>
 

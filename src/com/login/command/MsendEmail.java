@@ -14,20 +14,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.catalina.startup.PasswdUserDatabase;
 
-public class MsendEmail implements LogCommand{
-
-	@Override
-	public void logInter(HttpServletRequest req, HttpServletResponse resp) {
+public class MsendEmail{
+	
+	public String send(String toE) {
 		String email = "websemi@naver.com"; //발신자 이메일
 		String pwd = "jhta1907^^"; //발신자 비밀번호
 		String host = "smtp.naver.com"; //네이버SMTP (구글 : smtp.gmail.com)
-		String toEmail = req.getParameter("email_c"); //수신자 이메일
+		String toEmail = toE; //수신자 이메일
 		int port = 465; //서버와 통신하는 포트 (구글 : 465)
 		
 		//랜덤 인증번호 생성
 		StringBuffer temp = new StringBuffer();
         Random rnd = new Random();
-        for(int i=0;i<6;i++){
+        for(int i=0;i<10;i++){
             int rIndex = rnd.nextInt(3);
             switch (rIndex) {
             case 0:
@@ -68,10 +67,11 @@ public class MsendEmail implements LogCommand{
         	msg.setText("인증번호 : " + num, "utf-8"); //메일 내용
         	//msg.setHeader("content-Type", "text/html"); 이메일 헤더
         	Transport.send(msg);
-        	req.setAttribute("num", num);
+        	
         	
         }catch(Exception e) {
         	e.printStackTrace();
         }
+        return num;
 	}
 }

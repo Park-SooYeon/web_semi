@@ -10,15 +10,34 @@ function btnFunc(){
 		});
 	}
 	
-	if('#btnNext_c' != null){
-		$('#btnNext_c').click(function(){
+	if('#btnNextE_c' != null){
+		$('#btnNextE_c').click(function(){
 			location.href="./email.jsp";
 		});
 	}
-	
+	 /* 이메일 인증 */
 	if('#btnSend_c' != null){
 		$('#btnSend_c').click(function(){
-			$('#frm_c').attr('action', 'email.lg').submit();
+			$('#numView').css('display','block');
+			var email = $('#email_c').val();
+			$.post("email.lg", {'email':email}, 
+					function(data, status){
+						$('#btnSendNum_c').click(function(){
+							console.log(2);
+							var num = $('#num_c').val();
+							if(data == num){
+								$('#btnNextM_c').removeAttr('disabled');
+							}else{
+								alert("인증번호가 일치하지 않습니다.");
+							}
+						});
+					});
+		});
+	}
+	
+	if('#btnNextM_c' != null){
+		$('#btnNextM_c').click(function(){
+			$('#frm_c').attr('action','membership.jsp').submit();
 		});
 	}
 };
@@ -26,7 +45,7 @@ function btnFunc(){
 /* 약관동의 */
 function agree(){
 	$('[name=agreeAll]').click(function(){
-		$('[name=agreeOne]').prop('checked', $(box).prop('checked') );
+		$('[name=agreeOne]').prop('checked', $(this).prop('checked') );
 	});
 	$('[name=agreeOne]').each(function(){
 		$(this).click(function(){
@@ -40,20 +59,16 @@ function agree(){
 			
 				if( checkBoxLength == checkedLength ) {
 					allBox.prop('checked', true);
-					$('#btn_next_c').removeAttr('disabled');
-					
+					$('#btnNext_c').removeAttr('disabled');
 				}else {
 					allBox.prop('checked', false);
-					$('#btn_next_c').attr("disabled", true);
+					$('#btnNext_c').attr('disabled', true);
 				}
 			}else{
 				allBox.prop('checked', false);
-				$('#btn_next_c').attr("disabled", true);
+				$('#btnNext_c').attr('disabled', true);
 			}
 		});
 	});
-
-	
-	
 };
 
