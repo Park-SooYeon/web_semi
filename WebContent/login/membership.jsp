@@ -23,22 +23,26 @@
 			</div>
 			<div class='mform_c'>
 				<label class='label_c'>이메일 아이디</label><br/>
-				<input type='text' value='<%=request.getParameter("email_c") %>' readonly>
+				<input type='text'  id='email_c' name='email_C' value='<%=request.getParameter("email_c") %>' readonly>
 				<br/>
 				<label class='label_c'>생년월일</label><br/>
-				<input type='date'>
+				<input type='date' id="birth_c" name='birth_c' />
 				<br/>
 				<label class='label_c'>비밀번호</label><br/>
-				<input type='text' placeholder=" 비밀번호를 입력해주세요." maxlength="10">
+				<input type='text' id='pwd_c' name='pwd_c' placeholder=" 비밀번호를 입력해주세요." />
+				<div id='pwdM_c'></div>
 				<br/>
 				<label class='label_c'>비밀번호 확인</label><br/>
-				<input type='text' placeholder=" 비밀번호를 입력해주세요." maxlength="10">
+				<input type='text' id='pwd_check_c' name='pwd_check_c' placeholder=" 비밀번호를 입력해주세요." />
+				<div id='pwdM_check_c'></div>
 				<br/>
 				<label class='label_c'>핸드폰번호</label><br/>
-				<input type='text' placeholder=" - 빼고 입력해주세요. " maxlength="11">
+				<input type='text' id='phone_c' name='phone_c' placeholder=" - 빼고 입력해주세요. " maxlength="11">
+				<div id='phoneM_c'></div>
 				<br/>
 				<label class='label_c'>닉네임</label><br/>
-				<input type='text' maxlength="10">
+				<input type='text' id='nName' name='nName' maxlength="10">
+				<div id='nNameM_c'></div>
 				<br/>
 			</div>
 			<div class='mNotice_c' align='center'>
@@ -46,11 +50,12 @@
 				<a href='#'>이용약관, </a><a href='#'>개인정보처리방침</a>에 동의하게 됩니다.
 			</div>
 			<div align='center'>
-				<button type="button" id='btn_next_c' class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>동의하고 회원가입</button>
+				<button type="button" id='btn_Member_c' class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>동의하고 회원가입</button>
 			</div>
 		</div>
 	</div>
 </div>
+<script>check();</script>
 <script src='../js/bootstrap.bundle.min.js'></script>
 </body>
 </html>
