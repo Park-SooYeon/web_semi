@@ -39,7 +39,7 @@
 			<input type="hidden" name="rvCnt" id="rvCnt_s" value="${rvCnt}"/>
 			<input type="hidden" name="rNo" id="rNo" value="${list.rNo}"/>
 		</div>
-		<p/>
+		<input type="hidden" name="rNo" id="rNo" value="${list.rNo}"/>
 		<button type="button" id="btnRv_Mo_s" class="btn btn-primary btn-lg">리뷰수정</button>
 	  </td>
     </tr>

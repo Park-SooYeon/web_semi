@@ -34,13 +34,19 @@ let user = function(){
 	 
 	 if($('#btnRv_Mo_s')!=null){
 		$('#btnRv_Mo_s').click(function(){
-			$('#frm_rvSe_s').attr('action', 'reviewModify.rv').submit();
+			$('#frm_rvSe_s').attr('action', 'reviewModifyform.rv').submit();
 		})
 	 }
 	 
 	 if($('#btnSe_s')!=null){
 		$('#btnSe_s').click(function(){
 			$('#frm_rvv_s').attr('action', 'reviewSelect.rv').submit();
+		})
+	 }
+	 
+	 if($('#btnModify_s')!=null){
+		$('#btnModift_s').click(function(){
+			$('#frm_rm_s').attr('action', 'reviewModify.rv').submit();
 		})
 	 }
 	 
@@ -68,8 +74,13 @@ let user = function(){
 }
 
 let myPage = function(eMail){
-	 $('#eMail').val(eMail);
-	 $('#frm').attr('action', 'mpview.mp').submit();
+	console.log(eMail);
+	if(eMail == "") {
+		location.href = "./login/login.jsp";
+	} else {
+		$('#eMail').val(eMail);
+		$('#frm').attr('action', 'mpview.mp').submit();		
+	}
 }
 
 let reserveList = function(eMail){

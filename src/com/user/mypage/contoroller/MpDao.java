@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
+import bean.DBConn;
+
 import java.sql.PreparedStatement;
 
 public class MpDao {
@@ -48,7 +51,7 @@ public class MpDao {
 		
 		try {
 			pstmt=conn.prepareStatement(query);
-			pstmt.setString(1, "ddddd");
+			pstmt.setString(1, eMail);
 			set=pstmt.executeQuery();
 			
 			while(set.next()){

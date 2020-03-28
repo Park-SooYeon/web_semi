@@ -4,7 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.user.mypage.contoroller.DBConn;
+import bean.DBConn;
+
 
 public class LoginDao {
 	Connection conn;
