@@ -108,7 +108,7 @@
 					</form>
 					<ul class="navbar-nav" id="top_list_k">
 						<li class="nav-item">
-							 <a class="nav-link" onclick="myPage('ddddd')">예약 내역</a>
+							 <a class="nav-link" onclick="myPage('${sessionScope.email}')">예약 내역</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">더보기</a>
@@ -173,8 +173,8 @@
 			})
 		}
 		$('#logout_c').click(function(){
-			<% session.removeAttribute("email"); %>
-			location.href = './index.jsp';
+			<%-- <% session.removeAttribute("email"); %> --%>
+			location.href = './login/logout.jsp';
 		});
 	</script>
 </body>

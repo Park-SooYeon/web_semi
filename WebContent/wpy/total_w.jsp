@@ -21,7 +21,7 @@
 	<input type="text" name="checkIn_w" id="checkIn_w" value="${checkIn }"><br/>
 	<label id='check2_w'>체크아웃</label><br/>
 	<input type="text" name="checkOut_w" id="checkOut_w" value="${checkOut }"><br/>				
-    <input type="hidden" id="rCode" name="rCode" value="1">
+    <input type="hidden" id="rCode" name="rCode" value="2">
     <input type="hidden" id="roomCode" name="roomCode" value="1">
 </form>
 <hr/>
@@ -44,7 +44,7 @@
      </button>
    
      </div>
-     <button type='button' class='	btn btn-danger' id='btnR_w' onclick="roomView_k(1,1)">예약</button>
+     <button type='button' class='	btn btn-danger' id='btnR_w' onclick="roomView_k(2,2, '${sessionScope.email}')">예약</button>
      </div>
    </div>
  <BR/>

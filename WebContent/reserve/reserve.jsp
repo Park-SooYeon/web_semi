@@ -43,11 +43,15 @@
       			</select>
 			</section>
 			<!-- ${param.rCode } ${param.roomCode } -->
-			<input type='hidden' name='rCode' id='rCode' value='1'/>
-			<input type='hidden' name='roomCode' id='roomCode' value='1'/>
-			<input type='hidden' name='checkIn' id='checkIn' value='2020-01-10 18:00'/>
-			<input type='hidden' name='checkOut' id='checkOut' value='2020-01-11 12:00'/>
-			<input type='hidden' name='period' id='period' value='1'/>
+			<input type='hidden' name='rCode' id='rCode' value='${vo.rCode }'/>
+			<input type='hidden' name='roomCode' id='roomCode' value='${vo.roomCode }'/>
+			<input type='hidden' name='checkIn' id='checkIn' value='${vo.checkIn }'/>
+			<input type='hidden' name='checkOut' id='checkOut' value='${vo.checkOut }'/>
+			<input type='hidden' name='period' id='period' value='${vo.period }'/>
+			<input type='hidden' name='email' id='email' value='${sessionScope.email }'/>
+			<input type='hidden' name='rName' id='rName' value='${vo.rName }'/>
+			<input type='hidden' name='roomName' id='roomName' value='${vo.roomName }'/>
+			<input type='hidden' name='price' id='price' value='${vo.price }'/>
 			</form>
 			<section class="pt-3 ml-4">
 				<div class="custom-control custom-checkbox p-1">
@@ -105,10 +109,6 @@
 		</div>
 	</div>
 </div>
-
-<script>
-roomViewAjax();
-</script>
 
 <script>
 removeChar(); // '-' 입력 불가능

@@ -74,8 +74,13 @@ let user = function(){
 }
 
 let myPage = function(eMail){
-	 $('#eMail').val(eMail);
-	 $('#frm').attr('action', 'mpview.mp').submit();
+	console.log(eMail);
+	if(eMail == "") {
+		location.href = "./login/login.jsp";
+	} else {
+		$('#eMail').val(eMail);
+		$('#frm').attr('action', 'mpview.mp').submit();		
+	}
 }
 
 let reserveList = function(eMail){

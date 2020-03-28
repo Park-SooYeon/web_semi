@@ -33,7 +33,7 @@
 	</section>
 	<input type='hidden' name='rNo' id='rNo' value='${vo.rNo }'/>
 	<input type='hidden' name='rCode' id='rCode' value='${vo.rCode }'/>
-	<button type="button" class="btn btn-danger btn-lg mt-3" id="btnDelete_k">예약 취소</button>
+	<button type="button" class="btn btn-danger btn-lg mt-3" id="btnDelete_k" onclick="deleteAjax_k('${sessionScope.email}')">예약 취소</button>
 </div>
 
 <script>

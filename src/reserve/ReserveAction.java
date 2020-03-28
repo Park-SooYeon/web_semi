@@ -23,6 +23,9 @@ public class ReserveAction {
 		String rCode = req.getParameter("rCode"); // 숙소 코드
 		String roomCode = req.getParameter("roomCode"); // 객실 코드
 		String email = req.getParameter("email"); // 로그인 아이디
+		String rName = req.getParameter("rName");
+		String roomName = req.getParameter("roomName");
+		String price = req.getParameter("price");
 		
 		String rsName = req.getParameter("reserve_name_k"); // 예약자 이름
 		String rPhone = req.getParameter("reserve_Phone_k"); // 예약자 번호
@@ -33,23 +36,28 @@ public class ReserveAction {
 		// 체크아웃 날짜 - 체크인 날짜
 		String period = req.getParameter("period");
 		// 결제 가격
-		int price = 1;
+		//int price = 1;
 		
 		System.out.println("rCode : " + rCode);
 		System.out.println("roomCode : " + roomCode);
 		System.out.println("email : " + email);
+		System.out.println("rName : " + rName);
+		System.out.println("roomName : " + roomName);
 		System.out.println("rsName : " + rsName);
 		System.out.println("rPhone : " + rPhone);
 		System.out.println("payment : " + payment);
 		System.out.println("checkIn : " + checkIn);
 		System.out.println("checkOut : " + checkOut);
 		System.out.println("period : " + period);
+		System.out.println("price : " + price);
 		
 		// 파타미터 값 vo에 저장
 		ReserveVo vo = new ReserveVo();
 		vo.setrCode(rCode);
 		vo.setRoomCode(roomCode);
 		vo.setEmail(email);
+		vo.setrName(rName);
+		vo.setRoomName(roomName);
 		vo.setRsName(rsName);
 		vo.setrPhone(rPhone);
 		vo.setPayment(payment);
@@ -59,7 +67,7 @@ public class ReserveAction {
 		vo.setPrice(price);
 		
 		// 데이터베이스에 insert
-		//flag = dao.insert(vo);
+		flag = dao.insert(vo);
 		if(flag) { // insert 성공!
 			msg = "정상 예약되었습니다.";
 		} else { // insert 실패!
@@ -74,18 +82,17 @@ public class ReserveAction {
 		// reserve_modify.jsp에서 파라미터값 받아오기
 		// 예약번호, 숙소번호, 객실번호, 로그인 아이디 가져오면 됨!!
 		String rNo = req.getParameter("rNo");
-		String rCode = req.getParameter("rCode"); // 숙소 코드
-		/*String roomCode = req.getParameter("roomCode"); // 객실 코드
+//		String rCode = req.getParameter("rCode"); // 숙소 코드
+//		String roomCode = req.getParameter("roomCode"); // 객실 코드
 		String email = req.getParameter("email"); // 로그인 아이디
-*/		
-		System.out.println("rNo : " + rNo);
-		System.out.println("rCode : " + rCode);
-/*		System.out.println("roomCode : " + roomCode);
-		System.out.println("email : " + email);*/
 		
-		System.out.println("진짜 삭제??");
+		System.out.println("rNo : " + rNo);
+//		System.out.println("rCode : " + rCode);
+//		System.out.println("roomCode : " + roomCode);
+		System.out.println("email : " + email);
+		
 		// 데이터베이스에서 delete
-		//flag = dao.delete();
+		flag = dao.delete(rNo, email);
 		if(flag) { // insert 성공!
 			msg = "정상 삭제되었습니다.";
 		} else { // insert 실패!

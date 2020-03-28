@@ -7,7 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.user.mypage.contoroller.DBConn;
+import bean.DBConn;
+
 
 public class RvDao {
 	Connection conn;
