@@ -162,8 +162,8 @@ public class KDGServlet extends HttpServlet {
 		}
 		RoomsDao2 dao2 = new RoomsDao2();
 		
-		RoomsVo vo = dao2.view(rCode);
-		
+		List<RoomsVo> vo = dao2.view(rCode);
+
 		req.setAttribute("vo", vo);
 		req.setAttribute("rCode", rCode);
 		req.setAttribute("checkIn", checkIn);

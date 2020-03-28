@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-<%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +26,8 @@
 			  <div id='view_top_right1'>
 			   <span class="badge badge-pill badge-info">레지던스</span>
 			   <h4>메리어트 이즈제큐티브 아파트먼트</h4>
-			   <span class="badge badge-pill badge-warning">8.0</span> <span class='text-warning'>만족해요</span>
+			   <span class="badge badge-pill badge-warning">8.0</span>
+			   <span class='text-warning'>만족해요</span>
 			   <br>
 			    <h5>서울 강남구 삼성동112-5</h5>
 			   </div>
@@ -41,25 +41,34 @@
              </div>
 			</div>
 				<div id='view_top_left_f'>
-				  <%--  <c:forEach var = 'item' items  = '${vo }'>
+				<c:forEach var="list" items="${vo }" begin='0' end='0' >
 					<div id='view_top_left_main_f'>
-						<img src='./upload/${item.sysFile }.jpg'/>
+						<img src='./upload/${list.sysFile }.jpg'/>
 					</div>
+					</c:forEach>
 					<div id='view_top_left_sub_f'>
+					<c:forEach var="list" items="${vo }" begin='0' end='0' >
 						<div id='view_top_left_sub1_f'>
-							<img src='./upload/${item.sysFile }.jpg'/>
+							<img src='./upload/${list.pori }.jpg'/>
 						</div>
+						</c:forEach>
+						<c:forEach var="list" items="${vo}" begin='1' end='1' >
 						<div id='view_top_left_sub2_f'>
-							<img src='./upload/${item.sysFile }.jpg'/>
+								<img src='./upload/${list.pori }.jpg'/>
 						</div>
+						</c:forEach>
+						<c:forEach var="list" items="${vo}" begin='2' end='2' >
 						<div id='view_top_left_sub3_f'>
-							<img src='./upload/${item.sysFile }.jpg'/>
+								<img src='./upload/${list.pori }.jpg'/>
 						</div>
+						</c:forEach>
+						<c:forEach var="list" items="${vo}" begin='3' end='3' >
 						<div id='view_top_left_sub4_f'>
-							<img src='./upload/${item.sysFile }.jpg'/>
+								<img src='./upload/${list.pori }.jpg'/>
 						</div>
+						</c:forEach>
 					</div>
-					</c:forEach> --%>
+				
 				</div>
 		</div>
 	
@@ -82,6 +91,9 @@
 	   </div>
 <script>
  btnFunc_w();
+ 
+
+ 
  </script>
 </body>
 </html>

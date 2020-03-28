@@ -32,7 +32,7 @@
   </div>
    <div id = 'room_right_w'>
      <div id='room_head_w'>
-     <strong >${vo.rName }</strong>
+     <strong >슈페리얼 트윈(금연룸)</strong>
      </div>
      <div id='price_w'>
      <span>가격</span> 
