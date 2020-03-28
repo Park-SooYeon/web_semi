@@ -27,7 +27,7 @@
 			<input type="hidden" name='target' value="/grooms.jsp"/>
 			<input type='hidden' name='nowPage_f' id='nowPage_f' value='${empty param.nowPage_f?1:param.nowPage_f }'/>
 			<input type='hidden' name='aType' id='aType' value='4'/>
-			<input type="hidden" name='place_f' id='place_f' value='구전체게하'/>
+			<input type="hidden" name='place_f' id='place_f' value="${empty param.place_f?'구전체게하,.,.,.':param.place_f }"/>
 			<input type="hidden" name='sort_f' id='sort_f' value='asc'/>
 		<div id ='top_f'><!-- 위에 -->
 			<div id='top_in_f'>
