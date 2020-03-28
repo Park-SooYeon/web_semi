@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import bean.DBConn;
+
 public class RoomsDao {
 	Connection conn;
 	public RoomsDao() {

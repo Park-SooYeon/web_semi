@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>u_subtitle</title>
-<script src="./js/jquery3.4.1.js"></script>
-<script src="./js/user_s.js"></script>
+<!-- <script src="./js/jquery3.4.1.js"></script> -->
+<!-- <script src="./js/user_s.js"></script> -->
 </head>
 <body>
 <%
@@ -31,7 +31,7 @@
 					<a class="nav-link active" href="#" onclick="myPage('ddddd')">내 정보 관리</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#" onclick="reserveList('ddddd')">예약 현황</a>
+					<a class="nav-link" href="#" onclick="reserveList('${sessionScope.email}')">예약 현황</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#" onclick="lastPlace('ddddd')">이용현황</a>

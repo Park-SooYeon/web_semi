@@ -9,7 +9,7 @@ var href_k = ""; // 팝업창으로 띄울 페이지의 url경로
 //-------------------------------------------------------------------
 //결제 API에 쓰이는 함수 및 변수들
 //-------------------------------------------------------------------
-/*var IMP = window.IMP;
+var IMP = window.IMP;
 IMP.init('imp07869343');
 
 let rName = '방이름'; // 방이름
@@ -54,7 +54,7 @@ let pay_iamport = function() {
 	    }
 	    alert(msg_k);
 	});
-}*/
+}
 
 //-------------------------------------------------------------------
 // reserve.jsp에 사용되는 변수 및 함수, 기능들
@@ -123,17 +123,21 @@ let reserveR_k = function(link) {
 //-------------------------------------------------------------------
 
 // total_w.jsp의 예약 버튼 클릭시 페이지 이동
-let roomView_k = function(rCode, roomCode) {
-	console.log("rCode : ", rCode);
-	console.log("roomCode : ", roomCode);
-	console.log("checkIn : ", $('#checkIn_w').val());
-	console.log("checkOut : ", $('#checkOut_w').val());
-	frm_room_k.rCode.value = rCode;
-	frm_room_k.roomCode.value = roomCode;
-	$('#checkIn_w').val($('#checkIn_w').val());
-	$('#checkOut_w').val($('#checkOut_w').val());
-	frm_room_k.method = 'get';
-	$('#frm_room_k').attr('action', 'rsRoom.rs').submit();
+let roomView_k = function(rCode, roomCode, email) {
+	if(email == "") {
+		location.href = "./login/login.jsp";
+	} else {
+		console.log("rCode : ", rCode);
+		console.log("roomCode : ", roomCode);
+		console.log("checkIn : ", $('#checkIn_w').val());
+		console.log("checkOut : ", $('#checkOut_w').val());
+		frm_room_k.rCode.value = rCode;
+		frm_room_k.roomCode.value = roomCode;
+		$('#checkIn_w').val($('#checkIn_w').val());
+		$('#checkOut_w').val($('#checkOut_w').val());
+		frm_room_k.method = 'get';
+		$('#frm_room_k').attr('action', 'rsRoom.rs').submit();
+	}
 }
 
 // reserveList.jsp의 예약 취소 버튼 클릭시 페이지 이동
@@ -155,8 +159,8 @@ let rsView_k = function(rNo, rCode) {
 
 // 예약할 때, 사용할 ajax
 let insertAjax_k = function() {
-	let param = $('#rsForm_k').serialize();
-	console.log($('#price_k').text());
+	let param = $('#rsForm_k').serializeArray();
+	console.log(param);
 	$.ajax({
 		url : "rsInsert.rs",
 		method : "post",
@@ -179,21 +183,20 @@ let insertAjax_k = function() {
 }
 
 // 예약 취소할 때, 사용할 ajax
-let deleteAjax_k = function() {
+let deleteAjax_k = function(email) {
 	let rNo = $('#rNo').val();
-	let rCode = $('#rCode').val();
+	//let rCode = $('#rCode').val();
 	$.ajax({
 		url : "rsDelete.rs",
 		method : "post",
 		data : {
 			"rNo" : rNo,
-			"rCode" : rCode
+			"email" : email
 		},
 		dataType : "text", // 서버에서 받을 데이터 형식(msg(String형)만 반환해주므로 text타입으로 데이터를 받아옴)
 		timeout: 3000, // ajax 대기시간 3초로 설정
 		success : function(data) {
 			alert("예약 취소 성공!");
-			console.log("data : ", data);
 			msg_k = data;
 		},
 		error : function(e) {
@@ -300,7 +303,10 @@ let btnFunc_k = function() {
 		$('#btnPay_k').click(function() {
 			let flag = payment_ck_k();
 			if(flag) { // 이름, 번호, 전체 동의 상태에서만 결제 가능
-				reserveR_k("reserve/reserve_ck.jsp");
+				let param = $('#rsForm_k').serialize();
+				let link = "reserve/reserve_ck.jsp?" + param;
+			
+				reserveR_k(link);
 			}
 		});
 	}
@@ -331,11 +337,11 @@ let btnFunc_k = function() {
 //--------------------------------------------------------------------------------------------------
 
 	// reserve_modify.jsp의 예약 취소 버튼
-	if($('#btnDelete_k') != null) {
+/*	if($('#btnDelete_k') != null) {
 		$('#btnDelete_k').click(function() {
 			deleteAjax_k();
-/*			msg_k = "정상 취소되었습니다.";
-			reserveR_k("reserve/reserve_ok.jsp");*/
+			msg_k = "정상 취소되었습니다.";
+			reserveR_k("reserve/reserve_ok.jsp");
 		});
-	}
+	}*/
 }
