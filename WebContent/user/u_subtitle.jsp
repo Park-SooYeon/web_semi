@@ -28,13 +28,13 @@
 		<div class="col-3 u_list" >
 			<ul class="nav flex-column" >
 				<li class="nav-item">
-					<a class="nav-link active" href="#" onclick="myPage('ddddd')">내 정보 관리</a>
+					<a class="nav-link active" href="#" onclick="myPage('${sessionScope.email}')">내 정보 관리</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#" onclick="reserveList('${sessionScope.email}')">예약 현황</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#" onclick="lastPlace('ddddd')">이용현황</a>
+					<a class="nav-link" href="#" onclick="lastPlace('${sessionScope.email}')">이용현황</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">포인트</a>

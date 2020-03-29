@@ -42,7 +42,6 @@
         			<option value='2'>페이</option>
       			</select>
 			</section>
-			<!-- ${param.rCode } ${param.roomCode } -->
 			<input type='hidden' name='rCode' id='rCode' value='${vo.rCode }'/>
 			<input type='hidden' name='roomCode' id='roomCode' value='${vo.roomCode }'/>
 			<input type='hidden' name='checkIn' id='checkIn' value='${vo.checkIn }'/>

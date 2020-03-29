@@ -9,50 +9,31 @@ var href_k = ""; // 팝업창으로 띄울 페이지의 url경로
 //-------------------------------------------------------------------
 //결제 API에 쓰이는 함수 및 변수들
 //-------------------------------------------------------------------
-var IMP = window.IMP;
-IMP.init('imp07869343');
+let pay_iamport = function(email) {
+	var IMP = window.IMP;
+	IMP.init('imp07869343');
 
-let rName = '방이름'; // 방이름
-let price = 1000; // 가격
-let email = '로그인 아이디'; // 이메일 아이디
-let uName = $('reserve_name_k').val(); // 예약자 이름
-let uPhone = $('reserve_Phone_k').val();// 예약자 번호
-
-let pay_iamport = function() {
+	let rName = rsForm_k.roomName.value; // 방이름
+	let price = rsForm_k.price.value; // 가격
+	let uName = rsForm_k.reserve_name_k.value; // 예약자 이름
+	let uPhone = rsForm_k.reserve_Phone_k.value; // 예약자 번호
+	
 	IMP.request_pay({
 	    pg : 'nice', // version 1.1.0부터 지원. danal or inicis or nice
 	    pay_method : 'card',
 	    merchant_uid : 'merchant_' + new Date().getTime(),
 	    name : rName,
-	    amount : price,
+	    amount : 1000,//price,
 	    buyer_email : email,
 	    buyer_name : uName,
 	    buyer_tel : uPhone
 	}, function(rsp) {
 	    if ( rsp.success ) {
-	    	//[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
-//	    	jQuery.ajax({
-//	    		url: "/payments/complete", //cross-domain error가 발생하지 않도록 동일한 도메인으로 전송
-//	    		type: 'POST',
-//	    		dataType: 'json',
-//	    		data: {
-//		    		imp_uid : rsp.imp_uid
-//		    		//기타 필요한 데이터가 있으면 추가 전달
-//	    		}
-//	    	}).done(function(data) {
-//	    		//[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
-//	    		if ( everythings_fine ) {
-//	    			msg_k = '결제가 완료되었습니다.';
-//	    		} else {
-//	    			msg_k = '???';
-//	    			//[3] 아직 제대로 결제가 되지 않았습니다.
-//	    			//[4] 결제된 금액이 요청한 금액과 달라 결제를 자동취소처리하였습니다.
-//	    		}
-//	    	});
+	    	insertAjax_k();
 	    } else {
 	    	msg_k = rsp.error_msg;
+	    	reserveR_k("reserve/reserve_ok.jsp");
 	    }
-	    alert(msg_k);
 	});
 }
 
@@ -168,12 +149,9 @@ let insertAjax_k = function() {
 		dataType : "text", // 서버에서 받을 데이터 형식(msg(String형)만 반환해주므로 text타입으로 데이터를 받아옴)
 		timeout: 3000, // ajax 대기시간 3초로 설정
 		success : function(data) {
-			alert("예약 성공!");
-			console.log("data : ", data);
 			msg_k = data;
 		},
 		error : function(e) {
-			alert("에러!!");
 			msg_k = "에러가 발생했습니다.";
 		},
 		complete : function() {
@@ -182,7 +160,7 @@ let insertAjax_k = function() {
 	});
 }
 
-// 예약 취소할 때, 사용할 ajax
+/*// 예약 취소할 때, 사용할 ajax
 let deleteAjax_k = function(email) {
 	let rNo = $('#rNo').val();
 	//let rCode = $('#rCode').val();
@@ -207,7 +185,7 @@ let deleteAjax_k = function(email) {
 			reserveR_k("reserve/reserve_ok.jsp");
 		}
 	});
-}
+}*/
 
 /*// 예약 상세 조회할 때 사용할 Ajax
 let rsViewAjax = function() {
@@ -321,7 +299,7 @@ let btnFunc_k = function() {
 	// reserve_ck.jsp의 동의 후 결제 버튼
 	if($('#btnPayOk_k') != null) {
 		$('#btnPayOk_k').click(function() {
-//			pay_iamport();
+			//pay_iamport();
 			insertAjax_k();
 		});
 	}
@@ -331,7 +309,12 @@ let btnFunc_k = function() {
 	if($('#btnOk_k') != null) {
 		$('#okMsg_k').text(msg_k);
 		$('#btnOk_k').click(function() {
-			$.colorbox.close();
+			if(msg_k = "정상 예약되었습니다.") { // 정상 예약시 페이지 이동
+				document.rsForm_k.action = "roomView.ff";
+				document.rsForm_k.submit();
+			} else {
+				$.colorbox.close();
+			}
 		});
 	}
 //--------------------------------------------------------------------------------------------------
@@ -345,3 +328,22 @@ let btnFunc_k = function() {
 		});
 	}*/
 }
+
+let payClick_k = function(email) {
+	//pay_iamport(email);
+	insertAjax_k();
+}
+
+/*let Okclick_k = function(email) {
+	if($('#btnOk_k') != null) {
+		$('#okMsg_k').text(msg_k);
+		$('#btnOk_k').click(function() {
+			if(msg_k = "정상 예약되었습니다.") { // 정상 예약시 페이지 이동
+				document.rsForm_k.action = "roomView.ff";
+				document.rsForm_k.submit();
+			} else {
+				$.colorbox.close();
+			}
+		});
+	}
+}*/

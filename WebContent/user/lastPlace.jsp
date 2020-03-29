@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>지난 방문지</title>
-<script src="./js/jquery3.4.1.js"></script>
-<script src="./js/user_s.js"></script>
+<!-- <script src="./js/jquery3.4.1.js"></script> -->
+<!-- <script src="./js/user_s.js"></script> -->
 </head>
 <body>
 <h3>지난방문지</h3>

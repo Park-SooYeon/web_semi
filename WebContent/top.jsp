@@ -108,7 +108,7 @@
 					</form>
 					<ul class="navbar-nav" id="top_list_k">
 						<li class="nav-item">
-							 <a class="nav-link" onclick="myPage('${sessionScope.email}')">예약 내역</a>
+							 <a class="nav-link" onclick="reserveList('${sessionScope.email}')">예약 내역</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">더보기</a>
@@ -136,9 +136,9 @@
 							   		<div class="dropdown-menu">
 											<div class="dropdown-header" id='nName_c'><%=nName %></div>
 							      			<div class="dropdown-divider"></div>
-							     			<a class="dropdown-item" href="#">내정보</a>
-							     			<a class="dropdown-item" href="#">예약내역</a>
-							     			<a class="dropdown-item" href="#">지난 방문지</a>
+							     			<a class="dropdown-item" href="#" onclick="myPage('${sessionScope.email}')">내정보</a>
+							     			<a class="dropdown-item" href="#" onclick="reserveList('${sessionScope.email}')">예약내역</a>
+							     			<a class="dropdown-item" href="#" onclick="lastPlace('${sessionScope.email}')">지난 방문지</a>
 							     			<a class="dropdown-item" id='logout_c'>로그아웃</a>
 							   			</div>
 							  		</div>

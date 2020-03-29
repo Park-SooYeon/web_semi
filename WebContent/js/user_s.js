@@ -74,18 +74,17 @@ let user = function(){
 }
 
 let myPage = function(eMail){
-	console.log(eMail);
-	if(eMail == "") {
-		location.href = "./login/login.jsp";
-	} else {
-		$('#eMail').val(eMail);
-		$('#frm').attr('action', 'mpview.mp').submit();		
-	}
+	$('#eMail').val(eMail);
+	$('#frm').attr('action', 'mpview.mp').submit();		
 }
 
 let reserveList = function(eMail){
+	if(eMail == "") {
+		location.href = "./login/login.jsp";
+	} else {
 	 $('#eMail').val(eMail);
 	 $('#frm').attr('action', 'reserveList.mp').submit();
+	}
 }
 
 let lastPlace = function(eMail){

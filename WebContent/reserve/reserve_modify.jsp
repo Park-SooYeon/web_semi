@@ -8,7 +8,7 @@
 <link href="colorbox/colorbox.css" rel="stylesheet">
 <link href="css/reserve_insert_k.css" type="text/css" rel="stylesheet">
 <script src="js/jquery.colorbox-min.js"></script>
-<script src="js/reserve_insert_k.js"></script>
+<script src="js/reserve_delete_k.js"></script>
 </head>
 <body>
 <div class="col-12 border p-5">

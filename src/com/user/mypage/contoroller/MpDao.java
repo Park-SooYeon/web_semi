@@ -22,7 +22,7 @@ public class MpDao {
 		String query = "select * from membership where email=?";
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, "ddddd");
+			pstmt.setString(1, email);
 			set = pstmt.executeQuery();
 			
 			if(set.next()) {

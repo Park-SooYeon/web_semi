@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>mypage</title>
-<script src="./js/jquery3.4.1.js"></script>
-<script src="./js/user_s.js"></script>
+<!-- <script src="./js/jquery3.4.1.js"></script> -->
+<!-- <script src="./js/user_s.js"></script> -->
 </head>
 <body>
 
