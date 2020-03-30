@@ -18,6 +18,7 @@ public class SelectorVo {
 	String refr="";			//냉장고가 있니
 	String aircon="";		//에어컨이 있니
 	String socket="";		//콘센트가 있니
+	String shower="";
 	//기타
 	String pet="";			//pet이 있니
 	String smoke="";		//흡연룸이니
@@ -31,6 +32,12 @@ public class SelectorVo {
 	String dryer="";		//건조기가 있니
 	String talsu="";		//탈수기가 있니
 	public SelectorVo() {}
+	public String getShower() {
+		return shower;
+	}
+	public void setShower(String shower) {
+		this.shower = shower;
+	}
 	public String getPt() {
 		return pt;
 	}

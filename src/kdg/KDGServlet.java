@@ -99,7 +99,7 @@ public class KDGServlet extends HttpServlet {
 		if(req.getParameter("aType")!=null) {
 			aType = Integer.parseInt(req.getParameter("aType"));
 		}else {
-			aType = 2;
+			aType = 1;
 		}
 		//페이징작업
 		int nowPage_f = 1;
@@ -120,7 +120,7 @@ public class KDGServlet extends HttpServlet {
 		if(req.getParameter("place_f")!=null) {
 			place = req.getParameter("place_f");
 		}else {
-			place ="구전체호텔,.,.,.";
+			place ="구전체모텔,.,.,.";
 		}
 		RoomsDao dao = new RoomsDao();
 		List<RoomsListVo> list =dao.select(aType,p_f);
@@ -137,7 +137,7 @@ public class KDGServlet extends HttpServlet {
 		if(req.getParameter("aType")!=null) {
 			aType = Integer.parseInt(req.getParameter("aType"));
 		}else {
-			aType = 2;
+			aType = 3;
 		}
 		//페이징작업
 		int nowPage_f = 1;
@@ -175,7 +175,7 @@ public class KDGServlet extends HttpServlet {
 		if(req.getParameter("aType")!=null) {
 			aType = Integer.parseInt(req.getParameter("aType"));
 		}else {
-			aType = 2;
+			aType = 4;
 		}
 		//페이징작업
 		int nowPage_f = 1;
@@ -312,6 +312,11 @@ public class KDGServlet extends HttpServlet {
 		if(req.getParameter("wifi")!=null) {
 			if(req.getParameter("wifi").equals("on")) {
 				vo.setWifi(req.getParameter("wifi"));
+			}	
+		}
+		if(req.getParameter("shower")!=null) {
+			if(req.getParameter("shower").equals("on")) {
+				vo.setShower(req.getParameter("shower"));
 			}	
 		}
 		if(req.getParameter("spa")!=null) {
@@ -514,7 +519,7 @@ public class KDGServlet extends HttpServlet {
 			if(req.getParameter("cafe").equals("on")) {
 				fillter.add(" and S.cafe = ? ");
 				pagingSql.add(" and S.cafe =? ");
-				vo.setRest(req.getParameter("cafe"));
+				vo.setCafe(req.getParameter("cafe"));
 			}	
 		}
 		if(req.getParameter("bar")!=null) {

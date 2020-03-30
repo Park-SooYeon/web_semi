@@ -388,7 +388,7 @@ let btnFunc_f = function(){
 			$('#target_f').val('/prooms.jsp'); //타겟 초기화
 			$('#sort_f').val('asc'); //정렬방식 초기화
 			$('#nowPage_f').val('1'); // 페이징 초기화
-			$('#aType').val('4'); // 숙소타입 초기화
+			$('#aType').val('3'); // 숙소타입 초기화
 			$('#place_f').val('구전체펜션,.,.,.'); //지역 초기화
 			$('#frm_f').attr('action','penshion.ff'); 
 		})
@@ -404,7 +404,7 @@ let btnFunc_f = function(){
 			$('#target_f').val('/grooms.jsp'); //타겟 초기화
 			$('#sort_f').val('asc'); //정렬방식 초기화
 			$('#nowPage_f').val('1'); // 페이징 초기화
-			$('#aType').val('3'); // 숙소타입 초기화
+			$('#aType').val('4'); // 숙소타입 초기화
 			$('#place_f').val('구전체게하,.,.,.'); //지역 초기화
 			$('#frm_f').attr('action','guesthouse.ff'); 
 		})
