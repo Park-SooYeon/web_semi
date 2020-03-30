@@ -22,7 +22,6 @@
 				<input type='text' id='pwEmail_c' class='email_c' placeholder="이메일 주소" style='width:330px;'>
 				<div id='pwEmailM_c'></div>
 				<button type="button" id='btnPwEmail_c' class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)' disabled>이메일 전송</button>
-				<input type="hidden" id='html_c' />
 			</div>
 		</div>
 	</div>

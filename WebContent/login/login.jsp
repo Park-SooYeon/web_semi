@@ -9,6 +9,8 @@
 <link rel='stylesheet' type='text/css' href='../css/login.css'>
 <script src='../js/jquery-3.4.1.js'></script>
 <script src='../js/login.js'></script>
+<script src="../js/jquery.cookie.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 </head>
 <body>
 
@@ -73,6 +75,14 @@ $(function() {
 	}
 }); */
 
+ //쿠키로 url받아 올 때 사용 
+$(function() { 
+	var url = $cookie('url'); 
+	alert(url);
+	if (url != null && url != "") { 
+		$('#redirectUrl').val(url); 
+	} 
+}); 
 </script>
 <script src='../js/bootstrap.bundle.min.js'></script>
 <body>

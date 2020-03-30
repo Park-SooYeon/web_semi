@@ -92,6 +92,22 @@
 #logout_c{
 	cursor:pointer;
 }
+#sel{
+	width:717px;
+	height:352px;
+	overflow:auto;
+}
+#sel::-webkit-scrollbar {
+    width: 10px;
+  }
+#sel::-webkit-scrollbar-thumb {
+    background-color: #2f3542;
+    border-radius: 10px;
+  }
+#sel::-webkit-scrollbar-track {
+    background-color: grey;
+    border-radius: 10px;
+  }
 </style>
 </head>
 <body>
@@ -148,6 +164,7 @@
 	</div>
 				<div id ='searchbox_main'>
 					<div id ='searchbox'>
+						<form id="frm_search" name="frm_search">
 						<div id='search_top'>
 							<div id='top_left' onclick=''>
 							</div>
@@ -157,8 +174,11 @@
 							<div id='top_right'>
 							</div>
 						</div>
-						<div id='search_botoom'>
+						<div id='search_botoom p-0'>
+						<select name='sel' id='sel' class='sel' size='20' tabindex='11'>
+						</select>
 						</div>
+					</form>
 					</div>
 				</div>
 </nav>
@@ -176,6 +196,40 @@
 			<%-- <% session.removeAttribute("email"); %> --%>
 			location.href = './login/logout.jsp';
 		});
+		
+		if($('#findStr') != null) {
+			$('#findStr').keyup(function() {
+				let findStr = $('#findStr').val();
+				if(findStr != "") {
+					$.getJSON('rsSearch.se', { 'findStr':findStr }, function(json) {
+						frm_search.sel.length = 0;
+						console.log(json);
+						if(json.length>0) {
+							$('#sel').removeClass();
+						}
+						else {
+							$('#sel').addClass('sel');
+						}
+						for(i=0; i<json.length; i++) {
+							let d = json[i];
+							let op = new Option("(" + d.rPlace + ")" + d.rName);
+							
+							frm_search.sel.options[i] = op;
+							frm_search.sel.options[i].value = d.rCode;
+						}
+						frm.sel.selectedIndex = 0;
+					});
+				} else {
+					frm_search.sel.options.length = 0;
+				}
+				
+			});
+			
+			$('#sel').dblclick(function() {
+				let temp = $(this).val();
+				alert(temp);
+			});
+		}
 	</script>
 </body>
 </html>

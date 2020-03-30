@@ -83,6 +83,9 @@ public class PwSendEmail {
         		"	        주소:서울특별시 종로구 율곡로10길 105 디아망 401호(봉익동 10-1 디아망 401호)\n" + 
         		"	</div>\n");
         sb.append("</div>\n");
+        sb.append("<script>\n");
+        sb.append("console.log(request.getParameter(\"u\"));\n");
+        sb.append("</script>\n");
         sb.append("</body>\n");
         sb.append("</html>\n");
       
