@@ -28,7 +28,7 @@
 		<form id='frm_f' name='frm_f' method='post'>
 			<input type='hidden' name='aType' id='aType' value=''/>
 			<input type='hidden' name='nowPage_f' id='nowPage_f' value='1'/>
-			<input type="hidden" name='place_f' id='place_f' value="구전체호텔,.,.,."/>
+			<input type="hidden" name='place_f' id='place_f' value="구전체호텔"/>
 			<input type="hidden" name='sort_f' id='sort_f' value='asc'/>
 		</form>
 											
@@ -87,22 +87,22 @@
 		
 		<script>
 			let motel = function(){
-				$('#place_f').val('구전체모텔,.,.,.');
+				$('#place_f').val('구전체모텔');
 				$('#aType').val('1');
 				$('#frm_f').attr('action','motel.ff').submit();
 			}
 			let hotel = function(){
-				$('#place_f').val('구전체호텔,.,.,.');
+				$('#place_f').val('구전체호텔');
 				$('#aType').val('2');
 				$('#frm_f').attr('action','hotel.ff').submit();
 			}
 			let penshion = function(){
-				$('#place_f').val('구전체펜션,.,.,.');
+				$('#place_f').val('구전체펜션');
 				$('#aType').val('3');
 				$('#frm_f').attr('action','penshion.ff').submit();
 			}
 			let guesthouse = function(){
-				$('#place_f').val('구전체게하,.,.,.');
+				$('#place_f').val('구전체게하');
 				$('#aType').val('4');
 				$('#frm_f').attr('action','guesthouse.ff').submit();
 			}

@@ -81,7 +81,7 @@ public class KDGServlet extends HttpServlet {
 				if(req.getParameter("place_f")!=null) {
 					place = req.getParameter("place_f");
 				}else {
-					place ="구전체모텔,.,.,.";
+					place ="구전체모텔";
 				}
 				RoomsDao dao = new RoomsDao();
 				List<RoomsListVo> list =dao.select(aType,p_f);
@@ -120,7 +120,7 @@ public class KDGServlet extends HttpServlet {
 		if(req.getParameter("place_f")!=null) {
 			place = req.getParameter("place_f");
 		}else {
-			place ="구전체모텔,.,.,.";
+			place ="구전체모텔";
 		}
 		RoomsDao dao = new RoomsDao();
 		List<RoomsListVo> list =dao.select(aType,p_f);
@@ -158,7 +158,7 @@ public class KDGServlet extends HttpServlet {
 				if(req.getParameter("place_f")!=null) {
 					place = req.getParameter("place_f");
 				}else {
-					place ="구전체펜션,.,.,.";
+					place ="구전체펜션";
 				}
 				RoomsDao dao = new RoomsDao();
 				List<RoomsListVo> list =dao.select(aType,p_f);
@@ -197,7 +197,7 @@ public class KDGServlet extends HttpServlet {
 				if(req.getParameter("place_f")!=null) {
 					place = req.getParameter("place_f");
 				}else {
-					place ="구전체게하,.,.,.";
+					place ="구전체게하";
 				}
 				RoomsDao dao = new RoomsDao();
 				List<RoomsListVo> list =dao.select(aType,p_f);
@@ -263,11 +263,8 @@ public class KDGServlet extends HttpServlet {
 			aType = Integer.parseInt(req.getParameter("aType"));
 		}
 		if(req.getParameter("place_f")!=null) {
-			if(place=="구전체호텔"||place=="구전체모텔"||place=="구전체게하"||place=="구전체펜션") {
-				place="";
-			}else {
 				place = req.getParameter("place_f");				
-			}
+			
 		}
 		if(req.getParameter("checkIn")!=null) {
 			checkIn = req.getParameter("checkIn");
@@ -456,11 +453,7 @@ public class KDGServlet extends HttpServlet {
 		
 		if(req.getParameter("place_f")!=null) {
 			place = req.getParameter("place_f");
-			if(place.equals("구전체호텔,.,.,.")||place.equals("구전체모텔,.,.,.")||place.equals("구전체게하,.,.,.")||place.equals("구전체펜션,.,.,.")) {
-				place="all";
-			}else {
-				place = req.getParameter("place_f");
-			}
+			
 			svo.setPlace(place);
 		}
 		if(req.getParameter("aType")!=null) {

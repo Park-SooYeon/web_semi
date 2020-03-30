@@ -220,7 +220,7 @@ let goo2 = function(){
 	$('#frm_f').attr('action','gooSelect.ff').submit();
 }
 let goo3 = function(){
-	$('#place_f').val('은평구,종로구,서대문구,.')
+	$('#place_f').val('은평구,종로구,서대문구')
 	$('#maxPeople option').each(function(){// maxPeople 초기화
 	    if($(this).val()=="1"){
 	      $(this).attr("selected","selected");  
@@ -238,7 +238,7 @@ let goo3 = function(){
 	$('#frm_f').attr('action','gooSelect.ff').submit();
 }
 let goo4 = function(){
-	$('#place_f').val('중구,마포구,용산구,.');
+	$('#place_f').val('중구,마포구,용산구');
 	$('#maxPeople option').each(function(){// maxPeople 초기화
 	    if($(this).val()=="1"){
 	      $(this).attr("selected","selected");  
@@ -256,7 +256,7 @@ let goo4 = function(){
 	$('#frm_f').attr('action','gooSelect.ff').submit();
 }
 let goo5 = function(){
-	$('#place_f').val('강동구,송파구,강남구,.');
+	$('#place_f').val('강동구,송파구,강남구');
 	$('#maxPeople option').each(function(){// maxPeople 초기화
 	    if($(this).val()=="1"){
 	      $(this).attr("selected","selected");  
@@ -357,7 +357,7 @@ let btnFunc_f = function(){
 			$('#sort_f').val('asc'); //정렬방식 초기화
 			$('#nowPage_f').val('1'); // 페이징 초기화
 			$('#aType').val('2'); // 숙소타입 초기화
-			$('#place_f').val('구전체호텔,.,.,.'); //지역 초기화
+			$('#place_f').val('구전체호텔'); //지역 초기화
 			$('#frm_f').attr('action','hotel.ff'); 
 		})
 	}
@@ -373,7 +373,7 @@ let btnFunc_f = function(){
 			$('#sort_f').val('asc'); //정렬방식 초기화
 			$('#nowPage_f').val('1'); // 페이징 초기화
 			$('#aType').val('1'); // 숙소타입 초기화
-			$('#place_f').val('구전체모텔,.,.,.'); //지역 초기화
+			$('#place_f').val('구전체모텔'); //지역 초기화
 			$('#frm_f').attr('action','motel.ff'); 
 		})
 	}
@@ -389,7 +389,7 @@ let btnFunc_f = function(){
 			$('#sort_f').val('asc'); //정렬방식 초기화
 			$('#nowPage_f').val('1'); // 페이징 초기화
 			$('#aType').val('3'); // 숙소타입 초기화
-			$('#place_f').val('구전체펜션,.,.,.'); //지역 초기화
+			$('#place_f').val('구전체펜션'); //지역 초기화
 			$('#frm_f').attr('action','penshion.ff'); 
 		})
 	}
@@ -405,7 +405,7 @@ let btnFunc_f = function(){
 			$('#sort_f').val('asc'); //정렬방식 초기화
 			$('#nowPage_f').val('1'); // 페이징 초기화
 			$('#aType').val('4'); // 숙소타입 초기화
-			$('#place_f').val('구전체게하,.,.,.'); //지역 초기화
+			$('#place_f').val('구전체게하'); //지역 초기화
 			$('#frm_f').attr('action','guesthouse.ff'); 
 		})
 	}

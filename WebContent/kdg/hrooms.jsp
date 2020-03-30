@@ -28,7 +28,7 @@
 			<input type="text" name='target' id = 'target_f'value="/hrooms.jsp"/>
 			<input type='text' name='nowPage_f' id='nowPage_f' value='${empty param.nowPage_f?1:param.nowPage_f }'/>
 			<input type='text' name='aType' id='aType' value='2'/>
-			<input type="text" name='place_f' id='place_f' value="${empty param.place_f?'구전체호텔,.,.,.':param.place_f }"/>
+			<input type="text" name='place_f' id='place_f' value="${empty param.place_f?'구전체호텔':param.place_f }"/>
 			<input type="text" name='sort_f' id='sort_f' value="${empty param.sort_f?'asc':param.sort_f }"/>
 		<div id ='top_f'><!-- 위에 -->
 			<div id='top_in_f'>
