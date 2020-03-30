@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+input{border:1px solid #a6a6a6;}
+input:focus{outline:none;border:1px solid #000;}
+input:focusout{border:1px solid #a6a6a6;}
+
 /* 로그인.jsp */
 .title_c{ margin:100px 0 20px 0; }
 .btn_kakao_c{ width:330px;height:55px;background-color:#fce51e;margin-bottom:8px;border-radius:5px;font-family:맑은고딕;border: none }
@@ -24,7 +28,7 @@
 .email_c{width:235px;height:40px;border-radius:5px; margin-bottom:25px;}
 .label_c{font-weight:bold;}
 /* membership.jsp */
-.mform_c input[type=text], .mform_c input[type=date]{width:360px;height:40px;border-radius:5px; margin-bottom:25px;}
+.mform_c input{width:360px;height:40px;border-radius:5px; margin-bottom:25px;}
 .mNotice_c{margin-bottom:20px;}
 .mNotice_c a{text-decoration:underline; color:#000;}
 /* pw_email */

@@ -35,7 +35,7 @@
 					<input type="checkbox" name='agreeOne'/> 만 14세 이상 확인<span> (필수)</span>
 				</label>
 			</div>
-			 <button type="button" id='btnNextE_c' class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)' disabled=''>다음</button>
+			 <button type="button" id='btnNextE_c' class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)' disabled>다음</button>
 		</div>
 	</div>
 </div>
