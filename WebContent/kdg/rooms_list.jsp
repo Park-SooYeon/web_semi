@@ -11,7 +11,11 @@
 
 </head>
 <body>
-									<input type='hidden' name='rCode' id='rCode' value=''/>
+							<input type='hidden' name='rCode' id='rCode' value=''/>
+							
+							
+							
+							
 							<c:forEach var="vo" items="${list_f }">
 							<div id ='searched_frame_f' onclick='view(${vo.rCode})'>
 								

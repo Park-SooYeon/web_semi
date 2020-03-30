@@ -11,18 +11,21 @@ let event_f = function(){
 		});	
 	}
 	//낮은가격,높은가격 버튼클릭시 생상 , hidden태그 변경
-	if($('.btnDsc_f')!=null){
-		$('.btnDsc_f').click(function(){
-			$('.btnDsc_f').css('color','#f62a4b');
-			$('.btnAsc_f').css('color','#aaa');
+		
+		
+	
+	if($('#btnDsc_f')!=null){
+		$('#btnDsc_f').click(function(){
+			$('#btnDsc_f').css('color','#f62a4b');
+			$('#btnAsc_f').css('color','#aaa');
 			$('#pricename').text('높은가격순');
 			$('#sort_f').val('dsc');
 		})
 	}
-	if($('.btnAsc_f')!=null){
-		$('.btnAsc_f').click(function(){
-			$('.btnAsc_f').css('color','#f62a4b');
-			$('.btnDsc_f').css('color','#aaa');
+	if($('#btnAsc_f')!=null){
+		$('#btnAsc_f').click(function(){
+			$('#btnAsc_f').css('color','#f62a4b');
+			$('#btnDsc_f').css('color','#aaa');
 			$('#pricename').text('낮은가격순');
 			$('#sort_f').val('asc');
 		})
@@ -63,6 +66,38 @@ let event_f = function(){
 			$('#bed4_f').css('background-image',"url('./image/bedcl4_f.jpg')");
 			$('#bedtype_f').val('4');
 		});
+	}
+	if($('#bedtype_f')!=null){
+		if($('#bedtype_f').val()==1){
+			$('#bed1_f').css('background-image',"url('./image/bedcl1_f.jpg')");
+			$('#bed2_f').css('background-image',"url('./image/bed2_f.jpg')");
+			$('#bed3_f').css('background-image',"url('./image/bed3_f.jpg')");
+			$('#bed4_f').css('background-image',"url('./image/bed4_f.jpg')");
+		}
+		if($('#bedtype_f').val()==2){
+			$('#bed1_f').css('background-image',"url('./image/bed1_f.JPG')");
+			$('#bed2_f').css('background-image',"url('./image/bedcl2_f.jpg')");
+			$('#bed3_f').css('background-image',"url('./image/bed3_f.jpg')");
+			$('#bed4_f').css('background-image',"url('./image/bed4_f.jpg')");
+		}
+		if($('#bedtype_f').val()==3){
+			$('#bed1_f').css('background-image',"url('./image/bed1_f.JPG')");
+			$('#bed2_f').css('background-image',"url('./image/bed2_f.jpg')");
+			$('#bed3_f').css('background-image',"url('./image/bedcl3_f.jpg')");
+			$('#bed4_f').css('background-image',"url('./image/bed4_f.jpg')");
+		}
+		if($('#bedtype_f').val()==4){
+			$('#bed1_f').css('background-image',"url('./image/bed1_f.JPG')");
+			$('#bed2_f').css('background-image',"url('./image/bed2_f.jpg')");
+			$('#bed3_f').css('background-image',"url('./image/bed3_f.jpg')");
+			$('#bed4_f').css('background-image',"url('./image/bedcl4_f.jpg')");
+		}
+		if($('#bedtype_f').val()==5){
+			$('#bed1_f').css('background-image',"url('./image/bed1_f.JPG')");
+			$('#bed2_f').css('background-image',"url('./image/bed2_f.jpg')");
+			$('#bed3_f').css('background-image',"url('./image/bed3_f.jpg')");
+			$('#bed4_f').css('background-image',"url('./image/bed4_f.jpg')");
+		}
 	}
 	
 	
@@ -132,8 +167,15 @@ let event_f = function(){
 }
 //뷰페이지로이동
 let view = function(rCode){
-    $('#rCode').val(rCode);
-	$('#frm_f').attr('action','roomView.ff').submit();
+	
+	if($('#checkIn_f').val()=="체크인 날짜 선택"||$('#checkIn_f').val()=="체크아웃 날짜 선택"){
+		
+		alert("체크인,체크아웃 날짜를 선택해 주세요!");
+	}else{
+		$('#rCode').val(rCode);
+		$('#frm_f').attr('action','roomView.ff').submit();
+		
+	}
 }
 //페이징 버튼 클릭시
 let goPage = function(nowPage){
@@ -174,6 +216,8 @@ let goo7 = function(){
 
 
 
+
+
 //버튼함수
 let btnFunc_f = function(){
 	//호텔 페이지 적용버튼 클릭시
@@ -202,7 +246,13 @@ let btnFunc_f = function(){
 	//초기화 버튼 클릭시 페이지 새로고침 
 	if($('#h_btnReset_f')!=null){
 		$('#h_btnReset_f').click(function(){
-			$('#frm_f').attr('action','hotel.ff');
+			$('.kind_f').val('5'); //호텔 종류 초기화
+			$('#target_f').val('/hrooms.jsp'); //타겟 초기화
+			$('#sort_f').val('asc'); //정렬방식 초기화
+			$('#nowPage_f').val('1'); // 페이징 초기화
+			$('#aType').val('2'); // 숙소타입 초기화
+			$('#place_f').val('구전체모텔,.,.,.'); //지역 초기화
+			$('#frm_f').attr('action','hotel.ff'); 
 		})
 	}
 	if($('#m_btnReset_f')!=null){
@@ -224,53 +274,20 @@ let btnFunc_f = function(){
 	
 	
 	//호텔 높은가격순 클릭시
-	if($('#h_btnDsc_f')!=null){
-		$('#h_btnDsc_f').click(function(){
-			
+	if($('#btnDsc_f')!=null){
+		$('#btnDsc_f').click(function(){
+			$('sort_f').val("dsc");
+			$('#frm_f').attr('action','fillter.ff')
 		})
 	}
 	//호텔 낮은가격순 클릭시
-	if($('#h_btnAsc_f')!=null){
-		$('#h_btnAsc_f').click(function(){
-			
+	if($('#btnAsc_f')!=null){
+		$('#btnAsc_f').click(function(){
+			$('sort_f').val("asc");
+			$('#frm_f').attr('action','fillter.ff')
 		})
 	}
-	//모텔 높은가격순 클릭시
-	if($('#m_btnDsc_f')!=null){
-		$('#m_btnDsc_f').click(function(){
-			
-		})
-	}
-	//모텔 낮은가격순 클릭시
-	if($('#m_btnAsc_f')!=null){
-		$('#m_btnAsc_f').click(function(){
-			
-		})
-	}
-	//게하 높은가격순 클릭시
-	if($('#g_btnDsc_f')!=null){
-		$('#g_btnDsc_f').click(function(){
-			
-		})
-	}
-	//게하 낮은가격순 클릭시
-	if($('#g_btnAsc_f')!=null){
-		$('#g_btnAsc_f').click(function(){
-			
-		})
-	}
-	//캠핑 높은가격순 클릭시
-	if($('#c_btnDsc_f')!=null){
-		$('#c_btnDsc_f').click(function(){
-			
-		})
-	}
-	//캠핑 낮은가격순 클릭시
-	if($('#c_btnAsc_f')!=null){
-		$('#c_btnAsc_f').click(function(){
-			
-		})
-	}
+	
   //wpy
 	//체크인 체크아웃 데이트 설정
 	let btnFunc_w = function(){
