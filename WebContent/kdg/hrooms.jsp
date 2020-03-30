@@ -123,25 +123,149 @@
 						</div>
 						
 						<h4>공용시설</h4>
-						<div id='chk_f'><input type="checkbox" name='pt' id='public1_f' /><label for='public1_f'><span></span>&nbsp;&nbsp;&nbsp;피트니스</label></div>
-						<div id='chk_f'><input type="checkbox" name='swim' id='public2_f' /><label for='public2_f'><span></span>&nbsp;&nbsp;&nbsp;수영장</label></div>
-						<div id='chk_f'><input type="checkbox" name='rest' id='public3_f' /><label for='public3_f'><span></span>&nbsp;&nbsp;&nbsp;레스토랑</label></div>
-						<div id='chk_f'><input type="checkbox" name='cafe' id='public4_f' /><label for='public4_f'><span></span>&nbsp;&nbsp;&nbsp;카페</label></div>
-						<div id='chk_f'><input type="checkbox" name='bar' id='public5_f'/><label for='public5_f'><span></span>&nbsp;&nbsp;&nbsp;BAR</label></div>
+					<!-- pt -->
+						<c:choose>
+						<c:when test="${vo_f.pt eq 'on'}"> 
+							<div id='chk_f'><input type="checkbox" name='pt' id='public1_f' checked="checked"/><label for='public1_f'><span></span>&nbsp;&nbsp;&nbsp;피트니스</label></div>
+						 </c:when>
+						<c:otherwise> 
+							<div id='chk_f'><input type="checkbox" name='pt' id='public1_f'/><label for='public1_f'><span></span>&nbsp;&nbsp;&nbsp;피트니스</label></div>
+						 </c:otherwise>
+						</c:choose>
+					<!-- swim -->
+						<c:choose>
+						<c:when test="${vo_f.swim eq 'on'}"> 
+							<div id='chk_f'><input type="checkbox" name='swim' id='public2_f'  checked="checked"/><label for='public2_f'><span></span>&nbsp;&nbsp;&nbsp;수영장</label></div>
+						 </c:when>
+						<c:otherwise> 
+							<div id='chk_f'><input type="checkbox" name='swim' id='public2_f' /><label for='public2_f'><span></span>&nbsp;&nbsp;&nbsp;수영장</label></div>
+						 </c:otherwise>
+						</c:choose>
+					<!-- rest -->
+						<c:choose>
+						<c:when test="${vo_f.rest eq 'on'}"> 
+							<div id='chk_f'><input type="checkbox" name='rest' id='public3_f' checked="checked"/><label for='public3_f'><span></span>&nbsp;&nbsp;&nbsp;레스토랑</label></div>
+						 </c:when>
+						<c:otherwise> 
+							<div id='chk_f'><input type="checkbox" name='rest' id='public3_f' /><label for='public3_f'><span></span>&nbsp;&nbsp;&nbsp;레스토랑</label></div>
+						 </c:otherwise>
+						</c:choose>
+					<!-- cafe -->
+						<c:choose>
+						<c:when test="${vo_f.cafe eq 'on'}">
+							<div id='chk_f'><input type="checkbox" name='cafe' id='public4_f' checked="checked"/><label for='public4_f'><span></span>&nbsp;&nbsp;&nbsp;카페</label></div>
+						 </c:when>
+						<c:otherwise>
+							<div id='chk_f'><input type="checkbox" name='cafe' id='public4_f' /><label for='public4_f'><span></span>&nbsp;&nbsp;&nbsp;카페</label></div>
+						 </c:otherwise>
+						</c:choose>
+					<!-- bar -->
+						<c:choose>
+						<c:when test="${vo_f.bar eq 'on'}">
+							<div id='chk_f'><input type="checkbox" name='bar' id='public5_f' checked="checked"/><label for='public5_f'><span></span>&nbsp;&nbsp;&nbsp;BAR</label></div>
+						 </c:when>
+						<c:otherwise>
+							<div id='chk_f'><input type="checkbox" name='bar' id='public5_f'/><label for='public5_f'><span></span>&nbsp;&nbsp;&nbsp;BAR</label></div>
+						 </c:otherwise>
+						</c:choose>
+						
 						
 						<h4>객실내 시설</h4>
-						<div id='chk_f'><input type="checkbox" name='tv' id='private1_f' /><label for='private1_f'><span></span>&nbsp;&nbsp;&nbsp;TV</label></div>
-						<div id='chk_f'><input type="checkbox" name='wifi' id='private2_f' /><label for='private2_f'><span></span>&nbsp;&nbsp;&nbsp;WIFI</label></div>
-						<div id='chk_f'><input type="checkbox" name='spa' id='private3_f' /><label for='private3_f'><span></span>&nbsp;&nbsp;&nbsp;스파</label></div>
-						<div id='chk_f'><input type="checkbox" name='tub' id='private4_f' /><label for='private4_f'><span></span>&nbsp;&nbsp;&nbsp;욕조</label></div>
-						<div id='chk_f'><input type="checkbox" name='iron' id='private5_f' /><label for='private5_f'><span></span>&nbsp;&nbsp;&nbsp;다리미</label></div>
-					
+					<!-- tv -->
+						<c:choose>
+						<c:when test="${vo_f.tv eq 'on'}">
+							<div id='chk_f'><input type="checkbox" name='tv' id='private1_f' checked="checked"/><label for='private1_f'><span></span>&nbsp;&nbsp;&nbsp;TV</label></div>
+						 </c:when>
+						<c:otherwise>
+							<div id='chk_f'><input type="checkbox" name='tv' id='private1_f' /><label for='private1_f'><span></span>&nbsp;&nbsp;&nbsp;TV</label></div>
+						 </c:otherwise>
+						</c:choose>
+					<!-- wifi -->
+						<c:choose>
+						<c:when test="${vo_f.wifi eq 'on'}">
+							<div id='chk_f'><input type="checkbox" name='wifi' id='private2_f' checked="checked"/><label for='private2_f'><span></span>&nbsp;&nbsp;&nbsp;WIFI</label></div>
+						 </c:when>
+						<c:otherwise>
+							<div id='chk_f'><input type="checkbox" name='wifi' id='private2_f' /><label for='private2_f'><span></span>&nbsp;&nbsp;&nbsp;WIFI</label></div>
+						 </c:otherwise>
+						</c:choose>
+					<!-- spa -->
+						<c:choose>
+						<c:when test="${vo_f.spa eq 'on'}">
+							<div id='chk_f'><input type="checkbox" name='spa' id='private3_f' checked="checked"/><label for='private3_f'><span></span>&nbsp;&nbsp;&nbsp;스파</label></div>
+						 </c:when>
+						<c:otherwise>
+							<div id='chk_f'><input type="checkbox" name='spa' id='private3_f' /><label for='private3_f'><span></span>&nbsp;&nbsp;&nbsp;스파</label></div>
+						 </c:otherwise>
+						</c:choose>
+					<!-- tub -->
+						<c:choose>
+						<c:when test="${vo_f.tub eq 'on'}">
+							<div id='chk_f'><input type="checkbox" name='tub' id='private4_f' checked="checked"/><label for='private4_f'><span></span>&nbsp;&nbsp;&nbsp;욕조</label></div>
+						 </c:when>
+						<c:otherwise>
+							<div id='chk_f'><input type="checkbox" name='tub' id='private4_f' /><label for='private4_f'><span></span>&nbsp;&nbsp;&nbsp;욕조</label></div>
+						 </c:otherwise>
+						</c:choose>
+					<!-- iron -->
+						<c:choose>
+						<c:when test="${vo_f.iron eq 'on'}">
+							<div id='chk_f'><input type="checkbox" name='iron' id='private5_f' checked="checked"/><label for='private5_f'><span></span>&nbsp;&nbsp;&nbsp;다리미</label></div>
+						 </c:when>
+						<c:otherwise>
+							<div id='chk_f'><input type="checkbox" name='iron' id='private5_f' /><label for='private5_f'><span></span>&nbsp;&nbsp;&nbsp;다리미</label></div>
+						 </c:otherwise>
+						</c:choose>
+						
+						
+						
 						<h4>기타</h4>
-						<div id='chk_f'><input type="checkbox" name='pet' id='etc1_f' /><label for='etc1_f'><span></span>&nbsp;&nbsp;&nbsp;반려동물 동반</label></div>
-						<div id='chk_f'><input type="checkbox" name='smoke' id='etc2_f' /><label for='etc2_f'><span></span>&nbsp;&nbsp;&nbsp;객실내 흡연</label></div>
-						<div id='chk_f'><input type="checkbox" name='noSmoke' id='etc3_f' /><label for='etc3_f'><span></span>&nbsp;&nbsp;&nbsp;금연</label></div>
-						<div id='chk_f'><input type="checkbox" name='parking' id='etc4_f' /><label for='etc4_f'><span></span>&nbsp;&nbsp;&nbsp;주차</label></div>
-						<div id='chk_f'><input type="checkbox" name='breakfast' id='etc5_f' /><label for='etc5_f'><span></span>&nbsp;&nbsp;&nbsp;조식</label></div>
+					<!-- pet -->
+						<c:choose>
+						<c:when test="${vo_f.pet eq 'on'}">
+							<div id='chk_f'><input type="checkbox" name='pet' id='etc1_f' checked="checked"/><label for='etc1_f'><span></span>&nbsp;&nbsp;&nbsp;반려동물 동반</label></div>
+						 </c:when>
+						<c:otherwise>
+							<div id='chk_f'><input type="checkbox" name='pet' id='etc1_f' /><label for='etc1_f'><span></span>&nbsp;&nbsp;&nbsp;반려동물 동반</label></div>
+						 </c:otherwise>
+						</c:choose>
+					<!-- smoke -->
+						<c:choose>
+						<c:when test="${vo_f.smoke eq 'on'}">
+							<div id='chk_f'><input type="checkbox" name='smoke' id='etc2_f' checked="checked"/><label for='etc2_f'><span></span>&nbsp;&nbsp;&nbsp;객실내 흡연</label></div>
+						 </c:when>
+						<c:otherwise>
+							<div id='chk_f'><input type="checkbox" name='smoke' id='etc2_f' /><label for='etc2_f'><span></span>&nbsp;&nbsp;&nbsp;객실내 흡연</label></div>
+						 </c:otherwise>
+						</c:choose>
+					<!-- noSmoke -->
+						<c:choose>
+						<c:when test="${vo_f.noSmoke eq 'on'}">
+							<div id='chk_f'><input type="checkbox" name='noSmoke' id='etc3_f' checked="checked"/><label for='etc3_f'><span></span>&nbsp;&nbsp;&nbsp;금연</label></div>
+						 </c:when>
+						<c:otherwise>
+							<div id='chk_f'><input type="checkbox" name='noSmoke' id='etc3_f' /><label for='etc3_f'><span></span>&nbsp;&nbsp;&nbsp;금연</label></div>
+						 </c:otherwise>
+						</c:choose>
+					<!-- parking -->
+						<c:choose>
+						<c:when test="${vo_f.parking eq 'on'}">
+							<div id='chk_f'><input type="checkbox" name='parking' id='etc4_f' checked="checked"/><label for='etc4_f'><span></span>&nbsp;&nbsp;&nbsp;주차</label></div>
+						 </c:when>
+						<c:otherwise>
+						 	<div id='chk_f'><input type="checkbox" name='parking' id='etc4_f' /><label for='etc4_f'><span></span>&nbsp;&nbsp;&nbsp;주차</label></div>
+						 </c:otherwise>
+						</c:choose>
+					<!-- breakfast -->
+						<c:choose>
+						<c:when test="${vo_f.breakfast eq 'on'}">
+							<div id='chk_f'><input type="checkbox" name='breakfast' id='etc5_f' checked="checked"/><label for='etc5_f'><span></span>&nbsp;&nbsp;&nbsp;조식</label></div>
+						 </c:when>
+						<c:otherwise>
+							<div id='chk_f'><input type="checkbox" name='breakfast' id='etc5_f' /><label for='etc5_f'><span></span>&nbsp;&nbsp;&nbsp;조식</label></div>
+						 </c:otherwise>
+						</c:choose>
+						
 					</div>
 				</div>
 				<div id ='right_f'>

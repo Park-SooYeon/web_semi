@@ -244,6 +244,12 @@ public class KDGServlet extends HttpServlet {
 		int nowPage_f = 1;
 		String target ="";
 		String sort ="";	//가격 정렬 뭘로할거니
+		int bedtype=5;
+		SelectorVo vo = new SelectorVo();//체크박스 사항을 담아 리퀘스트에 담아서 기존값 표시해줄것
+		
+		if(req.getParameter("bedtype")!=null) {
+			bedtype = Integer.parseInt(req.getParameter("bedtype"));
+		}
 
 		String checkIn =""; //체크인 시간
 		String checkOut ="";//체크아웃시간
@@ -272,6 +278,129 @@ public class KDGServlet extends HttpServlet {
 		if(req.getParameter("sort_f")!=null) {
 			sort = req.getParameter("sort_f");
 		}
+		/* -----------체크박스------------------------------------------------------------------------------*/
+		if(req.getParameter("pt")!=null) {
+			if(req.getParameter("pt").equals("on")) {
+				vo.setPt(req.getParameter("pt"));
+			}	
+		}
+		if(req.getParameter("swim")!=null) {
+			if(req.getParameter("swim").equals("on")) {
+				vo.setSwim(req.getParameter("swim"));
+			}	
+		}
+		if(req.getParameter("rest")!=null) {
+			if(req.getParameter("rest").equals("on")) {
+				vo.setRest(req.getParameter("rest"));
+			}	
+		}
+		if(req.getParameter("cafe")!=null) {
+			if(req.getParameter("cafe").equals("on")) {
+				vo.setRest(req.getParameter("cafe"));
+			}	
+		}
+		if(req.getParameter("bar")!=null) {
+			if(req.getParameter("bar").equals("on")) {
+				vo.setBar(req.getParameter("bar"));
+			}	
+		}
+		if(req.getParameter("tv")!=null) {
+			if(req.getParameter("tv").equals("on")) {
+				vo.setTv(req.getParameter("tv"));
+			}	
+		}
+		if(req.getParameter("wifi")!=null) {
+			if(req.getParameter("wifi").equals("on")) {
+				vo.setWifi(req.getParameter("wifi"));
+			}	
+		}
+		if(req.getParameter("spa")!=null) {
+			if(req.getParameter("spa").equals("on")) {
+				vo.setSpa(req.getParameter("spa"));
+			}	
+		}
+		if(req.getParameter("tub")!=null) {
+			if(req.getParameter("tub").equals("on")) {
+				vo.setTub(req.getParameter("tub"));
+			}	
+		}
+		if(req.getParameter("iron")!=null) {
+			if(req.getParameter("iron").equals("on")) {
+				vo.setIron(req.getParameter("iron"));
+			}	
+		}
+		if(req.getParameter("computer")!=null) {
+			if(req.getParameter("computer").equals("on")) {
+				vo.setComputer(req.getParameter("computer"));
+			}	
+		}
+		if(req.getParameter("refr")!=null) {
+			if(req.getParameter("refr").equals("on")) {
+				vo.setRefr(req.getParameter("refr"));
+			}	
+		}
+		if(req.getParameter("aircon")!=null) {
+			if(req.getParameter("aircon").equals("on")) {
+				vo.setAircon(req.getParameter("aircon"));
+			}	
+		}
+		if(req.getParameter("socket")!=null) {
+			if(req.getParameter("socket").equals("on")) {
+				vo.setSocket(req.getParameter("socket"));
+			}	
+		}
+		if(req.getParameter("pet")!=null) {
+			if(req.getParameter("pet").equals("on")) {
+				vo.setPet(req.getParameter("pet"));
+			}	
+		}
+		if(req.getParameter("smoke")!=null) {
+			if(req.getParameter("smoke").equals("on")) {
+				vo.setSmoke(req.getParameter("smoke"));
+			}	
+		}
+		if(req.getParameter("noSmoke")!=null) {
+			if(req.getParameter("noSmoke").equals("on")) {
+				vo.setNoSmoke(req.getParameter("noSmoke"));
+			}	
+		}
+		if(req.getParameter("parking")!=null) {
+			if(req.getParameter("parking").equals("on")) {
+				vo.setParking(req.getParameter("parking"));
+			}	
+		}
+		if(req.getParameter("breakfast")!=null) {
+			if(req.getParameter("breakfast").equals("on")) {
+				vo.setBreakfast(req.getParameter("breakfast"));
+			}	
+		}
+		if(req.getParameter("washer")!=null) {
+			if(req.getParameter("washer").equals("on")) {
+				vo.setWasher(req.getParameter("washer"));
+			}	
+		}
+		if(req.getParameter("lounge")!=null) {
+			if(req.getParameter("lounge").equals("on")) {
+				vo.setLounge(req.getParameter("lounge"));
+			}	
+		}
+		if(req.getParameter("kitchen")!=null) {
+			if(req.getParameter("kitchen").equals("on")) {
+				vo.setKitchen(req.getParameter("kitchen"));
+			}	
+		}
+		if(req.getParameter("dryer")!=null) {
+			if(req.getParameter("dryer").equals("on")) {
+				vo.setDryer(req.getParameter("dryer"));
+			}	
+		}
+		if(req.getParameter("talsu")!=null) {
+			if(req.getParameter("talsu").equals("on")) {
+				vo.setTalsu(req.getParameter("talsu"));
+			}	
+		}
+		
+		
 		page p_f = new page();
 		p_f.setNowPage(nowPage_f);
 		
@@ -284,6 +413,8 @@ public class KDGServlet extends HttpServlet {
 		req.setAttribute("sort_f", sort);
 		req.setAttribute("checkIn_f", checkIn);
 		req.setAttribute("checkOut_f", checkOut);
+		req.setAttribute("bedtype", bedtype);
+		req.setAttribute("vo_f", vo);
 		
 		String path = url + target;
 		RequestDispatcher rd = req.getRequestDispatcher(path);
@@ -316,7 +447,7 @@ public class KDGServlet extends HttpServlet {
 		List<String> fillter = new ArrayList<String>();//체크사항에 체크되어 값이 넘어오면 sql문은 만들어 배열에담아 dao에 전달
 		List<String> pagingSql = new ArrayList<String>();
 		SelectorVo2 svo = new SelectorVo2();// 체크사항 이외의 값들은 널이 아닐때만 담아 dao에 전달할것
-		
+		SelectorVo vo = new SelectorVo();//체크박스 사항을 담아 리퀘스트에 담아서 기존값 표시해줄것
 		
 		if(req.getParameter("place_f")!=null) {
 			place = req.getParameter("place_f");
@@ -362,144 +493,168 @@ public class KDGServlet extends HttpServlet {
 			if(req.getParameter("pt").equals("on")) {
 				fillter.add(" and S.pt = ? ");
 				pagingSql.add(" and S.pt =? ");
+				vo.setPt(req.getParameter("pt"));
 			}	
 		}
 		if(req.getParameter("swim")!=null) {
 			if(req.getParameter("swim").equals("on")) {
 				fillter.add(" and S.swim = ? ");
 				pagingSql.add(" and S.swim =? ");
+				vo.setSwim(req.getParameter("swim"));
 			}	
 		}
 		if(req.getParameter("rest")!=null) {
 			if(req.getParameter("rest").equals("on")) {
 				fillter.add(" and S.rest = ? ");
 				pagingSql.add(" and S.rest =? ");
+				vo.setRest(req.getParameter("rest"));
 			}	
 		}
 		if(req.getParameter("cafe")!=null) {
 			if(req.getParameter("cafe").equals("on")) {
 				fillter.add(" and S.cafe = ? ");
 				pagingSql.add(" and S.cafe =? ");
+				vo.setRest(req.getParameter("cafe"));
 			}	
 		}
 		if(req.getParameter("bar")!=null) {
 			if(req.getParameter("bar").equals("on")) {
 				fillter.add(" and S.bar = ? ");
 				pagingSql.add(" and S.bar =? ");
+				vo.setBar(req.getParameter("bar"));
 			}	
 		}
 		if(req.getParameter("tv")!=null) {
 			if(req.getParameter("tv").equals("on")) {
 				fillter.add(" and R.tv = ? ");
 				pagingSql.add(" and R.tv =? ");
+				vo.setTv(req.getParameter("tv"));
 			}	
 		}
 		if(req.getParameter("wifi")!=null) {
 			if(req.getParameter("wifi").equals("on")) {
 				fillter.add(" and R.wifi = ? ");
 				pagingSql.add(" and R.wifi =? ");
+				vo.setWifi(req.getParameter("wifi"));
 			}	
 		}
 		if(req.getParameter("spa")!=null) {
 			if(req.getParameter("spa").equals("on")) {
 				fillter.add(" and R.spa = ? ");
 				pagingSql.add(" and R.spa =? ");
+				vo.setSpa(req.getParameter("spa"));
 			}	
 		}
 		if(req.getParameter("tub")!=null) {
 			if(req.getParameter("tub").equals("on")) {
 				fillter.add(" and R.tub = ? ");
 				pagingSql.add(" and R.tub =? ");
+				vo.setTub(req.getParameter("tub"));
 			}	
 		}
 		if(req.getParameter("iron")!=null) {
 			if(req.getParameter("iron").equals("on")) {
 				fillter.add(" and R.iron = ? ");
 				pagingSql.add(" and R.iron =? ");
+				vo.setIron(req.getParameter("iron"));
 			}	
 		}
 		if(req.getParameter("computer")!=null) {
 			if(req.getParameter("computer").equals("on")) {
 				fillter.add(" and R.computer = ? ");
 				pagingSql.add(" and R.computer =? ");
+				vo.setComputer(req.getParameter("computer"));
 			}	
 		}
 		if(req.getParameter("refr")!=null) {
 			if(req.getParameter("refr").equals("on")) {
 				fillter.add(" and R.refr = ? ");
 				pagingSql.add(" and R.refr =? ");
+				vo.setRefr(req.getParameter("refr"));
 			}	
 		}
 		if(req.getParameter("aircon")!=null) {
 			if(req.getParameter("aircon").equals("on")) {
 				fillter.add(" and R.aircon = ? ");
 				pagingSql.add(" and R.aircon =? ");
+				vo.setAircon(req.getParameter("aircon"));
 			}	
 		}
 		if(req.getParameter("socket")!=null) {
 			if(req.getParameter("socket").equals("on")) {
 				fillter.add(" and R.socket = ? ");
 				pagingSql.add(" and R.socket =? ");
+				vo.setSocket(req.getParameter("socket"));
 			}	
 		}
 		if(req.getParameter("pet")!=null) {
 			if(req.getParameter("pet").equals("on")) {
 				fillter.add(" and S.pet = ? ");
 				pagingSql.add(" and S.pet =? ");
+				vo.setPet(req.getParameter("pet"));
 			}	
 		}
 		if(req.getParameter("smoke")!=null) {
 			if(req.getParameter("smoke").equals("on")) {
 				fillter.add(" and S.smoke = ? ");
 				pagingSql.add(" and S.smoke =? ");
+				vo.setSmoke(req.getParameter("smoke"));
 			}	
 		}
 		if(req.getParameter("noSmoke")!=null) {
 			if(req.getParameter("noSmoke").equals("on")) {
 				fillter.add(" and S.noSmoke = ? ");
 				pagingSql.add(" and S.noSmoke =? ");
+				vo.setNoSmoke(req.getParameter("noSmoke"));
 			}	
 		}
 		if(req.getParameter("parking")!=null) {
 			if(req.getParameter("parking").equals("on")) {
 				fillter.add(" and S.parking = ? ");
 				pagingSql.add(" and S.parking =? ");
+				vo.setParking(req.getParameter("parking"));
 			}	
 		}
 		if(req.getParameter("breakfast")!=null) {
 			if(req.getParameter("breakfast").equals("on")) {
 				fillter.add(" and S.breakfast = ? ");
 				pagingSql.add(" and S.breakfast =? ");
+				vo.setBreakfast(req.getParameter("breakfast"));
 			}	
 		}
 		if(req.getParameter("washer")!=null) {
 			if(req.getParameter("washer").equals("on")) {
 				fillter.add(" and S.washer = ? ");
 				pagingSql.add(" and S.wqsher =? ");
+				vo.setWasher(req.getParameter("washer"));
 			}	
 		}
 		if(req.getParameter("lounge")!=null) {
 			if(req.getParameter("lounge").equals("on")) {
 				fillter.add(" and S.lounge = ? ");
 				pagingSql.add(" and S.lounge =? ");
+				vo.setLounge(req.getParameter("lounge"));
 			}	
 		}
 		if(req.getParameter("kitchen")!=null) {
 			if(req.getParameter("kitchen").equals("on")) {
 				fillter.add(" and S.kitchen = ? ");
 				pagingSql.add(" and S.kitchen =? ");
+				vo.setKitchen(req.getParameter("kitchen"));
 			}	
 		}
 		if(req.getParameter("dryer")!=null) {
 			if(req.getParameter("dryer").equals("on")) {
 				fillter.add(" and S.dryer = ?");
 				pagingSql.add(" and S.dryer =?");
+				vo.setDryer(req.getParameter("dryer"));
 			}	
 		}
 		if(req.getParameter("talsu")!=null) {
 			if(req.getParameter("talsu").equals("on")) {
 				fillter.add(" and S.talsu = ? ");
 				pagingSql.add(" and S.talsu =? ");
+				vo.setTalsu(req.getParameter("talsu"));
 			}	
 		}
 
@@ -518,6 +673,7 @@ public class KDGServlet extends HttpServlet {
 		req.setAttribute("kind", kind);
 		req.setAttribute("maxPeople", maxPeople);
 		req.setAttribute("bedtype", bedtype);
+		req.setAttribute("vo_f", vo);
 		
 		String path = url + target;
 		RequestDispatcher rd = req.getRequestDispatcher(path);
