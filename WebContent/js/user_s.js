@@ -8,8 +8,8 @@ let user = function(){
 		$('#frm').attr('action', 'resView.mp').submit();
 	}
 	
-	if($('#btnRe_s')!=null){
-		$('#btnRe_s').click(function(){
+	if($('.btnRe_s')!=null){
+		$('.btnRe_s').click(function(){
 			$('#frm_rvv_s').attr('action', 'review.rv').submit();
 	 	});
 	 }
@@ -32,23 +32,36 @@ let user = function(){
 		})
 	 }
 	 
-	 if($('#btnRv_Mo_s')!=null){
-		$('#btnRv_Mo_s').click(function(){
+	 if($('.btnRv_Mo_s')!=null){
+		$('.btnRv_Mo_s').click(function(){
 			$('#frm_rvSe_s').attr('action', 'reviewModifyform.rv').submit();
 		})
 	 }
 	 
-	 if($('#btnSe_s')!=null){
-		$('#btnSe_s').click(function(){
+	 if($('.btnSe_s')!=null){
+		$('.btnSe_s').click(function(){
 			$('#frm_rvv_s').attr('action', 'reviewSelect.rv').submit();
 		})
 	 }
 	 
 	 if($('#btnModify_s')!=null){
-		$('#btnModift_s').click(function(){
+		$('#btnModify_s').click(function(){
 			$('#frm_rm_s').attr('action', 'reviewModify.rv').submit();
 		})
 	 }
+	 
+	 if($('.btnRv_Re_s')!=null){
+		$('.btnRv_Re_s').click(function(){
+			$('#frm_rvSe_s').attr('action', 'reviewReplyView.rv').submit();
+		})
+	 }
+	 
+	 if($('#btnRv_Reply_s')!=null){
+		$('#btnRv_Reply_s').click(function(){
+			$('#frm_rvReply_s').attr('action', 'reviewReply.rv').submit();
+		})
+	 }
+	 
 	 
 	$('.starRev span').click(function(){
 		  $(this).parent().children('span').removeClass('on');
@@ -71,6 +84,12 @@ let user = function(){
 	$('#star5_s').click(function(){
 		$('#star_s').val(5);
 	})
+}
+
+let rvDelete = function(rIndent){
+	let index = $('#index_s').val();
+	$('#rIndent_s'+index).val(rIndent);
+	$('#frm_rvSe_s').attr('action', 'reviewDelete.rv').submit();
 }
 
 let myPage = function(eMail){

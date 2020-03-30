@@ -18,18 +18,19 @@ public class RvDao {
 		conn = DBConn.getConn();
 	}
 	
-	public void rvWrite(int rCode, String eMail, String rContent, int star) {
+	public void rvWrite(int rCode, String eMail, String rContent, int star, String title) {
 		PreparedStatement pstmt = null;
 		ResultSet set = null;
 		int cnt = 0;
 		int sum = 0;
 		double re = 0;
-		String query = "insert into review values(seq_review_rno.nextval,1, ?, ?, sysdate,(select nvl(max(rGroup)+1,1)from review a),0,0,?)";
+		String query = "insert into review values(seq_review_rno.nextval,1, ?, ?, sysdate,(select nvl(max(rGroup)+1,1)from review a),0,0,?,?)";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, eMail);
 			pstmt.setString(2, rContent);
 			pstmt.setInt(3, star);
+			pstmt.setString(4, title);
 			re = pstmt.executeUpdate();
 			
 			query="select count(stars) cnt, sum(stars) sum from review";
@@ -63,7 +64,7 @@ public class RvDao {
 		RvVo vo = null;
 		PreparedStatement pstmt = null;
 		ResultSet set = null;
-		String query = "select * from review where rCode=?";
+		String query = "select * from review where rCode=? order by rGroup desc, rStep asc";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -81,6 +82,7 @@ public class RvDao {
 				vo.setrStep(set.getInt("rstep"));
 				vo.setrIndent(set.getInt("rindent"));
 				vo.setStars(set.getInt("stars"));
+				vo.setTitle(set.getString("rtitle"));
 				
 				list.add(vo);
 			}
@@ -136,6 +138,60 @@ public class RvDao {
 			e.printStackTrace();
 		}
 	}
+	
+	public void rvReply(int rCode, String eMail, String title, String content, int rGroup, int rStep, int rIndent) {
+		PreparedStatement pstmt = null;
+		String query = "insert into review values(seq_review_rno.nextval, ?, ?, ?, sysdate, ?, ?, ?, 0, ?)";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, rCode);
+			pstmt.setString(2, eMail);
+			pstmt.setString(3, content);
+			pstmt.setInt(4, rGroup);
+			pstmt.setInt(5, rStep+1);
+			pstmt.setInt(6, rIndent+1);
+			pstmt.setString(7, title);
+			
+			int rn = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void rvDelete(int rNo, int rGroup, int flag) {
+		PreparedStatement pstmt = null;
+		String query = "";
+		
+		try {
+			if(flag==0) {
+				query = "delete from review where rGroup=?";
+				pstmt = conn.prepareStatement(query);
+				pstmt.setInt(1, rGroup);
+			}else {
+				query = "delete from review where rNo=?";
+				pstmt = conn.prepareStatement(query);
+				pstmt.setInt(1, rNo);
+			}
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+/*	public void replyShape(int rGroup, int rStep) {
+		PreparedStatement pstmt = null;
+		String query = "update review set rStep = rStep + 1 where rGroup =? and rStep > ?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, rGroup);
+			pstmt.setInt(2, rStep);
+			int rn = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}*/
 	
 	public int rvCnt(int rCode) {
 		int rvCnt = 0;

@@ -20,10 +20,6 @@
 		<input class="form-control form-control-lg" type="text" id="inputLarge" value="${vo.nName}" readonly>
 	</div>
 	<div class="form-group">
-		<label class="col-form-label col-form-label-lg" for="inputLarge">이름</label>
-		<input class="form-control form-control-lg" type="text" id="inputLarge" value="${vo.uName}" readonly>
-	</div>
-	<div class="form-group">
 		<label class="col-form-label col-form-label-lg" for="inputLarge">핸드폰번호</label>
 		<input class="form-control form-control-lg" type="text" id="inputLarge" value="${vo.phone}" readonly>
 	</div>

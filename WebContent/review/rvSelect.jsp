@@ -16,6 +16,7 @@
     <tr>
       <th scope="col"></th>
       <th scope="col">작성자</th>
+      <th scope="col">제목</th>
       <th scope="col">내용</th>
       <th scope="col">작성일자</th>
       <th scope="col">별점</th>
@@ -25,7 +26,8 @@
   <c:forEach var="list" items="${list}" varStatus="status">
     <tr>
       <th scope="row">1</th>
-      <td>${list.eMail}</td>
+      <td><c:forEach begin="1" end="${list.rIndent}">&nbsp;&nbsp;&nbsp;&nbsp;</c:forEach>${list.eMail}</td>
+      <td>${list.title}</td>
       <td>${list.rContent}</td>
       <td>${list.rDate}</td>
       <td>
@@ -37,10 +39,17 @@
 			<span class="starR" id="star5_s${status.index}">★</span>
 			<input type="hidden" name="star" id="star_s${status.index}" value="${list.stars}" />
 			<input type="hidden" name="rvCnt" id="rvCnt_s" value="${rvCnt}"/>
-			<input type="hidden" name="rNo" id="rNo" value="${list.rNo}"/>
+			<input type="hidden" name="rNo" id="rNo_s" value="${list.rNo}"/>
+			<input type="hidden" name="rCode" id="rCode_s" value="${rCode}"/>
+			<input type="hidden" name="rGroup" id="rGroup_s" value="${list.rGroup}"/>
+			<input type="hidden" name="rStep" id="rStep_s"  value="${list.rStep}"/>
+			<input type="hidden" name="rIndent" id="rIndent_s${status.index}" value="${list.rIndent}"/>
+			<input type="hidden" name="index_s" id="index_s" value="${status.index}"/>
 		</div>
 		<input type="hidden" name="rNo" id="rNo" value="${list.rNo}"/>
-		<button type="button" id="btnRv_Mo_s" class="btn btn-primary btn-lg">리뷰수정</button>
+		<button type="button" class="btn btn-primary btn-lg btnRv_Mo_s">리뷰수정</button>
+		<button type="button" class="btn btn-primary btn-lg btnRv_Re_s">리뷰답변</button>
+		<button type="button" class="btn btn-primary btn-lg btnRv_De_s" onclick="rvDelete('${list.rIndent}')">리뷰삭제</button>
 	  </td>
     </tr>
   </c:forEach>

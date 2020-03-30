@@ -11,9 +11,10 @@ public class RvVo {
 	int rIndent;
 	int stars;
 	int cnt;
+	String title;
 	
 	public RvVo() {};
-	public RvVo(int rNo, int rCode, String eMail, String rContent, String rDate, int rGroup, int rStep, int rIndent, int stars) {
+	public RvVo(int rNo, int rCode, String eMail, String rContent, String rDate, int rGroup, int rStep, int rIndent, int stars, String title) {
 		this.rNo=rNo;
 		this.rCode=rCode;
 		this.eMail=eMail;
@@ -84,6 +85,12 @@ public class RvVo {
 	}
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	
 	

@@ -13,7 +13,10 @@ public class RvModify implements RvCommand{
 		int stars = Integer.parseInt(req.getParameter("star"));
 		String content = req.getParameter("content");
 		
+		System.out.println(rNo);
+		System.out.println(stars);
+		System.out.println(content);
 		RvDao dao = new RvDao();
-		
+		dao.rvModify(content, stars, rNo);
 	}
 }
