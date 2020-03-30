@@ -16,7 +16,7 @@ public class RvSelect implements RvCommand{
 		RvDao dao = new RvDao();
 		List<RvVo> list = dao.rvSelect(rCode);
 		int rvCnt = dao.rvCnt(rCode);
-		
+		req.setAttribute("rCode", rCode);
 		req.setAttribute("list", list);
 		req.setAttribute("rvCnt", rvCnt);
 	}

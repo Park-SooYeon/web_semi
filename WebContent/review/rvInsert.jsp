@@ -13,7 +13,7 @@
 <form method="post" name="frm_rv_s" id="frm_rv_s">
 <div class="form-group">
 	<label for="exampleInputPassword1">제목</label>
-	<input type="text" class="form-control" id="exampleInputPassword1" placeholder="제목" name="title">
+	<input type="text" class="form-control" id="exampleInputPassword1" placeholder="제목" name="title" name="title">
 </div>
 <div class="form-group">
 	<label for="exampleInputPassword1">아이디</label>

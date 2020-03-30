@@ -17,7 +17,7 @@ public class RvInsert implements RvCommand{
 		
 		RvDao dao = new RvDao();
 		
-		dao.rvWrite(rCode, eMail, rContent, star);
+		dao.rvWrite(rCode, eMail, rContent, star, title);
 		
 	}
 }

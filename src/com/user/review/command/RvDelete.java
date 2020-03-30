@@ -4,20 +4,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.user.review.controller.RvDao;
-import com.user.review.controller.RvVo;
 
-public class RvModifyView implements RvCommand{
+public class RvDelete implements RvCommand{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) {
 		int rNo = Integer.parseInt(req.getParameter("rNo"));
-		int rCode = Integer.parseInt(req.getParameter("rCode"));
-		System.out.println(rNo);
+		int flag = Integer.parseInt(req.getParameter("rIndent"));
+		int rGroup = Integer.parseInt(req.getParameter("rGroup"));
+		System.out.println(flag);
 		RvDao dao = new RvDao();
-		RvVo vo = dao.rvMoView(rNo);
-		
-		req.setAttribute("rCode", rCode);
-		req.setAttribute("vo", vo);
+		/*dao.rvDelete(rNo, rGroup, flag);*/
 	}
-	
+
 }

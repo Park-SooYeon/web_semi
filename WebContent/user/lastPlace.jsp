@@ -35,8 +35,8 @@
 						</div>
 					</div>
 					<div class="col-3">
-						<button type="button" id="btnRe_s" class="btn btn-primary btn-lg btnrlist">리뷰작성</button>
-						<button type="button" id="btnSe_s" class="btn btn-primary btn-lg btnrlist">리뷰보기</button>
+						<button type="button"  id="btnRe_s" class="btn btn-primary btn-lg btnrlist btnRe_s">리뷰작성</button>
+						<button type="button"  id="btnSe_s" class="btn btn-primary btn-lg btnrlist btnSe_s">리뷰보기</button>
 						<input type="hidden" name="rCode" value="${list.rCode}"/>
 						<input type="hidden" name="eMail" value="${list.eMail}"/>
 					</div>

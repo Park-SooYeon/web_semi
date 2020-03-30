@@ -16,10 +16,6 @@
 		<input class="form-control form-control-lg" type="text" id="inputLarge" name="nName" value="${vo.nName}">
 	</div>
 	<div class="form-group">
-		<label class="col-form-label col-form-label-lg" for="inputLarge">이름</label>
-		<input class="form-control form-control-lg" type="text" id="inputLarge" name="uName" value="${vo.uName}">
-	</div>
-	<div class="form-group">
 		<label class="col-form-label col-form-label-lg" for="inputLarge">핸드폰번호</label>
 		<input class="form-control form-control-lg" type="text" id="inputLarge" name="phone" value="${vo.phone}">
 	</div>

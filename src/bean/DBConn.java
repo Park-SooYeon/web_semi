@@ -6,13 +6,13 @@ import java.sql.DriverManager;
 public class DBConn {
 
 	public static Connection getConn() {
-		return getConn("Semi", "1234");
+		return getConn("web", "web");
 	}
 	
 	public static Connection getConn(String id, String pwd) {
 		String driver = "oracle.jdbc.driver.OracleDriver";
-		//String url = "jdbc:oracle:thin:@192.168.0.27:1521:xe";
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@192.168.0.27:1521:xe";
+		//String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String dbUser = id;
 		String dbPwd = pwd;
 		Connection conn = null;

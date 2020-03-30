@@ -12,8 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.user.mypage.command.LastPlaceView;
 import com.user.mypage.command.MpCommand;
 import com.user.review.command.RvCommand;
+import com.user.review.command.RvDelete;
 import com.user.review.command.RvInsert;
+import com.user.review.command.RvModify;
 import com.user.review.command.RvModifyView;
+import com.user.review.command.RvReply;
+import com.user.review.command.RvReplyView;
 import com.user.review.command.RvSelect;
 
 /**
@@ -78,7 +82,24 @@ public class ReviewController extends HttpServlet {
 			command.execute(req, res);
 			viewPage = url+"../review/rvModify.jsp";
 		}else if(com.equals("/reviewModify.rv")) {
-			
+			command = new RvModify();
+			command.execute(req, res);
+			int rCode = Integer.parseInt(req.getParameter("rCode"));
+			viewPage = "/reviewSelect.rv?rCode="+rCode;
+		}else if(com.equals("/reviewReplyView.rv")) {
+			command = new RvReplyView();
+			command.execute(req, res);
+			viewPage = url + "../review/rvReplyView.jsp";
+		}else if(com.equals("/reviewReply.rv")) {
+			int rCode = Integer.parseInt(req.getParameter("rCode"));
+			command = new RvReply();
+			command.execute(req, res);
+			viewPage = "/reviewSelect.rv?rCode="+rCode;
+		}else if(com.equals("/reviewDelete.rv")) {
+			int rCode = Integer.parseInt(req.getParameter("rCode"));
+			command = new RvDelete();
+			command.execute(req, res);
+			viewPage = "/reviewSelect.rv?rCode="+rCode;
 		}
 		RequestDispatcher dis = req.getRequestDispatcher(viewPage);
 		dis.forward(req, res);
