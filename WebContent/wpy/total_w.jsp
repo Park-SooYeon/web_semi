@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,17 +27,24 @@
 </form>
 <hr/>
 
+<c:forEach var="list" items="${vo }" >
 <div id='room_w' >
   <div id='roomview_photo_w'>
-   <img src=''/>
+   
+   <img src='./upload/${list.pori }.jpg'/>
+ 
   </div>
    <div id = 'room_right_w'>
      <div id='room_head_w'>
-     <strong >슈페리얼 트윈(금연룸)</strong>
+    
+     <strong >${list.roomName }</strong>
+ 
      </div>
      <div id='price_w'>
      <span>가격</span> 
-     <span id='sub_price_w'>79,600원</span>
+     
+     <span id='sub_price_w'>${list.price }</span>
+    
      <hr/>
      <button id="btnViewR_w"  class="btn btn-outline-light text-left text-muted">  
        객실 이용 안내
@@ -44,10 +52,12 @@
      </button>
    
      </div>
-     <button type='button' class='	btn btn-danger' id='btnR_w' onclick="roomView_k(2,2, '${sessionScope.email}')">예약</button>
+     <button type='button' class='	btn btn-danger' id='btnR_w' onclick="roomView_k( '${list.rCode }','${list.roomCode }','${sessionScope.email}')">예약</button>
      </div>
+
    </div>
  <BR/>
+ </c:forEach>
 </div>
 
 <div id = 'view2_w' style='display: none;'>

@@ -18,7 +18,7 @@ public class RoomsDao2 {
 	 RoomsVo vo = null;
 	 try {
 		 String sql = " select rs.rCode , rs.rName,rs.rPlace, rs.ginfo,rs.aType,rs.OriFile,rs.SysFile,rs.stars,rs.checkIn,rs.checkOut,rs.address,rs.kind,rs.pet,rs.smoke,rs.noSmoke,rs.Parking, " 
-		            + " rs.breakfast,rs.pt,rs.pool,rs.rest,rs.cafe,rs.bar,rs.washer,rs.lounge,rs.kitchen,rs.dryer,rs.talsu , r.roomCode,r.roomName,r.rCode,r.rMaxPeople,r.price,r.tv,r.wifi,r.shower, " 
+		            + " rs.breakfast,rs.pt,rs.swim,rs.rest,rs.cafe,rs.bar,rs.washer,rs.lounge,rs.kitchen,rs.dryer,rs.talsu , r.roomCode,r.roomName,r.rCode,r.rMaxPeople,r.price,r.tv,r.wifi,r.shower, " 
 				    + " r.aircon,r.spa,r.tub,r.computer,r.iron,r.refr ,r.socket,r.bed,p.oriFile pori,p.sysfile psys "
 		            + " from Rooms rs , Room r , room_photo p "
 				    + " where rs.rCode = r.rCode and r.ROOMCODE = p.ROOMCODE(+) and rs.rCode = ? ";
@@ -50,7 +50,7 @@ public class RoomsDao2 {
 	  vo.setParking(rs.getInt("parking"));
 	  vo.setBreakfast(rs.getInt("breakfast"));
 	  vo.setPt(rs.getInt("pt"));
-	  vo.setPool(rs.getInt("pool"));
+	  vo.setSwim(rs.getInt("swim"));
 	  vo.setRest(rs.getInt("rest"));
 	  vo.setCafe(rs.getInt("cafe"));
 	  vo.setBar(rs.getInt("bar"));
@@ -61,6 +61,9 @@ public class RoomsDao2 {
 	  vo.setTalsu(rs.getInt("talsu"));
       vo.setPori(rs.getString("pori"));
       vo.setPori(rs.getString("psys"));
+      vo.setPrice(rs.getInt("price"));
+      vo.setRoomCode(rs.getInt("roomCode"));
+      vo.setRoomName(rs.getString("roomName"));
       list.add(vo);
       
 	 }

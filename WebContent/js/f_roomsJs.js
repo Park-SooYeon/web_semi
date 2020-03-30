@@ -131,7 +131,8 @@ let event_f = function(){
 
 }
 //뷰페이지로이동
-let view = function(){
+let view = function(rCode){
+    $('#rCode').val(rCode);
 	$('#frm_f').attr('action','roomView.ff').submit();
 }
 //페이징 버튼 클릭시

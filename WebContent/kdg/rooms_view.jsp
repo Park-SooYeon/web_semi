@@ -25,11 +25,15 @@
 			<div id='view_top_right' class='btn pull-right'>
 			  <div id='view_top_right1'>
 			   <span class="badge badge-pill badge-info">레지던스</span>
-			   <h4>메리어트 이즈제큐티브 아파트먼트</h4>
+			   <c:forEach var="list" items="${vo }" begin='0' end='0' >
+			   <h4>${list.rName }</h4>
+			   </c:forEach>
 			   <span class="badge badge-pill badge-warning">8.0</span>
 			   <span class='text-warning'>만족해요</span>
 			   <br>
-			    <h5>서울 강남구 삼성동112-5</h5>
+			   <c:forEach var="list" items="${vo }" begin='0' end='0' >
+			    <h5>${list.address }</h5>
+			    </c:forEach>
 			   </div>
 			   <div class="card border-secondary mb-3" style="max-width: 20rem;">
                <div class="card-header">사장님 한마디</div>
@@ -64,7 +68,7 @@
 						</c:forEach>
 						<c:forEach var="list" items="${vo}" begin='3' end='3' >
 						<div id='view_top_left_sub4_f'>
-								<img src='./upload/${list.pori }.jpg'/>
+								<img src='./upload/${list.pori  }.jpg'/>
 						</div>
 						</c:forEach>
 					</div>

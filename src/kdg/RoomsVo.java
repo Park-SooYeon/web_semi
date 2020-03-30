@@ -26,7 +26,7 @@ public class RoomsVo {
 	int breakfast;//조식
 	
 	int pt;//피트니스
-	int pool;//수영장
+	int swim;//수영장
 	int rest;//레스토랑
 	int cafe;//카페
 	int bar;//바
@@ -36,10 +36,15 @@ public class RoomsVo {
 	int kitchen;//주방
 	int dryer;//건조기
 	int talsu;//탈수기
+	int price;
+	int roomCode;
+	
+	String roomName;
 	
 	String pori;
 	String psys;
 	
+
 	public int getrCode() {
 		return rCode;
 	}
@@ -148,11 +153,11 @@ public class RoomsVo {
 	public void setPt(int pt) {
 		this.pt = pt;
 	}
-	public int getPool() {
-		return pool;
+	public int getSwim() {
+		return swim;
 	}
-	public void setPool(int pool) {
-		this.pool = pool;
+	public void setSwim(int swim) {
+		this.swim = swim;
 	}
 	public int getRest() {
 		return rest;
@@ -214,6 +219,25 @@ public class RoomsVo {
 	public void setPsys(String psys) {
 		this.psys = psys;
 	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public int getRoomCode() {
+		return roomCode;
+	}
+	public void setRoomCode(int roomCode) {
+		this.roomCode = roomCode;
+	}
+	public String getRoomName() {
+		return roomName;
+	}
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
+	}
+	
 	
 
 
