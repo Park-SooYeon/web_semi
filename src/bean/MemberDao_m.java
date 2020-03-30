@@ -18,7 +18,7 @@ public class MemberDao_m {
 	
 	
 	public MemberDao_m() {
-		conn = DBConn.getConn("web", "web");
+		conn = DBConn.getConn();
 	}
 	public List<MemberVo_m> select(Page_m p) {
 		
@@ -61,19 +61,74 @@ public class MemberDao_m {
 		}
 		return list;
 	}
+
+	public String insert(String title, String memo) {
+		String msg ="";
+		
+		try {
+			sql = "insert into notice(nno, title, rDate, memo) "
+				+ " values(seq_notice_nno.nextval,?,sysdate,?) ";
+
+			/*conn.setAutoCommit(false);*/
+		
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, title);
+			ps.setString(2, memo);
+			int r = ps.executeUpdate();
+			
+			if(r<1) {
+				throw new Exception();
+			}
+			/*conn.commit();*/
+		}catch(Exception ex) {
+			msg = ex.toString();
+		}finally {
+			return msg;
+		}
+	}
 	
+	public String modify(MemberVo_m vo) {
+		String msg = "게시물 내용이 수정 되었습니다.";
+		
+		sql = " update notice set title=?, memo=? where nno=? ";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, vo.getTitle());
+			ps.setString(2, vo.getMemo());
+			ps.setInt(3, vo.getNno())
+			;
+			int r = ps.executeUpdate();
+			if(r<1) {
+				throw new Exception();
+			}
+			conn.commit();
+		}catch(Exception ex) {
+			msg = ex.toString();
+			conn.rollback();
+		}finally {
+			return msg;
+		}
+			
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public String delete(String title) {
+		String msg = "게시물이 삭제 되었습니다.";
+		sql = " delete from notice where title= ? ";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, title);
+			
+			int cnt = ps.executeUpdate();
+			if(cnt<1) {
+				throw new Exception("자료 삭제중 예외 발생");
+			}
+		}catch(Exception ex) {
+			msg = ex.getMessage();
+		}finally {
+			return msg;
+		}
+	}
 }
 
 
