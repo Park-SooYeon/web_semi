@@ -86,9 +86,14 @@ let user = function(){
 	})
 }
 
-let rvDelete = function(rIndent){
-	let index = $('#index_s').val();
-	$('#rIndent_s'+index).val(rIndent);
+let rvDelete = function(rIndex){
+	//let index = $('#index_s'+rIndex).val();
+	let indent = $('#rIndent_s'+rIndex).val();
+	$('#indent_s').val(indent);
+	alert(indent);
+	let index = $('#rNo_s'+rIndex).val();
+	$('#rno_s').val(index);
+	alert(index);
 	$('#frm_rvSe_s').attr('action', 'reviewDelete.rv').submit();
 }
 
