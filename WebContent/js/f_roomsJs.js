@@ -185,30 +185,128 @@ let goPage = function(nowPage){
 //구 리스트 클릭시
 let goo1 = function(){
 	$('#place_f').val('도봉구,강북구,노원구,성북구');
+	$('#maxPeople option').each(function(){// maxPeople 초기화
+	    if($(this).val()=="1"){
+	      $(this).attr("selected","selected");  
+	    }
+	  });
+	$('.kind_f').val('5'); //호텔 종류 초기화
+	$('#sort_f').val('asc'); //정렬방식 초기화
+	$('#nowPage_f').val('1'); // 페이징 초기화
+	$("input[type=checkbox]").prop("checked",false);//체크박스 초기화
+	$('#bed1_f').css('background-image',"url('./image/bed1_f.JPG')");//bedtype초기화
+	$('#bed2_f').css('background-image',"url('./image/bed2_f.jpg')");
+	$('#bed3_f').css('background-image',"url('./image/bed3_f.jpg')");
+	$('#bed4_f').css('background-image',"url('./image/bed4_f.jpg')");
+	$('#bedtype_f').val('5');
 	$('#frm_f').attr('action','gooSelect.ff').submit();
 }
 let goo2 = function(){
 	$('#place_f').val('중랑구,동대문구,성동구,광진구');
+	$('#maxPeople option').each(function(){// maxPeople 초기화
+	    if($(this).val()=="1"){
+	      $(this).attr("selected","selected");  
+	    }
+	  });
+	$('.kind_f').val('5'); //호텔 종류 초기화
+	$('#sort_f').val('asc'); //정렬방식 초기화
+	$('#nowPage_f').val('1'); // 페이징 초기화
+	$("input[type=checkbox]").prop("checked",false);//체크박스 초기화
+	$('#bed1_f').css('background-image',"url('./image/bed1_f.JPG')");//bedtype초기화
+	$('#bed2_f').css('background-image',"url('./image/bed2_f.jpg')");
+	$('#bed3_f').css('background-image',"url('./image/bed3_f.jpg')");
+	$('#bed4_f').css('background-image',"url('./image/bed4_f.jpg')");
+	$('#bedtype_f').val('5');
 	$('#frm_f').attr('action','gooSelect.ff').submit();
 }
 let goo3 = function(){
 	$('#place_f').val('은평구,종로구,서대문구,.')
+	$('#maxPeople option').each(function(){// maxPeople 초기화
+	    if($(this).val()=="1"){
+	      $(this).attr("selected","selected");  
+	    }
+	  });
+	$('.kind_f').val('5'); //호텔 종류 초기화
+	$('#sort_f').val('asc'); //정렬방식 초기화
+	$('#nowPage_f').val('1'); // 페이징 초기화
+	$("input[type=checkbox]").prop("checked",false);//체크박스 초기화
+	$('#bed1_f').css('background-image',"url('./image/bed1_f.JPG')");//bedtype초기화
+	$('#bed2_f').css('background-image',"url('./image/bed2_f.jpg')");
+	$('#bed3_f').css('background-image',"url('./image/bed3_f.jpg')");
+	$('#bed4_f').css('background-image',"url('./image/bed4_f.jpg')");
+	$('#bedtype_f').val('5');
 	$('#frm_f').attr('action','gooSelect.ff').submit();
 }
 let goo4 = function(){
 	$('#place_f').val('중구,마포구,용산구,.');
+	$('#maxPeople option').each(function(){// maxPeople 초기화
+	    if($(this).val()=="1"){
+	      $(this).attr("selected","selected");  
+	    }
+	  });
+	$('.kind_f').val('5'); //호텔 종류 초기화
+	$('#sort_f').val('asc'); //정렬방식 초기화
+	$('#nowPage_f').val('1'); // 페이징 초기화
+	$("input[type=checkbox]").prop("checked",false);//체크박스 초기화
+	$('#bed1_f').css('background-image',"url('./image/bed1_f.JPG')");//bedtype초기화
+	$('#bed2_f').css('background-image',"url('./image/bed2_f.jpg')");
+	$('#bed3_f').css('background-image',"url('./image/bed3_f.jpg')");
+	$('#bed4_f').css('background-image',"url('./image/bed4_f.jpg')");
+	$('#bedtype_f').val('5');
 	$('#frm_f').attr('action','gooSelect.ff').submit();
 }
 let goo5 = function(){
 	$('#place_f').val('강동구,송파구,강남구,.');
+	$('#maxPeople option').each(function(){// maxPeople 초기화
+	    if($(this).val()=="1"){
+	      $(this).attr("selected","selected");  
+	    }
+	  });
+	$('.kind_f').val('5'); //호텔 종류 초기화
+	$('#sort_f').val('asc'); //정렬방식 초기화
+	$('#nowPage_f').val('1'); // 페이징 초기화
+	$("input[type=checkbox]").prop("checked",false);//체크박스 초기화
+	$('#bed1_f').css('background-image',"url('./image/bed1_f.JPG')");//bedtype초기화
+	$('#bed2_f').css('background-image',"url('./image/bed2_f.jpg')");
+	$('#bed3_f').css('background-image',"url('./image/bed3_f.jpg')");
+	$('#bed4_f').css('background-image',"url('./image/bed4_f.jpg')");
+	$('#bedtype_f').val('5');
 	$('#frm_f').attr('action','gooSelect.ff').submit();
 }
 let goo6 = function(){
 	$('#place_f').val('서초구,동장구,관악구,금천구');
+	$('#maxPeople option').each(function(){// maxPeople 초기화
+	    if($(this).val()=="1"){
+	      $(this).attr("selected","selected");  
+	    }
+	  });
+	$('.kind_f').val('5'); //호텔 종류 초기화
+	$('#sort_f').val('asc'); //정렬방식 초기화
+	$('#nowPage_f').val('1'); // 페이징 초기화
+	$("input[type=checkbox]").prop("checked",false);//체크박스 초기화
+	$('#bed1_f').css('background-image',"url('./image/bed1_f.JPG')");//bedtype초기화
+	$('#bed2_f').css('background-image',"url('./image/bed2_f.jpg')");
+	$('#bed3_f').css('background-image',"url('./image/bed3_f.jpg')");
+	$('#bed4_f').css('background-image',"url('./image/bed4_f.jpg')");
+	$('#bedtype_f').val('5');
 	$('#frm_f').attr('action','gooSelect.ff').submit();
 }
 let goo7 = function(){
 	$('#place_f').val('강서구,양천구,구로구,영등포구');
+	$('#maxPeople option').each(function(){// maxPeople 초기화
+	    if($(this).val()=="1"){
+	      $(this).attr("selected","selected");  
+	    }
+	  });
+	$('.kind_f').val('5'); //호텔 종류 초기화
+	$('#sort_f').val('asc'); //정렬방식 초기화
+	$('#nowPage_f').val('1'); // 페이징 초기화
+	$("input[type=checkbox]").prop("checked",false);//체크박스 초기화
+	$('#bed1_f').css('background-image',"url('./image/bed1_f.JPG')");//bedtype초기화
+	$('#bed2_f').css('background-image',"url('./image/bed2_f.jpg')");
+	$('#bed3_f').css('background-image',"url('./image/bed3_f.jpg')");
+	$('#bed4_f').css('background-image',"url('./image/bed4_f.jpg')");
+	$('#bedtype_f').val('5');
 	$('#frm_f').attr('action','gooSelect.ff').submit();
 }
 
@@ -229,16 +327,19 @@ let btnFunc_f = function(){
 	//모텔 페이지 적용버튼 클릭시
 	if($('#m_btnApply_f')!=null){
 		$('#m_btnApply_f').click(function(){
+			$('#frm_f').attr('action','fillter.ff');
 		})
 	}
 	//게하 페이지 적용버튼 클릭시
 	if($('#g_btnApply_f')!=null){
 		$('#g_btnApply_f').click(function(){
+			$('#frm_f').attr('action','fillter.ff');
 		})
 	}
 	//캠핑 페이지 적용버튼 클릭시
 	if($('#c_btnApply_f')!=null){
 		$('#c_btnApply_f').click(function(){
+			$('#frm_f').attr('action','fillter.ff');
 		})
 	}
 	
@@ -246,28 +347,66 @@ let btnFunc_f = function(){
 	//초기화 버튼 클릭시 페이지 새로고침 
 	if($('#h_btnReset_f')!=null){
 		$('#h_btnReset_f').click(function(){
+			$('#maxPeople option').each(function(){// maxPeople 초기화
+			    if($(this).val()=="1"){
+			      $(this).attr("selected","selected");  
+			    }
+			  });
 			$('.kind_f').val('5'); //호텔 종류 초기화
 			$('#target_f').val('/hrooms.jsp'); //타겟 초기화
 			$('#sort_f').val('asc'); //정렬방식 초기화
 			$('#nowPage_f').val('1'); // 페이징 초기화
 			$('#aType').val('2'); // 숙소타입 초기화
-			$('#place_f').val('구전체모텔,.,.,.'); //지역 초기화
+			$('#place_f').val('구전체호텔,.,.,.'); //지역 초기화
 			$('#frm_f').attr('action','hotel.ff'); 
 		})
 	}
 	if($('#m_btnReset_f')!=null){
 		$('#m_btnReset_f').click(function(){
-			$('#frm_f').attr('action','motel.ff');
+			$('#maxPeople option').each(function(){// maxPeople 초기화
+			    if($(this).val()=="1"){
+			      $(this).attr("selected","selected");  
+			    }
+			  });
+			$('.kind_f').val('5'); //호텔 종류 초기화
+			$('#target_f').val('/mrooms.jsp'); //타겟 초기화
+			$('#sort_f').val('asc'); //정렬방식 초기화
+			$('#nowPage_f').val('1'); // 페이징 초기화
+			$('#aType').val('1'); // 숙소타입 초기화
+			$('#place_f').val('구전체모텔,.,.,.'); //지역 초기화
+			$('#frm_f').attr('action','motel.ff'); 
 		})
 	}
 	if($('#p_btnReset_f')!=null){
 		$('#p_btnReset_f').click(function(){
-			$('#frm_f').attr('action','penshion.ff');
+			$('#maxPeople option').each(function(){// maxPeople 초기화
+			    if($(this).val()=="1"){
+			      $(this).attr("selected","selected");  
+			    }
+			  });
+			$('.kind_f').val('5'); //호텔 종류 초기화
+			$('#target_f').val('/prooms.jsp'); //타겟 초기화
+			$('#sort_f').val('asc'); //정렬방식 초기화
+			$('#nowPage_f').val('1'); // 페이징 초기화
+			$('#aType').val('4'); // 숙소타입 초기화
+			$('#place_f').val('구전체펜션,.,.,.'); //지역 초기화
+			$('#frm_f').attr('action','penshion.ff'); 
 		})
 	}
 	if($('#g_btnReset_f')!=null){
 		$('#g_btnReset_f').click(function(){
-			$('#frm_f').attr('action','guesthouse.ff');
+			$('#maxPeople option').each(function(){// maxPeople 초기화
+			    if($(this).val()=="1"){
+			      $(this).attr("selected","selected");  
+			    }
+			  });
+			$('.kind_f').val('5'); //호텔 종류 초기화
+			$('#target_f').val('/grooms.jsp'); //타겟 초기화
+			$('#sort_f').val('asc'); //정렬방식 초기화
+			$('#nowPage_f').val('1'); // 페이징 초기화
+			$('#aType').val('3'); // 숙소타입 초기화
+			$('#place_f').val('구전체게하,.,.,.'); //지역 초기화
+			$('#frm_f').attr('action','guesthouse.ff'); 
 		})
 	}
 	
