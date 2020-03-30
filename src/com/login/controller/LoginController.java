@@ -48,7 +48,7 @@ public class LoginController extends HttpServlet{
 			
 			//로그인 성공 | 실패
 			if(flag) {
-				path = "../index.jsp";		
+				path = "../index.jsp";
 				break;
 			}else {
 				path = "./login.jsp";
@@ -87,6 +87,7 @@ public class LoginController extends HttpServlet{
 				req.getSession().setAttribute("email", vo.getEmail());
 				req.getSession().setAttribute("nName", vo.getnName());
 				path = "../index.jsp";
+				break;
 			}else {
 				out.print("회원가입 중 오류가 발생했습니다.");
 				out.flush();

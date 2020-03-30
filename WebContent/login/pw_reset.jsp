@@ -16,6 +16,7 @@
 	<div class='row justify-content-md-center'>
 		<div class='col-4' align='center'>
 			<h4 class='h4_c'>비밀번호 재설정</h4>
+			<input type='hidden' id='email_c' name='email_c' value='<%=request.getParameter("e") %>' >
 				<input type='text' class='pw_reset_c' placeholder="비밀번호">
 				<br/>
 				<input type='text' class='pw_reset_c' placeholder="비밀번호 확인">
@@ -23,7 +24,6 @@
 		</div>
 	</div>
 </div>
-
 <script src='../js/bootstrap.bundle.min.js'></script>
 <body>
 

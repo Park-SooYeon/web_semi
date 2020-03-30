@@ -31,6 +31,7 @@ function btnFunc(){
 	 /* 이메일 인증 */
 	if('#btnSend_c' != null){
 		$('#btnSend_c').click(function(){
+			$('#numView').css('display','block');
 			var email = $('#email_c').val();
 			$.post("emailS.lg", {'email':email}, 
 					function(data, status){
@@ -57,7 +58,6 @@ function btnFunc(){
 		$('#btnMember_c').click(function(){
 				$('#frm_c').attr('action','member.lg').submit();
 				//input태그의 값이 null이거나 오류상태이면 오류색으로 띄워주기
-			
 		});
 	}
 	
@@ -70,7 +70,6 @@ function btnFunc(){
 					function(data, status){
 							if(data){
 								alert("메일이 정상적으로 전송되었습니다.");
-								sess
 							}else{
 								alert("메일 전송 중 오류가 발생했습니다.");
 							}
