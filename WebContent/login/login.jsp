@@ -43,14 +43,13 @@
             </p>
             <form id='frm_c' name='frm_c' method='post' class="was-validated">
 	            <div class="form-group">
-				       <input type="email" class="form-control" id="email_c" placeholder="이메일 주소" name="email_c" autofocus required>
-				     <div class="valid-feedback" id="chkOk"></div>
-				     <div></div>
-				      <div class="invalid-feedback" id="chkFail">유효하지 않은 E-Mail주소입니다.</div>
+	            	<input type="hidden" name="redirectUrl" id="redirectUrl"/>
+	      			<input type="email" class="form-control" id="email_c" placeholder="이메일 주소" name="email_c" autofocus required>
+				    <div></div>
+				    <div class="invalid-feedback" id="chkFail">유효하지 않은 E-Mail주소입니다.</div>
 				</div>
 				<div class="form-group">
 				    <input type="password" class="form-control" id="pwd_c" placeholder="비밀번호" name="pwd_c" required>
-				    <div class="valid-feedback">Valid.</div>
 					<div class="invalid-feedback">비밀번호를 입력해 주세요.</div>
 				</div>
 			</form>
@@ -64,7 +63,17 @@
 		</div>
 	</div>
 </div>
-<script>btnFunc();</script>
+<script>btnFunc();
+
+/* 쿠키로 url받아 올 때 사용
+$(function() {
+	var url = $cookie('url');
+	if (url != null && url != "") {
+		$('#redirectUrl').val(url);
+	}
+}); */
+
+</script>
 <script src='../js/bootstrap.bundle.min.js'></script>
 <body>
 

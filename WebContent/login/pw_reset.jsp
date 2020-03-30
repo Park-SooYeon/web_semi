@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<<div class='container'>
+<div class='container'>
 	<div class='row justify-content-md-center'>
 		<div class='col-4' align='center'>
 			<h4 class='h4_c'>비밀번호 재설정</h4>

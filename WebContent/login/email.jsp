@@ -24,13 +24,13 @@
 				<label class='label_c'>이메일 주소</label>
 				<br/>
 				<input type='text' id='email_c' name='email_c' class='email_c' placeholder="이메일 주소" maxlength="25">
-				<button type="button" id='btnSend_c' class="btn btn-secondary disabled">인증번호 전송</button>
+				<button type="button" id='btnSend_c' class="btn btn-secondary disabled" disabled>인증번호 전송</button>
+				<div id='emailM_c'></div>
 				<br/>
 				<div id='numView' style='display:none;'>
 					<label class='label_c'>인증번호</label><br/>
-					<input type='text' id='num_c' name='num_c' class='email_c' placeholder="인증번호" maxlength="10">
-					<button type="button" id='btnSendNum_c' class="btn btn-secondary disabled" style='width:125px;'>확인</button>
-					<input type='hidden' id='num2' name='num2'/>				
+					<input type='text' id='num_c' name='num_c' class='email_c' placeholder="인증번호" maxlength="15">
+					<button type="button" id='btnNum_c' class="btn btn-secondary disabled" style='width:125px;'>확인</button>
 				</div>
 			</form>
 			<div align='center'>
@@ -39,7 +39,7 @@
 		</div>
 	</div>
 </div>
-<script>btnFunc();</script>
+<script>emailCk(); btnFunc()</script>
 <script src='../js/bootstrap.bundle.min.js'></script>
 </body>
 </html>
