@@ -106,6 +106,9 @@ let reserveR_k = function(link) {
 // total_w.jsp의 예약 버튼 클릭시 페이지 이동
 let roomView_k = function(rCode, roomCode, email) {
 	if(email == "") {
+		alert(window.location.href);
+		//$.cookie('url', window.location.href);
+		$.cookie('url', 'test', { expires: 7, path: '/' });
 		location.href = "./login/login.jsp";
 	} else {
 		console.log("rCode : ", rCode);
