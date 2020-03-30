@@ -11,13 +11,13 @@
 
 </head>
 <body>
+									<input type='hidden' name='rCode' id='rCode' value=''/>
 							<c:forEach var="vo" items="${list_f }">
-							<div id ='searched_frame_f' onclick='view()'>
+							<div id ='searched_frame_f' onclick='view(${vo.rCode})'>
 								
 								
 								<div id='main_img_f'>
 									<img src="./upload/${vo.sysFile }.jpg"/>
-									<input type='hidden' name='rCode' id='rCode' value='${vo.rCode }'/>
 								</div>
 								
 								
