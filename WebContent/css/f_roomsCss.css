@@ -272,7 +272,7 @@ body, html {
 	height: 60px;
 	text-align: center;
 }
-#mid_in_f #search_f #price_order_f .btnDsc_f{
+#mid_in_f #search_f #price_order_f #btnDsc_f{
 	width:150px;
 	height: 40px;
 	border : 1px solid #aaa;
@@ -280,16 +280,14 @@ body, html {
 	border-radius: 5px 5px 5px 5px;
 	font-size: 1.1em;	
 	margin-right: 0px;
-	color:#aaa;
 	cursor: pointer;
 }
-#mid_in_f #search_f #price_order_f .btnAsc_f{
+#mid_in_f #search_f #price_order_f #btnAsc_f{
 	width:150px;
 	height: 40px;
 	border : 1px solid #aaa;
 	background-color: #fffa;
 	border-radius: 5px 5px 5px 5px;
-	color:#f62a4b;
 	font-size: 1.1em;
 	margin-left: 0px;
 	cursor: pointer;
@@ -548,8 +546,13 @@ body, html {
 	border:0;
 	outline:0;
 }
-
-
+/*--------------동적 스타일--------------------------------------------------------------------------*/
+.asc_selected_f{
+	color:#f62a4b;
+}
+.asc_select_f{
+	color:#aaa;
+}
 
 
 

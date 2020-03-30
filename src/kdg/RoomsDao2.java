@@ -50,7 +50,7 @@ public class RoomsDao2 {
 	  vo.setParking(rs.getInt("parking"));
 	  vo.setBreakfast(rs.getInt("breakfast"));
 	  vo.setPt(rs.getInt("pt"));
-	  vo.setPool(rs.getInt("pool"));
+	  vo.setPool(rs.getInt("swim"));
 	  vo.setRest(rs.getInt("rest"));
 	  vo.setCafe(rs.getInt("cafe"));
 	  vo.setBar(rs.getInt("bar"));

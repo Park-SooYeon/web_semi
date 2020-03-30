@@ -211,10 +211,11 @@ public class KDGServlet extends HttpServlet {
 	}
 	public void roomView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 	
-		int rCode=0;
+		int rCode=Integer.parseInt(req.getParameter("rCode"));
 		String checkIn="";
 		String checkOut="";
-		if(req.getParameter("rCode")!=null) {
+		
+		if(rCode!=0) {
 			rCode = Integer.parseInt(req.getParameter("rCode"));
 		}
 		if(req.getParameter("checkIn")!=null) {
@@ -242,6 +243,10 @@ public class KDGServlet extends HttpServlet {
 		int aType=0;
 		int nowPage_f = 1;
 		String target ="";
+		String sort ="";	//가격 정렬 뭘로할거니
+
+		String checkIn =""; //체크인 시간
+		String checkOut ="";//체크아웃시간
 		if(req.getParameter("target")!=null) {
 			target = req.getParameter("target");
 		}
@@ -258,6 +263,15 @@ public class KDGServlet extends HttpServlet {
 				place = req.getParameter("place_f");				
 			}
 		}
+		if(req.getParameter("checkIn")!=null) {
+			checkIn = req.getParameter("checkIn");
+		}
+		if(req.getParameter("checkOut")!=null) {
+			checkOut = req.getParameter("checkOut");
+		}
+		if(req.getParameter("sort_f")!=null) {
+			sort = req.getParameter("sort_f");
+		}
 		page p_f = new page();
 		p_f.setNowPage(nowPage_f);
 		
@@ -267,6 +281,9 @@ public class KDGServlet extends HttpServlet {
 		req.setAttribute("list_f", list);
 		req.setAttribute("p_f", p_f);
 		req.setAttribute("place_f", place);
+		req.setAttribute("sort_f", sort);
+		req.setAttribute("checkIn_f", checkIn);
+		req.setAttribute("checkOut_f", checkOut);
 		
 		String path = url + target;
 		RequestDispatcher rd = req.getRequestDispatcher(path);
@@ -287,6 +304,14 @@ public class KDGServlet extends HttpServlet {
 		int kind = 5;		//호텔 타입?
 		int maxPeople =1;	//최대인원?
 		int bedtype =5;		//베드 타입?
+		String checkIn =""; //체크인 시간
+		String checkOut ="";//체크아웃시간
+		if(req.getParameter("checkIn")!=null) {
+			checkIn = req.getParameter("checkIn");
+		}
+		if(req.getParameter("checkOut")!=null) {
+			checkOut = req.getParameter("checkOut");
+		}
 	
 		List<String> fillter = new ArrayList<String>();//체크사항에 체크되어 값이 넘어오면 sql문은 만들어 배열에담아 dao에 전달
 		List<String> pagingSql = new ArrayList<String>();
@@ -488,6 +513,11 @@ public class KDGServlet extends HttpServlet {
 		req.setAttribute("p_f", p_f);
 		req.setAttribute("place_f", place);
 		req.setAttribute("sort_f", sort);
+		req.setAttribute("checkIn_f", checkIn);
+		req.setAttribute("checkOut_f", checkOut);
+		req.setAttribute("kind", kind);
+		req.setAttribute("maxPeople", maxPeople);
+		req.setAttribute("bedtype", bedtype);
 		
 		String path = url + target;
 		RequestDispatcher rd = req.getRequestDispatcher(path);

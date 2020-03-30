@@ -13,7 +13,7 @@ import bean.DBConn;
 public class RoomsDao {
 	Connection conn;
 	public RoomsDao() {
-		conn = DBConn.getConn();
+		conn = bean.DBConn.getConn();
 	}
 	//처음상태 일때 데이터만들기
 	public List<RoomsListVo> select(int aType,page p_f) {
@@ -246,66 +246,67 @@ public class RoomsDao {
 				}
 			}
 		}
-		sql2 +=" 	group by S.rCode, S.rName, S.gInfo, S.sysFile, S.stars, S.address "
-			 +"  	order by S.rCode ) A "
-			 +" ) where rn between ? and ?";
-		if(svo.getSort().equals("asc")) {
-			sql2+= " order by price ";
-		}else if(svo.getSort().equals("dsc")) {
-			sql2+= " order by price desc ";
-		}
+		sql2 +=" 	group by S.rCode, S.rName, S.gInfo, S.sysFile, S.stars, S.address ";
+			 
+			 if(svo.getSort().equals("asc")) {
+				 sql2+= " order by price ";
+			 }else if(svo.getSort().equals("dsc")) {
+				 sql2+= " order by price desc ";
+			 }
+		sql2 +=" ) A  ) where rn between ? and ?";
+		
 		try {
 			
-			if(!svo.getPlace().equals("all")) {
+			if(!svo.getPlace().equals("all")) { //지역 선택됫니?
 				
 			
-			//페이징 sql 열기---------------------------------
-			ps = conn.prepareStatement(sql);
-			ps.setInt(1,svo.getaType());
-			ps.setString(2, p[0]);
-			ps.setString(3, p[1]);
-			ps.setString(4, p[2]);
-			ps.setString(5, p[3]);
-			if(pagelist.size()>0) {//페이징을 위한 sql을 담은 list 에 값이 존재한다면
-				for(int i=0;i<pagelist.size();i++) {
-					ps.setInt(5+i+1, pagelist.get(i));
+				//페이징 sql 열기---------------------------------
+				ps = conn.prepareStatement(sql);
+				ps.setInt(1,svo.getaType());
+				ps.setString(2, p[0]);
+				ps.setString(3, p[1]);
+				ps.setString(4, p[2]);
+				ps.setString(5, p[3]);
+				if(pagelist.size()>0) {//페이징을 위한 sql을 담은 list 에 값이 존재한다면
+					for(int i=0;i<pagelist.size();i++) {
+						ps.setInt(5+i+1, pagelist.get(i));
+					}
 				}
-			}
-			rs = ps.executeQuery();
-			if(rs.next()) {
-				totList = rs.getInt("cnt");
-			}
-			p_f.setTotListSize(totList);
-			p_f.pageCompute();
-			
-			
-			//메인 sql열기-------------------------------------
-			ps = conn.prepareStatement(sql2);
-			ps.setInt(1, svo.getaType());
-			ps.setString(2, p[0]);
-			ps.setString(3, p[1]);
-			ps.setString(4, p[2]);
-			ps.setString(5, p[3]);
-			if(mainlist.size()>0) {
-				for(int i=0;i<mainlist.size();i++) {
-					ps.setInt(5+i+1, mainlist.get(i));
-				}
-			}
-			ps.setInt(5 + mainlist.size()+1, p_f.getStartNo());
-			ps.setInt(5 + mainlist.size()+2, p_f.getEndNo());
-			rs = ps.executeQuery();
-			while(rs.next()) {
-				RoomsListVo vo = new RoomsListVo();
-				vo.setrCode(rs.getInt("a"));
-				vo.setrName(rs.getString("b"));
-				vo.setgInfo(rs.getString("c"));
-				vo.setSysFile(rs.getString("d"));
-				vo.setStars(rs.getInt("e"));
-				vo.setAddress(rs.getString("f"));
-				vo.setPrice(rs.getInt("price"));
-				list.add(vo);
-			}
-			}else {
+				rs = ps.executeQuery();
+				if(rs.next()) {
+					totList = rs.getInt("cnt");
+					}
+					p_f.setTotListSize(totList);
+					p_f.pageCompute();
+					
+					
+					//메인 sql열기-------------------------------------
+					ps = conn.prepareStatement(sql2);
+					ps.setInt(1, svo.getaType());
+					ps.setString(2, p[0]);
+					ps.setString(3, p[1]);
+					ps.setString(4, p[2]);
+					ps.setString(5, p[3]);
+					if(mainlist.size()>0) {
+						for(int i=0;i<mainlist.size();i++) {
+							ps.setInt(5+i+1, mainlist.get(i));
+						}
+					}
+					ps.setInt(5 + mainlist.size()+1, p_f.getStartNo());
+					ps.setInt(5 + mainlist.size()+2, p_f.getEndNo());
+					rs = ps.executeQuery();
+					while(rs.next()) {
+						RoomsListVo vo = new RoomsListVo();
+						vo.setrCode(rs.getInt("a"));
+						vo.setrName(rs.getString("b"));
+						vo.setgInfo(rs.getString("c"));
+						vo.setSysFile(rs.getString("d"));
+						vo.setStars(rs.getInt("e"));
+						vo.setAddress(rs.getString("f"));
+						vo.setPrice(rs.getInt("price"));
+						list.add(vo);
+					}
+			}else {//지역 선택 안됬니?
 				//페이징 sql 열기---------------------------------
 				ps = conn.prepareStatement(sql);
 				ps.setInt(1,svo.getaType());
@@ -330,8 +331,8 @@ public class RoomsDao {
 						ps.setInt(1+i+1, mainlist.get(i));
 					}
 				}
-				ps.setInt(5 + mainlist.size()+1, p_f.getStartNo());
-				ps.setInt(5 + mainlist.size()+2, p_f.getEndNo());
+				ps.setInt(1 + mainlist.size()+1, p_f.getStartNo());
+				ps.setInt(1 + mainlist.size()+2, p_f.getEndNo());
 				rs = ps.executeQuery();
 				while(rs.next()) {
 					RoomsListVo vo = new RoomsListVo();
