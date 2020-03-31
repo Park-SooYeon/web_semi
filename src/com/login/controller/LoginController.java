@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.login.command.Login;
 import com.login.command.MsendEmail;
+import com.login.command.PwEncrypt;
 import com.login.command.PwSendEmail;
 
 @WebServlet("*.lg")
@@ -43,20 +44,21 @@ public class LoginController extends HttpServlet{
 		
 		switch(tempUrl) {
 		case "/login.lg" : //로그인
-			Login log = new Login();
-			flag = log.login(req, resp);
+			String email = req.getParameter("email");
+			PwEncrypt encrypt = new PwEncrypt();
+			String pwd = encrypt.encrypt(req.getParameter("pwd"));
+			LoginVo vo = dao.login(email, pwd);
 			
-			//로그인 성공 | 실패
-			if(flag) {
-				path = "../index.jsp";		
-				break;
-			}else {
-				path = "./login.jsp";
-				break;
+			if(vo.isFlag()) {//로그인 성공하면 세션에 저장.
+				req.getSession().setAttribute("email", vo.getEmail());
+				req.getSession().setAttribute("nName", vo.getnName());
 			}
+			out.print(vo.isFlag());
+			out.flush();
+			return;
 		case "/emailCk.lg" : //가입된 이메일인지 확인
 			String email_c = req.getParameter("email");
-			String email = dao.emailCheck(email_c);
+			email = dao.emailCheck(email_c);
 			out.print(email);
 			out.flush();
 			return;
@@ -74,11 +76,14 @@ public class LoginController extends HttpServlet{
 			out.flush();
 			return;
 		case "/member.lg" : //회원가입
-			LoginVo vo = new LoginVo();
+			vo = new LoginVo();
+			//비밀번호 암호화
+			encrypt = new PwEncrypt();
+			pwd = encrypt.encrypt(req.getParameter("pwd_c"));
 			try {
 				vo.setEmail(req.getParameter("email_c"));
 				vo.setBirth(sdf.parse(req.getParameter("birth_c")));
-				vo.setPwd(req.getParameter("pwd_c"));
+				vo.setPwd(pwd);
 				vo.setPhone(req.getParameter("phone_c"));
 				vo.setnName(req.getParameter("nName_c"));
 			} catch (ParseException e) { e.printStackTrace();}
@@ -87,6 +92,7 @@ public class LoginController extends HttpServlet{
 				req.getSession().setAttribute("email", vo.getEmail());
 				req.getSession().setAttribute("nName", vo.getnName());
 				path = "../index.jsp";
+				break;
 			}else {
 				out.print("회원가입 중 오류가 발생했습니다.");
 				out.flush();
@@ -99,6 +105,14 @@ public class LoginController extends HttpServlet{
 			out.print(flag);
 			out.flush();
 			return;
+		case "/pwReset.lg" : //비밀번호 재설정
+			encrypt = new PwEncrypt();
+			pwd = encrypt.encrypt(req.getParameter("pwd_c"));
+			email = req.getParameter("email_c");
+			
+			dao.pwReset(email, pwd);
+			path = "../index.jsp";
+			break;
 		}
 		resp.sendRedirect(path);
 	}

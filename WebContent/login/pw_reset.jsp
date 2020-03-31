@@ -16,16 +16,20 @@
 	<div class='row justify-content-md-center'>
 		<div class='col-4' align='center'>
 			<h4 class='h4_c'>비밀번호 재설정</h4>
-				<input type='text' class='pw_reset_c' placeholder="비밀번호">
+			<form id='frm_c' name='frm_c' method='post'>
+				<input type='hidden' id='email_c' name='email_c' value='<%=request.getParameter("e") %>' />
+				<input type='text' id='pwd_c' name='pwd_c' class='pwd_c' placeholder="비밀번호" style='width:330px;margin-bottom: 35px'/>
+				<div id='pwdM_c' class='pwdResetM_c'></div>
 				<br/>
-				<input type='text' class='pw_reset_c' placeholder="비밀번호 확인">
-			<button type="button" class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>비밀번호 재설정</button>
+				<input type='text' id='pwd_ck_c' name='pwd_ck_c' class='pwd_c' placeholder="비밀번호 확인" style='width:330px;'/>
+				<div id='pwdM_ck_c' class='pwdResetM_ck_c'></div>
+				<button type="button" id='btnPwReset_c' class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>비밀번호 재설정</button>
+			</form>
 		</div>
 	</div>
 </div>
-
+<script>member(); btnFunc()</script>
 <script src='../js/bootstrap.bundle.min.js'></script>
-<body>
 
 </body>
 </html>
