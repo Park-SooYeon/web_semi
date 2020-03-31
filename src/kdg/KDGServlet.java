@@ -23,10 +23,16 @@ public class KDGServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//roomView(req,resp);
+		//action(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		action(req, resp);
+			
+	}
+	
+	public void action(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html; charset=utf-8");
 		String temp = req.getRequestURI();
@@ -56,7 +62,6 @@ public class KDGServlet extends HttpServlet {
 		case "/insert.ff":
 			insert(req,resp);
 		}
-			
 	}
 	public void hotel(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		int aType=0;
@@ -223,13 +228,13 @@ public class KDGServlet extends HttpServlet {
 				System.out.println("name=" + name + ",value=" + value);
 			}   
 		}
-		System.out.println("rCode :" + req.getParameter("rCo"));
-		int rCode=Integer.parseInt(req.getParameter("rCo"));
+		System.out.println("rCode :" + req.getParameter("rCode"));
+		int rCode=Integer.parseInt(req.getParameter("rCode"));
 		String checkIn="";
 		String checkOut="";
 		
 		if(rCode!=0) {
-			rCode = Integer.parseInt(req.getParameter("rCo"));
+			rCode = Integer.parseInt(req.getParameter("rCode"));
 		}
 		if(req.getParameter("checkIn")!=null) {
 			checkIn = req.getParameter("checkIn");
