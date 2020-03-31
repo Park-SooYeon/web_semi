@@ -64,6 +64,12 @@ public class RoomsDao2 {
       vo.setPrice(rs.getInt("price"));
       vo.setRoomCode(rs.getInt("roomCode"));
       vo.setRoomName(rs.getString("roomName"));
+      vo.setWifi(rs.getInt("wifi"));
+      vo.setBed(rs.getInt("bed"));
+      vo.setTub(rs.getInt("tub"));
+      vo.setTv(rs.getInt("tv"));
+      vo.setSpa(rs.getInt("spa"));
+      vo.setComputer(rs.getInt("computer"));
       list.add(vo);
       
 	 }

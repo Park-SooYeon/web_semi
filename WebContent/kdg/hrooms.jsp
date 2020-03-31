@@ -21,7 +21,7 @@
 		String rooms_list = "rooms_list.jsp";
 		if(request.getParameter("rooms_list")!=null){
 			rooms_list = request.getParameter("rooms_list");
-		}
+		}	
 	%>
 	<div id ='main_f'><!-- 메인 -->
 		<form id='frm_f' name='frm_f' method='post'>

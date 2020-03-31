@@ -38,6 +38,13 @@ public class RoomsVo {
 	int talsu;//탈수기
 	int price;
 	int roomCode;
+	int wifi;
+	int bed;
+	int tub;
+	int tv;
+	int spa;
+	int computer;
+	
 	
 	String roomName;
 	
@@ -237,9 +244,45 @@ public class RoomsVo {
 	public void setRoomName(String roomName) {
 		this.roomName = roomName;
 	}
+	public int getWifi() {
+		return wifi;
+	}
+	public void setWifi(int wifi) {
+		this.wifi = wifi;
+	}
+	public int getBed() {
+		return bed;
+	}
+	public void setBed(int bed) {
+		this.bed = bed;
+	}
 	
+	public int getTub() {
+		return tub;
+	}
+	public void setTub(int tub) {
+		this.tub = tub;
+	}
+	public int getTv() {
+		return tv;
+	}
+	public void setTv(int tv) {
+		this.tv = tv;
+	}
+	public int getSpa() {
+		return spa;
+	}
+	public void setSpa(int spa) {
+		this.spa = spa;
+	}
+	public int getComputer() {
+		return computer;
+	}
+	public void setComputer(int computer) {
+		this.computer = computer;
+	}
 	
-
+    
 
 	
 }
