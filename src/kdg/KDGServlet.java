@@ -51,6 +51,8 @@ public class KDGServlet extends HttpServlet {
 			break;
 		case "/fillter.ff":
 			fillter(req,resp);
+		case "/insert.ff":
+			insert(req,resp);
 		}
 			
 	}
@@ -81,7 +83,7 @@ public class KDGServlet extends HttpServlet {
 				if(req.getParameter("place_f")!=null) {
 					place = req.getParameter("place_f");
 				}else {
-					place ="구전체모텔";
+					place ="구전체호텔";
 				}
 				RoomsDao dao = new RoomsDao();
 				List<RoomsListVo> list =dao.select(aType,p_f);
@@ -678,6 +680,13 @@ public class KDGServlet extends HttpServlet {
 		rd.forward(req, resp);
 	}
 	
+	public void insert(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+		req.getParameter("roomName");
+		FileUpload upload = new FileUpload(req,resp);
+		if(upload.uploadFormCheck()) {
+			
+		}
+	}
 }
 
 
