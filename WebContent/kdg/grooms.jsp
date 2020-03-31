@@ -274,7 +274,7 @@
 							</c:if>
 							
 							<c:forEach var='i' begin='${p_f.startPage }' end='${p_f.endPage }'>
-								<input type='button' id='btnMiddle_f' value='' ${(i==p_f.nowPage)? "class='here_f'":""} onclick='goPage(${i})'/>
+								<input type='button' class='btnMiddle_f' value='' ${(i==p_f.nowPage)? "class='here_f'":""} onclick='goPage(${i})'/>
 							</c:forEach>
 							
 							<c:if test="${p_f.nowPage <p_f.totPage }">
