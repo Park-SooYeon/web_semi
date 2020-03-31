@@ -25,6 +25,7 @@
 	%>
 	<div id ='main_f'><!-- 메인 -->
 		<form id='frm_f' name='frm_f' method='post'>
+			<!-- <input type='hidden' name='rCode' id='rCode'/> -->
 			<input type="text" name='target' id = 'target_f' value="/hrooms.jsp"/>
 			<input type='text' name='nowPage_f' id='nowPage_f' value='${empty param.nowPage_f?1:param.nowPage_f }'/>
 			<input type='text' name='aType' id='aType' value='2'/>

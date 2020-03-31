@@ -3,6 +3,7 @@ package kdg;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -212,13 +213,22 @@ public class KDGServlet extends HttpServlet {
 		rd.forward(req, resp);
 	}
 	public void roomView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-	
-		int rCode=Integer.parseInt(req.getParameter("rCode"));
+		System.out.println("김도병바보 : " +req.getAttribute("rCode"));
+		Enumeration e = req.getParameterNames();
+		while ( e.hasMoreElements() ){
+			String name = (String) e.nextElement();
+			String[] values = req.getParameterValues(name);		
+			for (String value : values) {
+				System.out.println("name=" + name + ",value=" + value);
+			}   
+		}
+		System.out.println("rCode :" + req.getParameter("rCo"));
+		int rCode=Integer.parseInt(req.getParameter("rCo"));
 		String checkIn="";
 		String checkOut="";
 		
 		if(rCode!=0) {
-			rCode = Integer.parseInt(req.getParameter("rCode"));
+			rCode = Integer.parseInt(req.getParameter("rCo"));
 		}
 		if(req.getParameter("checkIn")!=null) {
 			checkIn = req.getParameter("checkIn");

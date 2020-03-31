@@ -22,8 +22,7 @@
 	<input type="text" name="checkIn_w" id="checkIn_w" value="${checkIn }"><br/>
 	<label id='check2_w'>체크아웃</label><br/>
 	<input type="text" name="checkOut_w" id="checkOut_w" value="${checkOut }"><br/>				
-    <input type="hidden" id="rCode" name="rCode" value="">
-    <input type="hidden" id="roomCode" name="roomCode" value="">
+
 </form>
     <button id='btnSearch_k'>예약 확인</button>
 <hr/>

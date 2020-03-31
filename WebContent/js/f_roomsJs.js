@@ -172,7 +172,9 @@ let view = function(rCode){
 		
 		alert("체크인,체크아웃 날짜를 선택해 주세요!");
 	}else{
-		$('#rCode').val(rCode);
+		//let asd = rCode;
+		$('#rCo').val(rCode);
+		alert($('#rCo').val());
 		$('#frm_f').attr('action','roomView.ff').submit();
 		
 	}
