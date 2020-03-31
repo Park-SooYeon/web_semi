@@ -31,6 +31,7 @@ function btnFunc(){
 	 /* 이메일 인증 */
 	if('#btnSend_c' != null){
 		$('#btnSend_c').click(function(){
+			$('#numView').css('display', 'block');
 			var email = $('#email_c').val();
 			$.post("emailS.lg", {'email':email}, 
 					function(data, status){
@@ -68,8 +69,9 @@ function btnFunc(){
 			var content = $()
 			$.post("pwResetMail.lg", {'email':email}, 
 					function(data, status){
-							if(data == true){
+							if(data){
 								alert("메일이 정상적으로 전송되었습니다.");
+								sess
 							}else{
 								alert("메일 전송 중 오류가 발생했습니다.");
 							}

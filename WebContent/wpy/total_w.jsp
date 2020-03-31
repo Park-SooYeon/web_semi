@@ -25,6 +25,7 @@
     <input type="hidden" id="rCode" name="rCode" value="">
     <input type="hidden" id="roomCode" name="roomCode" value="">
 </form>
+    <button id='btnSearch_k'>예약 확인</button>
 <hr/>
 
 <c:forEach var="list" items="${vo }" >
@@ -52,14 +53,17 @@
      </button>
    
      </div>
-     <button type='button' class='	btn btn-danger' id='btnR_w' onclick="roomView_k( '${list.rCode }','${list.roomCode }','${sessionScope.email}')">예약</button>
+     <button type='button' name='btnR_w' class='	btn btn-danger' value='${list.roomCode }' id='btnR_w' onclick="roomView_k( '${list.rCode }','${list.roomCode }','${sessionScope.email}')">예약</button>
      </div>
 
    </div>
  <BR/>
  </c:forEach>
+ <script>
+ btnFunc_k();
+ </script>
 </div>
-
+ 
 <div id = 'view2_w' style='display: none;'>
  <div id="accordion">
   <div class="card">

@@ -310,6 +310,9 @@ let btnFunc_k = function() {
 		$('#okMsg_k').text(msg_k);
 		$('#btnOk_k').click(function() {
 			if(msg_k = "정상 예약되었습니다.") { // 정상 예약시 페이지 이동
+				var request = new Request();
+				rsForm_k.checkIn.value = request.getParameter("checkIn_w");
+				rsForm_k.checkOut.value = request.getParameter("checkOut_w");
 				document.rsForm_k.action = "roomView.ff";
 				document.rsForm_k.submit();
 			} else {
@@ -318,7 +321,30 @@ let btnFunc_k = function() {
 		});
 	}
 //--------------------------------------------------------------------------------------------------
-
+	
+	// total_w.jsp에서 예약 현황 확인하는 버튼
+	if($('#btnSearch_k') != null) {
+		$('#btnSearch_k').click(function() {
+			let rCode = frm_room_k.rCode.value;
+			let checkIn = $('#checkIn_w').val();
+			let checkOut = $('#checkOut_w').val();
+				$.getJSON('rsSearch.se', { 'rCode' : rCode, 'checkIn' : checkIn, 'checkOut' : checkOut }, function(json) {
+					let size = $('button[name=btnR_w]').length;
+					$('button[name=btnR_w').attr('disabled', false);
+					for(i=0; i<json.length; i++) {
+						let d = json[i];
+	 					for(j=0;j<size;++j) {
+	 						let btn = $('button[name=btnR_w]:eq(' + j + ')');
+							let num = btn.val();
+							if(d.roomCode == num) {
+								btn.attr('disabled', true);
+								break;
+							}
+						} 
+					}
+				});
+		});
+	}
 	// reserve_modify.jsp의 예약 취소 버튼
 /*	if($('#btnDelete_k') != null) {
 		$('#btnDelete_k').click(function() {
@@ -347,3 +373,26 @@ let payClick_k = function(email) {
 		});
 	}
 }*/
+
+function Request(){
+	 var requestParam ="";
+	 
+	 //getParameter 펑션
+	  this.getParameter = function(param){
+	  //현재 주소를 decoding
+	  var url = unescape(location.href);
+	  //파라미터만 자르고, 다시 &그분자를 잘라서 배열에 넣는다.
+	   var paramArr = (url.substring(url.indexOf("?")+1,url.length)).split("&");
+	 
+	   for(var i = 0 ; i < paramArr.length ; i++){
+	     var temp = paramArr[i].split("="); //파라미터 변수명을 담음
+	 
+	     if(temp[0].toUpperCase() == param.toUpperCase()){
+	       // 변수명과 일치할 경우 데이터 삽입
+	       requestParam = paramArr[i].split("=")[1];
+	       break;
+	     }
+	   }
+	   return requestParam;
+	 }
+	}
