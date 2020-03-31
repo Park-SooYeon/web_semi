@@ -23,7 +23,7 @@
 	}
 	
 	#insert_f #agree_f input[type='checkbox'] {
-	display: none;
+		display: none;
 	}
 	#insert_f #agree_f input[type='checkbox']+label{
 		cursor: pointer;
@@ -46,30 +46,31 @@
 	background-size : cover;
 	box-shadow : 0.2px 0.2px 1px 1px #f62a4b inset;
 	}
-	#bed_f{
-	height: 55px;
+	#bedtype_f input[type='radio'] {
+		display: none;
 	}
-	#bed1_f,#bed2_f,#bed3_f,#bed4_f{
-		float : left;
-		width:53px;
-		height: 53px;
-		margin-left:4px;
-		text-align: center;
+	#bedtype_f input[type='radio']+label {
 		cursor: pointer;
 	}
+	#bedtype_f input[type='radio']+label span{
+		display: inline-block;
+		width:20px;
+		height: 20px;
+		background-color:#fff;
+		border: 1px solid #aaa;
+		cursor:pointer;
+		border-radius: 3px;
+		vertical-align:middle;
+		box-shadow : 0.2px 0.2px 1px 1px #ccc inset;
+	}
+	#bedtype_f input[type='radio']:checked+label span{
+		background-image: url("../image/checked_f.JPG");
+		border: 1px solid #f62a4b;
+		background-repeat : no-repeat;
+		background-size : cover;
+		box-shadow : 0.2px 0.2px 1px 1px #f62a4b inset;
+	}
 	
-	#bed_f #bed1_f{
-		background-image: url('../image/bed1_f.JPG');
-	}
-	#bed_f #bed2_f{
-		background-image: url('../image/bed2_f.jpg');
-	}
-	#bed_f #bed3_f{
-		background-image: url('../image/bed3_f.jpg');
-	}
-	#bed_f #bed4_f{
-		background-image: url('../image/bed4_f.jpg');
-	}
 </style>
 <body>
 	<div id='insert_f'>
@@ -89,7 +90,7 @@
 		&nbsp;
 		<input type="button" onClick="openDaumZipAddress();" value = "주소 찾기" />
 		<br/>
-		<input type="text" id="address" value="" style="width:240px;" readonly/>
+		<input type="text" name='adress' id="address" value="" style="width:240px;" readonly/>
 		<input type="text" name="rPlace" id='rPlace_f' value="" style="width:100px;" readonly/>
 		<br/>
 		<label>상세주소</label>
@@ -97,23 +98,23 @@
 		<input type='hidden' name='stars' id='stars'/>
 		<br/>
 		<label>숙소 소개 (간단히)</label><br/>
-		<textarea rows="5" cols="40" id='ginfo'></textarea>
+		<textarea rows="5" cols="40" id='gInfo' name='gInfo'></textarea>
 		
 		<br/>
 		<label>숙소 타입</label>
-		<select>
+		<select name='aType'>
 			<option value='1'>모텔</option>
 			<option value='2'>호텔</option>
 			<option value='3'>펜션</option>
 			<option value='4'>게스트하우스</option>
 		</select>
-		<select>
+		<select name='kind'>
 			<option value=''></option>
 			<option value='1'>5성급</option>
 			<option value='2'>특1급</option>
 			<option value='3'>특급</option>
 		</select>
-		<select>
+		<select name='kind'>
 			<option value=''></option>
 			<option value='1'>펜션</option>
 			<option value='2'>풀빌라</option>
@@ -122,13 +123,13 @@
 		
 		<br/>
 		<label>체크인 시간, 체크아웃 시간</label>
-		<input type="time"/>
-		<input type="time"/>
+		<input type="time" name='checkIn'/>
+		<input type="time" name='checkOut'/>
 		
 		<br/>
 		<label>건물 사진을 선택해주세요</label><br/>
-		<input type="file" name='photo' id='photo'/><br/>
-		<img width='500px' height='300px' id = 'pre'/>
+		<input type="file" name='rooms_photo' id='rooms_photo'/><br/>
+		<img width='500px' height='300px' id = 'rooms_pre'/>
 		
 		<br/>
 		<label>기타</label>
@@ -151,8 +152,20 @@
 		<div id='agree_f'><input type="checkbox" name='talsu' id='agree_check15_f' /><label for='agree_check15_f'><span></span>&nbsp;&nbsp;&nbsp;탈수기</label></div>
 		
 		<hr/>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		<h3>객실 정보</h3>
-		<div id=room_f>
+		<div id='room_f'>
+			<div id='room_in_f'>
+			
 			<label>방이름</label><br/>
 			<input type='text' name='roomName'/>
 			
@@ -183,36 +196,34 @@
 			<div id='agree_f'><input type="checkbox" name='aircon' id='agree_check19_f' /><label for='agree_check19_f'><span></span>&nbsp;&nbsp;&nbsp;에어컨</label></div>
 			<div id='agree_f'><input type="checkbox" name='spa' id='agree_check20_f' /><label for='agree_check20_f'><span></span>&nbsp;&nbsp;&nbsp;스파</label></div>
 			<div id='agree_f'><input type="checkbox" name='tub' id='agree_check21_f' /><label for='agree_check21_f'><span></span>&nbsp;&nbsp;&nbsp;욕조</label></div>
-			<div id='agree_f'><input type="checkbox" name='computer' id='agree_chec22_f' /><label for='agree_check22_f'><span></span>&nbsp;&nbsp;&nbsp;컴퓨터</label></div>
-			<div id='agree_f'><input type="checkbox" name='iron' id='agree_chec23_f' /><label for='agree_check23_f'><span></span>&nbsp;&nbsp;&nbsp;다리미</label></div>
-			<div id='agree_f'><input type="checkbox" name='refr' id='agree_chec24_f' /><label for='agree_check24_f'><span></span>&nbsp;&nbsp;&nbsp;냉장고</label></div>
+			<div id='agree_f'><input type="checkbox" name='computer' id='agree_check22_f' /><label for='agree_check22_f'><span></span>&nbsp;&nbsp;&nbsp;컴퓨터</label></div>
+			<div id='agree_f'><input type="checkbox" name='iron' id='agree_check23_f' /><label for='agree_check23_f'><span></span>&nbsp;&nbsp;&nbsp;다리미</label></div>
+			<div id='agree_f'><input type="checkbox" name='refr' id='agree_check24_f' /><label for='agree_check24_f'><span></span>&nbsp;&nbsp;&nbsp;냉장고</label></div>
 			<div id='agree_f'><input type="checkbox" name='socket' id='agree_check25_f' /><label for='agree_check25_f'><span></span>&nbsp;&nbsp;&nbsp;개인콘센트</label></div>
 			
-			<h4 class='bed_f'>베드타입</h4>
-				<input type='hidden' name='bedtype' value="${empty bedtype?'5':bedtype }" id='bedtype_f'/><!-- 베드 타일 보낼 히든 태그 -->
-				<div id='bed_f'>
-					<div id='bed1_f'>
-					</div>
-					<div id='bed2_f'>
-					</div>
-					<div id='bed3_f'>
-					</div>
-					<div id='bed4_f'>
-					</div>
-				</div>
+			<h4>베드타입</h4>
+			<div id='bedtype_f'><input type="radio" name='bed' class='bed_f' id='bed1_f' value='1'/><label for='bed1_f'><span></span>&nbsp;&nbsp;&nbsp;싱글</label></div>
+			<div id='bedtype_f'><input type="radio" name='bed' class='bed_f' id='bed2_f' value='2'/><label for='bed2_f'><span></span>&nbsp;&nbsp;&nbsp;더블</label></div>
+			<div id='bedtype_f'><input type="radio" name='bed' class='bed_f' id='bed3_f' value='3'/><label for='bed3_f'><span></span>&nbsp;&nbsp;&nbsp;트윈</label></div>	
+			<div id='bedtype_f'><input type="radio" name='bed' class='bed_f' id='bed4_f' value='4'/><label for='bed4_f'><span></span>&nbsp;&nbsp;&nbsp;온돌</label></div>	
 			
 			<br/>
 			<label>방 사진을 선택해주세요</label><br/>
-			<input type="file" name='photo' id='photo'/><br/>
-			<img width='500px' height='300px' id = 'pre'/>
+			<input type="file" name='room_photo' id='room_photo'/><br/>
+			<img width='500px' height='300px' id = 'room_pre'/>
+			<hr/>
 		</div>
-		
-		<input type='button' value='+++객실 추가 작성 하기+++'/>
+		</div>
+	</div>
+		<input type='button' id='btnDiv_f' value='+++객실 추가 작성 하기+++'/>
 		
 		<input type='button' value='등록 하기!!!!!!!!!!!!!!!!!!!'/>
 		
-	</div>
+	
 	<script>
+	$("#btnDiv_f").on("click", function(e){
+	      $("#room_in_f").clone().appendTo("#room_f");
+	});
 	function openDaumZipAddress() {
 		new daum.Postcode({
 			oncomplete:function(data) {
@@ -225,6 +236,34 @@
 		}).open();
 
 	}
+	//호텔사진 변경시
+	$('#rooms_photo').change(function(event){
+		let ele = event.target;
+		let url = ele.files[0];
+			
+		let reader = new FileReader();
+		reader.readAsDataURL(url);
+		
+		reader.onload = function(e){
+			let img = new Image();//이미지 객체 생성하라!!
+			img.src = e.target.result;
+			$('#rooms_pre').attr('src',img.src);
+		}		
+	});
+	//객실 사진 변경시
+	$('#room_photo').change(function(event){
+		let ele = event.target;
+		let url = ele.files[0];
+			
+		let reader = new FileReader();
+		reader.readAsDataURL(url);
+		
+		reader.onload = function(e){
+			let img = new Image();//이미지 객체 생성하라!!
+			img.src = e.target.result;
+			$('#room_pre').attr('src',img.src);
+		}		
+	});
 	</script>	
 </body>
 </html>

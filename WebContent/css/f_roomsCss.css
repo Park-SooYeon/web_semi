@@ -528,7 +528,7 @@ body, html {
 .here_f{
 	background-image: url("../image/selected_f.jpg") ;
 }
-#btnMiddle_f{
+.btnMiddle_f{
 	width:20px;
 	height:20px;
 	background-image: url("../image/select_f.jpg");

@@ -180,7 +180,7 @@ let view = function(rCode){
 //페이징 버튼 클릭시
 let goPage = function(nowPage){
 	$('#nowPage_f').val(nowPage);
-	$('#frm_f').attr('action','hotel.ff').submit();
+	$('#frm_f').attr('action','fillter.ff');
 }
 //구 리스트 클릭시
 let goo1 = function(){
