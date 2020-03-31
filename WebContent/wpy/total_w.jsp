@@ -1,9 +1,4 @@
-  
-  
-  
-  
-  
-  sdfa<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -34,7 +29,7 @@
 	<input type="hidden" name="rno" id="rno_s"/>
 	<input type="hidden" name="rGro" id="rGro_s"/>
 
-</form>
+
     <button id='btnSearch_k'>예약 확인</button>
 <hr/>
 
@@ -373,6 +368,7 @@
 			</c:forEach>
 		<hr/>
 	</div>
+</div>
 </div>
 </form>
 <script>

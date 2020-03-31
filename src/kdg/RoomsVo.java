@@ -53,6 +53,12 @@ public class RoomsVo {
 	String ceo;
 	
 
+	public String getCeo() {
+		return ceo;
+	}
+	public void setCeo(String ceo) {
+		this.ceo = ceo;
+	}
 	public int getrCode() {
 		return rCode;
 	}

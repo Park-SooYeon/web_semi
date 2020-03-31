@@ -33,7 +33,7 @@
 </div>
 <input type="hidden" name="eMail" value="${vo.eMail}"/>
 <input type="hidden" name="rNo" value="${vo.rNo}"/>
-<input type="hidden" name="rCode" value="${rCode}"/>
+<input type="hidden" name="rCo" value="${rCode}"/>
 <button type="button" id="btnModify_s" class="btn btn-primary btn-lg">리뷰수정</button>
 </form>
 <script>

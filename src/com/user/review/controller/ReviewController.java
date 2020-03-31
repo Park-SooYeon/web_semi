@@ -85,7 +85,7 @@ public class ReviewController extends HttpServlet {
 		}else if(com.equals("/reviewModify.rv")) {
 			command = new RvModify();
 			command.execute(req, res);
-			int rCode = Integer.parseInt(req.getParameter("rCode"));
+			int rCode = Integer.parseInt(req.getParameter("rCo"));
 			viewPage = "/roomView.ff?rCode="+rCode;
 		}else if(com.equals("/reviewReplyView.rv")) {
 			command = new RvReplyView();

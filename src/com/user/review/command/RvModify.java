@@ -11,7 +11,7 @@ public class RvModify implements RvCommand{
 	public void execute(HttpServletRequest req, HttpServletResponse res) {
 		int rNo = Integer.parseInt(req.getParameter("rNo"));
 		int stars = Integer.parseInt(req.getParameter("star"));
-		int rCode = Integer.parseInt(req.getParameter("rCode"));
+		int rCode = Integer.parseInt(req.getParameter("rCo"));
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
 		
