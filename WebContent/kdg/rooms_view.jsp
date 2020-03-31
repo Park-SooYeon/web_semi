@@ -24,7 +24,20 @@
 			<div id='view_top_f'>
 			<div id='view_top_right' class='btn pull-right'>
 			  <div id='view_top_right1'>
-			   <span class="badge badge-pill badge-info">레지던스</span>
+			  <c:forEach var = "list" items="${vo }" begin='0' end ='0' >
+			     <c:set var = 'kind' value='${list.kind }'/>
+                 <c:choose>
+                 <c:when test='${kind eq 1 }'>
+                 <span class="badge badge-pill badge-info">레지던스</span>
+                 </c:when>
+                 <c:when test='${kind eq 2 }'>
+                 <span class="badge badge-pill badge-info">특1급</span>
+                 </c:when>
+                 <c:when test='${kind eq 3 }'>
+                 <span class="badge badge-pill badge-info">특급</span>
+                 </c:when>
+                 </c:choose>
+			   </c:forEach>
 			   <c:forEach var="list" items="${vo }" begin='0' end='0' >
 			   <h4>${list.rName }</h4>
 			   </c:forEach>
