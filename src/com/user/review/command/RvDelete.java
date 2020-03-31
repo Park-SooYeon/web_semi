@@ -11,12 +11,11 @@ public class RvDelete implements RvCommand{
 	public void execute(HttpServletRequest req, HttpServletResponse res) {
 		int rNo = Integer.parseInt(req.getParameter("rno"));
 		int flag = Integer.parseInt(req.getParameter("indent"));
-		int rGroup = Integer.parseInt(req.getParameter("rGroup"));
-		System.out.println(rNo);
-		System.out.println(rGroup);
-		System.out.println(flag);
+		int rGroup = Integer.parseInt(req.getParameter("rGro"));
+		int rCode = Integer.parseInt(req.getParameter("rCode"));
+		
 		RvDao dao = new RvDao();
-		dao.rvDelete(rNo, rGroup, flag);
+		dao.rvDelete(rNo, rGroup, flag, rCode);
 	}
 
 }

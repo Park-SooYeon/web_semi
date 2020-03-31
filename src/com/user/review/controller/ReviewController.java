@@ -63,8 +63,8 @@ public class ReviewController extends HttpServlet {
 		System.out.println(com);
 		if(com.equals("/review.rv")) {
 			String eMail = req.getParameter("eMail");
-			int rCode = Integer.parseInt(req.getParameter("rCode"));
-			viewPage = url + "../review/rvInsert.jsp?eMail="+eMail+"& rCode="+rCode;
+			int rCode = 1;
+			viewPage = url + "../review/rvInsert.jsp?eMail="+eMail+"&rCode="+rCode;
 		}else if(com.equals("/reviewInsert.rv")) {
 			command = new RvInsert();
 			command.execute(req, res);
@@ -74,9 +74,10 @@ public class ReviewController extends HttpServlet {
 			command2.execute(req, res);
 			viewPage = url + "lastPlace.jsp";
 		}else if(com.equals("/reviewSelect.rv")) {
+			int rCode = Integer.parseInt(req.getParameter("rCo"));
 			command = new RvSelect();
 			command.execute(req, res);
-			viewPage = url+"../review/rvSelect.jsp";
+			viewPage = "/roomView.ff?rCode="+rCode;
 		}else if(com.equals("/reviewModifyform.rv")) {
 			command = new RvModifyView();
 			command.execute(req, res);
@@ -85,7 +86,7 @@ public class ReviewController extends HttpServlet {
 			command = new RvModify();
 			command.execute(req, res);
 			int rCode = Integer.parseInt(req.getParameter("rCode"));
-			viewPage = "/reviewSelect.rv?rCode="+rCode;
+			viewPage = "/roomView.ff?rCode="+rCode;
 		}else if(com.equals("/reviewReplyView.rv")) {
 			command = new RvReplyView();
 			command.execute(req, res);
@@ -94,12 +95,12 @@ public class ReviewController extends HttpServlet {
 			int rCode = Integer.parseInt(req.getParameter("rCode"));
 			command = new RvReply();
 			command.execute(req, res);
-			viewPage = "/reviewSelect.rv?rCode="+rCode;
+			viewPage = "/roomView.ff?rCode="+rCode;
 		}else if(com.equals("/reviewDelete.rv")) {
 			int rCode = Integer.parseInt(req.getParameter("rCode"));
 			command = new RvDelete();
 			command.execute(req, res);
-			viewPage = "/reviewSelect.rv?rCode="+rCode;
+			viewPage = "/roomView.ff?rCode="+rCode;
 		}
 		RequestDispatcher dis = req.getRequestDispatcher(viewPage);
 		dis.forward(req, res);

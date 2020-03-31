@@ -33,7 +33,8 @@ public class RvDao {
 			pstmt.setString(4, title);
 			re = pstmt.executeUpdate();
 			
-			query="select count(stars) cnt, sum(stars) sum from review";
+			starCh(rCode);
+			/*query="select count(stars) cnt, sum(stars) sum from review where rIndent=0";
 			pstmt = conn.prepareStatement(query);
 			set = pstmt.executeQuery();
 			
@@ -41,16 +42,14 @@ public class RvDao {
 				cnt = set.getInt("cnt");
 				sum = set.getInt("sum");
 			}
-			System.out.println(rCode);
-			System.out.println(cnt);
-			System.out.println(sum);
+
 			re = sum/(double)cnt;
 			System.out.println(re);
 			query = "update rooms set stars=? where rCode = ?";
 			pstmt = conn.prepareStatement(query);
 			pstmt.setDouble(1, re);
 			pstmt.setInt(2, rCode);
-			pstmt.executeUpdate();
+			pstmt.executeUpdate();*/
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -116,6 +115,7 @@ public class RvDao {
 				vo.setrStep(set.getInt("rStep"));
 				vo.setrIndent(set.getInt("rIndent"));
 				vo.setStars(set.getInt("stars"));
+				vo.setTitle(set.getString("rtitle"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -123,17 +123,19 @@ public class RvDao {
 		return vo;
 	}
 	
-	public void rvModify(String content, int stars, int rNo) {
+	public void rvModify(String content, int stars, String title, int rNo, int rCode) {
 		PreparedStatement pstmt = null;
-		String query = "update review set rcontent=?, rdate=sysdate, stars=? where rno=?";
+		String query = "update review set rcontent=?, rdate=sysdate, stars=?, rTitle=? where rno=?";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, content);
 			pstmt.setInt(2, stars);
-			pstmt.setInt(3, rNo);
+			pstmt.setString(3, title);
+			pstmt.setInt(4, rNo);
 			pstmt.executeUpdate();
 			
+			starCh(rCode);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -159,7 +161,7 @@ public class RvDao {
 		}
 	}
 	
-	public void rvDelete(int rNo, int rGroup, int flag) {
+	public void rvDelete(int rNo, int rGroup, int flag, int rCode) {
 		PreparedStatement pstmt = null;
 		String query = "";
 		
@@ -174,6 +176,8 @@ public class RvDao {
 				pstmt.setInt(1, rNo);
 			}
 			pstmt.executeUpdate();
+			
+			starCh(rCode);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -193,11 +197,42 @@ public class RvDao {
 		}
 	}*/
 	
+	// ���� ���� ����� ���ؼ� rooms ���̺� stars�÷��� �ٲ��ֱ� ���� �޼ҵ� 
+	public void starCh(int rCode) {
+		PreparedStatement pstmt = null;
+		ResultSet set = null;
+		String query = "";
+		int cnt = 0;
+		int sum = 0;
+		double re = 0;
+		try {
+			query="select count(stars) cnt, sum(stars) sum from review where rIndent=0";
+			pstmt = conn.prepareStatement(query);
+			set = pstmt.executeQuery();
+			
+			if(set.next()) {
+				cnt = set.getInt("cnt");
+				sum = set.getInt("sum");
+			}
+
+			re = sum/(double)cnt;
+			query = "update rooms set stars=? where rCode = ?";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setDouble(1, re);
+			pstmt.setInt(2, rCode);
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public int rvCnt(int rCode) {
 		int rvCnt = 0;
 		PreparedStatement pstmt = null;
 		ResultSet set = null;
-		String query = "select count(*) cnt from review where rCode=?";
+		String query = "select count(*) cnt from review where rCode=? and rIndent=0";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, rCode);
