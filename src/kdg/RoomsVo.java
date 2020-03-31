@@ -5,44 +5,52 @@ import java.util.List;
 
 
 public class RoomsVo {
-	int rCode;//숙소코드
-	String rName;//숙소이름
-	String rPlace;//구이름
-	String gInfo;//소개
-	String aType;//숙소타입
-	String OriFile;//사진 이름
-	String SysFile;//사진 가져오기
+	int rCode;//����肄���
+	String rName;//�����대�
+	String rPlace;//援ъ�대�
+	String gInfo;//��媛�
+	String aType;//��������
+	String OriFile;//�ъ� �대�
+	String SysFile;//�ъ� 媛��몄�ㅺ린
 	
-	int stars;//별점
-	Date checkin;//체크인시간
-	Date checkout;//체크아웃시간
-	String address;//상세주고
-	int kind;//등급,종류
+	int stars;//蹂���
+	Date checkin;//泥댄�ъ�몄��媛�
+	Date checkout;//泥댄�ъ������媛�
+	String address;//���몄＜怨�
+	int kind;//�깃�,醫�瑜�
 	
-	int pet;//동물동반
-	int smoke;//객실내 흡연
-	int noSmoke;//금연
-	int parking;//주차
-	int breakfast;//조식
+	int pet;//��臾쇰��諛�
+	int smoke;//媛��ㅻ�� �≪��
+	int noSmoke;//湲���
+	int parking;//二쇱감
+	int breakfast;//議곗��
 	
-	int pt;//피트니스
-	int swim;//수영장
-	int rest;//레스토랑
-	int cafe;//카페
-	int bar;//바
+	int pt;//�쇳�몃����
+	int swim;//������
+	int rest;//���ㅽ����
+	int cafe;//移댄��
+	int bar;//諛�
 	
-	int washer;//세탁기
-	int lounge;//라운지
-	int kitchen;//주방
-	int dryer;//건조기
-	int talsu;//탈수기
+	int washer;//�명��湲�
+	int lounge;//�쇱�댁�
+	int kitchen;//二쇰갑
+	int dryer;//嫄댁“湲�
+	int talsu;//����湲�
 	int price;
 	int roomCode;
+	int wifi;
+	int bed;
+	int tub;
+	int tv;
+	int spa;
+	int computer;
+	
 	
 	String roomName;
 	
 	String pori;
 	String psys;
+	String ceo;
 	
 
 	public int getrCode() {
@@ -237,9 +245,45 @@ public class RoomsVo {
 	public void setRoomName(String roomName) {
 		this.roomName = roomName;
 	}
+	public int getWifi() {
+		return wifi;
+	}
+	public void setWifi(int wifi) {
+		this.wifi = wifi;
+	}
+	public int getBed() {
+		return bed;
+	}
+	public void setBed(int bed) {
+		this.bed = bed;
+	}
 	
+	public int getTub() {
+		return tub;
+	}
+	public void setTub(int tub) {
+		this.tub = tub;
+	}
+	public int getTv() {
+		return tv;
+	}
+	public void setTv(int tv) {
+		this.tv = tv;
+	}
+	public int getSpa() {
+		return spa;
+	}
+	public void setSpa(int spa) {
+		this.spa = spa;
+	}
+	public int getComputer() {
+		return computer;
+	}
+	public void setComputer(int computer) {
+		this.computer = computer;
+	}
 	
-
+    
 
 	
 }

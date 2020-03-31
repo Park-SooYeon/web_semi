@@ -28,21 +28,23 @@
 		<form id='frm_f' name='frm_f' method='post'>
 			<input type='hidden' name='aType' id='aType' value=''/>
 			<input type='hidden' name='nowPage_f' id='nowPage_f' value='1'/>
-			<input type="hidden" name='place_f' id='place_f' value="구전체호텔,.,.,."/>
+			<input type="hidden" name='place_f' id='place_f' value="구전체호텔"/>
 			<input type="hidden" name='sort_f' id='sort_f' value='asc'/>
 		</form>
 											
 		<h2 class="pt-5">공지사항 및 소식</h2>
 		<ul class="list-group list-group-horizontal pt-3">
-			<li class="list-group-item" style="border:1px solid #00f; width:50%;">
-				<img src="./image/banner1.png" alt="사진1" class="img-thumbnail" style="width:200px;height:200px">
+			<li class="list-group-item w-50 p-0 mr-3">
+				<img src="./image/banner1.png" alt="사진1" style="width:200px;height:200px">
 				<a class="pl-3">
+					<strong>title</strong>
 					공지 content1
 				</a>
 			</li>
-			<li class="list-group-item ml-3" style="border:1px solid #00f; width:50%;">
-				<img src="./image/banner1.png" alt="사진1" class="img-thumbnail" style="width:200px;height:200px">
+			<li class="list-group-item w-50 p-0">
+				<img src="./image/banner1.png" alt="사진2" style="width:200px;height:200px">
 				<a class="pl-3">
+					<strong>title</strong>
 					공지 content2
 				</a>
 			</li>
@@ -87,22 +89,22 @@
 		
 		<script>
 			let motel = function(){
-				$('#place_f').val('구전체모텔,.,.,.');
+				$('#place_f').val('구전체모텔');
 				$('#aType').val('1');
 				$('#frm_f').attr('action','motel.ff').submit();
 			}
 			let hotel = function(){
-				$('#place_f').val('구전체호텔,.,.,.');
+				$('#place_f').val('구전체호텔');
 				$('#aType').val('2');
 				$('#frm_f').attr('action','hotel.ff').submit();
 			}
 			let penshion = function(){
-				$('#place_f').val('구전체펜션,.,.,.');
+				$('#place_f').val('구전체펜션');
 				$('#aType').val('3');
 				$('#frm_f').attr('action','penshion.ff').submit();
 			}
 			let guesthouse = function(){
-				$('#place_f').val('구전체게하,.,.,.');
+				$('#place_f').val('구전체게하');
 				$('#aType').val('4');
 				$('#frm_f').attr('action','guesthouse.ff').submit();
 			}

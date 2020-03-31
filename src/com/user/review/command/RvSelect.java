@@ -12,7 +12,7 @@ public class RvSelect implements RvCommand{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) {
-		int rCode = Integer.parseInt(req.getParameter("rCode"));
+		int rCode = Integer.parseInt(req.getParameter("rCo"));
 		RvDao dao = new RvDao();
 		List<RvVo> list = dao.rvSelect(rCode);
 		int rvCnt = dao.rvCnt(rCode);

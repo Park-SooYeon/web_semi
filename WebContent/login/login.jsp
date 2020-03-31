@@ -44,45 +44,33 @@
             	<span>또는</span>
             </p>
             <form id='frm_c' name='frm_c' method='post' class="was-validated">
-	            <div class="form-group">
-	            	<input type="hidden" name="redirectUrl" id="redirectUrl"/>
-	      			<input type="email" class="form-control" id="email_c" placeholder="이메일 주소" name="email_c" autofocus required>
-				    <div></div>
-				    <div class="invalid-feedback" id="chkFail">유효하지 않은 E-Mail주소입니다.</div>
-				</div>
-				<div class="form-group">
-				    <input type="password" class="form-control" id="pwd_c" placeholder="비밀번호" name="pwd_c" required>
-					<div class="invalid-feedback">비밀번호를 입력해 주세요.</div>
-				</div>
+		        <input type='text' id='L_email_c' name='L_email_c' class='email_c' placeholder="이메일 주소" style='width:330px;'>
+				<div id='L_emailM_c' class='L_emailM_c'></div>
+				<input type='password' id='L_pwd_c' name='L_pwd_c' class='pwd_c' placeholder="비밀번호" style='width:330px;'/>
+				<div id='L_pwdM_c' class='L_pwdM_c'></div>
 			</form>
             <button id='btnLogin_c' type="button" class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>로그인</button>
             <div class='pw_email_c'>
-            	<a href="./pw_email.jsp">비밀번호 재설정</a>
+            	<a href="./pw_email.jsp" >비밀번호 재설정</a>
             </div>
             <div class='member_c'>
             	<a href="./agree.jsp">회원가입</a>
             </div>
+            <div class='error' style='display:none;'>일치하는 회원이 없습니다.</div>
 		</div>
 	</div>
 </div>
-<script>btnFunc();
-
+<script>
+emailCk(); btnFunc();
 /* 쿠키로 url받아 올 때 사용
 $(function() {
 	var url = $cookie('url');
+	alert(url);
 	if (url != null && url != "") {
 		$('#redirectUrl').val(url);
 	}
 }); */
 
- //쿠키로 url받아 올 때 사용 
-$(function() { 
-	var url = $cookie('url'); 
-	alert(url);
-	if (url != null && url != "") { 
-		$('#redirectUrl').val(url); 
-	} 
-}); 
 </script>
 <script src='../js/bootstrap.bundle.min.js'></script>
 <body>

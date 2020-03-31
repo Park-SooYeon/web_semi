@@ -21,12 +21,7 @@ let btnFunc_w = function(){
 		$('#view3_w').removeAttr('style','display:block');
 	});
  
-	$('#btnViewR_w').click(function(){
-		$('a').colorbox({
-			 inline:true,
-		    width:550
-		});
-	});
+
 	
 
 	var deadLine = new Date(),

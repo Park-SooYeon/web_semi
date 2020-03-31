@@ -21,14 +21,15 @@
 		String rooms_list = "rooms_list.jsp";
 		if(request.getParameter("rooms_list")!=null){
 			rooms_list = request.getParameter("rooms_list");
-		}
+		}	
 	%>
 	<div id ='main_f'><!-- 메인 -->
 		<form id='frm_f' name='frm_f' method='post'>
-			<input type="text" name='target' id = 'target_f'value="/hrooms.jsp"/>
+			<!-- <input type='hidden' name='rCode' id='rCode'/> -->
+			<input type="text" name='target' id = 'target_f' value="/hrooms.jsp"/>
 			<input type='text' name='nowPage_f' id='nowPage_f' value='${empty param.nowPage_f?1:param.nowPage_f }'/>
 			<input type='text' name='aType' id='aType' value='2'/>
-			<input type="text" name='place_f' id='place_f' value="${empty param.place_f?'구전체호텔,.,.,.':param.place_f }"/>
+			<input type="text" name='place_f' id='place_f' value="${empty param.place_f?'구전체호텔':param.place_f }"/>
 			<input type="text" name='sort_f' id='sort_f' value="${empty param.sort_f?'asc':param.sort_f }"/>
 		<div id ='top_f'><!-- 위에 -->
 			<div id='top_in_f'>
@@ -305,15 +306,15 @@
 							
 							<div id ='paging_f'>
 							<c:if test="${p_f.nowPage > p_f.blockSize }">
-								<input type='button'  class='btnBefore_f' onclick='goPage(1)'/>
+								<input type='submit'  class='btnBefore_f' onclick='goPage(1)'/>
 							</c:if>
 							
 							<c:forEach var='i' begin='${p_f.startPage }' end='${p_f.endPage }'>
-								<input type='button' id='btnMiddle_f' value='' ${(i==p_f.nowPage)? "class='here_f'":""} onclick='goPage(${i})'/>
+								<input type='submit' class='btnMiddle_f' value='' ${(i==p_f.nowPage)? "class='here_f'":""} onclick='goPage(${i})'/>
 							</c:forEach>
 							
 							<c:if test="${p_f.nowPage <p_f.totPage }">
-								<input type='button'  class ='btnAfter_f' onclick='goPage(${p_f.nowPage+1})'/>
+								<input type='submit'  class ='btnAfter_f' onclick='goPage(${p_f.nowPage+1})'/>
 							</c:if>
 							</div>
 						

@@ -20,7 +20,6 @@ public class SearchController extends HttpServlet{
 	
 	protected void doAction_Get(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html; charset=UTF-8"); // 응답 인코딩 설정(한글깨짐 방지)
-		//SearchVo vo = new SearchVo(); // DB select
 		SearchDao dao = new SearchDao();
 		PrintWriter out = resp.getWriter();
 		
@@ -31,14 +30,25 @@ public class SearchController extends HttpServlet{
 		int pos = temp.lastIndexOf("/");
 		String tempUrl = temp.substring(pos);
 		System.out.println(tempUrl);
+		
 		String findStr = req.getParameter("findStr");
 		System.out.println("findStr : " + findStr);
 		
-		if(tempUrl.equals("/rsSearch.se")) {
-			data = dao.search(findStr);
-			System.out.println("data : " + data);
-		}
+		String rCode = req.getParameter("rCode");
+		String checkIn = req.getParameter("checkIn");
+		String checkOut = req.getParameter("checkOut");
+		System.out.println("rCode : " + rCode);
+		System.out.println("checkIn : " + checkIn);
+		System.out.println("checkOut : " + checkOut);
 		
+		if(tempUrl.equals("/search.se")) {
+			data = dao.search(findStr);
+		}
+		if(tempUrl.equals("/rsSearch.se")) {
+			data = dao.rsSearch(rCode, checkIn, checkOut);
+		}
+
+		System.out.println("data : " + data);
 		out.print(data);
 		out.flush();
 	}
