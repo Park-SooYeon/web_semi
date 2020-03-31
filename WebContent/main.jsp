@@ -34,15 +34,17 @@
 											
 		<h2 class="pt-5">공지사항 및 소식</h2>
 		<ul class="list-group list-group-horizontal pt-3">
-			<li class="list-group-item" style="border:1px solid #00f; width:50%;">
-				<img src="./image/banner1.png" alt="사진1" class="img-thumbnail" style="width:200px;height:200px">
+			<li class="list-group-item w-50 p-0 mr-3">
+				<img src="./image/banner1.png" alt="사진1" style="width:200px;height:200px">
 				<a class="pl-3">
+					<strong>title</strong>
 					공지 content1
 				</a>
 			</li>
-			<li class="list-group-item ml-3" style="border:1px solid #00f; width:50%;">
-				<img src="./image/banner1.png" alt="사진1" class="img-thumbnail" style="width:200px;height:200px">
+			<li class="list-group-item w-50 p-0">
+				<img src="./image/banner1.png" alt="사진2" style="width:200px;height:200px">
 				<a class="pl-3">
+					<strong>title</strong>
 					공지 content2
 				</a>
 			</li>

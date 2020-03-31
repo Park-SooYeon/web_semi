@@ -31,6 +31,7 @@ function btnFunc(){
 	 /* 이메일 인증 */
 	if('#btnSend_c' != null){
 		$('#btnSend_c').click(function(){
+			$('#numView').css('display', 'block');
 			var email = $('#email_c').val();
 			$.post("emailS.lg", {'email':email}, 
 					function(data, status){

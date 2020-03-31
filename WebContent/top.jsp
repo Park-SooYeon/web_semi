@@ -164,7 +164,7 @@
 	</div>
 				<div id ='searchbox_main'>
 					<div id ='searchbox'>
-						<form id="frm_search" name="frm_search">
+						<form id="frm_search" name="frm_search" method='post'>
 						<div id='search_top'>
 							<div id='top_left' onclick=''>
 							</div>
@@ -175,6 +175,7 @@
 							</div>
 						</div>
 						<div id='search_botoom p-0'>
+						<input type='hidden' name='rCode' id='rCode' value=''/>
 						<select name='sel' id='sel' class='sel' size='20' tabindex='11'>
 						</select>
 						</div>
@@ -201,7 +202,7 @@
 			$('#findStr').keyup(function() {
 				let findStr = $('#findStr').val();
 				if(findStr != "") {
-					$.getJSON('rsSearch.se', { 'findStr':findStr }, function(json) {
+					$.getJSON('search.se', { 'findStr':findStr }, function(json) {
 						frm_search.sel.length = 0;
 						console.log(json);
 						if(json.length>0) {
@@ -227,7 +228,8 @@
 			
 			$('#sel').dblclick(function() {
 				let temp = $(this).val();
-				alert(temp);
+				$('#rCode').val(temp);
+				$('#frm_search').attr('action','roomView.ff').submit();
 			});
 		}
 	</script>

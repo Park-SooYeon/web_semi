@@ -22,9 +22,10 @@
 	<input type="text" name="checkIn_w" id="checkIn_w" value="${checkIn }"><br/>
 	<label id='check2_w'>체크아웃</label><br/>
 	<input type="text" name="checkOut_w" id="checkOut_w" value="${checkOut }"><br/>				
-    <input type="hidden" id="rCode" name="rCode" value="2">
-    <input type="hidden" id="roomCode" name="roomCode" value="1">
+    <input type="hidden" id="roomCode" name="roomCode" value="">
+    <input type="hidden" id="rCode" name="rCode" value="${rCode }">
 </form>
+    <button id='btnSearch_k'>예약 확인</button>
 <hr/>
 
 <c:forEach var="list" items="${vo }" >
@@ -52,14 +53,17 @@
      </button>
    
      </div>
-     <button type='button' class='	btn btn-danger' id='btnR_w' onclick="roomView_k( '${list.rCode }','${list.roomCode }','${sessionScope.email}')">예약</button>
+     <button type='button' name='btnR_w' class='	btn btn-danger' value='${list.roomCode }' id='btnR_w' onclick="roomView_k( '${list.rCode }','${list.roomCode }','${sessionScope.email}')">예약</button>
      </div>
 
    </div>
  <BR/>
  </c:forEach>
+ <script>
+ btnFunc_k();
+ </script>
 </div>
-
+ 
 <div id = 'view2_w' style='display: none;'>
  <div id="accordion">
   <div class="card">

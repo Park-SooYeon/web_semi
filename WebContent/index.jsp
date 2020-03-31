@@ -36,7 +36,7 @@ body { padding-top: 40px; }
 	<!-- content -->
 	<div class='content'>
   		<jsp:include page='<%=middle %>'/>
-	</div>
+	</div>                                                
 	<!-- bottom.jsp -->
 	<%@ include file="bottom.jsp" %>
 </div>
