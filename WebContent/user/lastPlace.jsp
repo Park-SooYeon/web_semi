@@ -13,7 +13,7 @@
 <h3>지난방문지</h3>
 	<div class="d-flex flex-column" >
 		<form method="post" name="frm_rvv_s" id="frm_rvv_s">
-		<c:forEach var="list" items="${list}">
+		<c:forEach var="list" items="${list}" varStatus="status">
 			<!-- 내부 빨간박스 -->
 			<div class="p-4 rlist">
 				<div class="row">
@@ -35,10 +35,11 @@
 						</div>
 					</div>
 					<div class="col-3">
-						<button type="button"  id="btnRe_s" class="btn btn-primary btn-lg btnrlist btnRe_s">리뷰작성</button>
-						<button type="button"  id="btnSe_s" class="btn btn-primary btn-lg btnrlist btnSe_s">리뷰보기</button>
-						<input type="hidden" name="rCode" value="${list.rCode}"/>
+						<button type="button"  id="btnRe_s" class="btn btn-primary btn-lg btnrlist btnRe_s" onclick="btnReview(rCode${status.index})">리뷰작성</button>
+						<button type="button"  class="btn btn-primary btn-lg btnrlist btnSe_s" onclick="btnSelect(rCode${status.index})">리뷰보기</button>
+						<input type="hidden" name="rCode${status.index}" value="${list.rCode}"/>
 						<input type="hidden" name="eMail" value="${list.eMail}"/>
+						<input type="hidden" name="rCo" id="rCo_s"/>
 					</div>
 				</div>
 			</div>

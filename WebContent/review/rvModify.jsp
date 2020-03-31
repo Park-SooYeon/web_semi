@@ -13,11 +13,11 @@
 <form method="post" name="frm_rm_s" id="frm_rm_s">
 <div class="form-group">
 	<label for="exampleInputPassword1">제목</label>
-	<input type="text" class="form-control" id="exampleInputPassword1" placeholder="제목" name="title">
+	<input type="text" class="form-control" id="exampleInputPassword1" placeholder="제목" name="title" value="${vo.title}">
 </div>
 <div class="form-group">
 	<label for="exampleInputPassword1">아이디</label>
-	<input type="text" class="form-control" id="exampleInputPassword1" placeholder="아이디" name="eMail" value="ddddd" readonly>
+	<input type="text" class="form-control" id="exampleInputPassword1" placeholder="아이디" name="eMail" value="${vo.eMail}" readonly>
 </div>
 <div class="starRev">
 	<span class="starR on" id="star1_s">★</span>

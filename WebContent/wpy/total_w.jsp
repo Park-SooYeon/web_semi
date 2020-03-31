@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,19 +9,25 @@
 <script src="./js/jquery-3.4.1.js"></script>
 <script src="./js/w_roomsjs.js"></script>
 <script src="./js/f_roomsJs.js"></script>
+<script src="./js/user_s.js"></script>
 <script src="./js/reserve_insert_k.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
+<form id="frm_room_k" name="frm_room_k">
 <div id = 'view1_w'>
 
-<form id="frm_room_k" name="frm_room_k">
 	<label id='check_w'>체크인</label><br/>
 	<input type="text" name="checkIn_w" id="checkIn_w" value="${checkIn }"><br/>
 	<label id='check2_w'>체크아웃</label><br/>
 	<input type="text" name="checkOut_w" id="checkOut_w" value="${checkOut }"><br/>				
+    <input type="hidden" id="rCode" name="rCode" value="${rCode}">
+    <input type="hidden" id="roomCode" name="roomCode" value="">
+    <input type="hidden" name="indent" id="indent_s"/>
+	<input type="hidden" name="rno" id="rno_s"/>
+	<input type="hidden" name="rGro" id="rGro_s"/>
 
 </form>
     <button id='btnSearch_k'>예약 확인</button>
@@ -145,43 +151,85 @@
 <div id='view_bottom_f'>
 				<hr/>
 				<div id='view_bottom_score_f'>
-					<div id='starForm_f'>
-						<div id='star_f'><input type="checkbox" name='star' id='star1_f' value=''/><label for='star1_f'><span></span></label></div>
-						<div id='star_f'><input type="checkbox" name='star' id='star2_f' value=''/><label for='star2_f'><span></span></label></div>
-						<div id='star_f'><input type="checkbox" name='star' id='star3_f' value=''/><label for='star3_f'><span></span></label></div>
-						<div id='star_f'><input type="checkbox" name='star' id='star4_f' value=''/><label for='star4_f'><span></span></label></div>
-						<div id='star_f'><input type="checkbox" name='star' id='star5_f' value=''/><label for='star5_f'><span></span></label></div>
+				    <div class="starRev">
+						<span class="starR" id="star1_s">★</span>
+						<span class="starR" id="star2_s">★</span>
+						<span class="starR" id="star3_s">★</span>
+						<span class="starR" id="star4_s">★</span>
+						<span class="starR" id="star5_s">★</span>
 					</div>
-					<br/><span>별점 : 8.0</span><br/><br/><br/>
-					<span>전체리뷰 <b>848</b> &nbsp;&nbsp;|&nbsp;&nbsp; 제휴점 답변 <b>343</b></span>
+					<c:forEach var="vo2" items="${vo}" begin="0" end="0"> 
+					<br/><span>별점 : ${vo2.stars}</span><br/><br/><br/>
+					<input type="hidden" value="${vo2.stars}" id="vo2stars_s"/>
+					</c:forEach>
+					<span>전체리뷰 <b>${rvCnt}</b> &nbsp;&nbsp;|&nbsp;&nbsp; 제휴점 답변 <b>343</b></span>
 				</div>
 				<hr/>
-				
+				<c:forEach var="list" items="${list}" varStatus="status">
 				<div id='view_bottom_review_f'>
+					<c:set var="indent" value="${list.rIndent}"/>
+					<c:set var="userEmail" value="${sessionScope.email}"/>
+					<c:set var="maEmail" value="${vo[0].ceo}"/>
+					<c:set var="reEmail" value="${list.eMail}"/>
+					<c:choose>
+					<c:when test="${indent eq 0}">
 					<div id='review_img_f'>
-						<img src=''/>
+						<img src='./image/reviewlogo.png'/>
 					</div>
 					<div id='review_coment_f'>
-						<span>나쁘지 않아요</span><br/><br/>
-						<span>별점 : 3.9</span><br/><br/>
-						아늑하고 푹신하고<br/>
-						편안한 쉼이 되는곳..<br/>
-						직원들도 친절하고..<br/>
-						오래된 부분이 조금은<br/>
-						아쉽지만..<br/>
-						도심속 이만한 공간도<br/>
-						많지는 않아서...<br/>
-						좋아요..<br/>
-						자주 이용하는 곳이에요<br/>
+						<span>${list.title}</span>
+						<c:if test="${userEmail eq reEmail}"> 
+						<button type="button" class="btn btn-primary btn-sm btnRv_Mo_s" onclick="btnRvMo(rNo${status.index})">수정</button>
+						<button type="button" class="btn btn-primary btn-sm" onclick="return rvDelete(rNo${status.index}, rIndent${status.index}, rGroup${status.index})">삭제</button>
+						</c:if>
+						<c:if test="${userEmail eq maEmail}">
+						<button type="button" class="btn btn-primary btn-sm btnRv_Re_s" onclick="btnRv_Reply(rGroup${status.index})">답변</button>
+						</c:if>
+						<br/><br/>
+						<input type="hidden" name="rNo${status.index}" id="rNo_s${status.index}" value="${list.rNo}"/>
+						<input type="hidden" name="rGroup${status.index}" id="rGroup_s${status.index}" value="${list.rGroup}"/>
+						<input type="hidden" name="rStep" id="rStep_s${status.index}" value="${list.rStep}"/>
+						<input type="hidden" name="rIndent${status.index}" id="rIndent_s${status.index}" value="${list.rIndent}"/>
+						<input type="hidden" name="index_s" id="index_s${status.index}" value="${status.index}"/>
+						<span>별점 : ${list.stars}</span><br/><br/>
+						${list.rContent}
+					</div>
+					</c:when>
+					<c:otherwise>
+	 					<div id='review_re_f' style="background-color:#FFCCCC; padding-left:20px;">
+							<img src='./image/reviewRelogo.png'/>
+						</div> 
+						<div id='review_re_f' style="background-color:#FFCCCC; padding-left:20px;">
+							<span >${list.title}</span>
+							<c:if test="${userEmail eq maEmail}">
+							<button type="button" class="btn btn-primary btn-sm btnRv_Mo_s" onclick="btnRvMo(rNo${status.index})">수정</button>
+							<button type="button" class="btn btn-primary btn-sm" onclick="return rvDelete(rNo${status.index}, rIndent${status.index}, rGroup${status.index})">삭제</button>
+							</c:if>
+							<br/><br/>
+							<input type="hidden" name="rNo${status.index}" id="rNo_s${status.index}" value="${list.rNo}"/>
+							<input type="hidden" name="rGroup${status.index}" id="rGroup_s${status.index}" value="${list.rGroup}"/>
+							<input type="hidden" name="rStep" id="rStep_s${status.index}" value="${list.rStep}"/>
+							<input type="hidden" name="rIndent${status.index}" id="rIndent_s${status.index}" value="${list.rIndent}"/>
+							<input type="hidden" name="index_s" id="index_s${status.index}" value="${status.index}"/>
+							${list.rContent}
+						</div>
+					</c:otherwise>
+					</c:choose>
 				</div>
-			</div>
+			</c:forEach>
 		<hr/>
-				
 	</div>
 </div>
-
+</form>
 <script>
+$(document).ready(function(){
+	let stars = $('#vo2stars_s').val();
+	for(a=0; a<=stars; a++){
+		$('#star'+a+'_s').addClass('on');
+	}
+});
 btnFunc_w();
+user()
 </script>
 </body>
 </html>

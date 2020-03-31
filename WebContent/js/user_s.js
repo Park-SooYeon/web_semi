@@ -8,11 +8,6 @@ let user = function(){
 		$('#frm').attr('action', 'resView.mp').submit();
 	}
 	
-	if($('.btnRe_s')!=null){
-		$('.btnRe_s').click(function(){
-			$('#frm_rvv_s').attr('action', 'review.rv').submit();
-	 	});
-	 }
 	
 	if($('#btnMu_s')!=null){
 		$('#btnMu_s').click(function(){
@@ -32,27 +27,10 @@ let user = function(){
 		})
 	 }
 	 
-	 if($('.btnRv_Mo_s')!=null){
-		$('.btnRv_Mo_s').click(function(){
-			$('#frm_rvSe_s').attr('action', 'reviewModifyform.rv').submit();
-		})
-	 }
-	 
-	 if($('.btnSe_s')!=null){
-		$('.btnSe_s').click(function(){
-			$('#frm_rvv_s').attr('action', 'reviewSelect.rv').submit();
-		})
-	 }
 	 
 	 if($('#btnModify_s')!=null){
 		$('#btnModify_s').click(function(){
 			$('#frm_rm_s').attr('action', 'reviewModify.rv').submit();
-		})
-	 }
-	 
-	 if($('.btnRv_Re_s')!=null){
-		$('.btnRv_Re_s').click(function(){
-			$('#frm_rvSe_s').attr('action', 'reviewReplyView.rv').submit();
 		})
 	 }
 	 
@@ -86,15 +64,64 @@ let user = function(){
 	})
 }
 
-let rvDelete = function(rIndex){
+let btnSelect = function(rCode){
+	let code = rCode.value;
+	$('#rCo_s').val(code);
+	$('#frm_rvv_s').attr('action', 'reviewSelect.rv').submit();
+}
+
+/*let rvDelete = function(rIndex){
 	//let index = $('#index_s'+rIndex).val();
-	let indent = $('#rIndent_s'+rIndex).val();
-	$('#indent_s').val(indent);
-	alert(indent);
-	let index = $('#rNo_s'+rIndex).val();
-	$('#rno_s').val(index);
-	alert(index);
-	$('#frm_rvSe_s').attr('action', 'reviewDelete.rv').submit();
+	let result = confirm("삭제하시겠습니까?");
+	if(result){
+		let indent = $('#rIndent_s'+rIndex).val();
+		$('#indent_s').val(indent);
+		let index = $('#rNo_s'+rIndex).val();
+		$('#rno_s').val(index);
+		$('#frm_room_k').attr('action', 'reviewDelete.rv').submit();	
+	}else{
+		return false;
+	}
+}*/
+
+let rvDelete = function(rNo, rIndent, rGroup){
+	let result = confirm("삭제하시겠습니까?");
+	if(result){
+		let no = rNo.value;
+		let rin = rIndent.value;
+		let rgro = rGroup.value;
+		$('#rno_s').val(no);
+		$('#indent_s').val(rin);
+		$('#rGro_s').val(rgro);
+		$('#frm_room_k').attr('action', 'reviewDelete.rv').submit();
+	}else{
+		return false;
+	}
+}
+
+let btnRvMo = function(rNo){
+	let no = rNo.value;
+	$('#rno_s').val(no);
+	$('#frm_room_k').attr('action', 'reviewModifyform.rv').submit();
+}
+
+/*if($('.btnRv_Mo_s')!=null){
+	$('.btnRv_Mo_s').click(function(){
+		$('#frm_room_k').attr('action', 'reviewModifyform.rv').submit();
+	})
+}*/
+ 
+let btnReview = function(rCode){
+	let code = rCode.value;
+	$('#rCo_s').val(code);
+	$('#frm_rvv_s').attr('action', 'review.rv').submit();
+}
+
+
+let btnRv_Reply = function(rGroup){
+	let group = rGroup.value;
+	$('#rGro_s').val(group);
+	$('#frm_room_k').attr('action', 'reviewReplyView.rv').submit();
 }
 
 let myPage = function(eMail){

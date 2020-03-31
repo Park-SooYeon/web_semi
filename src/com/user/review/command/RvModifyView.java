@@ -10,9 +10,8 @@ public class RvModifyView implements RvCommand{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) {
-		int rNo = Integer.parseInt(req.getParameter("rNo"));
+		int rNo = Integer.parseInt(req.getParameter("rno"));
 		int rCode = Integer.parseInt(req.getParameter("rCode"));
-		System.out.println(rNo);
 		RvDao dao = new RvDao();
 		RvVo vo = dao.rvMoView(rNo);
 		

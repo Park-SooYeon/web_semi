@@ -11,12 +11,14 @@ public class RvModify implements RvCommand{
 	public void execute(HttpServletRequest req, HttpServletResponse res) {
 		int rNo = Integer.parseInt(req.getParameter("rNo"));
 		int stars = Integer.parseInt(req.getParameter("star"));
+		int rCode = Integer.parseInt(req.getParameter("rCode"));
+		String title = req.getParameter("title");
 		String content = req.getParameter("content");
 		
 		System.out.println(rNo);
 		System.out.println(stars);
 		System.out.println(content);
 		RvDao dao = new RvDao();
-		dao.rvModify(content, stars, rNo);
+		dao.rvModify(content, stars, title, rNo, rCode);
 	}
 }

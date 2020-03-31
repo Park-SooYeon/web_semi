@@ -49,7 +49,7 @@
 		<input type="hidden" name="rNo" id="rNo" value="${list.rNo}"/>
 		<button type="button" class="btn btn-primary btn-lg btnRv_Mo_s">리뷰수정</button>
 		<button type="button" class="btn btn-primary btn-lg btnRv_Re_s">리뷰답변</button>
-		<button type="button" class="btn btn-primary btn-lg btnRv_De_s" onclick="rvDelete('${status.index},${list.rIndent},${list.rNo}')">리뷰삭제</button>
+		<button type="button" class="btn btn-primary btn-lg btnRv_De_s" onclick="rvDelete('${status.index}')">리뷰삭제</button>
 	  </td>
     </tr>
   </c:forEach>

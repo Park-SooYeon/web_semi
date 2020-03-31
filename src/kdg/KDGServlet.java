@@ -7,13 +7,14 @@ import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.user.review.controller.RvDao;
+import com.user.review.controller.RvVo;
 
 @WebServlet("*.ff")
 public class KDGServlet extends HttpServlet {
@@ -21,7 +22,7 @@ public class KDGServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		roomView(req,resp);
 	}
 
 	@Override
@@ -64,7 +65,7 @@ public class KDGServlet extends HttpServlet {
 		}else {
 			aType = 2;
 		}
-		//페이징작업
+		//���댁�����
 		int nowPage_f = 1;
 		if(req.getParameter("nowPage_f")!=null) {
 			nowPage_f = Integer.parseInt(req.getParameter("nowPage_f"));
@@ -72,14 +73,14 @@ public class KDGServlet extends HttpServlet {
 		page p_f = new page();
 		p_f.setNowPage(nowPage_f);
 		
-		//소트작업
+		//���몄����
 				String sort="";
 				if(req.getParameter("sort_f")!=null) {
 					sort = req.getParameter("sort_f");
 				}else {
 					sort ="asc";
 				}
-				//지역 작업
+				//吏��� ����
 				String place="";
 				if(req.getParameter("place_f")!=null) {
 					place = req.getParameter("place_f");
@@ -104,21 +105,21 @@ public class KDGServlet extends HttpServlet {
 		}else {
 			aType = 1;
 		}
-		//페이징작업
+		//���댁�����
 		int nowPage_f = 1;
 		if(req.getParameter("nowPage_f")!=null) {
 			nowPage_f = Integer.parseInt(req.getParameter("nowPage_f"));
 		}
 		page p_f = new page();
 		p_f.setNowPage(nowPage_f);
-		//소트작업
+		//���몄����
 		String sort="";
 		if(req.getParameter("sort_f")!=null) {
 			sort = req.getParameter("sort_f");
 		}else {
 			sort ="asc";
 		}
-		//지역 작업
+		//吏��� ����
 		String place="";
 		if(req.getParameter("place_f")!=null) {
 			place = req.getParameter("place_f");
@@ -142,21 +143,21 @@ public class KDGServlet extends HttpServlet {
 		}else {
 			aType = 3;
 		}
-		//페이징작업
+		//���댁�����
 		int nowPage_f = 1;
 		if(req.getParameter("nowPage_f")!=null) {
 			nowPage_f = Integer.parseInt(req.getParameter("nowPage_f"));
 		}
 		page p_f = new page();
 		p_f.setNowPage(nowPage_f);
-		//소트작업
+		//���몄����
 				String sort="";
 				if(req.getParameter("sort_f")!=null) {
 					sort = req.getParameter("sort_f");
 				}else {
 					sort ="asc";
 				}
-				//지역 작업
+				//吏��� ����
 				String place="";
 				if(req.getParameter("place_f")!=null) {
 					place = req.getParameter("place_f");
@@ -180,7 +181,7 @@ public class KDGServlet extends HttpServlet {
 		}else {
 			aType = 4;
 		}
-		//페이징작업
+		//���댁�����
 		int nowPage_f = 1;
 		if(req.getParameter("nowPage_f")!=null) {
 			nowPage_f = Integer.parseInt(req.getParameter("nowPage_f"));
@@ -188,14 +189,14 @@ public class KDGServlet extends HttpServlet {
 		page p_f = new page();
 		p_f.setNowPage(nowPage_f);
 		
-		//소트작업
+		//���몄����
 				String sort="";
 				if(req.getParameter("sort_f")!=null) {
 					sort = req.getParameter("sort_f");
 				}else {
 					sort ="asc";
 				}
-				//지역 작업
+				//吏��� ����
 				String place="";
 				if(req.getParameter("place_f")!=null) {
 					place = req.getParameter("place_f");
@@ -236,10 +237,15 @@ public class KDGServlet extends HttpServlet {
 		if(req.getParameter("checkOut")!=null) {
 			checkOut = req.getParameter("checkOut");
 		}
+		RvDao dao = new RvDao();
 		RoomsDao2 dao2 = new RoomsDao2();
+		List<RvVo> list = dao.rvSelect(rCode);
+		int rvCnt = dao.rvCnt(rCode);
 		
 		List<RoomsVo> vo = dao2.view(rCode);
 
+		req.setAttribute("list", list);
+		req.setAttribute("rvCnt", rvCnt);
 		req.setAttribute("vo", vo);
 		req.setAttribute("rCode", rCode);
 		req.setAttribute("checkIn", checkIn);
@@ -249,22 +255,22 @@ public class KDGServlet extends HttpServlet {
 		RequestDispatcher rd = req.getRequestDispatcher(path);
 		rd.forward(req, resp);
 	}
-	//구 선택시
+	//援� ������
 	public void gooSelect(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		String place ="";
 		int aType=0;
 		int nowPage_f = 1;
 		String target ="";
-		String sort ="";	//가격 정렬 뭘로할거니
+		String sort ="";	//媛�寃� ���� 萸�濡���嫄곕��
 		int bedtype=5;
-		SelectorVo vo = new SelectorVo();//체크박스 사항을 담아 리퀘스트에 담아서 기존값 표시해줄것
+		SelectorVo vo = new SelectorVo();//泥댄�щ��� �ы���� �댁�� 由ы���ㅽ�몄�� �댁���� 湲곗〈媛� �����댁�寃�
 		
 		if(req.getParameter("bedtype")!=null) {
 			bedtype = Integer.parseInt(req.getParameter("bedtype"));
 		}
 
-		String checkIn =""; //체크인 시간
-		String checkOut ="";//체크아웃시간
+		String checkIn =""; //泥댄�ъ�� ��媛�
+		String checkOut ="";//泥댄�ъ������媛�
 		if(req.getParameter("target")!=null) {
 			target = req.getParameter("target");
 		}
@@ -287,7 +293,7 @@ public class KDGServlet extends HttpServlet {
 		if(req.getParameter("sort_f")!=null) {
 			sort = req.getParameter("sort_f");
 		}
-		/* -----------체크박스------------------------------------------------------------------------------*/
+		/* -----------泥댄�щ���------------------------------------------------------------------------------*/
 		if(req.getParameter("pt")!=null) {
 			if(req.getParameter("pt").equals("on")) {
 				vo.setPt(req.getParameter("pt"));
@@ -440,17 +446,17 @@ public class KDGServlet extends HttpServlet {
 	
 	
 	public void fillter(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		String place ="";	//호옥시 지역 선택했니?
-		int aType = 0;		//숙소타입
-		int nowPage =1;	//페이징
-		String target ="";	//보낼 페이지
-		String sort ="";	//가격 정렬 뭘로할거니
-		//라디오 버튼이 만약 null로 들어온다면 초기값을 5로할거다
-		int kind = 5;		//호텔 타입?
-		int maxPeople =1;	//최대인원?
-		int bedtype =5;		//베드 타입?
-		String checkIn =""; //체크인 시간
-		String checkOut ="";//체크아웃시간
+		String place ="";	//�몄�μ�� 吏��� ��������?
+		int aType = 0;		//��������
+		int nowPage =1;	//���댁�
+		String target ="";	//蹂대�� ���댁�
+		String sort ="";	//媛�寃� ���� 萸�濡���嫄곕��
+		//�쇰���� 踰��쇱�� 留��� null濡� �ㅼ�댁�⑤�ㅻ㈃ 珥�湲곌��� 5濡���嫄곕��
+		int kind = 5;		//�명�� ����?
+		int maxPeople =1;	//理����몄��?
+		int bedtype =5;		//踰��� ����?
+		String checkIn =""; //泥댄�ъ�� ��媛�
+		String checkOut ="";//泥댄�ъ������媛�
 		if(req.getParameter("checkIn")!=null) {
 			checkIn = req.getParameter("checkIn");
 		}
@@ -458,10 +464,10 @@ public class KDGServlet extends HttpServlet {
 			checkOut = req.getParameter("checkOut");
 		}
 	
-		List<String> fillter = new ArrayList<String>();//체크사항에 체크되어 값이 넘어오면 sql문은 만들어 배열에담아 dao에 전달
+		List<String> fillter = new ArrayList<String>();//泥댄�ъ�ы���� 泥댄�щ���� 媛��� ���댁�ㅻ㈃ sql臾몄�� 留��ㅼ�� 諛곗�댁���댁�� dao�� ����
 		List<String> pagingSql = new ArrayList<String>();
-		SelectorVo2 svo = new SelectorVo2();// 체크사항 이외의 값들은 널이 아닐때만 담아 dao에 전달할것
-		SelectorVo vo = new SelectorVo();//체크박스 사항을 담아 리퀘스트에 담아서 기존값 표시해줄것
+		SelectorVo2 svo = new SelectorVo2();// 泥댄�ъ�ы�� �댁�몄�� 媛��ㅼ�� ���� ������留� �댁�� dao�� ���ы��寃�
+		SelectorVo vo = new SelectorVo();//泥댄�щ��� �ы���� �댁�� 由ы���ㅽ�몄�� �댁���� 湲곗〈媛� �����댁�寃�
 		
 		if(req.getParameter("place_f")!=null) {
 			place = req.getParameter("place_f");
@@ -497,7 +503,7 @@ public class KDGServlet extends HttpServlet {
 			svo.setBedtype(bedtype);
 		}
 		
-		//-----------체크사항이 on이라면 sql문을 만들어 fillter와 paginSql에 담을것-------------------------------------------------------
+		//-----------泥댄�ъ�ы���� on�대�쇰㈃ sql臾몄�� 留��ㅼ�� fillter�� paginSql�� �댁��寃�-------------------------------------------------------
 		
 		if(req.getParameter("pt")!=null) {
 			if(req.getParameter("pt").equals("on")) {
