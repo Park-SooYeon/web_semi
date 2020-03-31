@@ -25,28 +25,27 @@ public class MemberDao_m {
 		List<MemberVo_m> list = new ArrayList<MemberVo_m>();
 		int totList = 0;
 		try {
-			sql = " selelct count(title) cnt from notice "
+			sql = " select count(title) cnt from notice "
 				+ " where title like ? ";
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, "%"+p.getFindStr() + "%");
-			
 			rs= ps.executeQuery();
 			if(rs.next()) totList = rs.getInt("cnt");
 			p.setTotListSize(totList);
 			p.pageCompute();
-			
+		
 			sql = " select *from ( "
 				+ "  select rownum rn, A.*from ( "
 				+ "      select nno, title, to_char(rDate, 'rrrr-MM-dd') rDate, memo "
 				+ "		 from notice "
 				+ "		 where title like ? "
-				+ "		 order by title)A "
+				+ "		 order by nno desc)A "
 				+ " )where rn between ? and ? ";
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, "%" + p.getFindStr() + "%");
 			ps.setInt(2, p.getStartNo());
 			ps.setInt(3, p.getEndNo());
-			
+		
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				MemberVo_m vo = new MemberVo_m();
@@ -55,7 +54,8 @@ public class MemberDao_m {
 				vo.setrDate(rs.getString("rDate"));
 				vo.setMemo(rs.getString("memo"));
 				list.add(vo);
-			}
+			
+			}	
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
@@ -90,14 +90,14 @@ public class MemberDao_m {
 	public String modify(MemberVo_m vo) {
 		String msg = "게시물 내용이 수정 되었습니다.";
 		
-		sql = " update notice set title=?, memo=? where nno=? ";
+		sql = " update notice set title=?, memo=? where title=? ";
 		
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, vo.getTitle());
 			ps.setString(2, vo.getMemo());
-			ps.setInt(3, vo.getNno())
-			;
+			ps.setString(3, vo.getTitle());
+			
 			int r = ps.executeUpdate();
 			if(r<1) {
 				throw new Exception();

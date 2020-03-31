@@ -28,7 +28,12 @@ let btnFuncm = function() {
 
 	if ($('#btnSelectm') != null) {
 		$('#btnSelectm').click(function() {
-			$('#frmm').attr('action', 'notice.jsp').submit();
+			$('#frmm').attr('action', 'nt_select.mm').submit();
 		})
 	}
+}
+
+let goPage= function(nowPage){
+	$('#nowPage').val(nowPage);
+	$('#frmm').attr('action', 'nt_select.mm').submit();
 }

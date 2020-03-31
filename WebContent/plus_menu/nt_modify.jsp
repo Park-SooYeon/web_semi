@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+  <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title><link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'/>
+<link rel='stylesheet' type='text/css' href='../css/accordion.css'/>
 <script src = '../js/jquery-3.4.1.js'></script>
 <script src = './notice.js'></script>
 </head>
@@ -27,6 +31,7 @@
 				</tr>
 		</tbody>
 		</table> 
+			<input type="button" id="btnSelectm"  value="목록"/>
 			<input type="button" id="btnUpdatem"  value="저장 "/>
 			<input type="button" id="btnDeletem"  value="삭제 "/>
 			

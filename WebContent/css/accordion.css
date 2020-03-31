@@ -18,16 +18,7 @@ input[id*="answer"] + label{
 	cursor:pointer;
 	position:relative;
 }
-input[id*="answer"] + label em{
-	position:absolute;
-	top : 50%;
-	right : 10px;
-	width:30px;
-	height:30px;
-	margin-top:-15px;
-	display:inline-block;
-	background:0 0 no-repeat;
-} 
+
 input[id*="answer"] + label + div{
 	max-height: 0;
 	transition : all .35s;
@@ -51,12 +42,18 @@ a[id="pe_m"]{
 input[id="btnSelectm"]{
 	margin-right : 644px;
 }
+input[id="btnInsertm"]{
+	margin-right : 766px;
+}
 
-
-
-
-
-
+input[id="btn_number"]{
+	margin-right : 10px;
+	margin-top : 7px;
+	text-align : center;
+}
+div[id="paging"]{
+	margin : center;
+}
 
 
 

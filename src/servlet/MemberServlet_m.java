@@ -26,10 +26,16 @@ public class MemberServlet_m extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		req.setCharacterEncoding("utf-8");
+		String title = req.getParameter("title");
+		String memo = req.getParameter("memo");
+		resp.setContentType("text/html;charset=utf-8");
+		
 		String temp = req.getRequestURI();
 		int pos = temp.lastIndexOf("/");
 		String tempUrl = temp.substring(pos);
-		//System.out.println(url + tempUrl);
+		System.out.println(tempUrl);
 		switch(tempUrl) {
 		case "/nt_insert.mm":
 			insert(req, resp);                       
@@ -49,6 +55,7 @@ public class MemberServlet_m extends HttpServlet{
 		case "/nt_insertview.mm":
 			insertView(req, resp);
 			break;
+	
 		}
 	}
 	
@@ -65,8 +72,6 @@ public class MemberServlet_m extends HttpServlet{
 		MemberDao_m dao = new MemberDao_m();
 		String msg = dao.insert(bbsTitle, bbsContent);
 		req.setAttribute("msg", msg);
-		System.out.println("title=" + bbsTitle );
-		System.out.println("memo =" + bbsContent);
 		RequestDispatcher rd = req.getRequestDispatcher(path);
 		rd.forward(req, resp);
 	}
@@ -88,20 +93,20 @@ public class MemberServlet_m extends HttpServlet{
 		if(req.getParameter("nowPage") != null) {
 			nowPage = Integer.parseInt(req.getParameter("nowPage"));
 		}
+
 		if(req.getParameter("findStr") != null) {
 			findStr = req.getParameter("findStr");
 		}
-		
+	
 		Page_m p = new Page_m();
 		p.setNowPage(nowPage);
 		p.setFindStr(findStr);
 		p.pageCompute();
-		
-		List<MemberVo_m> list = dao.select(p);		
+
+		List<MemberVo_m> list = dao.select(p);
 		req.setAttribute("list", list);
 		req.setAttribute("p", p);
-		
-		String path = url + "nt_select.jsp";
+		String path ="notice.jsp";
 		RequestDispatcher rd = req.getRequestDispatcher(path);
 		rd.forward(req, resp);
 		

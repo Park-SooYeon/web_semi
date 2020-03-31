@@ -21,11 +21,11 @@ public class MemberVo_m {
 		this.memo = memo;
 	}
 	
-	public String toString() {
-		String d = sdf.format(rDate);
+	/*public String toString() {
+		//String d = sdf.format(rDate);
 		String str = String.format("%10s\t%15s\t%15s\t%4d\n", nno, title, d, memo);
 		return str;
-	}
+	}*/
 	
 	public String toJSON() {
 		String d = sdf.format(rDate);
