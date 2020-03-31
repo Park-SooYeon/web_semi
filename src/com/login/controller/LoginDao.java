@@ -96,15 +96,31 @@ public class LoginDao {
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
-			try { conn.rollback();
-			} catch (SQLException e1) {e1.printStackTrace();}
+			conn.rollback();
 		}finally {
-			try {conn.commit();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			return flag;
 		}
-		return flag;
+	}
+	
+	public void pwReset(String email, String pwd) {
+		try {
+			sql = "update membership set pwd=? where email=?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, pwd);
+			ps.setString(2, email);
+			cnt = ps.executeUpdate();
+			
+			if(cnt > 0) {
+				conn.commit();
+			}else {
+				conn.rollback();
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			conn.rollback();
+		}finally {
+			return;			
+		}
 	}
 	
 }

@@ -15,7 +15,7 @@
 <div class='container'>
 	<div class='row justify-content-md-center'>
 		<div class='col-4'>
-			<div class='title_c' align='center'>
+			<div class='title_c' align='center' style='margin:60px 0 20px 0;'>
 				<strong class='logo center' >
 					<a href="../index.jsp">여기어때</a>
 				</strong>
@@ -28,24 +28,26 @@
 					<br/>
 					<label class='label_c'>생년월일</label><br/>
 					<input type='date' id="birth_c" name='birth_c' />
+					<div id='birthM_c' class='birthM_c'></div>
 					<br/>
 					<label class='label_c'>비밀번호</label><br/>
 					<input type='password' id='pwd_c' name='pwd_c' placeholder=" 비밀번호를 입력해주세요." />	
-					<div id='pwdM_c'></div>
+					<div id='pwdM_c' class='pwdM_c'></div>
 					<br/>
 					<label class='label_c'>비밀번호 확인</label><br/>
-					<input type='password' id='pwd_check_c' name='pwd_check_c' placeholder=" 비밀번호를 입력해주세요." />
-					<div id='pwdM_check_c'></div>
+					<input type='password' id='pwd_ck_c' name='pwd_ck_c' placeholder=" 비밀번호를 입력해주세요." />
+					<div id='pwdM_ck_c' class='pwdM_ck_c'></div>
 					<br/>
 					<label class='label_c'>핸드폰번호</label><br/>
 					<input type='text' id='phone_c' name='phone_c' placeholder=" - 빼고 입력해주세요. " maxlength="11" />
+					<div id='phoneM_c' class='phoneM_c'></div>
 					<label class='label_c'>닉네임</label><br/>
 					<input type='text' id='nName_c' name='nName_c' maxlength="10">
-					<div id='nNameM_c'></div>
+					<div id='nNameM_c' class='nNameM_c'></div>
 					<br/>
 				</div>
 				<div class='mNotice_c' align='center'>
-					로그인 / 회원가입시<br/><a href='#'>이용약관, </a><a href='#'>개인정보처리방침</a>에 동의하게 됩니다.
+					로그인 / 회원가입시<br/><a href='#'>이용약관,</a> <a href='#'>개인정보처리방침</a>에 동의하게 됩니다.
 				</div>
 				<div align='center'>
 					<button type="button" id='btnMember_c' class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>동의하고 회원가입</button>

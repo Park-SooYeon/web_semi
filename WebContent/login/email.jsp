@@ -25,8 +25,7 @@
 				<br/>
 				<input type='text' id='email_c' name='email_c' class='email_c' placeholder="이메일 주소" maxlength="25">
 				<button type="button" id='btnSend_c' class="btn btn-secondary disabled" disabled>인증번호 전송</button>
-				<div id='emailM_c'></div>
-				<br/>
+				<div id='emailM_c' class='emailM_c'></div>
 				<div id='numView' style='display:none;'>
 					<label class='label_c'>인증번호</label><br/>
 					<input type='text' id='num_c' name='num_c' class='email_c' placeholder="인증번호" maxlength="15">
@@ -35,6 +34,7 @@
 			</form>
 			<div align='center'>
 				<button type="button" id='btnNextM_c' class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)' disabled>다음</button>
+				<div class='error' style='display:none;bottom:380px;'></div>
 			</div>
 		</div>
 	</div>
