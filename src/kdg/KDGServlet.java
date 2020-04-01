@@ -60,8 +60,16 @@ public class KDGServlet extends HttpServlet {
 			break;
 		case "/fillter.ff":
 			fillter(req,resp);
+			break;
 		case "/insert.ff":
 			insert(req,resp);
+			break;
+		case "/roomInsert.ff":
+			roomInsert(req,resp);
+			break;
+		case "/roomInsertR.ff":
+			roomInsertR(req,resp);
+			break;
 		}
 	}
 	public void hotel(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
@@ -220,7 +228,7 @@ public class KDGServlet extends HttpServlet {
 		rd.forward(req, resp);
 	}
 	public void roomView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		System.out.println("김도병바보 : " +req.getAttribute("rCode"));
+		
 		Enumeration e = req.getParameterNames();
 		while ( e.hasMoreElements() ){
 			String name = (String) e.nextElement();
@@ -237,6 +245,7 @@ public class KDGServlet extends HttpServlet {
 		if(rCode!=0) {
 			rCode = Integer.parseInt(req.getParameter("rCode"));
 		}
+		
 		if(req.getParameter("checkIn")!=null) {
 			checkIn = req.getParameter("checkIn");
 		}
@@ -710,7 +719,6 @@ public class KDGServlet extends HttpServlet {
 			RoomsDao dao = new RoomsDao();
 			Map<String,String> map =dao.roomsInsert(vo);
 			req.setAttribute("map_f", map);
-			System.out.println("-----------");
 			
 			
 		}else {
@@ -718,12 +726,49 @@ public class KDGServlet extends HttpServlet {
 			resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 		}
 		
-		String path ="rooms_insert_result.jsp";
+		String path =url +"/rooms_insert_result.jsp";
 		RequestDispatcher rd = req.getRequestDispatcher(path);
 		rd.forward(req, resp);
 	}
+	
+	public void roomInsert(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+		int rCode = 0;
+		if(req.getParameter("rCode")!=null) {
+			rCode = Integer.parseInt(req.getParameter("rCode"));
+			System.out.println(rCode);
+		}
+		
+		req.setAttribute("rCode_f", rCode);
+		
+		String path =url +"/room_insert.jsp";
+		RequestDispatcher rd = req.getRequestDispatcher(path);
+		rd.forward(req, resp);
+	
+	}
+	public void roomInsertR(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+		
+		
+		
+		FileUpload upload = new FileUpload(req,resp);
+		if(upload.uploadFormCheck()) {
+			InsertRoomVo vo = upload.roomUploading();
+			
+			RoomsDao dao = new RoomsDao();
+			int result = dao.roomInsert(vo);
+			req.setAttribute("result_f", result);
+			req.setAttribute("rCode_f", vo.getrCode());
+			
+			
+		}else {
+			System.out.println("err");
+			resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+		}
+		String path =url + "/room_insert.jsp";
+		RequestDispatcher rd = req.getRequestDispatcher(path);
+		rd.forward(req, resp);
+	}
+	
 }
-
 
 
 

@@ -523,7 +523,6 @@ public class RoomsDao {
 			ps.setInt(26, vo.getTalsu());//
 			ps.setString(27, vo.getCeo());//
 			int cnt = ps.executeUpdate();
-			System.out.println(cnt);
 			if(cnt>0) {
 				
 				
@@ -561,9 +560,75 @@ public class RoomsDao {
 		}
 	}
 	//방입력
-	public String roomInsert() {
-		String msg ="";
-		return msg;
+	public int roomInsert(InsertRoomVo vo) {
+		int result = 0;
+		String sql = " insert into room(roomcode , roomName , rCode , rMaxPeople ,price , tv , wifi , shower , aircon , spa , tub , computer , iron , refr , socket , bed) "
+					+" values(room_rcode_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+		try {
+			conn.setAutoCommit(false);
+			PreparedStatement ps =conn.prepareStatement(sql);
+			ps.setString(1, vo.getRoomName());
+			ps.setInt(2, vo.getrCode());
+			ps.setInt(3, vo.getrMaxPeople());
+			ps.setInt(4, vo.getPrice());
+			ps.setInt(5, vo.getTv());
+			ps.setInt(6, vo.getWifi());
+			ps.setInt(7, vo.getShower());
+			ps.setInt(8, vo.getAircon());
+			ps.setInt(9, vo.getSpa());
+			ps.setInt(10, vo.getTub());
+			ps.setInt(11, vo.getComputer());
+			ps.setInt(12, vo.getIron());
+			ps.setInt(13, vo.getRefr());
+			ps.setInt(14, vo.getSocket());
+			ps.setInt(15, vo.getBed());
+			
+			int cnt = ps.executeUpdate();
+			if(cnt>0) {
+				System.out.println("1---");
+				if(vo.OriFile!=null) {
+					System.out.println("2");
+					sql = " insert into room_photo(roomCode,oriFile,sysFile) "
+						+ " values(room_rcode_seq.currval,?,?)";
+					ps = conn.prepareStatement(sql);
+					ps.setString(1, vo.getOriFile());
+					ps.setString(2, vo.getSysFile());
+					cnt = ps.executeUpdate();
+					
+					if(cnt>0) {
+						System.out.println("3");
+						conn.commit();
+						result = 1;
+					}else {
+						conn.rollback();
+						result = 0;
+					}
+				}
+			}
+		}catch(Exception e) {
+			try {
+				conn.rollback();
+				e.printStackTrace();
+				result = 0;
+				
+				File delFile = new File(upload+vo.getSysFile());//오류나면 파일 업로드된거 삭제
+				if(delFile.exists()) {
+					delFile.delete();
+				}
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		}finally {
+			try {
+				conn.commit();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return result;
+			
+		}
 	}
 	
 	

@@ -23,7 +23,7 @@
 								
 								
 								<div id='main_img_f'>
-									<img src="./upload/${vo.sysFile }.jpg"/>
+									<img src="./upload/${vo.sysFile }"/>
 								</div>
 								
 								
@@ -41,7 +41,7 @@
 										</p>
 									</div>
 									<div id='price_f'>
-										<span><fmt:formatNumber value="${vo.price }" pattern="#,###" /> 원</span>
+										<span><fmt:formatNumber value="${vo.price }" pattern="#,###,###" /> 원</span>
 									</div>
 								</div>
 							</div>

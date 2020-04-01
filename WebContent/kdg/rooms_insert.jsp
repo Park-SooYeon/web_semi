@@ -7,21 +7,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src = "../js/jquery-3.4.1.js"></script>
+<script src = "./js/jquery-3.4.1.js"></script>
 <script type="text/JavaScript" src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 </head>
 <style>
 	body, html {
+	
 	margin: 0;
 	padding: 0;
 	height: 100%;
 	}
 	
 	#insert_f{
-		width:700px;
+		padding-top:100px;
+		padding-bottom:300px;
+		padding-left:50px;
+		width:600px;
 		background-color:#eee;
 		margin: auto;
-		height: 900px;
+		height: 2000px;
 	}
 	
 	#insert_f #agree_f input[type='checkbox'] {
@@ -42,7 +46,7 @@
 	box-shadow : 0.2px 0.2px 1px 1px #ccc inset;
 	}
 	#insert_f #agree_f input[type='checkbox']:checked+label span{
-	background-image: url("../image/checked_f.JPG");
+	background-image: url("./image/checked_f.JPG");
 	border: 1px solid #f62a4b;
 	background-repeat : no-repeat;
 	background-size : cover;
@@ -55,6 +59,7 @@
 		cursor: pointer;
 	}
 	#bedtype_f input[type='radio']+label span{
+	
 		display: inline-block;
 		width:20px;
 		height: 20px;
@@ -66,19 +71,19 @@
 		box-shadow : 0.2px 0.2px 1px 1px #ccc inset;
 	}
 	#bedtype_f input[type='radio']:checked+label span{
-		background-image: url("../image/checked_f.JPG");
+		background-image: url("./image/checked_f.JPG");
 		border: 1px solid #f62a4b;
 		background-repeat : no-repeat;
 		background-size : cover;
 		box-shadow : 0.2px 0.2px 1px 1px #f62a4b inset;
 	}
-	#aType_f input[type='radio'] {
+	input[type='radio'] {
 		display: none;
 	}
-	#aType_f input[type='radio']+label {
+	input[type='radio']+label {
 		cursor: pointer;
 	}
-	#aType_f input[type='radio']+label span{
+	input[type='radio']+label span{
 		display: inline-block;
 		width:20px;
 		height: 20px;
@@ -89,8 +94,8 @@
 		vertical-align:middle;
 		box-shadow : 0.2px 0.2px 1px 1px #ccc inset;
 	}
-	#aType_f input[type='radio']:checked+label span{
-		background-image: url("../image/checked_f.JPG");
+	input[type='radio']:checked+label span{
+		background-image: url("./image/checked_f.JPG");
 		border: 1px solid #f62a4b;
 		background-repeat : no-repeat;
 		background-size : cover;
@@ -102,7 +107,7 @@
 <body>
 	<div id='insert_f'>
 	<form id='frm_f' name='frm_f' method='post' enctype="multipart/form-data">
-		<input type='hidden' name='ceo' value='김도경'/>
+		<label>CEO?</label><input type='text' name='ceo' value='김도경'/>
 	
 		<h3>숙박 등록 을 원하시나요?</h3>
 		<div>약관을 읽어 보시고 동의 해주세요</div>
@@ -312,8 +317,12 @@
 	}else{
 		$('#talsu_f').val(0);
 	}
-	
+	if($('#agree_check_f').val()!="on"){
+		alert("약관 동의를 해주세요")
+	}else{
 		$('#frm_f').attr('action','insert.ff').submit();
+		
+	}
 	});
 	</script>	
 </body>

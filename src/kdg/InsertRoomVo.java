@@ -3,7 +3,7 @@ package kdg;
 public class InsertRoomVo {
 	int rCode;//숙소 코드
 	String roomName;//방이름
-	int rMaxPeople;//수용 가능인원
+	int rMaxPeople=1;//수용 가능인원
 	int price;//가격
 	
 	int tv;//TV
@@ -17,7 +17,7 @@ public class InsertRoomVo {
 	int refr;//냉장고
 	int socket;//개인콘센트
 	
-	int bed;//베드타입
+	int bed=5;//베드타입
 	
 	String OriFile;//방사진
 	String SysFile;

@@ -33,7 +33,7 @@
 <div id='room_w' >
   <div id='roomview_photo_w'>
    
-   <img src='./upload/${list.pori }.jpg'/>
+   <img src='./upload/${list.psys }'/>
  
   </div>
    <div id = 'room_right_w'>

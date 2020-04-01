@@ -60,7 +60,7 @@ public class RoomsDao2 {
 	  vo.setDryer(rs.getInt("dryer"));
 	  vo.setTalsu(rs.getInt("talsu"));
       vo.setPori(rs.getString("pori"));
-      vo.setPori(rs.getString("psys"));
+      vo.setPsys(rs.getString("psys"));
       vo.setPrice(rs.getInt("price"));
       vo.setRoomCode(rs.getInt("roomCode"));
       vo.setRoomName(rs.getString("roomName"));

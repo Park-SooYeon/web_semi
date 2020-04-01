@@ -231,74 +231,34 @@ public class FileUpload {
 						break;
 						
 					case "tv":
-						if(v.equals("on")) {
-							vo.setTv(1);
-						}else {
-							vo.setTv(0);
-						}
+						vo.setTv(Integer.parseInt(v));
 						break;
 					case "wifi":
-						if(v.equals("on")) {
-							vo.setWifi(1);
-						}else {
-							vo.setWifi(0);
-						}
+						vo.setWifi(Integer.parseInt(v));
 						break;
 					case "shower":
-						if(v.equals("on")) {
-							vo.setShower(1);
-						}else {
-							vo.setShower(0);
-						}
+						vo.setShower(Integer.parseInt(v));
 						break;
 					case "aircon":
-						if(v.equals("on")) {
-							vo.setAircon(1);
-						}else {
-							vo.setAircon(0);
-						}
+						vo.setAircon(Integer.parseInt(v));
 						break;
 					case "spa":
-						if(v.equals("on")) {
-							vo.setSpa(1);
-						}else {
-							vo.setSpa(0);
-						}
+						vo.setSpa(Integer.parseInt(v));
 						break;
 					case "tub":
-						if(v.equals("on")) {
-							vo.setTub(1);
-						}else {
-							vo.setTub(0);
-						}
+						vo.setTub(Integer.parseInt(v));
 						break;
 					case "computer":
-						if(v.equals("on")) {
-							vo.setComputer(1);
-						}else {
-							vo.setComputer(0);
-						}
+						vo.setComputer(Integer.parseInt(v));
 						break;
 					case "iron":
-						if(v.equals("on")) {
-							vo.setIron(1);
-						}else {
-							vo.setIron(0);
-						}
+						vo.setIron(Integer.parseInt(v));
 						break;
 					case "refr":
-						if(v.equals("on")) {
-							vo.setRefr(1);
-						}else {
-							vo.setRefr(0);
-						}
+						vo.setRefr(Integer.parseInt(v));
 						break;
 					case "socket":
-						if(v.equals("on")) {
-							vo.setSocket(1);
-						}else {
-							vo.setSocket(0);
-						}
+						vo.setSocket(Integer.parseInt(v));
 						break;
 					case "bed":
 						vo.setBed(Integer.parseInt(v));

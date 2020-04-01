@@ -60,28 +60,28 @@
 				<div id='view_top_left_f'>
 				<c:forEach var="list" items="${vo }" begin='0' end='0' >
 					<div id='view_top_left_main_f'>
-						<img src='./upload/${list.sysFile }.jpg'/>
+						<img src='./upload/${list.sysFile }'/>
 					</div>
 					</c:forEach>
 					<div id='view_top_left_sub_f'>
 					<c:forEach var="list" items="${vo }" begin='0' end='0' >
 						<div id='view_top_left_sub1_f'>
-							<img src='./upload/${list.pori }.jpg'/>
+							<img src='./upload/${list.psys}'/>
 						</div>
 						</c:forEach>
 						<c:forEach var="list" items="${vo}" begin='1' end='1' >
 						<div id='view_top_left_sub2_f'>
-								<img src='./upload/${list.pori }.jpg'/>
+								<img src='./upload/${list.psys}'/>
 						</div>
 						</c:forEach>
 						<c:forEach var="list" items="${vo}" begin='2' end='2' >
 						<div id='view_top_left_sub3_f'>
-								<img src='./upload/${list.pori }.jpg'/>
+								<img src='./upload/${list.psys}'/>
 						</div>
 						</c:forEach>
 						<c:forEach var="list" items="${vo}" begin='3' end='3' >
 						<div id='view_top_left_sub4_f'>
-								<img src='./upload/${list.pori  }.jpg'/>
+								<img src='./upload/${list.psys}'/>
 						</div>
 						</c:forEach>
 					</div>

@@ -7,8 +7,12 @@
 <title>Insert title here</title>
 <link href="css/main.css" rel="stylesheet">
 </head>
+<style>
+	.img-fluid {
+		cursor: pointer;
+	}
+</style>
 <body>
-
 
 <div class="container-fluid pl-0 pr-0">
 	<div class="jumbotron text-center pt-0 pb-0 bg-danger">
@@ -83,7 +87,7 @@
 				<img src="./image/ad1.png" alt="사진1" class="img-fluid">
 			</li>
 			<li class="list-group-item ml-3 p-0">
-				<img src="./image/ad2.png" alt="사진2" class="img-fluid">
+				<img src="./image/ad2.png" alt="사진2" class="img-fluid" onclick='insert_f()'>
 			</li>
 		</ul>
 		
@@ -108,6 +112,11 @@
 				$('#aType').val('4');
 				$('#frm_f').attr('action','guesthouse.ff').submit();
 			}
+			let insert_f = function(){
+				location.href = "index.jsp?middle=./kdg/rooms_insert.jsp"
+			}
+			$('#btnInsert_f').click(function(){
+			});
 		</script>
 		
 </div>
