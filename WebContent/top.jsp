@@ -146,7 +146,7 @@
 							<% }else{ %>
 									<div class="dropdown">
 							  			<button type="button" id='btnMy_c' class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-							   			  	<a href="#">
+							   			  	<a href="#" onclick="myPage('${sessionScope.email}')">
 							   			  		<img src='./image/myLogo_c.png'>
 							   			  	</a>
 							   			 </button>

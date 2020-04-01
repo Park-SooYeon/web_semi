@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -85,16 +86,18 @@ public class LoginController extends HttpServlet{
 				vo.setBirth(sdf.parse(req.getParameter("birth_c")));
 				vo.setPwd(pwd);
 				vo.setPhone(req.getParameter("phone_c"));
-				vo.setnName(req.getParameter("nName_c"));
+				vo.setnName(req.getParameter("nName_c"));				
 			} catch (ParseException e) { e.printStackTrace();}
 			flag =  dao.membership(vo);
 			if(flag) {
 				req.getSession().setAttribute("email", vo.getEmail());
 				req.getSession().setAttribute("nName", vo.getnName());
-				path = "../index.jsp";
-				break;
+				System.out.println("nName");
+				out.print(flag);
+				out.flush();
+				return;
 			}else {
-				out.print("회원가입 중 오류가 발생했습니다.");
+				out.print(flag);
 				out.flush();
 				return;
 			}
@@ -113,6 +116,19 @@ public class LoginController extends HttpServlet{
 			dao.pwReset(email, pwd);
 			path = "../index.jsp";
 			break;
+		case "/naver.lg" : //네이버 로그인 DB확인(회원정보가 있는지)
+			email_c = req.getParameter("email");
+			nName_c = req.getParameter("nName");
+			System.out.println(email_c);
+			System.out.println(nName_c);
+			email = dao.emailCheck(email_c);
+			if(email != null) {
+				req.getSession().setAttribute("email", email_c);
+				req.getSession().setAttribute("nName", nName_c);
+			}
+			out.print(email);
+			out.flush();
+			return;
 		}
 		resp.sendRedirect(path);
 	}
