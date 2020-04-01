@@ -9,8 +9,7 @@
 <link rel='stylesheet' type='text/css' href='../css/login.css'>
 <script src='../js/jquery-3.4.1.js'></script>
 <script src='../js/login.js'></script>
-<script src="../js/jquery.cookie.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 </head>
 <body>
 
@@ -34,12 +33,11 @@
 					facebook으로 로그인
 				</span>
 			</button>
-			<button type='button' class='btn_naver_c'>
-				<span class='naver_c'>
-					<i class='icon_naver_c'></i>
-					네이버로 로그인
-				</span>
-			</button>
+			<div id="naverIdLogin">
+    			<a id="naver-login-btn" href="#" role="button">
+        			<img src="https://static.nid.naver.com/oauth/big_g.PNG" width="80%" height="45"/> 
+   				 </a>
+			</div>
             <p class="space_or">
             	<span>또는</span>
             </p>
@@ -60,8 +58,26 @@
 		</div>
 	</div>
 </div>
-<script>
-emailCk(); btnFunc();
+
+
+<script type="text/javascript">
+//네이버로 로그인 버튼
+var naverLogin = new naver.LoginWithNaverId(
+		{
+			clientId: "Fkf2eW7uHl8nfxnEmk0_",
+			callbackUrl: "http://localhost:8888/web_semi/login/naver_callback.jsp",
+			isPopup: false, /* 팝업을 통한 연동처리 여부 */
+			loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
+		}
+	);
+
+naverLogin.init();//설정정보를 초기화하고 연동을 준비 
+
+emailCk(); //이메일 체크
+btnFunc(); //버튼 이벤트
+
+	
+
 /* 쿠키로 url받아 올 때 사용
 $(function() {
 	var url = $cookie('url');
@@ -70,7 +86,6 @@ $(function() {
 		$('#redirectUrl').val(url);
 	}
 }); */
-
 </script>
 <script src='../js/bootstrap.bundle.min.js'></script>
 <body>

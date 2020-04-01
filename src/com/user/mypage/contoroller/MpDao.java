@@ -33,7 +33,6 @@ public class MpDao {
 				vo.setPhone(set.getString("phone"));
 				vo.setnName(set.getString("nname"));
 				vo.setBirth(set.getDate("birth"));
-				vo.setuName(set.getString("uname"));
 				vo.setmAdmin(set.getInt("madmin"));
 			}
 		} catch (Exception e) {

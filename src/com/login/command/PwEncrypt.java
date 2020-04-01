@@ -6,6 +6,7 @@ public class PwEncrypt {
 	public String encrypt(String pw) {
 		String pwEn = "";
 			try {
+				
 				MessageDigest md = MessageDigest.getInstance("SHA-256");
 				md.update(pw.getBytes());
 				byte byteDate[] = md.digest();
