@@ -24,7 +24,7 @@ public class KDGServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//roomView(req,resp);
-		//action(req, resp);
+		action(req, resp);
 	}
 
 	@Override
