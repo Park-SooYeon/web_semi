@@ -99,12 +99,12 @@
 </style>
 <body>
 	<div id='insert_f'>
-	<form id='frm_insert_f' name='frm_insert_f' method='post' enctype="multipart/form-data">
-		<input type='hidden' name='ceo'/>
+	<form id='frm_f' name='frm_f' method='post' enctype="multipart/form-data">
+		<input type='hidden' name='ceo' value='김도경'/>
 	
 		<h3>숙박 등록 을 원하시나요?</h3>
 		<div>약관을 읽어 보시고 동의 해주세요</div>
-		<div id='agree_f'><input type="checkbox" name='Y' id='agree_check_f' /><label for='agree_check_f'><span></span>&nbsp;&nbsp;&nbsp;동의 합니다</label></div>
+		<div id='agree_f'><input type="checkbox" name='agree_f' id='agree_check_f' /><label for='agree_check_f'><span></span>&nbsp;&nbsp;&nbsp;동의 합니다</label></div>
 		<hr/>
 		
 		<label>숙소 이름</label><br/>
@@ -121,10 +121,10 @@
 		<br/>
 		<label>상세주소</label>
 		<input type="text" id="address_etc" value="" style="width:200px;"/>	
-		<input type='hidden' name='stars' id='stars' value=''/>
+		<input type='hidden' name='stars' id='stars' value='5'/>
 		<br/>
 		<label>숙소 소개 (간단히)</label><br/>
-		<textarea rows="5" cols="40" id='gInfo' name='gInfo'></textarea>
+		<input type='text' id='gInfo' name='gInfo'/>
 		
 		<br/>
 		<label>숙소 타입</label>
@@ -146,8 +146,8 @@
 		
 		<br/>
 		<label>체크인 시간, 체크아웃 시간</label>
-		<input type="time" name='checkIn'/>
-		<input type="time" name='checkOut'/>
+		<input type="time" name='checkIn' value='15:00:00'/>
+		<input type="time" name='checkOut'value='11:00:00'/>
 		
 		<br/>
 		<label>건물 사진을 선택해주세요</label><br/>
@@ -156,33 +156,46 @@
 		
 		<br/>
 		<label>기타</label>
-		<div id='agree_f'><input type="checkbox" name='pet' id='agree_check1_f' /><label for='agree_check1_f'><span></span>&nbsp;&nbsp;&nbsp;동물동반가능</label></div>
-		
-		<div id='agree_f'><input type="checkbox" name='smoke' id='agree_check2_f' /><label for='agree_check2_f'><span></span>&nbsp;&nbsp;&nbsp;객실내흡연</label></div>
-		<div id='agree_f'><input type="checkbox" name='noSmoke' id='agree_check3_f' /><label for='agree_check3_f'><span></span>&nbsp;&nbsp;&nbsp;급연</label></div>
-		<div id='agree_f'><input type="checkbox" name='parking' id='agree_check4_f' /><label for='agree_check4_f'><span></span>&nbsp;&nbsp;&nbsp;주차</label></div>
-		<div id='agree_f'><input type="checkbox" name='breakfast' id='agree_check5_f' /><label for='agree_check5_f'><span></span>&nbsp;&nbsp;&nbsp;조식</label></div>
+		<div id='agree_f'><input type="checkbox" id='agree_check1_f' value='2' /><label for='agree_check1_f'><span></span>&nbsp;&nbsp;&nbsp;동물동반가능</label></div>
+			<input type='hidden' name='pet' id='pet_f'/>
+		<div id='agree_f'><input type="checkbox"  id='agree_check2_f' value='2'/><label for='agree_check2_f'><span></span>&nbsp;&nbsp;&nbsp;객실내흡연</label></div>
+			<input type='hidden' name='smoke' id='smoke_f' />
+		<div id='agree_f'><input type="checkbox"  id='agree_check3_f' value='2'/><label for='agree_check3_f'><span></span>&nbsp;&nbsp;&nbsp;급연</label></div>
+			<input type='hidden' name='noSmoke' id='noSmoke_f'/>
+		<div id='agree_f'><input type="checkbox"  id='agree_check4_f' value='2'/><label for='agree_check4_f'><span></span>&nbsp;&nbsp;&nbsp;주차</label></div>
+			<input type='hidden' name='parking' id='parking_f'/>
+		<div id='agree_f'><input type="checkbox"  id='agree_check5_f' value='2'/><label for='agree_check5_f'><span></span>&nbsp;&nbsp;&nbsp;조식</label></div>
+			<input type='hidden' name='breakfast' id='breakfast_f'/>
 		<label>공용시설</label>
-		<div id='agree_f'><input type="checkbox" name='pt' id='agree_check6_f' /><label for='agree_check6_f'><span></span>&nbsp;&nbsp;&nbsp;피트니스</label></div>
-		<div id='agree_f'><input type="checkbox" name='swim' id='agree_check7_f' /><label for='agree_check7_f'><span></span>&nbsp;&nbsp;&nbsp;수영장</label></div>
-		<div id='agree_f'><input type="checkbox" name='rest' id='agree_check8_f' /><label for='agree_check8_f'><span></span>&nbsp;&nbsp;&nbsp;레스토랑</label></div>
-		<div id='agree_f'><input type="checkbox" name='cafe' id='agree_check9_f' /><label for='agree_check9_f'><span></span>&nbsp;&nbsp;&nbsp;카페</label></div>
-		<div id='agree_f'><input type="checkbox" name='bar' id='agree_check10_f' /><label for='agree_check10_f'><span></span>&nbsp;&nbsp;&nbsp;바</label></div>
+		<div id='agree_f'><input type="checkbox"  id='agree_check6_f' value='2'/><label for='agree_check6_f'><span></span>&nbsp;&nbsp;&nbsp;피트니스</label></div>
+			<input type='hidden' name='pt' id='pt_f'/>
+		<div id='agree_f'><input type="checkbox"  id='agree_check7_f' value='2'/><label for='agree_check7_f'><span></span>&nbsp;&nbsp;&nbsp;수영장</label></div>
+			<input type='hidden' name='swim' id='swim_f'/>
+		<div id='agree_f'><input type="checkbox"  id='agree_check8_f' value='2'/><label for='agree_check8_f'><span></span>&nbsp;&nbsp;&nbsp;레스토랑</label></div>
+			<input type='hidden' name='rest' id='rest_f'/>
+		<div id='agree_f'><input type="checkbox"  id='agree_check9_f' value='2'/><label for='agree_check9_f'><span></span>&nbsp;&nbsp;&nbsp;카페</label></div>
+			<input type='hidden' name='cafe' id='cafe_f'/>
+		<div id='agree_f'><input type="checkbox"  id='agree_check10_f' value='2'/><label for='agree_check10_f'><span></span>&nbsp;&nbsp;&nbsp;바</label></div>
+			<input type='hidden' name='bar' id='bar_f'/>
 		<label>공용시설-게스트하우스</label>
-		<div id='agree_f'><input type="checkbox" name='washer' id='agree_check11_f' /><label for='agree_check11_f'><span></span>&nbsp;&nbsp;&nbsp;세탁기</label></div>
-		<div id='agree_f'><input type="checkbox" name='lounge' id='agree_check12_f' /><label for='agree_check12_f'><span></span>&nbsp;&nbsp;&nbsp;라운지</label></div>
-		<div id='agree_f'><input type="checkbox" name='kitchen' id='agree_check13_f' /><label for='agree_check13_f'><span></span>&nbsp;&nbsp;&nbsp;주방</label></div>
-		<div id='agree_f'><input type="checkbox" name='dryer' id='agree_check14_f' /><label for='agree_check14_f'><span></span>&nbsp;&nbsp;&nbsp;건조기</label></div>
-		<div id='agree_f'><input type="checkbox" name='talsu' id='agree_check15_f' /><label for='agree_check15_f'><span></span>&nbsp;&nbsp;&nbsp;탈수기</label></div>
-		
+		<div id='agree_f'><input type="checkbox"  id='agree_check11_f' value='2'/><label for='agree_check11_f'><span></span>&nbsp;&nbsp;&nbsp;세탁기</label></div>
+			<input type='hidden' name='washer' id='washer_f'/>
+		<div id='agree_f'><input type="checkbox"  id='agree_check12_f' value='2'/><label for='agree_check12_f'><span></span>&nbsp;&nbsp;&nbsp;라운지</label></div>
+			<input type='hidden' name='lounge' id='lounge_f'/>
+		<div id='agree_f'><input type="checkbox"  id='agree_check13_f' value='2'/><label for='agree_check13_f'><span></span>&nbsp;&nbsp;&nbsp;주방</label></div>
+			<input type='hidden' name='kitchen' id='kitchen_f'/>
+		<div id='agree_f'><input type="checkbox"  id='agree_check14_f' value='2'/><label for='agree_check14_f'><span></span>&nbsp;&nbsp;&nbsp;건조기</label></div>
+			<input type='hidden' name='dryer' id='dryer_f'/>
+		<div id='agree_f'><input type="checkbox"  id='agree_check15_f' value='2'/><label for='agree_check15_f'><span></span>&nbsp;&nbsp;&nbsp;탈수기</label></div>
+			<input type='hidden' name='talsu' id='talsu_f'/>
 		<hr/>
 		
 		
 		
 		</form>
+		<input type='button' id='btnInsert_f' value='등록 하기!!!!!!!!!!!!!!!!!!!'/>
 	</div>
 		
-		<input type='submit' id='btnInsert_f' value='등록 하기!!!!!!!!!!!!!!!!!!!'/>
 		
 	
 	<script>
@@ -217,10 +230,89 @@
 	});
 	
 	$('#btnInsert_f').click(function(){
-		$('#frm_insert_f').attr('action','insert.ff');
-	});
 	//호텔종류,펜션종류 컨트롤
 	
+	//체크여부 확인
+	if($('#agree_check1_f').is(':checked')){
+		$('#pet_f').val(1);
+	}else{
+		$('#pet_f').val(0);
+	}
+	if($('#agree_check2_f').is(':checked')){
+		$('#smoke_f').val(1);
+	}else{
+		$('#smoke_f').val(0);
+	}
+	if($('#agree_check3_f').is(':checked')){
+		$('#noSmoke_f').val(1);
+	}else{
+		$('#noSmoke_f').val(0);
+	}
+	if($('#agree_check4_f').prop("checked")){
+		$('#parking_f').val(1);
+	}else{
+		$('#parking_f').val(0);
+	}
+	if($('#agree_check5_f').prop("checked")){
+		$('#breakfast_f').val(1);
+	}else{
+		$('#breakfast_f').val(0);
+	}
+	
+	if($('#agree_check6_f').prop("checked")){
+		$('#pt_f').val(1);
+	}else{
+		$('#pt_f').val(0);
+	}
+	if($('#agree_check7_f').prop("checked")){
+		$('#swim_f').val(1);
+	}else{
+		$('#swim_f').val(0);
+	}
+	if($('#agree_check8_f').prop("checked")){
+		$('#rest_f').val(1);
+	}else{
+		$('#rest_f').val(0);
+	}
+	if($('#agree_check9_f').prop("checked")){
+		$('#cafe_f').val(1);
+	}else{
+		$('#cafe_f').val(0);
+	}
+	if($('#agree_check10_f').prop("checked")){
+		$('#bar_f').val(1);
+	}else{
+		$('#bar_f').val(0);
+	}
+	
+	if($('#agree_check11_f').prop("checked")){
+		$('#washer_f').val(1);
+	}else{
+		$('#washer_f').val(0);
+	}
+	if($('#agree_check12_f').prop("checked")){
+		$('#lounge_f').val(1);
+	}else{
+		$('#lounge_f').val(0);
+	}
+	if($('#agree_check13_f').prop("checked")){
+		$('#kitchen_f').val(1);
+	}else{
+		$('#kitchen_f').val(0);
+	}
+	if($('#agree_check14_f').prop("checked")){
+		$('#dryer_f').val(1);
+	}else{
+		$('#dryer_f').val(0);
+	}
+	if($('#agree_check15_f').prop("checked")){
+		$('#talsu_f').val(1);
+	}else{
+		$('#talsu_f').val(0);
+	}
+	
+		$('#frm_f').attr('action','insert.ff').submit();
+	});
 	</script>	
 </body>
 </html>
