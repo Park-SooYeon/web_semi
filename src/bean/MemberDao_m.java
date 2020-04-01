@@ -87,16 +87,16 @@ public class MemberDao_m {
 		}
 	}
 	
-	public String modify(MemberVo_m vo) {
+	public String modify(int nno) {
 		String msg = "게시물 내용이 수정 되었습니다.";
 		
-		sql = " update notice set title=?, memo=? where title=? ";
+		sql = " update notice set title=?, memo=? where nno=? ";
 		
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, vo.getTitle());
-			ps.setString(2, vo.getMemo());
-			ps.setString(3, vo.getTitle());
+			ps.setString(1,title);
+			ps.setString(2,memo);
+			ps.setInt(3, nno);
 			
 			int r = ps.executeUpdate();
 			if(r<1) {

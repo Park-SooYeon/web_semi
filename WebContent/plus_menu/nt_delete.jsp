@@ -7,13 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src = '../js/jquery-3.4.1.js'></script>
-<script src = './notice.js'></script>
 </head>
 <body>
 </body>
 <script>
 alert("글이 삭제 되었습니다.");
-document.location.href="notice.jsp";
+document.location.href="index.jsp?middle=./plus_menu/notice.jsp";
 </script>
 </html>

@@ -8,26 +8,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel='stylesheet' type='text/css' href='../css/accordion.css'/>
-<script src = '../js/jquery-3.4.1.js'></script>
+<script src = ../js/notice.js></script>
 
 </head>
 <body>
 
-<div class="accordion" >
+<div class="accordion">
 	<div id="ch_m"><strong>서비스 공지사항</strong>
 <hr/>
 	<form method='post' name='frmm' id='frmm'>
 	
 	<c:forEach var="vo" items ="${list }">
 		<input type="checkbox" id="answer${vo.nno }">
-		<label for="answer${vo.nno }">${vo.title }<br/><span>${vo.rDate }</span></label>
-		<div><p><pre>${vo.memo}</pre></p>
+		<label for="answer${vo.nno }">${vo.title }<br/><span>${vo.rDate }<input type="hidden" name="nnom" value='${vo.nno}'/></span></label>
+
+		<div><p><pre>${vo.memo}</pre></p><input type="button" id="btnModifym"  value="수정"/>
 	</div>
 	
 	</c:forEach>
 	<input type="button"  id="btnInsertm" value="등록"/>
-	<input type="button" id="btnModifym"  value="수정"/>
 	<input type='hidden' name='nowPage' id='nowPage' value='${empty param.nowPage? 1 : param.nowPage }'/>
 	</form>
 	<div class="col-12 text-center" id='paging'>

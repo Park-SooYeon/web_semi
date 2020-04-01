@@ -28,7 +28,7 @@ let btnFuncm = function() {
 
 	if ($('#btnSelectm') != null) {
 		$('#btnSelectm').click(function() {
-			$('#frmm').attr('action', 'nt_select.mm').submit();
+			$('#frm').attr('action', 'nt_select.mm').submit();
 		})
 	}
 }
@@ -36,4 +36,8 @@ let btnFuncm = function() {
 let goPage= function(nowPage){
 	$('#nowPage').val(nowPage);
 	$('#frmm').attr('action', 'nt_select.mm').submit();
+}
+
+let ntm= function(){
+	$('#frm').attr('action', 'nt_select.mm').submit();
 }

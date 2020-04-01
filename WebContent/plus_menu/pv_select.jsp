@@ -8,14 +8,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel='stylesheet' type='text/css' href='../css/accordion.css'/>
-<script src = '../js/jquery-3.4.1.js'></script>
-<script src = './notice.js'></script>
 </head>
 <body>
 <div class="accordion" >
 	<div id="ch_m">
-	<a id='pe_m' href='notice.jsp?sp=/plus_menu/pv_select.jsp'>이용약관</a>
-	<a href='notice.jsp?sp=/plus_menu/personal_m.jsp'>개인정보 처리방침</a>
+	<a id='pe_m' href='index.jsp?middle=./plus_menu/notice.jsp?sp=pv_select.jsp'>이용약관</a>
+	<a href='index.jsp?middle=./plus_menu/notice.jsp?sp=personal_m.jsp'>개인정보 처리방침</a>
 <hr/>
 	<form method='post' name='frmm' id='frmm'>
 	<h3>이용약관</h3>
