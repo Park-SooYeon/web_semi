@@ -106,7 +106,7 @@ public class MemberServlet_m extends HttpServlet{
 		List<MemberVo_m> list = dao.select(p);
 		req.setAttribute("list", list);
 		req.setAttribute("p", p);
-		String path ="notice.jsp";
+		String path = "index.jsp?middle=./plus_menu/notice.jsp";
 		RequestDispatcher rd = req.getRequestDispatcher(path);
 		rd.forward(req, resp);
 		

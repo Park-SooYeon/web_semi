@@ -55,7 +55,11 @@ div[id="paging"]{
 	margin : center;
 }
 
-
+pre[id="textm"]{
+	padding : 10px;
+	white-space : pre-wrap;
+	overflow : auto;
+}
 
 
 
