@@ -1,16 +1,24 @@
 package kdg;
 
+import java.io.File;
 import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import bean.DBConn;
 
 public class RoomsDao {
+	String upload = "C:\\source\\web_semi\\WebContent\\upload";
+	SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
 	Connection conn;
 	public RoomsDao() {
 		conn = bean.DBConn.getConn();
@@ -470,7 +478,101 @@ public class RoomsDao {
 			return list;
 		}
 	}
+	
+	
+	
+	
+	//건물입력
+	public Map<String,String> roomsInsert(InsertRoomsVo vo) {
+		Map<String,String> map = new HashMap<String, String>();
+		String rCode="";
+		String msg ="건물 등록이 완료 되었습니다 객실 등록을 해주세요";
+		Timestamp tt1 = new Timestamp(vo.getCheckin().getTime());
+		Timestamp tt2 = new Timestamp(vo.getCheckout().getTime());
+		try {
+			String sql  =" insert into rooms(rCode,rName,rPlace,gInfo,aType,oriFile,sysFile,stars,checkIn,checkOut,address,kind,"
+						+" pet,smoke,noSmoke,parking,breakfast,pt,swim,rest,cafe,bar,washer,lounge,kitchen,dryer,talsu,ceo)"
+						+" values(rooms_rcode_seq.nextval,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?) ";
+			conn.setAutoCommit(false);
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, vo.getrName());//
+			ps.setString(2, vo.getrPlace());//
+			ps.setString(3, vo.getgInfo());//
+			ps.setString(4, Integer.toString(vo.getaType()));//
+			ps.setString(5, vo.getOriFile());//
+			ps.setString(6, vo.getSysFile());//
+			ps.setInt(7, vo.getStars());//
+			ps.setTimestamp(8, tt1);//
+			ps.setTimestamp(9, tt2);//
+			ps.setString(10, vo.getAddress());//
+			ps.setInt(11, vo.getKind());//
+			ps.setInt(12, vo.getPet());//
+			ps.setInt(13, vo.getSmoke());//
+			ps.setInt(14, vo.getNoSmoke());//
+			ps.setInt(15, vo.getParking());//
+			ps.setInt(16, vo.getBreakfast());//
+			ps.setInt(17, vo.getPt());//
+			ps.setInt(18, vo.getSwim());//
+			ps.setInt(19, vo.getRest());//
+			ps.setInt(20, vo.getCafe());//
+			ps.setInt(21, vo.getBar());//
+			ps.setInt(22, vo.getWasher());//
+			ps.setInt(23, vo.getLounge());//
+			ps.setInt(24, vo.getKitchen());//
+			ps.setInt(25, vo.getDryer());//
+			ps.setInt(26, vo.getTalsu());//
+			ps.setString(27, vo.getCeo());//
+			int cnt = ps.executeUpdate();
+			System.out.println(cnt);
+			if(cnt>0) {
+				
+				
+						conn.commit();
+					}else {
+						conn.rollback();
+					}
+				
+			
+			sql = " select rCode from rooms where ceo=?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, vo.getCeo());
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				rCode = Integer.toString(rs.getInt("rCode"));
+				map.put("rCode", rCode);
+			}
+		}catch(Exception e) {
+			conn.rollback();
+			msg = e.toString();
+			e.printStackTrace();
+			File delFile = new File(upload + vo.getSysFile());
+			if(delFile.exists()) {
+				delFile.delete();
+			}
+		}finally {
+			try {
+				conn.commit();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			map.put("msg", msg);
+			return map;
+			
+		}
+	}
+	//방입력
+	public String roomInsert() {
+		String msg ="";
+		return msg;
+	}
+	
+	
+	
+	
+	
+	
 }
+
 
 
 

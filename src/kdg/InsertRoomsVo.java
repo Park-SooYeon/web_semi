@@ -8,7 +8,7 @@ public class InsertRoomsVo {
 	String rPlace;//구이름
 	String gInfo;//숙소소개
 	int aType;//숙소타입
-	int kind;//등급,종류
+	int kind=5;//등급,종류
 	Date checkin;//체크인시간
 	Date checkout;//체크아웃시간
 	String OriFile;//사진 이름
@@ -16,23 +16,23 @@ public class InsertRoomsVo {
 	
 	int stars;//별점
 	
-	int pet;//동물동반
-	int smoke;//객실내 흡연
-	int noSmoke;//금연
-	int parking;//주차
-	int breakfast;//조식
+	int pet=0;//동물동반
+	int smoke=0;//객실내 흡연
+	int noSmoke=0;//금연
+	int parking=0;//주차
+	int breakfast=0;//조식
 	
-	int pt;//피트니스
-	int swim;//수영장
-	int rest;//레스토랑
-	int cafe;//카페
-	int bar;//바
+	int pt=0;//피트니스
+	int swim=0;//수영장
+	int rest=0;//레스토랑
+	int cafe=0;//카페
+	int bar=0;//바
 	
-	int washer;//세탁기
-	int lounge;//라운지
-	int kitchen;//주방
-	int dryer;//건조기
-	int talsu;//탈수기
+	int washer=0;//세탁기
+	int lounge=0;//라운지
+	int kitchen=0;//주방
+	int dryer=0;//건조기
+	int talsu=0;//탈수기
 	
 	String ceo;//사장이름
 

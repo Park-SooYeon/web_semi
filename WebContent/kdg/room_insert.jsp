@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,7 +102,7 @@
 		<div id='room_f'>
 			<div id='room_in_f'>
 				
-				<input type='hidden' name='rCode'/>
+				<input type='hidden' name='rCode' value='${rCode }'/>
 				<label>방이름</label><br/>
 				<input type='text' name='roomName'/>
 				
