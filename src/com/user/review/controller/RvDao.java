@@ -24,7 +24,7 @@ public class RvDao {
 		int cnt = 0;
 		int sum = 0;
 		double re = 0;
-		String query = "insert into review values(seq_review_rno.nextval,1, ?, ?, sysdate,(select nvl(max(rGroup)+1,1)from review a),0,0,?,?)";
+		String query = "insert into review values(seq_review_rno.nextval,1, ?, ?, sysdate,(select nvl(max(rGroup)+1,1)from review),0,0,?,?)";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, eMail);

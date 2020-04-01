@@ -70,6 +70,7 @@ public class RoomsDao2 {
       vo.setTv(rs.getInt("tv"));
       vo.setSpa(rs.getInt("spa"));
       vo.setComputer(rs.getInt("computer"));
+      vo.setCeo(rs.getString("ceo"));
       list.add(vo);
       
 	 }
