@@ -63,8 +63,8 @@ public class SearchDao {
 					"    from reserve " + 
 					"    where rCode=? " + 
 					" ) " + 
-					" where ? >= to_char(checkIn, 'rrrr-mm-dd') and to_char(checkOut, 'rrrr-mm-dd') > ? " + 
-					" or ? > to_char(checkIn, 'rrrr-mm-dd') and to_char(checkOut, 'rrrr-mm-dd') >= ? " + 
+					" where ? >= to_char(checkIn, 'mm.dd dy') and to_char(checkOut, 'mm.dd dy') > ? " + 
+					" or ? > to_char(checkIn, 'mm.dd dy') and to_char(checkOut, 'mm.dd dy') >= ? " + 
 					" group by roomcode ";
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, rCode);

@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="./js/jquery-3.4.1.js"></script>
 <script src='./js/f_roomsJs.js'></script>
+<script src='./js/w_roomsjs.js'></script>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -56,9 +57,9 @@
 					<div id='check_f'><!-- 체크박스 들어간 div -->
 						<h3>날짜</h3>
 						<label>체크인</label><br/>
-						<input type="text" name="checkIn" id="checkIn_f" value="${empty checkIn_f?'체크인 날짜 선택':checkIn_f }"><br/>
+						<input type="text" class="m-0" name="checkIn" id="checkIn_w" value=""><br/>
 						<label>체크아웃</label><br/>
-						<input type="text" name="checkOut" id="checkOut_f" value="${empty checkOut_f?'체크인 날짜 선택':checkOut_f }"><br/>				
+						<input type="text" class="m-0" name="checkOut" id="checkOut_w" value=""><br/>				
 						<hr/>
 						
 						<h3>상세조건</h3>
@@ -292,6 +293,14 @@
 	
 	
 <script>
+// 체크인 초기 날짜
+let now = new Date();
+frm_f.checkIn_w.value = now.format("MM.dd E");
+// 체크아웃 초기 날짜
+let next= new Date()
+next.setDate(now.getDate() + 1);
+frm_f.checkOut_w.value = next.format("MM.dd E");
+
 event_f();
 btnFunc_f();
 </script>

@@ -33,7 +33,7 @@ public class ReserveDao {
 		
 		try {			
 			sql = "insert into reserve(rNo, rsName, rPhone, rCode, roomCode, rdate, period, payment, price, email, checkin, checkout, rName, roomName) "
-				+ " values(SEQ_RESERVE_RNO.nextval, ?, ?, ?, ?, sysdate, ?, ?, ?, ?, ?, ?, ?, ?) ";
+				+ " values(SEQ_RESERVE_RNO.nextval, ?, ?, ?, ?, sysdate, ?, ?, ?, ?, to_date(?, 'mm.dd dy hh24:mi'), to_date(?, 'mm.dd dy hh24:mi'), ?, ?) ";
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, vo.getRsName());
 			ps.setString(2, vo.getrPhone());
@@ -146,5 +146,24 @@ public class ReserveDao {
 		}
 		
 		return vo;
+	}
+	
+	protected String searchPhone(String email) {
+		String phone = "";
+		
+		try {
+			sql = "select phone from membership where email = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, email);
+			
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				phone = rs.getString("phone");
+			}
+		} catch (SQLException e) {
+			System.out.println("휴대폰 번호 가져오는 중 오류 발생");
+			e.printStackTrace();
+		}
+		return phone;
 	}
 }

@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ReserveVo {
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+	SimpleDateFormat sdf = new SimpleDateFormat("MM.dd E hh:mm");
 	int rNo; // 예약 번호
 	String rsName; // 예약자 이름
 	String rPhone; // 예약자 번호
@@ -19,7 +19,7 @@ public class ReserveVo {
 	String email; // 유저 아이디
 	String checkIn; // 체크인 시간
 	String checkOut; // 체크아웃 시간
-	
+	String phone; // 휴대폰 번호
 	
 	String toJSON() {
 		String json = "";
@@ -152,4 +152,11 @@ public class ReserveVo {
 	public void setCheckOut(Date checkOut) {
 		this.checkOut = sdf.format(checkOut);
 	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
 }

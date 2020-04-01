@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +33,7 @@
   					<label class="col-form-label col-form-label-lg p-0" for="reserve_Phone_k">휴대폰 번호</label><br/>
 					<!-- <span>개인 정보 보호를 위해 안심번호로 숙소에 전송합니다.</span> -->
   					<input type="text" class="form-control form-control-lg w-75 mt-2" placeholder="체크인시 필요한 정보입니다."
-  						name="reserve_Phone_k" id="reserve_Phone_k">
+  						name="reserve_Phone_k" id="reserve_Phone_k" value="${vo.phone }">
 				</div>
 			</section>
 			<section>
@@ -97,7 +98,7 @@
                 		<b>총 결제 금액</b>(VAT포함)
                 	</strong>
                 </p>
-               	<span class="text-danger" id="price_k">${vo.price }원</span>
+               	<span class="text-danger" id="price_k"><fmt:formatNumber value="${vo.price}" type="number" />원</span>
                 <ul class="pl-4 mt-2">
                     <li>해당 객실가는 세금, 봉사료가 포함된 금액입니다</li>
                     <li>결제완료 후 <span class="text-danger">예약자 이름</span>으로 바로 <span class="text-danger">체크인</span> 하시면 됩니다</li>

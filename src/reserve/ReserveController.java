@@ -30,9 +30,12 @@ public class ReserveController extends HttpServlet{
 		System.out.println("doPost");
 		doAction_Post(req, resp);
 	}
+	
+	
 	protected void doAction_Get(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String path = "./index.jsp?middle=";
 		String subPath = "";
+		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html; charset=UTF-8"); // 응답 인코딩 설정(한글깨짐 방지)
 		ReserveVo vo = new ReserveVo(); // DB select
 		PrintWriter out = resp.getWriter();
@@ -59,7 +62,6 @@ public class ReserveController extends HttpServlet{
 			break;
 		}
 		
-		
 		req.setAttribute("vo", vo);
 //		resp.sendRedirect("./index.jsp?middle=./user/u_subtitle.jsp&inc2=../reserve/reserve_modify.jsp");
 		RequestDispatcher dis = req.getRequestDispatcher(path + subPath);
@@ -73,7 +75,8 @@ public class ReserveController extends HttpServlet{
 	}
 	
 	protected void doAction_Post(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("text/html; charset=UTF-8"); // 응답 인코딩 설정(한글깨짐 방지)
+		req.setCharacterEncoding("utf-8");
+		resp.setContentType("text/html; charset=utf-8"); // 응답 인코딩 설정(한글깨짐 방지)
 		PrintWriter out = resp.getWriter(); // ajax 데이터 반환시 사용
 		String msg = null; // 예약 or 예약 취소할 때, 성공 or 실패 메세지 반환
 		

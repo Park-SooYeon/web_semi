@@ -19,7 +19,8 @@ public class SearchController extends HttpServlet{
 	}
 	
 	protected void doAction_Get(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("text/html; charset=UTF-8"); // 응답 인코딩 설정(한글깨짐 방지)
+		req.setCharacterEncoding("utf-8");
+		resp.setContentType("text/html; charset=utf-8"); // 응답 인코딩 설정(한글깨짐 방지)
 		SearchDao dao = new SearchDao();
 		PrintWriter out = resp.getWriter();
 		

@@ -147,6 +147,10 @@
  <BR/>
  </c:forEach>
  <script>
+ // 로딩시 버튼 한번 클릭해서 예약현황 확인
+ $(document).ready(function() {
+	$('#btnSearch_k').click();
+	}); 
  btnFunc_k();
  </script>
 </div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +29,7 @@
 		</div>
 		<div class="border-bottom mt-4 pb-2">
 			<strong>결제정보</strong>
-			<p class="w-50"><strong class="text-secondary mt-2">총 결제금액</strong>${vo.price }원</p>
+			<p class="w-50"><strong class="text-secondary mt-2">총 결제금액</strong><fmt:formatNumber value="${vo.price}" type="number" />원</p>
 		</div>
 	</section>
 	<input type='hidden' name='rNo' id='rNo' value='${vo.rNo }'/>
@@ -37,7 +38,7 @@
 </div>
 
 <script>
-btnFunc_k();
+//btnFunc_k();
 </script>
 </body>
 </html>
