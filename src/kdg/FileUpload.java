@@ -15,14 +15,13 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.*;
 
 public class FileUpload {
-	String upload = "C:\\source\\web_semi\\WebContent\\upload";
 	String tempDir = "C:/temp2/";
 	
 	int maxSize = 1024*1024*50;
 	HttpServletRequest req;
 	HttpServletResponse resp;
 	
-	SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
+	SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd HH:mm");
 	
 	public FileUpload(HttpServletRequest req,HttpServletResponse resp) {
 		this.req = req;
@@ -47,146 +46,134 @@ public class FileUpload {
 			for(FileItem fi:list) {
 				String v = fi.getString("utf-8");
 				String k = fi.getFieldName();
-				
 				if(fi.isFormField()) {
 					switch(k) {
 					case "ceo":
 						vo.setCeo(v);
+						System.out.println("ceo:"+vo.getCeo());
 						break;
 					case "rName":
 						vo.setrName(v);
+						System.out.println("rName:"+vo.getrName());
 						break;
 					case "adress":
 						vo.setAddress(v);
+						System.out.println("adress:"+vo.getAddress());
 						break;
 					case "rPlace":
 						vo.setrPlace(v);
+						System.out.println("rPlace:"+vo.getrPlace());
 						break;
 					case "stars":
 						vo.setStars(Integer.parseInt(v));
+						System.out.println("stars:"+vo.getStars());
 						break;
 					case "gInfo":
 						vo.setgInfo(v);
+						System.out.println("ginfo:"+vo.getgInfo());
 						break;
 					case "aType":
 						vo.setaType(Integer.parseInt(v));
+						System.out.println("aType:"+vo.getaType());
 						break;
 					case "kind":
 						vo.setKind(Integer.parseInt(v));
+						System.out.println("kind:"+vo.getKind());
 						break;
 					case "checkIn":
-						vo.setCheckin(sdf.parse(v));
+						vo.setCheckin(sdf.parse("2020-04-01 "+v));
+						System.out.println("checkin:"+vo.getCheckin());
 						break;
 					case "checkOut":
-						vo.setCheckout(sdf.parse(v));
+						vo.setCheckout(sdf.parse("2020-04-01 "+v));
+						System.out.println("checkOut:"+vo.getCheckout());
 						break;
 					
 					case "pet":
-						if(v.equals("on")) {
-							vo.setPet(1);
-						}else {
-							vo.setPet(0);
-						}
+						
+							vo.setPet(Integer.parseInt(v));
+						
+						System.out.println("pet:"+vo.getPet());
 						break;
 					case "smoke":
-						if(v.equals("on")) {
-							vo.setSmoke(1);
-						}else {
-							vo.setSmoke(0);
-						}
+						
+							vo.setSmoke(Integer.parseInt(v));
+						
+						System.out.println("smoke:"+vo.getSmoke());
 						break;
 					case "noSmoke":
-						if(v.equals("on")) {
-							vo.setNoSmoke(1);
-						}else {
-							vo.setNoSmoke(0);
-						}
+						
+							vo.setNoSmoke(Integer.parseInt(v));
+						
+						System.out.println("nsmoke:"+vo.getNoSmoke());
 						break;
 					case "parking":
-						if(v.equals("on")){
-							vo.setParking(1);
-						}else {
-							vo.setParking(0);
-						}
+						
+							vo.setParking(Integer.parseInt(v));
+						
+						System.out.println("parking:"+vo.getParking());
 						break;
 					case "breakfast":
-						if(v.equals("on")) {
-							vo.setBreakfast(1);
-						}else {
-							vo.setBreakfast(0);
-						}
+						
+							vo.setBreakfast(Integer.parseInt(v));
+						
+						System.out.println("brakfa:"+vo.getBreakfast());
 						break;
 						
 					case "pt":
-						if(v.equals("on")) {
-							vo.setPt(1);
-						}else {
-							vo.setPt(0);
-						}
+						
+							vo.setPt(Integer.parseInt(v));
+						
+						System.out.println("pt:"+vo.getPt());
 						break;
 					case "swim":
-						if(v.equals("on")) {
-							vo.setSwim(1);
-						}else {
-							vo.setSwim(0);
-						}
+						
+							vo.setSwim(Integer.parseInt(v));
+						
+						System.out.println("swim:"+vo.getSwim());
 						break;
 					case "rest":
-						if(v.equals("on")) {
-							vo.setRest(1);
-						}else {
-							vo.setRest(0);
-						}
+						
+							vo.setRest(Integer.parseInt(v));
+						
+						System.out.println("rest:"+vo.getRest());
 						break;
 					case "cafe":
-						if(v.equals("on")) {
-							vo.setCafe(1);
-						}else {
-							vo.setCafe(0);
-						}
+						
+							vo.setCafe(Integer.parseInt(v));
+						
+						System.out.println("cafe:"+vo.getCafe());
 						break;
 					case "bar":
-						if(v.equals("on")) {
-							vo.setBar(1);
-						}else {
-							vo.setBar(2);
-						}
-						break;
 						
+							vo.setBar(Integer.parseInt(v));
+						
+						System.out.println("bar:"+vo.getBar());
+						break;
 					case "washer":
-						if(v.equals("on")) {
-							vo.setWasher(1);
-						}else {
-							vo.setWasher(0);
-						}
+						
+							vo.setWasher(Integer.parseInt(v));
+						System.out.println("washer:" + vo.getWasher());
 						break;
 					case "lounge":
-						if(v.equals("on")) {
-							vo.setLounge(1);
-						}else {
-							vo.setLounge(0);
-						}
+						
+							vo.setLounge(Integer.parseInt(v));
+						System.out.println("lounge:" +vo.getLounge());
 						break;
 					case "kitchen":
-						if(v.equals("on")) {
-							vo.setKitchen(1);
-						}else {
-							vo.setKitchen(0);
-						}
+						
+							vo.setKitchen(Integer.parseInt(v));
+						System.out.println("kitcen:" + vo.getKitchen());
 						break;
 					case "dryer":
-						if(v.equals("on")) {
-							vo.setDryer(1);
-						}else {
-							vo.setDryer(0);
-						}
+						
+							vo.setDryer(Integer.parseInt(v));
+						System.out.println("dryer:" + vo.getDryer());
 						break;
 					case "talsu":
-						if(v.equals("on")) {
-							vo.setTalsu(1);
-						}else {
-							vo.setTalsu(0);
-						}
+						
+							vo.setTalsu(Integer.parseInt(v));
+						System.out.println("talsu:" + vo.getTalsu());
 						break;
 					}
 				}else {
@@ -194,9 +181,11 @@ public class FileUpload {
 						String f = fi.getName();
 						String sysfile = new Date().getTime()+"-"+f;
 						vo.setOriFile(f);
+						System.out.println("ori:" +vo.getOriFile());
 						vo.setSysFile(sysfile);
+						System.out.println("sys:"+vo.getSysFile());
 						
-						File file = new File(upload + sysfile);
+						File file = new File("C:\\source\\web_semi\\WebContent\\upload\\" + sysfile);
 						fi.write(file);
 						
 						fi.delete();
@@ -323,7 +312,7 @@ public class FileUpload {
 						vo.setOriFile(f);
 						vo.setSysFile(sysfile);
 						
-						File file = new File(upload + sysfile);
+						File file = new File("C:\\source\\web_semi\\WebContent\\upload\\" + sysfile);
 						fi.write(file);
 						
 						fi.delete();
