@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 <link rel='stylesheet' type='text/css' href='../css/accordion.css'/>
 <script src = '../js/jquery-3.4.1.js'></script>
-
+<script src = '../js/notice.js'></script>
 </head>
 <body>
 
@@ -22,7 +22,8 @@
 	<c:forEach var="vo" items ="${list }">
 		<input type="checkbox" id="answer${vo.nno }">
 		<label for="answer${vo.nno }">${vo.title }<br/><span>${vo.rDate }</span></label>
-		<div><p><pre>${vo.memo}</pre></p>
+
+		<div><p><pre id='textm'>${vo.memo}</pre></p>
 	</div>
 	
 	</c:forEach>
@@ -40,8 +41,8 @@
 		</c:forEach>
 
 		<c:if test="${p.nowPage < p.totPage }">
-		<input type='button' value='다음' onclick='goPage(${p.nowPage+1})'>
-		</c:if><!-- 최종페이지가 현제페이지보다 많으면 다음이 나오게 됨. -->
+		<input type='button' value='다음' onclick='goPage(${p.nowPage+1})'/>
+		</c:if><!--최종페이지가 현제페이지보다 많으면 다음이 나오게 됨. -->
 	</div>
 	
 	</div>
