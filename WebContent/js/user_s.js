@@ -8,7 +8,6 @@ let user = function(){
 		$('#frm').attr('action', 'resView.mp').submit();
 	}
 	
-	
 	if($('#btnMu_s')!=null){
 		$('#btnMu_s').click(function(){
 			$('#frm_up_s').attr('action', 'mpUp.mp').submit();
@@ -93,7 +92,7 @@ let rvDelete = function(rNo, rIndent, rGroup){
 		$('#rno_s').val(no);
 		$('#indent_s').val(rin);
 		$('#rGro_s').val(rgro);
-		$('#frm_room_k').attr('action', 'reviewDelete.rv').submit();
+		$('#frm_rvR_s').attr('action', 'reviewDelete.rv').submit();
 	}else{
 		return false;
 	}
@@ -102,7 +101,7 @@ let rvDelete = function(rNo, rIndent, rGroup){
 let btnRvMo = function(rNo){
 	let no = rNo.value;
 	$('#rno_s').val(no);
-	$('#frm_room_k').attr('action', 'reviewModifyform.rv').submit();
+	$('#frm_rvR_s').attr('action', 'reviewModifyform.rv').submit();
 }
 
 /*if($('.btnRv_Mo_s')!=null){
@@ -118,10 +117,12 @@ let btnReview = function(rCode){
 }
 
 
-let btnRv_Reply = function(rGroup){
+let btnRv_Reply = function(rGroup, rIndent){
 	let group = rGroup.value;
+	let indent = rIndent.value;
 	$('#rGro_s').val(group);
-	$('#frm_room_k').attr('action', 'reviewReplyView.rv').submit();
+	$('#indent_s').val(indent);
+	$('#frm_rvR_s').attr('action', 'reviewReplyView.rv').submit();
 }
 
 let myPage = function(eMail){
