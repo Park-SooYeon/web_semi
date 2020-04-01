@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class ReserveAction {
 	ReserveDao dao;
@@ -121,15 +122,19 @@ public class ReserveAction {
 		String roomCode = req.getParameter("roomCode"); // 객실 코드
 		String checkIn = req.getParameter("checkIn_w");
 		String checkOut = req.getParameter("checkOut_w");
+		HttpSession httpSession = req.getSession(true);
+		String userID = httpSession.getAttribute("email") + "";
 		
-		
+		System.out.println("userID : " + userID);
 		System.out.println("rCode : " + rCode);
 		System.out.println("roomCode : " + roomCode);
 		System.out.println("checkIn : " + checkIn);
 		System.out.println("checkOut : " + checkOut);
 		// DB에서 select
 		vo = dao.roomView(rCode, roomCode, checkIn, checkOut);
+		String phone = dao.searchPhone(userID);
 		
+		vo.setPhone(phone); // 폰 번호 저장
 		vo.diffDay(); // 기간 계산
 		
 		return vo;

@@ -25,10 +25,6 @@
 	<input type="text" name="checkOut_w" id="checkOut_w" value="${checkOut }"><br/>				
     <input type="hidden" id="rCode" name="rCode" value="${rCode}">
     <input type="hidden" id="roomCode" name="roomCode" value="">
-    <input type="hidden" name="indent" id="indent_s"/>
-	<input type="hidden" name="rno" id="rno_s"/>
-	<input type="hidden" name="rGro" id="rGro_s"/>
-
 </form>
     <button id='btnSearch_k'>예약 확인</button>
 <hr/>
@@ -147,6 +143,10 @@
  <BR/>
  </c:forEach>
  <script>
+ // 로딩시 버튼 한번 클릭해서 예약현황 확인
+ $(document).ready(function() {
+	$('#btnSearch_k').click();
+	}); 
  btnFunc_k();
  </script>
 </div>
@@ -299,6 +299,7 @@
 </div>
 
 <div id='view3_w' style='display: none;'>
+<form id="frm_rvR_s" name="frm_rvR_s">
 <div id='view_bottom_f'>
 				<hr/>
 				<div id='view_bottom_score_f'>
@@ -310,51 +311,31 @@
 						<span class="starR" id="star5_s">★</span>
 					</div>
 					<c:forEach var="vo2" items="${vo}" begin="0" end="0"> 
-					<br/><span>별점 : ${vo2.stars}</span><br/><br/><br/>
-					<input type="hidden" value="${vo2.stars}" id="vo2stars_s"/>
+						<br/><span>별점 : ${vo2.stars}</span><br/><br/><br/>
+						<input type="hidden" value="${vo2.stars}" id="vo2stars_s"/>
 					</c:forEach>
 					<span>전체리뷰 <b>${rvCnt}</b> &nbsp;&nbsp;|&nbsp;&nbsp; 제휴점 답변 <b>343</b></span>
 				</div>
 				<hr/>
+				<c:set var="maEmail" value="${vo[0].ceo}"/>
 				<c:forEach var="list" items="${list}" varStatus="status">
-				<div id='view_bottom_review_f'>
-					<c:set var="indent" value="${list.rIndent}"/>
-					<c:set var="userEmail" value="${sessionScope.email}"/>
-					<c:set var="maEmail" value="${vo[0].ceo}"/>
-					<c:set var="reEmail" value="${list.eMail}"/>
-					<c:choose>
-					<c:when test="${indent eq 0}">
-					<div id='review_img_f'>
-						<img src='./image/reviewlogo.png'/>
-					</div>
-					<div id='review_coment_f'>
-						<span>${list.title}</span>
-						<c:if test="${userEmail eq reEmail}"> 
-						<button type="button" class="btn btn-primary btn-sm btnRv_Mo_s" onclick="btnRvMo(rNo${status.index})">수정</button>
-						<button type="button" class="btn btn-primary btn-sm" onclick="return rvDelete(rNo${status.index}, rIndent${status.index}, rGroup${status.index})">삭제</button>
-						</c:if>
-						<c:if test="${userEmail eq maEmail}">
-						<button type="button" class="btn btn-primary btn-sm btnRv_Re_s" onclick="btnRv_Reply(rGroup${status.index})">답변</button>
-						</c:if>
-						<br/><br/>
-						<input type="hidden" name="rNo${status.index}" id="rNo_s${status.index}" value="${list.rNo}"/>
-						<input type="hidden" name="rGroup${status.index}" id="rGroup_s${status.index}" value="${list.rGroup}"/>
-						<input type="hidden" name="rStep" id="rStep_s${status.index}" value="${list.rStep}"/>
-						<input type="hidden" name="rIndent${status.index}" id="rIndent_s${status.index}" value="${list.rIndent}"/>
-						<input type="hidden" name="index_s" id="index_s${status.index}" value="${status.index}"/>
-						<span>별점 : ${list.stars}</span><br/><br/>
-						${list.rContent}
-					</div>
-					</c:when>
-					<c:otherwise>
-	 					<div id='review_re_f' style="background-color:#FFCCCC; padding-left:20px;">
-							<img src='./image/reviewRelogo.png'/>
-						</div> 
-						<div id='review_re_f' style="background-color:#FFCCCC; padding-left:20px;">
-							<span >${list.title}</span>
+					<div id='view_bottom_review_f'>
+						<c:set var="indent" value="${list.rIndent}"/>
+						<c:set var="userEmail" value="${sessionScope.email}"/>
+						<c:set var="reEmail" value="${list.eMail}"/>
+						<c:choose>
+						<c:when test="${indent eq 0}">
+						<div id='review_img_f'>
+							<img src='./image/reviewlogo.png'/>
+						</div>
+						<div id='review_coment_f'>
+							<span>${list.title}</span>
+							<c:if test="${userEmail eq reEmail}"> 
+								<button type="button" class="btn btn-primary btn-sm btnRv_Mo_s" onclick="btnRvMo(rNo${status.index})">수정</button>
+								<button type="button" class="btn btn-primary btn-sm" onclick="return rvDelete(rNo${status.index}, rIndent${status.index}, rGroup${status.index})">삭제</button>
+							</c:if>
 							<c:if test="${userEmail eq maEmail}">
-							<button type="button" class="btn btn-primary btn-sm btnRv_Mo_s" onclick="btnRvMo(rNo${status.index})">수정</button>
-							<button type="button" class="btn btn-primary btn-sm" onclick="return rvDelete(rNo${status.index}, rIndent${status.index}, rGroup${status.index})">삭제</button>
+								<button type="button" class="btn btn-primary btn-sm btnRv_Re_s" onclick="btnRv_Reply(rGroup${status.index}, rIndent${status.index})">답변</button>
 							</c:if>
 							<br/><br/>
 							<input type="hidden" name="rNo${status.index}" id="rNo_s${status.index}" value="${list.rNo}"/>
@@ -362,16 +343,40 @@
 							<input type="hidden" name="rStep" id="rStep_s${status.index}" value="${list.rStep}"/>
 							<input type="hidden" name="rIndent${status.index}" id="rIndent_s${status.index}" value="${list.rIndent}"/>
 							<input type="hidden" name="index_s" id="index_s${status.index}" value="${status.index}"/>
+							<span>별점 : ${list.stars}</span><br/><br/>
 							${list.rContent}
 						</div>
-					</c:otherwise>
-					</c:choose>
-				</div>
-			</c:forEach>
-		<hr/>
+						</c:when>
+						<c:otherwise>
+		 					<div id='review_re_f' style="background-color:#FFCCCC; padding-left:20px;">
+								<img src='./image/reviewRelogo.png'/>
+							</div> 
+							<div id='review_re_f' style="background-color:#FFCCCC; padding-left:20px;">
+								<span >${list.title}</span>
+								<c:if test="${userEmail eq maEmail}">
+									<button type="button" class="btn btn-primary btn-sm btnRv_Mo_s" onclick="btnRvMo(rNo${status.index})">수정</button>
+									<button type="button" class="btn btn-primary btn-sm" onclick="return rvDelete(rNo${status.index}, rIndent${status.index}, rGroup${status.index})">삭제</button>
+								</c:if>
+								<br/><br/>
+								<input type="hidden" name="rNo${status.index}" id="rNo_s${status.index}" value="${list.rNo}"/>
+								<input type="hidden" name="rGroup${status.index}" id="rGroup_s${status.index}" value="${list.rGroup}"/>
+								<input type="hidden" name="rStep" id="rStep_s${status.index}" value="${list.rStep}"/>
+								<input type="hidden" name="rIndent${status.index}" id="rIndent_s${status.index}" value="${list.rIndent}"/>
+								<input type="hidden" name="index_s" id="index_s${status.index}" value="${status.index}"/>
+								${list.rContent}
+							</div>
+						</c:otherwise>
+						</c:choose>
+					</div>
+				</c:forEach>
+			<hr/>
+		    <input type="hidden" id="rCode" name="rCode" value="${rCode}">
+		    <input type="hidden" name="indent" id="indent_s"/>
+			<input type="hidden" name="rno" id="rno_s"/>
+			<input type="hidden" name="rGro" id="rGro_s"/>
 	</div>
+	</form>
 </div>
-
 <script>
 $(document).ready(function(){
 	let stars = $('#vo2stars_s').val();

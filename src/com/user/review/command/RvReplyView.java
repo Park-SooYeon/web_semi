@@ -10,12 +10,7 @@ public class RvReplyView implements RvCommand{
 		int rCode = Integer.parseInt(req.getParameter("rCode"));
 		int rGroup = Integer.parseInt(req.getParameter("rGro"));
 		int rStep = Integer.parseInt(req.getParameter("rStep"));
-		int rIndent = Integer.parseInt(req.getParameter("rIndent"));
-		
-		System.out.println(rCode);
-		System.out.println(rGroup);
-		System.out.println(rStep);
-		System.out.println(rIndent);
+		int rIndent = Integer.parseInt(req.getParameter("indent"));
 		
 		
 		req.setAttribute("rCode", rCode);

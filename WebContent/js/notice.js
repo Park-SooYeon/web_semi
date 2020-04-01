@@ -33,6 +33,13 @@ let btnFuncm = function() {
 	}
 }
 
+let ntm= function(){
+	$('#frm').attr('action', 'nt_select.mm').submit();
+}
+let pvm= function(){
+	$('#frm').attr('action', 'pv_select.jsp').submit();
+}
+
 let goPage= function(nowPage){
 	$('#nowPage').val(nowPage);
 	$('#frmm').attr('action', 'nt_select.mm').submit();

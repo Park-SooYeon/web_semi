@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,7 +24,7 @@ public class KDGServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//roomView(req,resp);
-		//action(req, resp);
+		action(req, resp);
 	}
 
 	@Override
@@ -702,11 +703,24 @@ public class KDGServlet extends HttpServlet {
 	}
 	
 	public void insert(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		req.getParameter("roomName");
 		FileUpload upload = new FileUpload(req,resp);
 		if(upload.uploadFormCheck()) {
+			InsertRoomsVo vo = upload.roomsUploading();
 			
+			RoomsDao dao = new RoomsDao();
+			Map<String,String> map =dao.roomsInsert(vo);
+			req.setAttribute("map_f", map);
+			System.out.println("-----------");
+			
+			
+		}else {
+			System.out.println("err");
+			resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 		}
+		
+		String path ="rooms_insert_result.jsp";
+		RequestDispatcher rd = req.getRequestDispatcher(path);
+		rd.forward(req, resp);
 	}
 }
 

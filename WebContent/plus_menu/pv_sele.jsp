@@ -10,18 +10,18 @@
 <link rel='stylesheet' type='text/css' href='./css/bootstrap.min.css'/>
 <link rel='stylesheet' type='text/css' href='./css/accordion.css'/>
 <script src = '../js/jquery-3.4.1.js'></script>
-<script src = './notice.js'></script>
+<script src = '../js/notice.js'></script>
 </head>
 <body>
 <div class="container-fluid" style="height : 162px;">
 <%
-String inc = "./index_m.jsp";
-if(request.getParameter("inc") !=null){
-	inc = request.getParameter("inc");
+String incm = "./index_m.jsp";
+if(request.getParameter("incm") !=null){
+	incm = request.getParameter("incm");
 }
-String sp = "./nt_select.jsp";
-if(request.getParameter("sp") != null){
-	sp = request.getParameter("sp");
+String spm = "./personal_m.jsp";
+if(request.getParameter("spm") != null){
+	spm = request.getParameter("spm");
 }
 %>
 
@@ -31,12 +31,12 @@ if(request.getParameter("sp") != null){
   <div class="row">
     <div class="col-3" style='border: 1px solid #ffffff; cursor : pointer;' >
 	<ul>
-		<jsp:include page="<%=inc %>"/>
+		<jsp:include page="<%=incm %>"/>
 	</ul>
     </div>
     <div class="col-9" style='border: 1px solid #ffffff'>
     
-		<jsp:include page="<%=sp %>"/>
+		<jsp:include page="<%=spm %>"/>
 	
     </div>
   </div>

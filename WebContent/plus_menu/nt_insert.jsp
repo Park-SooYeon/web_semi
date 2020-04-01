@@ -10,7 +10,7 @@
 <link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'/>
 <link rel='stylesheet' type='text/css' href='../css/accordion.css'/>
 <script src = '../js/jquery-3.4.1.js'></script>
-<script src = './notice.js'></script>
+<script src = '../js/notice.js'></script>
 </head>
 <body>
 <div class="container">

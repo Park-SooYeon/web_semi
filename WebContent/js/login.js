@@ -21,26 +21,25 @@ function btnFunc(){
 		$('#btnLogin_c').on('click', function(){
 			var email = $('#L_email_c').val();
 			var pwd = $('#L_pwd_c').val();
+			if($('#L_email_c').val() == "" && $('#L_pwd_c').val() == ""){//이메일,비밀번호가 null
+				$('#L_email_c').css('border', '1px solid #ff0055');
+				$('#L_emailM_c').text('E-Mail을 입력해주세요.');
+				$('#L_pwd_c').css('border', '1px solid #ff0055');
+				$('#L_pwdM_c').text('비밀번호를 입력해주세요.');
+				$('#L_email_c').focus();
+			}else if($('#L_email_c').val() == ""){ //이메일 null
+				$('#L_email_c').css('border', '1px solid #ff0055');
+				$('#L_emailM_c').text('E-Mail을 입력해주세요.');
+				$('#L_email_c').focus();
+			}else if($('#L_pwd_c').val() == ""){ //비밀번호 null
+				$('#L_pwd_c').css('border', '1px solid #ff0055');
+				$('#L_pwdM_c').text('비밀번호를 입력해주세요.');
+				$('#L_pwd_c').focus();
+			}
 			$.post("login.lg", {'email':email, 'pwd':pwd}, 
 					function(data, status){
 							if(data == 'false'){ //로그인 실패
-								if($('#L_email_c').val() == "" && $('#L_pwd_c').val() == ""){//이메일,비밀번호가 null
-									$('#L_email_c').css('border', '1px solid #ff0055');
-									$('#L_emailM_c').text('E-Mail을 입력해주세요.');
-									$('#L_pwd_c').css('border', '1px solid #ff0055');
-									$('#L_pwdM_c').text('비밀번호를 입력해주세요.');
-									$('#L_email_c').focus();
-								}else if($('#L_email_c').val() == ""){ //이메일 null
-									$('#L_email_c').css('border', '1px solid #ff0055');
-									$('#L_emailM_c').text('E-Mail을 입력해주세요.');
-									$('#L_email_c').focus();
-								}else if($('#L_pwd_c').val() == ""){ //비밀번호 null
-									$('#L_pwd_c').css('border', '1px solid #ff0055');
-									$('#L_pwdM_c').text('비밀번호를 입력해주세요.');
-									$('#L_pwd_c').focus();
-								}else{
 									$('.error').fadeIn(400).delay(1000).fadeOut(400);									
-								}
 							}else{ //로그인 성공
 								location.href="../index.jsp";
 							}

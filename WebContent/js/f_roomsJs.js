@@ -101,10 +101,8 @@ let event_f = function(){
 	}
 	
 	
-	
-	
      
-	//체크인 체크아웃 데이트 설정
+	/*//체크인 체크아웃 데이트 설정
 	var deadLine = new Date(),
     y = deadLine.getFullYear(),
     m = deadLine.getMonth()+1,
@@ -114,24 +112,30 @@ let event_f = function(){
  
 	if(h >= 16 && M >= 30 ) d++;
 	deadLine = y + "-" + m + "-" + d;
- 
+	
 	$(function(){
  
 	    // 분 단위로 minDate 제어  - 16:30 지나면 minDate 일 단위에 하루 플러스 하여 선택불가 만들기
 	    $( "#checkIn_f" ).datepicker({   // http://blog.naver.com/wizardkyn/220661505153
-		      minDate: deadLine  //1. 좌측 달력 날짜의 최초 값은 기본 기능에 나와 있듯 “오늘” 날짜이며, 오늘 날짜 이전으로 월 & 일 이동 불가
+		      minDate: "0"  //1. 좌측 달력 날짜의 최초 값은 기본 기능에 나와 있듯 “오늘” 날짜이며, 오늘 날짜 이전으로 월 & 일 이동 불가
 		              //minDate 옵션 설정
+		      ,maxDate: "+2M"
+			  ,showOtherMonths: true
 		      ,dayNamesMin: [ "일", "월", "화", "수", "목", "금", "토"] //달력 한글화(요일)
+	    	  ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일']
+	          ,dayNamesShort: ['일','월','화','수','목','금','토']
 		      ,monthNames: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ]//달력 한글화(월)
 		      ,yearSuffix:"년"
 		      ,showMonthAfterYear:true
 		      ,nextText:"다음달"
 		      ,prevText:"이전달"
-		      ,dateFormat:"yy-mm-dd"
+		      ,dateFormat:"mm.dd D"
 		      ,onSelect: function(selected,evnt){
 			        //3. 좌측 달력에서 날짜를 선택하면 우측 달력은 좌측 달력에서 선택된 날짜 이전으로 월 & 일 이동 불가
 			        var day = $("#checkIn_f").datepicker('getDate');
-			        $('#checkOut_f').datepicker('option','minDate', day);//오른쪽달력 minDate 옵션으로 왼쪽달력의 선택된 날짜를 지정
+			        $('#checkOut_f').datepicker('option','minDate', day + "+1D");//오른쪽달력 minDate 옵션으로 왼쪽달력의 선택된 날짜를 지정
+			        $('#checkOut_f').datepicker('option', 'maxDate', dat + "+2M");
+			        //$('#checkOut_f').datepicker('setDate', dat + "1D");
 		      }
 		      ,onChangeMonthYear:function(year,month,evnt){//왼쪽이나 오른쪽버튼을 눌렀을때 호출되는 콜백함수
 				    //2. 좌측 달력의 ‘월“ 과 우측 달력의 ’월‘ 은 동일하게 움직이도록 처리
@@ -144,20 +148,22 @@ let event_f = function(){
 	 
 	   });
 	   $( "#checkOut_f" ).datepicker({
-	       minDate: deadLine
-	      ,dayNamesMin: [ "일", "월", "화", "수", "목", "금", "토"]//달력 한글화(요일)
-	      ,monthNames: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ]//달력 한글화(월)
+	        //minDate: $('#checkOut_f').val() + "+1D"
+	        dayNamesMin: [ "일", "월", "화", "수", "목", "금", "토"]//달력 한글화(요일)
+	   		,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일']
+       		,dayNamesShort: ['일','월','화','수','목','금','토']
+	      	,monthNames: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ]//달력 한글화(월)
 	        ,yearSuffix:"년"
+	        ,showOtherMonths: true
 	        ,showMonthAfterYear:true
 	        ,nextText:"다음달"
 	        ,prevText:"이전달"
-	        ,dateFormat:"yy-mm-dd"
+	        ,dateFormat:"mm.dd D"
 	   });
  
  
-   }); 
-	 
-	 
+   }); */
+
 	 //리스트 클릭하면 view페이지로 이동
 	
 
@@ -168,7 +174,7 @@ let event_f = function(){
 //뷰페이지로이동
 let view = function(rCode){
 	
-	if($('#checkIn_f').val()=="체크인 날짜 선택"||$('#checkIn_f').val()=="체크아웃 날짜 선택"){
+	if($('#checkIn_f').val()=="체크인 날짜 선택"||$('#checkOut_f').val()=="체크아웃 날짜 선택"){
 		
 		alert("체크인,체크아웃 날짜를 선택해 주세요!");
 	}else{
@@ -430,7 +436,7 @@ let btnFunc_f = function(){
 		})
 	}
 	
-  //wpy
+  /*//wpy
 	//체크인 체크아웃 데이트 설정
 	let btnFunc_w = function(){
 		
@@ -470,6 +476,8 @@ let btnFunc_f = function(){
 		    $( "#checkIn_w" ).datepicker({   // http://blog.naver.com/wizardkyn/220661505153
 			      minDate: deadLine  //1. 좌측 달력 날짜의 최초 값은 기본 기능에 나와 있듯 “오늘” 날짜이며, 오늘 날짜 이전으로 월 & 일 이동 불가
 			              //minDate 옵션 설정
+			      ,maxDate: "+2M"
+			      ,showOtherMonths: true
 			      ,dayNamesMin: [ "일", "월", "화", "수", "목", "금", "토"] //달력 한글화(요일)
 			      ,monthNames: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ]//달력 한글화(월)
 			      ,yearSuffix:"년"
@@ -503,28 +511,8 @@ let btnFunc_f = function(){
 		        ,dateFormat:"yy-mm-dd"
 		   });
 	   }); 
-	 }	
-
-	}
-	
-  
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	 }	*/
 }
+	
+	
+//}

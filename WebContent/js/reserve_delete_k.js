@@ -42,7 +42,7 @@ let btnFunc_Del_k = function() {
 	if($('#btnOk_k') != null) {
 		$('#okMsg_k').text(msg_k);
 		$('#btnOk_k').click(function() {
-			if(msg_k = "정상 취소되었습니다.") { // 정상 취소시 페이지 이동
+			if(msg_k == "정상 취소되었습니다.") { // 정상 취소시 페이지 이동
 				location.href = "./reserveList.mp?eMail=" + id;
 			} else {
 				$.colorbox.close();
