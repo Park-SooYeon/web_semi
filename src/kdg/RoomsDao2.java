@@ -23,10 +23,6 @@ public class RoomsDao2 {
 		            + " from Rooms rs , Room r , room_photo p "
 				    + " where rs.rCode = r.rCode and r.ROOMCODE = p.ROOMCODE(+) and rs.rCode = ? ";
 		 
-/*	 String sql = " select rs.rCode , rs.rName,rs.rPlace, rs.ginfo,rs.aType,rs.OriFile,rs.SysFile,rs.stars,rs.checkIn,rs.checkOut,rs.address,rs.kind,rs.pet,rs.smoke,rs.noSmoke,rs.Parking, " 
-	            + " rs.breakfast, rs.pt,rs.pool,rs.rest,rs.cafe,rs.bar,rs.washer,rs.lounge,rs.kitchen,rs.dryer,rs.talsu  "
-	            + " from Rooms rs "
-			    + " where rs.rCode = ? " ;*/
 	 PreparedStatement ps =conn.prepareStatement(sql);
 	 ps.setInt(1, rCode);
 	 ResultSet rs = ps.executeQuery();
@@ -40,8 +36,8 @@ public class RoomsDao2 {
 	  vo.setOriFile(rs.getString("OriFile"));
 	  vo.setSysFile(rs.getString("SysFile"));
 	  vo.setStars(rs.getInt("stars"));
-	  vo.setCheckin(rs.getDate("checkin"));
-	  vo.setCheckout(rs.getDate("checkout"));
+	  vo.setCheckin(rs.getTimestamp("checkin"));
+	  vo.setCheckout(rs.getTimestamp("checkout"));
 	  vo.setAddress(rs.getString("address"));
 	  vo.setKind(rs.getInt("kind"));
 	  vo.setPet(rs.getInt("pet"));

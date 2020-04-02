@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,19 +18,24 @@
 </head>
 <body>
 <div id = 'view1_w'>
+ <div id = 'dateBox'>
 <form id="frm_room_k" name="frm_room_k">
-
-	<label id='check_w'>체크인</label><br/>
-	<input type="text" name="checkIn_w" id="checkIn_w" value="${checkIn }"><br/>
-	<label id='check2_w'>체크아웃</label><br/>
-	<input type="text" name="checkOut_w" id="checkOut_w" value="${checkOut }"><br/>				
+   <div >
+	<label id='check_w'>체크인</label><label id='check2_w'>체크아웃</label><br/>
+	<input type="text" name="checkIn_w" id="checkIn_w" value="${checkIn }">
+	<input type="text" name="checkOut_w" id="checkOut_w" value="${checkOut }">		
+	</div>
+	<div>
+	
+	</div>	
     <input type="hidden" id="rCode" name="rCode" value="${rCode}">
     <input type="hidden" id="roomCode" name="roomCode" value="">
 </form>
-    <button id='btnSearch_k'>예약 확인</button>
+    <button class = 'btn btn-danger btn-sm'  id='btnSearch_k'>예약 확인</button>
+    </div>
 <hr/>
 
-<c:forEach var="list" items="${vo }" >
+<c:forEach var="list" items="${vo }" varStatus="vs" >
 <div id='room_w' >
   <div id='roomview_photo_w'>
    
@@ -48,11 +54,10 @@
      <span id='sub_price_w'>${list.price }원</span>
     
      <hr/>
-     <button id="myBtn"  class="btn btn-outline-light text-left text-muted">  
+     <button  id="myBtn${vs.index }"  class="btn btn-outline-light text-left text-muted">  
        객실 이용 안내
-
      </button>
-    <div id="myModal" class="modal">
+    <div name='myModal_w' id="myModal${vs.index}" class="modal">
  
       <!-- Modal content -->
       <div class="modal-content">
@@ -128,9 +133,42 @@
        <h4>선택 날짜</h4>
        <ul><li>${checkIn } | ${checkout }</li></ul>
       </div>
- 
     </div>
-   
+   <script>
+ 
+   //Get the modal
+     var modal = document.getElementById('myModal${vs.index}');
+
+     // Get the button that opens the modal
+     var btn = document.getElementById("myBtn${vs.index}");
+
+     // Get the <span> element that closes the modal
+     var span = document.getElementsByClassName("close")[0];                                          
+
+     /* let size_w = $('button[name=myBtn_w]').length;
+     for(i=0; i<size_w; i++){
+     	let btn_w = $('button[name=myBtn_w]:eq('+ i +')');
+         let modal_w = $('div[name=myModal_w]:eq('+ i +')'); */
+     // When the user clicks on the button, open the modal 
+     btn.onclick = function() {
+         modal.style.display = "block";
+     }
+
+     // When the user clicks on <span> (x), close the modal
+     span.onclick = function() {
+         modal.style.display = "none";
+     }
+
+
+     // When the user clicks anywhere outside of the modal, close it
+     window.onclick = function(event) {
+         if (event.target == modal) {
+             modal.style.display = "none";
+         }
+     }
+
+     
+     </script>
    
    
    
@@ -140,8 +178,8 @@
      </div>
 
    </div>
- <BR/>
  </c:forEach>
+ <BR/>
  <script>
  // 로딩시 버튼 한번 클릭해서 예약현황 확인
  $(document).ready(function() {
@@ -169,7 +207,9 @@
 	<c:forEach var="list" items="${vo }" begin='0' end='0'>
 		<h3>기본 정보</h3>
 		<ul>
-			<li>${checkIn } | ${checkout }</li>
+		   
+		    <li>체크인:<fmt:formatDate value="${list.checkin}" pattern="hh:mm "></fmt:formatDate></li>
+			<li>체크아웃:<fmt:formatDate value="${list.checkout}" pattern="hh:mm "></fmt:formatDate></li>
 			<c:set var = 'wifi' value='${list.wifi }'/>
 				<c:if test='${wifi eq 1 }' >
 				<li>무료 Wifi 있습니다</li>
@@ -384,33 +424,9 @@ $(document).ready(function(){
 		$('#star'+a+'_s').addClass('on');
 	}
 });
+
 btnFunc_w();
 
-//Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];                                          
-
-// When the user clicks on the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
 
 </script>
 </body>

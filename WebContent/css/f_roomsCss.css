@@ -610,17 +610,38 @@ body, html {
 }
 
 #checkIn_w , #checkOut_w {
+	display:inline-block;
 	width: 225px;
 	height: 30px;
 	border: 1px solid #ddd;
 	background-color: #eee;
 	border-radius: 4px;
 	text-align: center;
-	margin-left: 30px;
+}
+#checkIn_w{
+	margin-left: 230px;
+}
+#checkOut_w{
+	margin-left: 50px;
+}
+#btnSearch_k{
+	position: relative;
+	left: 750px;
+	top: -30px;
+}
+#dateBox div label:first-child{
+	margin-left: 320px;
+}
+#dateBox div label:nth-child(2){
+	margin-left: 220px;
 }
 
 #check_w , #check2_w{
 	margin-left: 30px;
+}
+
+#dateBox{
+	margin-top: 21px;
 }
 
 #photo_w{
@@ -719,7 +740,7 @@ body, html {
             cursor: pointer;
         }
 
-
+  
 
 
 
