@@ -13,7 +13,15 @@ public class MemberVo_m {
 	String pattern = "{'nno' : '%s', 'title' : '%s', 'rDate' : '%s', 'memo' : '%s'}";
 
 	public MemberVo_m() {}
-	
+	public MemberVo_m(int nno, String title, String memo) {
+		this.nno = nno;
+		this.title = title;
+		this.memo = memo;
+	}
+	public MemberVo_m(String title, String memo) {
+		this.title = title;
+		this.memo = memo;
+	}
 	public MemberVo_m(int nno, String title, String d, String memo) {
 		this.nno = nno;
 		this.title = title;
