@@ -56,6 +56,9 @@ public class MemberDao_m {
 				list.add(vo);
 			
 			}	
+			rs.close();
+			ps.close();
+			conn.close();
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
@@ -79,55 +82,84 @@ public class MemberDao_m {
 			if(r<1) {
 				throw new Exception();
 			}
-			/*conn.commit();*/
+			ps.close();
+			
 		}catch(Exception ex) {
 			msg = ex.toString();
 		}finally {
 			return msg;
+			
 		}
 	}
 	
-	public String modify(int nno) {
-		String msg = "게시물 내용이 수정 되었습니다.";
-		
+	public String update(MemberVo_m vo) {
+			String msg="";
+
 		sql = " update notice set title=?, memo=? where nno=? ";
 		
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(1,title);
-			ps.setString(2,memo);
-			ps.setInt(3, nno);
-			
+			ps.setString(1, vo.getTitle());
+			ps.setString(2, vo.getMemo());
+			ps.setInt(3, vo.getNno());
 			int r = ps.executeUpdate();
+
 			if(r<1) {
 				throw new Exception();
 			}
-			conn.commit();
+
+			conn.close();
+			ps.close();
 		}catch(Exception ex) {
 			msg = ex.toString();
-			conn.rollback();
 		}finally {
 			return msg;
 		}
 			
 	}
 	
-	public String delete(String title) {
+	public String delete(int nno) {
 		String msg = "게시물이 삭제 되었습니다.";
-		sql = " delete from notice where title= ? ";
+		sql = " delete from notice where nno= ? ";
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, title);
+			ps.setInt(1, nno);
 			
 			int cnt = ps.executeUpdate();
-			if(cnt<1) {
+			if(cnt<0) {
 				throw new Exception("자료 삭제중 예외 발생");
 			}
+			ps.close();
 		}catch(Exception ex) {
 			msg = ex.getMessage();
 		}finally {
 			return msg;
 		}
+	}
+	
+	public MemberVo_m moidsele(int nno) {
+		MemberVo_m vo = null;
+		sql = "select nno, title, memo from notice where nno=? ";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, nno);
+		
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				vo = new MemberVo_m();
+				vo.setNno(rs.getInt("nno"));
+				vo.setTitle(rs.getString("title"));
+				vo.setMemo(rs.getString("memo"));
+			}
+			rs.close();
+			ps.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			return vo;
+		}
+				
 	}
 }
 

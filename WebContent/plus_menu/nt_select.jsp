@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src = ../js/notice.js></script>
+<script src = ./js/notice.js></script>
 
 </head>
 <body>
@@ -20,9 +20,9 @@
 	
 	<c:forEach var="vo" items ="${list }">
 		<input type="checkbox" id="answer${vo.nno }">
-		<label for="answer${vo.nno }">${vo.title }<br/><span>${vo.rDate }<input type="hidden" name="nnom" value='${vo.nno}'/></span></label>
+		<label for="answer${vo.nno }" name="modifytitle">${vo.title }<br/><span>${vo.rDate }<input type="hidden" name="nnom" value='${vo.nno}'/></span></label>
 
-		<div><p><pre>${vo.memo}</pre></p><input type="button" id="btnModifym"  value="수정"/>
+		<div><input type="button" id="btnModifym" class="modifymemo" name="modifymemo" value="수정"/><p><pre>${vo.memo}</pre></p>
 	</div>
 	
 	</c:forEach>

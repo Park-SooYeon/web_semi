@@ -74,10 +74,10 @@ public class MemberServlet_m extends HttpServlet{
 	
 	public void modify(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		String path = "index.jsp?middle=./plus_menu/nt_modify.jsp";
+		int nnom = Integer.parseInt(req.getParameter("nnom"));
 		MemberDao_m dao = new MemberDao_m();
-		int nno = Integer.parseInt(req.getParameter("nnom"));
-		System.out.println(nno);
-		
+		MemberVo_m vo = dao.moidsele(nnom);
+		req.setAttribute("vo", vo);
 		RequestDispatcher rd = req.getRequestDispatcher(path);
 		rd.forward(req, resp);
 		
@@ -87,15 +87,12 @@ public class MemberServlet_m extends HttpServlet{
 		MemberDao_m dao = new MemberDao_m();
 		int nowPage= 1;
 		String findStr = "";
-		
 		if(req.getParameter("nowPage") != null) {
 			nowPage = Integer.parseInt(req.getParameter("nowPage"));
 		}
-
 		if(req.getParameter("findStr") != null) {
 			findStr = req.getParameter("findStr");
 		}
-	
 		Page_m p = new Page_m();
 		p.setNowPage(nowPage);
 		p.setFindStr(findStr);
@@ -110,18 +107,29 @@ public class MemberServlet_m extends HttpServlet{
 		
 		
 	}
+		
 	public void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		String path ="index.jsp?middle=./plus_menu/nt_delete.jsp";
+		System.out.println(11111);
 		MemberDao_m dao = new MemberDao_m();
-		String title = req.getParameter("title");
-		String msg = dao.delete(title);
+		int nno = Integer.parseInt(req.getParameter("nnom"));
+		String msg = dao.delete(nno);
 		req.setAttribute("msg", msg);
+		System.out.println(msg);
 		RequestDispatcher rd = req.getRequestDispatcher(path);
 		rd.forward(req, resp);
 	}
 	public void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{	
 	 String path = "index.jsp?middle=./plus_menu/nt_update.jsp";
-	
+	 MemberDao_m dao = new MemberDao_m();
+	 int nnom = Integer.parseInt(req.getParameter("nnom"));
+	 String bbsTitle = req.getParameter("bbsTitle");
+	 String bbsContent = req.getParameter("bbsContent");
+	 MemberVo_m vo = new MemberVo_m(nnom, bbsTitle, bbsContent);
+	 String msg = dao.update(vo);
+	 req.setAttribute("vo", vo);
+	 RequestDispatcher rd = req.getRequestDispatcher(path);
+	 rd.forward(req, resp);
 	}
 }
 
