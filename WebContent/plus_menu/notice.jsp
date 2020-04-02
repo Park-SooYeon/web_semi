@@ -7,9 +7,8 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'/>
-<script src = '../js/jquery-3.4.1.js'></script>
-<script src = './notice.js'></script>
+<link rel='stylesheet' type='text/css' href='./css/bootstrap.min.css'/>
+<link rel='stylesheet' type='text/css' href='./css/accordion.css'/>
 </head>
 <body>
 <div class="container-fluid" style="height : 162px;">
@@ -24,7 +23,7 @@ if(request.getParameter("sp") != null){
 }
 %>
 
-<img src="../image/dobogo.png" class="rounded float" alt="Responsive image">
+<img src="./image/dobogo.png" class="rounded float" alt="Responsive image">
 </div>
 <div class="container" style='border: 1px solid #ffffff'>
   <div class="row">

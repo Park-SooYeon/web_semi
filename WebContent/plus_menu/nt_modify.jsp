@@ -7,10 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'/>
-<link rel='stylesheet' type='text/css' href='../css/accordion.css'/>
-<script src = '../js/jquery-3.4.1.js'></script>
-<script src = './notice.js'></script>
+<link rel='stylesheet' type='text/css' href='./css/accordion.css'/>
 </head>
 <body>
 <div class="container">
@@ -19,21 +16,22 @@
 		<table class = "talbe table-striped" styple="text-align: center; border:1px solid #dddddd">
 		<thead>
 			<tr>
-				<th colspan="2" style="background-color : #eeeeee; text-align : center;">공지사항 글쓰기</th>
+				<th colspan="2" style="background-color : #eeeeee; text-align : center;">공지사항 글쓰기</th></br></br></br>
 			</tr>
 		</thead>
 		<tbody>
 				<tr>
-					<td><input type="text" class="form-control"  placeholder="글제목" name="bbsTitle" maxlength="20"/></td>
+					<td><input type="text" class="form-control"  placeholder="글제목" name="bbsTitle" maxlength="20" value="${vo.title}"/></td>
+						<input type="hidden" class="nnom" name="nnom" value='${vo.nno}'/>
 					</tr>
 					<tr>
-					<td><textarea class="form-control"  placeholder="글내용" name="bbsContent" maxlength="500" style="width : 800px; height : 350px; resize : none;"></textarea></td>
+					<td><textarea class="form-control"  placeholder="글내용" name="bbsContent" maxlength="500" style="width : 800px; height : 350px; resize : none;">${vo.memo}</textarea></td>
 				</tr>
 		</tbody>
 		</table> 
 			<input type="button" id="btnSelectm"  value="목록"/>
-			<input type="button" id="btnUpdatem"  value="저장 "/>
-			<input type="button" id="btnDeletem"  value="삭제 "/>
+			<input type="button" id="btnUpdatemm"  value="저장 "/>
+			<input type="button" class="btnDeletem" id="btnDeletem"  value="삭제 "/>
 			
 		</form>
 	</div> 

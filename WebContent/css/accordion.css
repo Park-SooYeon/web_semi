@@ -33,9 +33,7 @@ input[id*="answer"] + label + div p{
 input[id*="answer"]:checked + label + div{
 	max-height:2000px;
 }
-input[id*="answer"]:checked + label em{
-	background-position:0 -30px;
-}
+
 a[id="pe_m"]{
 	margin-right : 15px;
 }

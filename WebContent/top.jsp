@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <script src="js/jquery-3.4.1.js"></script>
 <script src="js/user_s.js"></script>
+<script src="js/notice.js"></script>
 <style>
 #top_list_k li{
 	padding:0px 5px;
@@ -129,8 +130,8 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">더보기</a>
 							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-								 <a class="dropdown-item" href="index.jsp?middle=./plus_menu/nt_select.jsp">공지사항</a>
-								 <a class="dropdown-item" href="index.jsp?middle=./plus_menu/pv_select.jsp">이용 약관</a>
+								 <a class="dropdown-item" onclick="ntm()">공지사항</a>
+								 <a class="dropdown-item" href="index.jsp?middle=./plus_menu/notice.jsp?sp=pv_select.jsp">이용 약관</a>
 							</div>
 						</li>
 						<li class="nav-item">

@@ -7,10 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'/>
-<link rel='stylesheet' type='text/css' href='../css/accordion.css'/>
-<script src = '../js/jquery-3.4.1.js'></script>
-<script src = './notice.js'></script>
+<link rel='stylesheet' type='text/css' href='./css/accordion.css'/>
 </head>
 <body>
 <div class="container">
@@ -19,7 +16,7 @@
 		<table class = "talbe table-striped" styple="text-align: center; border:1px solid #dddddd">
 		<thead>
 			<tr>
-				<th colspan="2" style="background-color : #eeeeee; text-align : center;">공지사항 글쓰기</th>
+				<th colspan="2" style="background-color : #eeeeee; text-align : center;">공지사항 글쓰기</th></br></br></br>
 			</tr>
 		</thead>
 		<tbody>

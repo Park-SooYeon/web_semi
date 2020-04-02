@@ -5,8 +5,8 @@ let btnFuncm = function() {
 			$('#frmm').attr('action', 'nt_insertview.mm').submit();
 		})
 	}
-	if ($('#btnDeletem') != null) {
-		$('#btnDeletem').click(function() {
+	if ($('.btnDeletem') != null) {
+		$('.btnDeletem').click(function() {
 			let yn = confirm("삭제하시겠습니까 ????");
 			if (yn) {
 				$('#frmm').attr('action', 'nt_delete.mm').submit();
@@ -14,8 +14,8 @@ let btnFuncm = function() {
 		})
 	}
 
-	if ($('#btnModifym') != null) {
-		$('#btnModifym').click(function() {
+	if ($('.modifymemo') != null) {
+		$('.modifymemo').click(function(modifytitle, modifymemo) {
 			$('#frmm').attr('action', 'nt_modify.mm').submit();
 		})
 	}
@@ -25,10 +25,15 @@ let btnFuncm = function() {
 			$('#frmm').attr('action', 'nt_insert.mm').submit();
 		})
 	}
+	if($('#btnUpdatemm') != null){
+		$('#btnUpdatemm').click(function(){
+			$('#frmm').attr('action', 'nt_update.mm').submit();
+		})
+	}
 
 	if ($('#btnSelectm') != null) {
 		$('#btnSelectm').click(function() {
-			$('#frmm').attr('action', 'nt_select.mm').submit();
+			$('#frm').attr('action', 'nt_select.mm').submit();
 		})
 	}
 }
@@ -36,4 +41,8 @@ let btnFuncm = function() {
 let goPage= function(nowPage){
 	$('#nowPage').val(nowPage);
 	$('#frmm').attr('action', 'nt_select.mm').submit();
+}
+
+let ntm= function(){
+	$('#frm').attr('action', 'nt_select.mm').submit();
 }
