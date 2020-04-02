@@ -102,7 +102,8 @@ public class LoginDao {
 		}
 	}
 	
-	public void pwReset(String email, String pwd) {
+	public boolean pwReset(String email, String pwd) {
+		boolean flag = false;
 		try {
 			sql = "update membership set pwd=? where email=?";
 			ps = conn.prepareStatement(sql);
@@ -112,6 +113,7 @@ public class LoginDao {
 			
 			if(cnt > 0) {
 				conn.commit();
+				flag = true;
 			}else {
 				conn.rollback();
 			}
@@ -119,7 +121,7 @@ public class LoginDao {
 			e.printStackTrace();
 			conn.rollback();
 		}finally {
-			return;			
+			return flag;			
 		}
 	}
 	

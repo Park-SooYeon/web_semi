@@ -27,11 +27,11 @@
 					<input type='hidden'  id='nName_c' name='nName_c' value='<%=request.getParameter("nName_c") %>'>
 					<label class='label_c'>생년월일</label><br/>
 					<input type='date' id="birth_c" name='birth_c' />
-					<div id='birthN_c' class='birthM_c'></div>
+					<div id='birthM_c' class='birthN_c'></div>
 					<br/>
 					<label class='label_c'>핸드폰번호</label><br/>
 					<input type='text' id='phone_c' name='phone_c' placeholder=" - 빼고 입력해주세요. " maxlength="11" />
-					<div id='phoneN_c' class='phoneM_c'></div>
+					<div id='phoneM_c' class='phoneN_c'></div>
 				</div>
 				<div align='center'>
 					<button type="button" id='btnOk_c' class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>확인</button>
@@ -40,27 +40,7 @@
 		</div>
 	</div>
 </div>
-<script>
-member();
-if($('#btnOk_c') != null){
-	$('#btnOk_c').click(function(){
-		var email = $('#email_c').val();
-		var birth = $('#birth_c').val();
-		var pwd = 'naver';
-		var phone = $('#phone_c').val();
-		var nName = $('#nName_c').val();
-		$.post('member.lg', {'email_c':email, 'birth_c':birth, 'pwd_c':pwd, 'phone_c':phone, 'nName_c':nName},
-				function(data, status){
-			if(data == 'false'){ //회원정보 DB저장 실패
-				location.href = "./login.jsp";
-				return;
-			}else{
-				location.href="../index.jsp"; //로그인 성공
-			}
-		});
-	});
-}
-</script>
+<script>member(); btnFunc()</script>
 <script>
 </script>
 <script src='../js/bootstrap.bundle.min.js'></script>

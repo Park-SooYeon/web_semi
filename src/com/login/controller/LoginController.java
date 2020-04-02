@@ -80,7 +80,8 @@ public class LoginController extends HttpServlet{
 			vo = new LoginVo();
 			//비밀번호 암호화
 			encrypt = new PwEncrypt();
-			pwd = encrypt.encrypt(req.getParameter("pwd_c"));
+			String pwd_c = req.getParameter("pwd_c");
+			pwd = encrypt.encrypt(pwd_c);
 			try {
 				vo.setEmail(req.getParameter("email_c"));
 				vo.setBirth(sdf.parse(req.getParameter("birth_c")));
@@ -92,10 +93,14 @@ public class LoginController extends HttpServlet{
 			if(flag) {
 				req.getSession().setAttribute("email", vo.getEmail());
 				req.getSession().setAttribute("nName", vo.getnName());
-				System.out.println("nName");
-				out.print(flag);
-				out.flush();
-				return;
+				if(pwd_c == "naver") { //네이버로 로그인이면
+					out.print(flag);
+					out.flush();
+					return;					
+				}else { //페이지 로그인이면
+					path = "../index.jsp";
+					break;
+				}
 			}else {
 				out.print(flag);
 				out.flush();
@@ -110,17 +115,15 @@ public class LoginController extends HttpServlet{
 			return;
 		case "/pwReset.lg" : //비밀번호 재설정
 			encrypt = new PwEncrypt();
-			pwd = encrypt.encrypt(req.getParameter("pwd_c"));
-			email = req.getParameter("email_c");
-			
-			dao.pwReset(email, pwd);
-			path = "../index.jsp";
-			break;
+			pwd = encrypt.encrypt(req.getParameter("pwd"));
+			email = req.getParameter("email");
+			flag = dao.pwReset(email, pwd);
+			out.print(flag);
+			out.flush();
+			return;
 		case "/naver.lg" : //네이버 로그인 DB확인(회원정보가 있는지)
 			email_c = req.getParameter("email");
 			nName_c = req.getParameter("nName");
-			System.out.println(email_c);
-			System.out.println(nName_c);
 			email = dao.emailCheck(email_c);
 			if(email != null) {
 				req.getSession().setAttribute("email", email_c);
