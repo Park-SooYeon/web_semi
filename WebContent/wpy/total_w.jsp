@@ -181,6 +181,15 @@
  </c:forEach>
  <BR/>
  <script>
+ if($('#checkIn_w').val() == "" || $('#checkOut_w').val() == "") {
+		// 체크인 초기 날짜
+		let now = new Date();
+		$('#checkIn_w').val(now.format("MM.dd E")); 
+		// 체크아웃 초기 날짜
+		let next= new Date()
+		next.setDate(now.getDate() + 1);
+		$('#checkOut_w').val(next.format("MM.dd E"));
+ }
  // 로딩시 버튼 한번 클릭해서 예약현황 확인
  $(document).ready(function() {
 	$('#btnSearch_k').click();
