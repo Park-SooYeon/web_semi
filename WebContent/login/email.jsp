@@ -24,12 +24,13 @@
 				<label class='label_c'>이메일 주소</label>
 				<br/>
 				<input type='text' id='email_c' name='email_c' class='email_c' placeholder="이메일 주소" maxlength="25">
-				<button type="button" id='btnSend_c' class="btn btn-secondary disabled" disabled>인증번호 전송</button>
+				<button type="button" id='btnSend_c' class="btn btn-secondary disabled" style='width:130px;' disabled>인증번호 전송</button>
 				<div id='emailM_c' class='emailM_c'></div>
 				<div id='numView' style='display:none;'>
 					<label class='label_c'>인증번호</label><br/>
 					<input type='text' id='num_c' name='num_c' class='email_c' placeholder="인증번호" maxlength="15">
-					<button type="button" id='btnNum_c' class="btn btn-secondary disabled" style='width:125px;'>확인</button>
+					<button type="button" id='btnNum_c' class="btn btn-secondary disabled" style='width:130px;'>확인</button>
+					<div id='timer_c' class='timer'></div>
 				</div>
 			</form>
 			<div align='center'>

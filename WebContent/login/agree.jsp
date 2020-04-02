@@ -15,7 +15,7 @@
 <div class='container'>
 	<div class='row justify-content-md-center'>
 		<div class='col-4'>
-			<h4 class='h4_c' align='center'>여기어때 약관 동의</h4>
+			<h4 class='h4_c' align='center'>약관 동의</h4>
 			<div class='agree_ck_c'>
 				<label style='text-decoration:none;'>
 					<input type="checkbox" name='agreeAll'/> 전체 동의
@@ -23,12 +23,12 @@
 				<br/>
 				<label>
 					<input type="checkbox" name='agreeOne' />
-					<a href='#'> 이용약관 동의</a><span> (필수)</span>
+					<a href='http://localhost:8888/web_semi/index.jsp?middle=./plus_menu/pervjsp.jsp' target='_blank'> 이용약관 동의</a><span> (필수)</span>
 				</label>
 				<br/>
 				<label>
 					<input type="checkbox" name='agreeOne' />
-					<a href='#' > 개인정보 수집 및 이용 동의</a><span> (필수)</span>
+					<a href='http://localhost:8888/web_semi/index.jsp?middle=./plus_menu/pv_sele.jsp' target='_blank'> 개인정보 수집 및 이용 동의</a><span> (필수)</span>
 				</label>
 				<br/>
 					<label style='text-decoration:none;'>

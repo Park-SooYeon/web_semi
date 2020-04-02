@@ -16,7 +16,7 @@ function btnFunc(){
 
 		});
 	}*/
-	
+	//로그인
 	if('#btnLogin_c' != null){
 		$('#btnLogin_c').on('click', function(){
 			var email = $('#L_email_c').val();
@@ -47,16 +47,58 @@ function btnFunc(){
 		});
 	}
 	
+	//네이버로 로그인
+	if($('#btnOk_c') != null){
+		$('#btnOk_c').click(function(){
+			var email = $('#email_c').val();
+			var birth = $('#birth_c').val();
+			var pwd = 'naver';
+			var phone = $('#phone_c').val();
+			var nName = $('#nName_c').val();
+			if($('#birth_c').val() == "" && $('#phone_c').val() == ""){//생년월일 핸드폰번호가 null
+				$('#birth_c').css('border', '1px solid #ff0055');
+				$('#birthM_c').text('생년월일을 선택해주세요.');
+				$('#phone_c').css('border', '1px solid #ff0055');
+				$('#phoneM_c').text('핸드폰번호를 입력해주세요.');
+				$('#birth_c').focus();
+			}else if($('#birth_c').val() == ""){ //생년월일이 null
+				$('#birth_c').css('border', '1px solid #ff0055');
+				$('#birthM_c').text('생년월일을 선택해주세요.');
+				$('#birth_c').focus();
+			}else if($('#phone_c').val() == ""){ //핸드폰번호가  null
+				$('#phone_c').css('border', '1px solid #ff0055');
+				$('#phoneM_c').text('핸드폰번호를 입력해주세요.');
+				$('#phone_c').focus();
+			}else if($('#birthM_c').text()=="" && $('#phoneM_c').text()==""){ //정보가 모두 정상적으로 입력되었을 때
+				console.log(1);
+				$.post('member.lg', {'email_c':email, 'birth_c':birth, 'pwd_c':pwd, 'phone_c':phone, 'nName_c':nName},
+						function(data, status){
+					console.log(2);
+					if(data == 'false'){ //회원정보 DB저장 실패
+						location.href = "./login.jsp";
+						return;
+					}else{
+						location.href="../index.jsp"; //로그인 성공
+					}
+				});
+			}
+		});
+	}
+	
 	if('#btnNextE_c' != null){
 		$('#btnNextE_c').click(function(){
 			location.href="./email.jsp";
 		});
 	}
+	
 	 // 이메일 인증 
 	if('#btnSend_c' != null){
 		$('#btnSend_c').click(function(){
+			time(); //타이머 실행
+			$('#btnSend_c').text('재전송');
+			$('#btnSend_c').attr('disabled', true);
 			$('.error').text('인증번호가 전송되었습니다.');
-			$('.error').fadeIn(400).delay(1000).fadeOut(400);
+			$('.error').fadeIn(400).delay(1500).fadeOut(400);
 			$('#numView').css('display','block');
 			var email = $('#email_c').val();
 			$.post("emailS.lg", {'email':email}, 
@@ -64,14 +106,14 @@ function btnFunc(){
 						$('#btnNum_c').click(function(){
 							var num = $('#num_c').val();
 							if(data == num){
-								$('#btnNextM_c').removeAttr('disabled');
 								$('.error').text('인증되었습니다.');
-								$('.error').fadeIn(400).delay(1000).fadeOut(400);
+								$('.error').fadeIn(400).delay(1500).fadeOut(400);
+								$('#btnNextM_c').removeAttr('disabled');
 							}else{
 								$('.error').text('인증번호가 맞지 않습니다.');
-								$('.error').fadeIn(400).delay(1000).fadeOut(400);
+								$('.error').fadeIn(400).delay(1500).fadeOut(400);
 							}
-						});
+						});						
 			});
 		});
 	}
@@ -125,7 +167,7 @@ function btnFunc(){
 				$('#nName').focus();
 			}else if($('#birthM_c').text()=="" && $('#pwdM_c').text()=="" && $('#pwdM_ck_c').text()=="" && $('#phoneM_c').text()=="" && $('#nNameM_c').text()==""){ 
 				//값이 모두 정상적으로 입력되었을 때
-				$('#frm_c').attr('action','member.lg').submit();								
+				$('#frm_c').attr('action','member.lg').submit();
 			}
 		});
 	}
@@ -139,7 +181,8 @@ function btnFunc(){
 				function(data, status){
 					if(data){
 						$('.error').text('메일이 전송되었습니다.');
-						$('.error').fadeIn(400).delay(1000).fadeOut(400);	
+						$('.error').fadeIn(0).delay(1000).fadeOut(800);
+						setTimeout(location.href = "../index.jsp", 30000);
 					}else{
 						$('.error').text('메일 전송을 다시 시도해주세요.');
 						$('.error').fadeIn(400).delay(1000).fadeOut(400);	
@@ -166,7 +209,17 @@ function btnFunc(){
 				$('#pwd_ck_c').css('border', '1px solid #ff0055');
 				$('#pwdM_ck_c').text('비밀번호를 한번 더 입력해주세요.');
 			}else if($('#pwdM_c').text()=="" && $('#pwdM_ck_c').text()==""){
-				$('#frm_c').attr('action','pwReset.lg').submit();			
+				var email = $('#email_c').val();
+				var pwd = $('#pwd_c').val();
+				$.post("pwReset.lg", {'email':email, 'pwd':pwd},
+					function(data, status){
+							if(data == 'true'){
+								var yn = confirm("비밀번호를 변경하시겠습니까?");
+								if(yn){ //확인
+									window.close();									
+								}
+							}
+						});
 			}
 		});
 	}
@@ -278,6 +331,29 @@ function emailCk(){
 				});
 	});
 };
+
+/* 인증번호 인증 타이머 */
+function time(){
+	var num = 60 * 3; // 몇분을 설정할지의 대한 변수 선언
+    var myVal = setInterval(timeFunc, 1000);
+    
+    function timeFunc() {
+    	var min = num / 60; 
+    	min = Math.floor(min); //소수점이 생기면 버리기
+    	var sec = num - (60 * min);
+    	$('#timer_c').text(min + ' : ' + sec);
+    	
+    	if(num == 0){
+    		clearInterval(myVal); // num이 0이 되었을 때 clearInterval로 타이머 종료
+    		myVal = "";
+    		$('#timer_c').text("");
+    		$('#num_c').val("");
+    		$('#numView').css('display','none');
+    		$('#btnSend_c').attr('disabled', false);
+    	}
+    	num--;
+    }
+}
 
 /* 회원가입 */
 function member(){

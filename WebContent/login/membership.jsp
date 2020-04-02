@@ -17,14 +17,14 @@
 		<div class='col-4'>
 			<div class='title_c' align='center' style='margin:60px 0 20px 0;'>
 				<strong class='logo center' >
-					<a href="../index.jsp">여기어때</a>
+					<a href="../index.jsp"><img src="../image/logo_nlbo2.png"></a>
 				</strong>
 				<h4 class='h4_c' style='margin-top:30px;'>회원가입</h4>
 			</div>
 			<form id='frm_c' name='frm_c' method='post'>
 				<div class='mform_c'>
 					<label class='label_c'>이메일 아이디</label><br/>
-					<input type='text'  id='email_c' name='email_c' value='<%=request.getParameter("email_c") %>' readonly>
+					<input type='text'  id='email_c' name='email_c' value='<%=request.getParameter("email_c") %>' disabled>
 					<br/>
 					<label class='label_c'>생년월일</label><br/>
 					<input type='date' id="birth_c" name='birth_c' />
@@ -47,7 +47,9 @@
 					<br/>
 				</div>
 				<div class='mNotice_c' align='center'>
-					로그인 / 회원가입시<br/><a href='#'>이용약관,</a> <a href='#'>개인정보처리방침</a>에 동의하게 됩니다.
+					로그인 / 회원가입시<br/>
+					<a href='http://localhost:8888/web_semi/index.jsp?middle=./plus_menu/pervjsp.jsp' target='_blank'>이용약관,</a> 
+					<a href='http://localhost:8888/web_semi/index.jsp?middle=./plus_menu/pv_sele.jsp' target='_blank'>개인정보처리방침</a>에 동의하게 됩니다.
 				</div>
 				<div align='center'>
 					<button type="button" id='btnMember_c' class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>동의하고 회원가입</button>
