@@ -37,6 +37,9 @@ public class MpDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			if(set!=null) try { set.close();} catch (Exception e2) {e2.printStackTrace();}
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
+			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
 		}
 		return vo;
 	}
@@ -69,13 +72,16 @@ public class MpDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			if(set!=null) try { set.close();} catch (Exception e2) {e2.printStackTrace();}
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
+			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
 		}
 		return list;
 	}
 	
 	
 	public ResVo resView(String rCode) {
-		PreparedStatement pstmt;
+		PreparedStatement pstmt = null;
 		ResultSet set = null;
 		ResVo vo = null;
 		String query = "select * from reserve where rCode=?";
@@ -98,6 +104,9 @@ public class MpDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			if(set!=null) try { set.close();} catch (Exception e2) {e2.printStackTrace();}
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
+			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
 		}
 		return vo;
 	}
@@ -128,6 +137,9 @@ public class MpDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			if(set!=null) try { set.close();} catch (Exception e2) {e2.printStackTrace();}
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
+			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
 		}
 		return list;
 	}
@@ -145,6 +157,22 @@ public class MpDao {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
+			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
+		}
+	}
+	
+	public void mpSecession(String eMail) {
+		PreparedStatement pstmt = null;
+		String query = "delete from membership where email=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, eMail);
+			int rn = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
+			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
 		}
 	}
 }
