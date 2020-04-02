@@ -25,9 +25,10 @@
 	</div>
 	<div class="form-group">
 		<label class="col-form-label col-form-label-lg" for="inputLarge">이메일</label>
-		<input class="form-control form-control-lg" type="text" id="inputLarge" value="${vo.eMail}" readonly>
+		<input class="form-control form-control-lg" type="text" name="eMail" id="inputLarge" value="${vo.eMail}" readonly>
 	</div>
 	<button type="button" class="btn btn-primary btnmp" id="btnMu_s">내정보수정</button>
+	<button type="button" class="btn btn-primary btnmp" id="btnMp_sec_s">회원탈퇴</button>
 	<input type="hidden" name="eMail" value="${vo.eMail}"/>
 </form>
 <script>
