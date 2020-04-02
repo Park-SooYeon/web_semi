@@ -67,7 +67,7 @@ public class PwSendEmail {
         sb.append("<h1>비밀번호 재설정 안내 메일</h1><br/>\n");
         sb.append("<div style='color:#f45858;font-size:20px;font-weight:bold;'>안녕하세요</div><br/>\n");
         sb.append("<div style='font-size:18px;'>\n" + 
-        		"		(회사이름) 회원의 본인 확인을 위해 발송된 메일입니다.<br/>" + 
+        		"		야!여기어때 회원의 본인 확인을 위해 발송된 메일입니다.<br/>" + 
         		"		  비밀번호 재설정을 하시려면 아래의 버튼을 클릭해주세요.	\n" + 
         		"	</div>\n");
         sb.append("<div style='width:272px;background-color:#f45858;margin:25px 0 25px 0;padding:20px 0 20px 0;border-radius:10px;'>\n");
@@ -96,7 +96,7 @@ public class PwSendEmail {
         	MimeMessage msg = new MimeMessage(session);
         	msg.setFrom(new InternetAddress(email));
         	msg.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
-        	msg.setSubject("여기어때 비밀번호 재설정 메일입니다.", "utf-8"); //메일 제목
+        	msg.setSubject("야!여기어때 비밀번호 재설정 메일입니다.", "utf-8"); //메일 제목
         	msg.setContent(sb.toString(),"text/html; charset=utf-8");
         	Transport.send(msg);
         	flag = true;

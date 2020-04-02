@@ -63,7 +63,7 @@ public class MsendEmail{
         	MimeMessage msg = new MimeMessage(session);
         	msg.setFrom(new InternetAddress(email));
         	msg.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
-        	msg.setSubject("여기어때 회원가입 인증번호입니다.", "utf-8"); //메일 제목
+        	msg.setSubject("야!여기어때 회원가입 인증번호입니다.", "utf-8"); //메일 제목
         	msg.setText("인증번호 : " + num, "utf-8"); //메일 내용
         	//msg.setHeader("content-Type", "text/html"); 이메일 헤더
         	Transport.send(msg);

@@ -17,11 +17,9 @@
 	<div class='row justify-content-md-center'>
 		<div class='col-4' align='center'>
 			<div class='title_c'>
-				<strong class='logo center'>
-					<a href="../index.jsp">여기어때</a>
-				</strong>
+				<a href="../index.jsp"><img src="../image/logo_nlbo2.png"></a>
 			</div>
-			<button type='button' class='btn_kakao_c'>
+			<!-- <button type='button' class='btn_kakao_c'>
 				<span class='kakao_c'>
 					<i class='icon_kakao_c'></i>
 					카카오톡으로 로그인
@@ -32,10 +30,10 @@
 					<i class='icon_face_c'></i>
 					facebook으로 로그인
 				</span>
-			</button>
+			</button> -->
 			<div id="naverIdLogin">
     			<a id="naver-login-btn" href="#" role="button">
-        			<img src="https://static.nid.naver.com/oauth/big_g.PNG" width="80%" height="45"/> 
+        			<img src="https://static.nid.naver.com/oauth/big_g.PNG" width="330px" height="45"/> 
    				 </a>
 			</div>
             <p class="space_or">
