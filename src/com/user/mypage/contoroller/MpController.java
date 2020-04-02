@@ -8,9 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.user.mypage.command.LastPlaceView;
 import com.user.mypage.command.MpCommand;
+import com.user.mypage.command.MpSecession;
 import com.user.mypage.command.MpUpdate;
 import com.user.mypage.command.MpView;
 import com.user.mypage.command.ReserveList;
@@ -76,6 +78,12 @@ public class MpController extends HttpServlet {
 			command = new LastPlaceView();
 			command.execute(req, res);
 			viewPage = url+"lastPlace.jsp";
+		}else if(com.equals("/mpSecession.mp")) {
+			HttpSession session = req.getSession();
+			command = new MpSecession();
+			command.execute(req, res);
+			session.invalidate();
+			viewPage = "index.jsp";
 		}
 		RequestDispatcher dis = req.getRequestDispatcher(viewPage);
 		dis.forward(req, res);

@@ -8,6 +8,17 @@ let user = function(){
 		$('#frm').attr('action', 'resView.mp').submit();
 	}
 	
+	if($('#btnMp_sec_s')!=null){
+		$('#btnMp_sec_s').click(function(){
+			let result = confirm("삭제하시겠습니까?");
+			if(result){
+				$('#frm_up_s').attr('action', 'mpSecession.mp').submit();
+			}else{
+				return false;
+			}
+		})
+	}
+	
 	if($('#btnMu_s')!=null){
 		$('#btnMu_s').click(function(){
 			$('#frm_up_s').attr('action', 'mpUp.mp').submit();
@@ -38,6 +49,7 @@ let user = function(){
 			$('#frm_rvReply_s').attr('action', 'reviewReply.rv').submit();
 		})
 	 }
+	 
 	 
 	 
 	$('.starRev span').click(function(){
