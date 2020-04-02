@@ -222,7 +222,7 @@ public class KDGServlet extends HttpServlet {
 		rd.forward(req, resp);
 	}
 	public void roomView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		System.out.println("김도병바보 : " +req.getAttribute("rCode"));
+
 		Enumeration e = req.getParameterNames();
 		while ( e.hasMoreElements() ){
 			String name = (String) e.nextElement();
@@ -231,7 +231,7 @@ public class KDGServlet extends HttpServlet {
 				System.out.println("name=" + name + ",value=" + value);
 			}   
 		}
-		System.out.println("rCode :" + req.getParameter("rCode"));
+		
 		int rCode=Integer.parseInt(req.getParameter("rCode"));
 		String checkIn="";
 		String checkOut="";
