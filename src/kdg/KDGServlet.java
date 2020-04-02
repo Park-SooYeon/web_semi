@@ -60,8 +60,10 @@ public class KDGServlet extends HttpServlet {
 			break;
 		case "/fillter.ff":
 			fillter(req,resp);
+			break;
 		case "/insert.ff":
 			insert(req,resp);
+			break;
 		}
 	}
 	public void hotel(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{

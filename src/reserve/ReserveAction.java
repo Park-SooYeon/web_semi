@@ -95,7 +95,7 @@ public class ReserveAction {
 		// 데이터베이스에서 delete
 		flag = dao.delete(rNo, email);
 		if(flag) { // insert 성공!
-			msg = "정상 삭제되었습니다.";
+			msg = "정상 취소되었습니다.";
 		} else { // insert 실패!
 			msg = "취소 중 오류가 발생했습니다.\n고객센터에 문의해주세요.";
 		}
