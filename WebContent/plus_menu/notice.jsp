@@ -38,14 +38,14 @@ if(request.getParameter("sp") != null){
 }
 %>
 <div class="container-fluid" style="height : 162px; border: none;">
-	<h2 style="padding-top:80px; padding-left:250px; color:#fff; font-weight:bold;">더보기</h2>
-	<img src="./image/dunk.png" style=" width:160px; height: 230px; position: absolute; left:1100px; top:69px;">
+	<h2 style="padding-top:80px; padding-left:420px; color:#fff; font-weight:bold;">더보기</h2>
+	<img src="./image/dunk.png" style=" width:160px; height: 230px; position: absolute; left:1300px; top:69px;">
 </div>
 
 
 <div class="container" style='border: 1px solid #ffffff'>
   <div class="row">
-    <div class="col-3" style='border: 1px solid #ffffff; cursor : pointer;' >
+    <div class="col-3" style='padding-top:50px; cursor : pointer;' >
 	<ul>
 		<jsp:include page="<%=inc %>"/>
 	</ul>

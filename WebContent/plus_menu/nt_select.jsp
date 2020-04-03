@@ -14,7 +14,7 @@
 <body>
 
 <div class="accordion">
-	<div id="ch_m"><strong>서비스 공지사항</strong>
+	<div id="ch_m" style="padding-top: 50px;"><strong>서비스 공지사항</strong>
 <hr/>
 	<form method='post' name='frmm' id='frmm'>
 	
