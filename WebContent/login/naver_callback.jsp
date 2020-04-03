@@ -17,7 +17,7 @@
 </form>
 <script>
 	var naverLogin = new naver.LoginWithNaverId({
-						clientId: "{Fkf2eW7uHl8nfxnEmk0_}", /* YOUR_CLIENT_ID */
+						clientId: "{zhK7B0bjhXk0U10lDW0c}", /* YOUR_CLIENT_ID */
 						callbackUrl: "{http://192.168.0.27:8888/semiProject/login/naver_callback.jsp}", /* YOUR_REDIRECT_URL */
 						isPopup: false,
 						callbackHandle: true

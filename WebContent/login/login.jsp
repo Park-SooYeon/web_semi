@@ -62,7 +62,7 @@
 //네이버로 로그인 버튼
 var naverLogin = new naver.LoginWithNaverId(
 		{
-			clientId: "Fkf2eW7uHl8nfxnEmk0_",
+			clientId: "zhK7B0bjhXk0U10lDW0c",
 			callbackUrl: "http://192.168.0.27:8888/semiProject/login/naver_callback.jsp",
 			isPopup: false, /* 팝업을 통한 연동처리 여부 */
 			loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
