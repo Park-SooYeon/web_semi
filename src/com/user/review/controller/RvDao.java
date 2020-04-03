@@ -24,13 +24,14 @@ public class RvDao {
 		int cnt = 0;
 		int sum = 0;
 		double re = 0;
-		String query = "insert into review values(seq_review_rno.nextval,1, ?, ?, sysdate,(select nvl(max(rGroup)+1,1)from review),0,0,?,?)";
+		String query = "insert into review values(seq_review_rno.nextval,?, ?, ?, sysdate,(select nvl(max(rGroup)+1,1)from review),0,0,?,?)";
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, eMail);
-			pstmt.setString(2, rContent);
-			pstmt.setInt(3, star);
-			pstmt.setString(4, title);
+			pstmt.setInt(1, rCode);
+			pstmt.setString(2, eMail);
+			pstmt.setString(3, rContent);
+			pstmt.setInt(4, star);
+			pstmt.setString(5, title);
 			re = pstmt.executeUpdate();
 			
 			starCh(rCode);
@@ -175,7 +176,7 @@ public class RvDao {
 		PreparedStatement pstmt = null;
 		String query = "";
 		
-		try {
+		try { 
 			if(flag==0) {
 				query = "delete from review where rGroup=?";
 				pstmt = conn.prepareStatement(query);
@@ -244,7 +245,6 @@ public class RvDao {
 	}
 	
 	public int replyCnt(int rCode) {
-		System.out.println("gpgpgpgpgpgpgpgp");
 		int reply = 0;
 		PreparedStatement pstmt = null;
 		ResultSet set = null;
@@ -267,7 +267,6 @@ public class RvDao {
 	}
 	
 	public int rvCnt(int rCode) {
-		System.out.println("제바람ㄴ랑날ㄴㅇ");
 		int rvCnt = 0;
 		PreparedStatement pstmt = null;
 		ResultSet set = null;
