@@ -79,10 +79,10 @@ body, html {
 #topImg_f {
 	width: 170px;
 	height: 110px;
-	background-image: url("../image/top_f.JPG");
+	background-image: url("../image/top_f1.png");
 	position: relative;
 	left: 700px;
-	top: -158px;
+	top: -170px;
 }
 
 /*-----main > mid > left-----------------------------------------------------------------*/

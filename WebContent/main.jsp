@@ -33,18 +33,18 @@
 		</form>
 											
 		<h2 class="pt-5">공지사항 및 소식</h2>
-		<ul class="list-group list-group-horizontal pt-3">
-			<li class="list-group-item w-50 p-0 mr-3">
-				<img src="./image/banner1.jpg" alt="사진1" style="width:200px;height:200px">
-				<a class="pl-3">
-					<strong id="title0_k"></strong>
-				</a>
+		<ul class="list-group list-group-horizontal pt-3" id="nt_k">
+			<li class="list-group-item w-50 p-0 mr-3" onclick="gont_k()" >
+				<div>
+				<div style="width:200px;height:200px;float:left;"><img src="./image/banner1.jpg" class="mr-3" alt="사진1" style="width:200px;height:200px"></div>
+					<div style="padding-left:10px;padding-right:10px;padding-top:85px;width:375px;height:200px;float:left;"><strong id="title0_k" style="font-size:20px;"></strong></div>
+				</div>
 			</li>
-			<li class="list-group-item w-50 p-0">
-				<img src="./image/banner2.jpg" alt="사진2" style="width:200px;height:200px">
-				<a class="pl-3">
-					<strong id="title1_k"></strong>
-				</a>
+			<li class="list-group-item w-50 p-0" onclick="gont_k()">
+				<div>
+				<div  style="width:200px;height:200px;float:left;"><img src="./image/banner2.jpg" class="mr-3" alt="사진2" style="width:200px;height:200px"></div>
+					<div style="padding-left:10px;padding-right:10px;padding-top:75px;width:375px;height:200px;float:left;"><strong id="title1_k" style="font-size:20px;"></strong></div>
+				</div>
 			</li>
 		</ul>
 		
@@ -114,6 +114,9 @@
 	 					$('#title' + i + '_k').text(d.title);
 					}
 				});
+			let gont_k = function() {
+				location.href="nt_select.mm";
+			}
 		</script>
 		
 </div>

@@ -2,6 +2,7 @@ package search;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -61,7 +62,12 @@ public class SearchController extends HttpServlet{
 		}
 
 		System.out.println("data : " + data);
-
+		try {
+			dao.conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		out.print(data);
 		out.flush();
 	}

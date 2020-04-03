@@ -17,6 +17,9 @@
 #top_list_k li a:hover{
 	color:#fff;
 }
+#top_list_k li .dropdown-item:hover{
+	color:#f6323e;
+}
 #search_k{
 	border:none;
 	background-color:rgba(0,0,0,0);
@@ -81,7 +84,7 @@
 	border-radius: 0px 0px 10px 10px;
 }
 #btnMy_c{
-	background-color:#E10000;
+	background-color:#f6323e;
 	border:none;
 }
 #nName_c{
@@ -108,6 +111,10 @@
     background-color: grey;
     border-radius: 10px;
   }
+
+.nav-item .nav-link {
+	cursor:pointer;
+}
 </style>
 </head>
 <body>

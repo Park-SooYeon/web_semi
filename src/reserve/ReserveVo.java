@@ -46,6 +46,8 @@ public class ReserveVo {
 				diffDay = Math.ceil(diff / (double)(24*60*60*1000));		
 				System.out.println("diffDay : " + diffDay);
 				this.period = (int) diffDay;
+				// 지내는 기간에 따라 가격 변동
+				this.price *= this.period;
 			} catch (ParseException e) {
 				System.out.println("기간 계산 시 오류 발생");
 				e.printStackTrace();

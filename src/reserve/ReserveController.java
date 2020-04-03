@@ -63,6 +63,8 @@ public class ReserveController extends HttpServlet{
 		}
 		
 		req.setAttribute("vo", vo);
+		ra.connClose();
+		
 //		resp.sendRedirect("./index.jsp?middle=./user/u_subtitle.jsp&inc2=../reserve/reserve_modify.jsp");
 		RequestDispatcher dis = req.getRequestDispatcher(path + subPath);
 		dis.forward(req, resp);
@@ -99,6 +101,8 @@ public class ReserveController extends HttpServlet{
 			msg = ra.rsDelete(req, resp);
 			break;
 		}
+		
+		ra.connClose();
 		
 		// 데이터 반환
 		out.print(msg);

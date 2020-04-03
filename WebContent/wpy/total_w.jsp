@@ -376,7 +376,7 @@
 						<c:choose>
 						<c:when test="${indent eq 0}">
 						<div id='review_img_f'>
-							<img src='./image/reviewlogo.png'/>
+							<img src='./image/rv.png'/>
 						</div>
 						<div id='review_coment_f'>
 							<span>${list.title}</span>

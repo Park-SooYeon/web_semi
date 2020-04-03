@@ -46,7 +46,7 @@
 						   	 	if(data != email){ //DB에 아이디가 없을 경우 => 회원가입
 						   	 		$('#frm_c').attr('action','naver_add_info.jsp').submit(); //회원 정보 추가 기입 페이지
 								}else{ //DB에 아이디가 존재할 경우 => 로그인
-									window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/web_semi/index.jsp");
+									window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/semiProject/index.jsp");
 								return;
 								}
 					});
