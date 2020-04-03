@@ -364,7 +364,7 @@
 						<br/><span>별점 : ${vo2.stars}</span><br/><br/><br/>
 						<input type="hidden" value="${vo2.stars}" id="vo2stars_s"/>
 					</c:forEach>
-					<span>전체리뷰 <b>${rvCnt}</b> &nbsp;&nbsp;|&nbsp;&nbsp; 제휴점 답변 <b>343</b></span>
+					<span>전체리뷰 <b>${rvCnt}</b> &nbsp;&nbsp;|&nbsp;&nbsp; 제휴점 답변 <b>${reply}</b></span>
 				</div>
 				<hr/>
 				<c:set var="maEmail" value="${vo[0].ceo}"/>
@@ -420,7 +420,7 @@
 					</div>
 				</c:forEach>
 			<hr/>
-		    <input type="hidden" id="rCode" name="rCode" value="${rCode}">
+		    <input type="hidden" id="rCode" name="rCode" value="${rCode_a}">
 		    <input type="hidden" name="indent" id="indent_s"/>
 			<input type="hidden" name="rno" id="rno_s"/>
 			<input type="hidden" name="rGro" id="rGro_s"/>

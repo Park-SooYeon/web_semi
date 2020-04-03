@@ -12,6 +12,7 @@ public class RvVo {
 	int stars;
 	int cnt;
 	String title;
+	int reply;
 	
 	public RvVo() {};
 	public RvVo(int rNo, int rCode, String eMail, String rContent, String rDate, int rGroup, int rStep, int rIndent, int stars, String title) {
@@ -25,6 +26,7 @@ public class RvVo {
 		this.rIndent=rIndent;
 		this.stars=stars;
 	}
+	
 	
 	public int getrNo() {
 		return rNo;
@@ -91,6 +93,12 @@ public class RvVo {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public int getReply() {
+		return reply;
+	}
+	public void setReply(int reply) {
+		this.reply = reply;
 	}
 	
 	

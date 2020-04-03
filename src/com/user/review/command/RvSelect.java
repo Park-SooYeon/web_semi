@@ -15,10 +15,14 @@ public class RvSelect implements RvCommand{
 		int rCode = Integer.parseInt(req.getParameter("rCo"));
 		RvDao dao = new RvDao();
 		List<RvVo> list = dao.rvSelect(rCode);
-		int rvCnt = dao.rvCnt(rCode);
-		req.setAttribute("rCode", rCode);
+		System.out.println("제발되알아랑:"+rCode);
+		int reply = dao.replyCnt(rCode);
+		/*int rvCnt = dao.rvCnt(rCode);*/
+		
+		req.setAttribute("rCode_a", rCode);
 		req.setAttribute("list", list);
-		req.setAttribute("rvCnt", rvCnt);
+		/*req.setAttribute("rvCnt", rvCnt);*/
+		req.setAttribute("reply", reply);
 	}
 	
 }

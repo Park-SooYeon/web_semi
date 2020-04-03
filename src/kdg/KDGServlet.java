@@ -247,7 +247,7 @@ public class KDGServlet extends HttpServlet {
 		RoomsDao2 dao2 = new RoomsDao2();
 		List<RvVo> list = dao.rvSelect(rCode);
 		int rvCnt = dao.rvCnt(rCode);
-		
+		int reply = dao.replyCnt(rCode);
 		List<RoomsVo> vo = dao2.view(rCode);
 
 		req.setAttribute("list", list);
@@ -256,6 +256,7 @@ public class KDGServlet extends HttpServlet {
 		req.setAttribute("rCode", rCode);
 		req.setAttribute("checkIn", checkIn);
 		req.setAttribute("checkOut", checkOut);
+		req.setAttribute("reply", reply);
 		
 		String path = url + "/rooms_view.jsp";
 		RequestDispatcher rd = req.getRequestDispatcher(path);

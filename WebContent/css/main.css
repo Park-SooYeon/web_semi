@@ -1,5 +1,5 @@
 @charset "UTF-8";
-img { max-width: 100%; height: auto; }
+/* img { max-width: 100%; height: auto; } */
 .m_menu{overflow:hidden;padding:16px 0;background:rgb(250,250,250)}
 .m_menu ul{list-style:none;text-align:center;padding:0px;}
 .m_menu li{display:inline-block;width:20%}

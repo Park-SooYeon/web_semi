@@ -12,7 +12,7 @@
 
 <div class="container-fluid pl-0 pr-0">
 	<div class="jumbotron text-center pt-0 pb-0 bg-danger">
-		<img src="./image/main.png" style="height:454px;"/>
+		<img src="./image/main.png" style="height:440px; padding-top: 60px; overflow: hidden;"/>
 	</div>
 </div>
 <div class="container">
@@ -35,13 +35,13 @@
 		<h2 class="pt-5">공지사항 및 소식</h2>
 		<ul class="list-group list-group-horizontal pt-3">
 			<li class="list-group-item w-50 p-0 mr-3">
-				<img src="./image/banner1.png" alt="사진1" style="width:200px;height:200px">
+				<img src="./image/banner1.jpg" alt="사진1" style="width:200px;height:200px">
 				<a class="pl-3">
 					<strong id="title0_k"></strong>
 				</a>
 			</li>
 			<li class="list-group-item w-50 p-0">
-				<img src="./image/banner1.png" alt="사진2" style="width:200px;height:200px">
+				<img src="./image/banner2.jpg" alt="사진2" style="width:200px;height:200px">
 				<a class="pl-3">
 					<strong id="title1_k"></strong>
 				</a>

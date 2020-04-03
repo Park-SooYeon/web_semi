@@ -60,6 +60,7 @@ public class RvDao {
 	
 	public List<RvVo> rvSelect(int rCode) {
 		List<RvVo> list = new ArrayList<RvVo>();
+		int reply=0;
 		RvVo vo = null;
 		PreparedStatement pstmt = null;
 		ResultSet set = null;
@@ -90,7 +91,6 @@ public class RvDao {
 			e.printStackTrace();
 			if(set!=null) try { set.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
-			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
 		}
 		
 		return list;
@@ -243,7 +243,31 @@ public class RvDao {
 		
 	}
 	
+	public int replyCnt(int rCode) {
+		System.out.println("gpgpgpgpgpgpgpgp");
+		int reply = 0;
+		PreparedStatement pstmt = null;
+		ResultSet set = null;
+		String query = "select count(*) cnt from review where rcode=? and rindent=1";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, rCode);
+			set = pstmt.executeQuery();
+			
+			if(set.next()) {
+				reply = set.getInt("cnt");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			if(set!=null) try { set.close();} catch (Exception e2) {e2.printStackTrace();}
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
+			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
+		}
+		return reply;
+	}
+	
 	public int rvCnt(int rCode) {
+		System.out.println("제바람ㄴ랑날ㄴㅇ");
 		int rvCnt = 0;
 		PreparedStatement pstmt = null;
 		ResultSet set = null;
@@ -260,7 +284,6 @@ public class RvDao {
 			e.printStackTrace();
 			if(set!=null) try { set.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
-			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
 		}
 		return rvCnt;
 	}
