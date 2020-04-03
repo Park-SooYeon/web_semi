@@ -55,8 +55,9 @@ public class ReserveDao {
 		} catch (SQLException e) {
 			System.out.println("insert중 오류 발생");
 			e.printStackTrace();
+		} finally {
+			connClose();
 		}
-		System.out.println("Result : " + result);
 		return result;
 	}
 	// 디비에 데이터 삭제
@@ -79,8 +80,9 @@ public class ReserveDao {
 		} catch (SQLException e) {
 			System.out.println("delete 중 오류 발생");
 			e.printStackTrace();
+		} finally {
+			connClose();
 		}
-		
 		return result;
 	}
 	// 디비에서 선택한 숙소의 선택한 객실 정보 가져오기
@@ -110,6 +112,8 @@ public class ReserveDao {
 		} catch (SQLException e) {
 			System.out.println("숙소 정보 select 중 오류 발생");
 			e.printStackTrace();
+		} finally {
+			connClose();
 		}
 		return vo;
 	}
@@ -143,8 +147,9 @@ public class ReserveDao {
 		} catch (SQLException e) {
 			System.out.println("예약 정보 select 중 오류 발생");
 			e.printStackTrace();
+		} finally {
+			connClose();
 		}
-		
 		return vo;
 	}
 	
@@ -163,7 +168,10 @@ public class ReserveDao {
 		} catch (SQLException e) {
 			System.out.println("휴대폰 번호 가져오는 중 오류 발생");
 			e.printStackTrace();
+		} finally {
+			connClose();
 		}
+		
 		return phone;
 	}
 }

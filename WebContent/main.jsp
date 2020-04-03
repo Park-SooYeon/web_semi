@@ -107,15 +107,13 @@
 				$('#frm_f').attr('action','guesthouse.ff').submit();
 			}
 			
-			// 로딩되면 게시판 가져오기
-			$(document).ready(function() {
+			// 게시판 가져오기
 				$.getJSON('ntSearch.se', {}, function(json) {
 					for(i=0; i<json.length; i++) {
 						let d = json[i];
 	 					$('#title' + i + '_k').text(d.title);
 					}
 				});
-			}); 
 		</script>
 		
 </div>

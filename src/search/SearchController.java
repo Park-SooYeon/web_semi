@@ -61,7 +61,7 @@ public class SearchController extends HttpServlet{
 		}
 
 		System.out.println("data : " + data);
-		dao.connClose();
+
 		out.print(data);
 		out.flush();
 	}

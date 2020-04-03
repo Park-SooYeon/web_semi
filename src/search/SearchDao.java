@@ -59,8 +59,9 @@ public class SearchDao {
 		} catch (SQLException e) {
 			System.out.println("findStr 검색 중 오류 발생!");
 			e.printStackTrace();
+		} finally {
+			connClose();
 		}
-	
 		return data;
 	}
 
@@ -101,8 +102,9 @@ public class SearchDao {
 		} catch (SQLException e) {
 			System.out.println("예약 현황 select 중 오류 발생!");
 			e.printStackTrace();
+		} finally {
+			connClose();
 		}
-		
 		return data;
 	}
 	
@@ -132,8 +134,9 @@ public class SearchDao {
 		} catch (SQLException e) {
 			System.out.println("공지사항 select 중 오류 발생!");
 			e.printStackTrace();
+		} finally {
+			connClose();
 		}
-		
 		return data;
 	}
 }

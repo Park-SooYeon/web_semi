@@ -74,7 +74,6 @@ public class ReserveAction {
 		} else { // insert 실패!
 			msg = "예약 중 오류가 발생했습니다.\n고객센터에 문의해주세요.";
 		}
-		dao.connClose();
 		return msg;
 	}
 	// 예약 삭제
@@ -100,7 +99,6 @@ public class ReserveAction {
 		} else { // insert 실패!
 			msg = "취소 중 오류가 발생했습니다.\n고객센터에 문의해주세요.";
 		}
-		dao.connClose();
 		return msg;
 	}
 	// 예약 내역 상세보기
@@ -114,7 +112,6 @@ public class ReserveAction {
 		// DB에서 select
 		vo = dao.view(rNo);
 		
-		dao.connClose();
 		return vo;
 	}
 	// 숙소 및 객실 내역 보기
@@ -140,7 +137,6 @@ public class ReserveAction {
 		vo.setPhone(phone); // 폰 번호 저장
 		vo.diffDay(); // 기간 계산
 		
-		dao.connClose();
 		return vo;
 	}
 }
