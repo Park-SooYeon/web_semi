@@ -45,7 +45,7 @@
 				<input type='password' id='L_pwd_c' name='L_pwd_c' class='pwd_c' placeholder="비밀번호" style='width:330px;'/>
 				<div id='L_pwdM_c' class='L_pwdM_c'></div>
 			</form>
-            <button id='btnLogin_c' type="button" class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>로그인</button>
+            <button id='btnLogin_c' type="submit" class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>로그인</button>
             <div class='pw_email_c'>
             	<a href="./pw_email.jsp" >비밀번호 재설정</a>
             </div>

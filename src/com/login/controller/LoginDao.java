@@ -36,6 +36,14 @@ public class LoginDao {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
+			try {
+				rs.close();
+				ps.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
 			return vo;			
 		}
 	}
@@ -54,6 +62,13 @@ public class LoginDao {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
+			try {
+				rs.close();
+				ps.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			return email;
 		}
 	}
@@ -72,6 +87,13 @@ public class LoginDao {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
+			try {
+				rs.close();
+				ps.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			return nName;			
 		}
 	}
@@ -98,6 +120,12 @@ public class LoginDao {
 			e.printStackTrace();
 			conn.rollback();
 		}finally {
+			try {
+				ps.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			return flag;
 		}
 	}
@@ -121,26 +149,14 @@ public class LoginDao {
 			e.printStackTrace();
 			conn.rollback();
 		}finally {
+			try {
+				ps.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			return flag;			
 		}
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
