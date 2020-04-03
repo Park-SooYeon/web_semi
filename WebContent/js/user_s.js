@@ -96,7 +96,7 @@ let btnSelect = function(rCode){
 }*/
 
 let rvDelete = function(rNo, rIndent, rGroup){
-	let result = confirm("삭제하시겠습니까?");
+	let result = confirm("탈퇴하시겠습니까?");
 	if(result){
 		let no = rNo.value;
 		let rin = rIndent.value;
@@ -124,6 +124,7 @@ let btnRvMo = function(rNo){
  
 let btnReview = function(rCode){
 	let code = rCode.value;
+	alert(code);
 	$('#rCo_s').val(code);
 	$('#frm_rvv_s').attr('action', 'review.rv').submit();
 }

@@ -63,7 +63,7 @@ public class ReviewController extends HttpServlet {
 		System.out.println(com);
 		if(com.equals("/review.rv")) {
 			String eMail = req.getParameter("eMail");
-			int rCode = 1;
+			int rCode = Integer.parseInt(req.getParameter("rCo"));
 			viewPage = url + "../review/rvInsert.jsp?eMail="+eMail+"&rCode="+rCode;
 		}else if(com.equals("/reviewInsert.rv")) {
 			command = new RvInsert();
