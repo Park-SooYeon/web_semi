@@ -19,6 +19,16 @@ public class SearchDao {
 		conn = DBConn.getConn();
 	}
 	
+	void connClose() {
+		try {
+			ps.close();
+			rs.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	protected String search(String findStr) {
 		String data = null;
 		System.out.println(findStr);
@@ -90,6 +100,37 @@ public class SearchDao {
 			data += "]";
 		} catch (SQLException e) {
 			System.out.println("예약 현황 select 중 오류 발생!");
+			e.printStackTrace();
+		}
+		
+		return data;
+	}
+	
+	protected String ntSearch() {
+		String data = null;
+		
+		try {
+			sql = "select title from notice "
+				+ " where rownum <= 2 "
+				+ " order by nno desc";
+			ps = conn.prepareStatement(sql);
+			
+			rs = ps.executeQuery();
+			StringBuilder sb = new StringBuilder();
+			sb.append("[");
+			while(rs.next()) {
+				String str = String.format("{'title':'%s'},", rs.getString("title"));
+				sb.append(str);
+			}
+			
+			data = sb.toString();
+			data = data.replaceAll("\'", "\"");
+			if(data.length()>1) { // 데이터가 있을 경우에만 실행
+				data = data.substring(0, data.length()-1); // 마지막 콤마 제거	
+			}
+			data += "]";
+		} catch (SQLException e) {
+			System.out.println("공지사항 select 중 오류 발생!");
 			e.printStackTrace();
 		}
 		

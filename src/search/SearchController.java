@@ -48,8 +48,20 @@ public class SearchController extends HttpServlet{
 		if(tempUrl.equals("/rsSearch.se")) {
 			data = dao.rsSearch(rCode, checkIn, checkOut);
 		}
+		switch(tempUrl) {
+		case "/search.se":
+			data = dao.search(findStr);
+			break;
+		case "/rsSearch.se":
+			data = dao.rsSearch(rCode, checkIn, checkOut);
+			break;
+		case "/ntSearch.se":
+			data = dao.ntSearch();
+			break;
+		}
 
 		System.out.println("data : " + data);
+		dao.connClose();
 		out.print(data);
 		out.flush();
 	}

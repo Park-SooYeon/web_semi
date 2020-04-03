@@ -37,15 +37,13 @@
 			<li class="list-group-item w-50 p-0 mr-3">
 				<img src="./image/banner1.png" alt="사진1" style="width:200px;height:200px">
 				<a class="pl-3">
-					<strong>title</strong>
-					공지 content1
+					<strong id="title0_k"></strong>
 				</a>
 			</li>
 			<li class="list-group-item w-50 p-0">
 				<img src="./image/banner1.png" alt="사진2" style="width:200px;height:200px">
 				<a class="pl-3">
-					<strong>title</strong>
-					공지 content2
+					<strong id="title1_k"></strong>
 				</a>
 			</li>
 		</ul>
@@ -108,6 +106,16 @@
 				$('#aType').val('4');
 				$('#frm_f').attr('action','guesthouse.ff').submit();
 			}
+			
+			// 로딩되면 게시판 가져오기
+			$(document).ready(function() {
+				$.getJSON('ntSearch.se', {}, function(json) {
+					for(i=0; i<json.length; i++) {
+						let d = json[i];
+	 					$('#title' + i + '_k').text(d.title);
+					}
+				});
+			}); 
 		</script>
 		
 </div>
