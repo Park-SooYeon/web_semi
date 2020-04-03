@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>u_subtitle</title>
+<link rel='stylesheet' type='text/css' href='./css/user_s.css'/>
 <!-- <script src="./js/jquery3.4.1.js"></script> -->
 <!-- <script src="./js/user_s.js"></script> -->
 </head>
@@ -17,9 +18,21 @@
 	}
 %>
 
-<div class="container-fluid pl-0 pr-0">
-	<div class="jumbotron text-center pt-0 pb-0 bg-danger">
-		<img src="./image/user_main_s.PNG" class="img-fluid"/>
+<!-- <div id ='top_f'>위에
+	<div id='top_in_f'>
+		<h1>호텔</h1>
+		<div>
+			<img src="./image/reviewlogo.png">
+		</div>
+	</div>
+</div> -->
+<div id ='top_f'><!-- 위에 -->
+	<div id='top_in_f'>
+		<h1>더보기</h1>
+		<div id='goo_select_f'>
+		</div>
+		<div id='topImg_f'>
+		</div>
 	</div>
 </div>
 <div class="container" style="padding-top: 30px">
