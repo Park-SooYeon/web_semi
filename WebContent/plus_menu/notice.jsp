@@ -9,6 +9,18 @@
 <title>Insert title here</title>
 <link rel='stylesheet' type='text/css' href='./css/bootstrap.min.css'/>
 <link rel='stylesheet' type='text/css' href='./css/accordion.css'/>
+<style>
+	.content .container-fluid{
+		padding-left: 0px;
+		padding-right: 0px;
+		width: 100%;
+		background-color: #f6323e;
+		height: 160px;
+	}
+	.content .container-fluid img{
+		margin-top:3px;
+	}
+</style>
 </head>
 <body>
 <div class="container-fluid" style="height : 162px;">

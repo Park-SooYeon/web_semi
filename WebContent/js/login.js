@@ -1,7 +1,6 @@
 /**
  * login.js
  */
-
 function btnFunc(){
 	/* 카카오
 	  if($('#btn_kakao_c') != null){
@@ -16,6 +15,20 @@ function btnFunc(){
 
 		});
 	}*/
+	
+	
+	//엔터키 로그인
+	$('#L_emailM_c').keypress(function(event){
+	     if ( event.which == 13 ) {
+	         $('#btnLogin_c').click();
+	     }
+	});
+	$('#L_pwdM_c').keypress(function(event){
+	     if ( event.which == 13 ) {
+	         $('#btnLogin_c').click();
+	     }
+	});
+	
 	//로그인
 	if('#btnLogin_c' != null){
 		$('#btnLogin_c').on('click', function(){

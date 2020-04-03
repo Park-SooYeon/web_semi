@@ -74,7 +74,7 @@ public class MemberServlet_m extends HttpServlet{
 	
 	public void modify(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		String path = "index.jsp?middle=./plus_menu/nt_modify.jsp";
-		int nnom = Integer.parseInt(req.getParameter("nnom"));
+		int nnom = Integer.parseInt(req.getParameter("nno"));
 		MemberDao_m dao = new MemberDao_m();
 		MemberVo_m vo = dao.moidsele(nnom);
 		req.setAttribute("vo", vo);
@@ -110,7 +110,6 @@ public class MemberServlet_m extends HttpServlet{
 		
 	public void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		String path ="index.jsp?middle=./plus_menu/nt_delete.jsp";
-		System.out.println(11111);
 		MemberDao_m dao = new MemberDao_m();
 		int nno = Integer.parseInt(req.getParameter("nnom"));
 		String msg = dao.delete(nno);
