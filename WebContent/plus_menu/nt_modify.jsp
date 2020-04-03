@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src = ./js/notice.js></script>
 <link rel='stylesheet' type='text/css' href='./css/accordion.css'/>
 </head>
 <body>

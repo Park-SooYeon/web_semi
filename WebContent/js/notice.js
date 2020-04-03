@@ -14,11 +14,6 @@ let btnFuncm = function() {
 		})
 	}
 
-	if ($('.modifymemo') != null) {
-		$('.modifymemo').click(function(modifytitle, modifymemo) {
-			$('#frmm').attr('action', 'nt_modify.mm').submit();
-		})
-	}
 
 	if ($('#btnUpdatem') != null) {
 		$('#btnUpdatem').click(function() {
@@ -45,4 +40,10 @@ let goPage= function(nowPage){
 
 let ntm= function(){
 	$('#frm').attr('action', 'nt_select.mm').submit();
+}
+
+let btnmodify_m = function(nnom){
+	let nno = nnom.value;
+	$('#nno').val(nno);
+	$('#frmm').attr('action', 'nt_modify.mm').submit();
 }

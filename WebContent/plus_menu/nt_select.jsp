@@ -18,15 +18,31 @@
 <hr/>
 	<form method='post' name='frmm' id='frmm'>
 	
-	<c:forEach var="vo" items ="${list }">
+	<c:forEach var="vo" items ="${list }" varStatus="status">
 		<input type="checkbox" id="answer${vo.nno }">
-		<label for="answer${vo.nno }" name="modifytitle">${vo.title }<br/><span>${vo.rDate }<input type="hidden" name="nnom" value='${vo.nno}'/></span></label>
+		<label for="answer${vo.nno }" name="modifytitle">${vo.title }<br/><span>${vo.rDate }<input type="hidden" name="nnom${status.index}" value='${vo.nno}'/></span></label>
 
-		<div><input type="button" id="btnModifym" class="modifymemo" name="modifymemo" value="수정"/><p><pre>${vo.memo}</pre></p>
+		<div>
+		<c:set var="master" value="${sessionScope.email}"/>
+		<!-- 비교할 값을 변수에 담아둠  -->
+		<c:set var="master2" value="web@naver.com" />
+		<!-- 마스터계정인지 확인하여 마스터계정일시 버튼을 보여줌 -->
+		<c:if test="${master eq master2}">
+		<input type="button" id="btnModifym" class="modifymemo" name="modifymemo" value="수정" onclick="btnmodify_m(nnom${status.index})"/>
+		</c:if>
+		<p><pre>${vo.memo}</pre></p>
 	</div>
 	
 	</c:forEach>
+	<input type="hidden" name="nno" id="nno" />
+	<!-- 로그인할때 세션영역에 이메일지정한것을 가져옴  -->	
+	<c:set var="master" value="${sessionScope.email}"/>
+	<!-- 비교할 값을 변수에 담아둠  -->
+	<c:set var="master2" value="web@naver.com" />
+	<!-- 마스터계정인지 확인하여 마스터계정일시 버튼을 보여줌 -->
+	<c:if test="${master eq master2}">
 	<input type="button"  id="btnInsertm" value="등록"/>
+	</c:if>
 	<input type='hidden' name='nowPage' id='nowPage' value='${empty param.nowPage? 1 : param.nowPage }'/>
 	</form>
 	<div class="col-12 text-center" id='paging'>
