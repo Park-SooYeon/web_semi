@@ -124,7 +124,6 @@ let btnRvMo = function(rNo){
  
 let btnReview = function(rCode){
 	let code = rCode.value;
-	alert(code);
 	$('#rCo_s').val(code);
 	$('#frm_rvv_s').attr('action', 'review.rv').submit();
 }

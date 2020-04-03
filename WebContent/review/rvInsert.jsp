@@ -32,7 +32,7 @@
 	<textarea class="form-control" id="exampleTextarea" rows="5" name="content"></textarea>
 </div>
 <input type="hidden" name="eMail" value="${param.eMail}"/>
-<input type="text" name="rCode" value="${param.rCode}"/>
+<input type="hidden" name="rCode" value="${param.rCode}"/>
 <button type="button" id="btnRee_s" class="btn btn-primary btn-lg">리뷰작성</button>
 </form>
 <script>
