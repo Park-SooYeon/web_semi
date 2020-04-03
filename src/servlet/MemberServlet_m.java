@@ -114,7 +114,6 @@ public class MemberServlet_m extends HttpServlet{
 		int nno = Integer.parseInt(req.getParameter("nnom"));
 		String msg = dao.delete(nno);
 		req.setAttribute("msg", msg);
-		System.out.println(msg);
 		RequestDispatcher rd = req.getRequestDispatcher(path);
 		rd.forward(req, resp);
 	}

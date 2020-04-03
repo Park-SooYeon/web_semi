@@ -31,7 +31,6 @@
 		</table> 
 			<input type="button" id="btnSelectm"  value="목록"/>
 			<input type="button" id="btnUpdatem"  value="저장 "/>
-			<input type="button" id="btnModifym"  value="수정"/>
 		</form>
 	</div> 
 </div>

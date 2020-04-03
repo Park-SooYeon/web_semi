@@ -158,9 +158,11 @@ public class MemberDao_m {
 			e.printStackTrace();
 		}finally {
 			return vo;
-		}
-				
+		}	
 	}
+	
+	
+	
 }
 
 
