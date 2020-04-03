@@ -18,7 +18,7 @@
 <script>
 	var naverLogin = new naver.LoginWithNaverId({
 						clientId: "{Fkf2eW7uHl8nfxnEmk0_}", /* YOUR_CLIENT_ID */
-						callbackUrl: "{http://localhost:8888/web_semi/login/naver_callback.jsp}", /* YOUR_REDIRECT_URL */
+						callbackUrl: "{http://192.168.0.27:8888/semiProject/login/naver_callback.jsp}", /* YOUR_REDIRECT_URL */
 						isPopup: false,
 						callbackHandle: true
 					/* callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback처리를 해줄수 있도록 설정합니다. */
