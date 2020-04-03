@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="accordion" >
-	<div id="ch_m">
+	<div id="ch_m" style="border: 0px;">
 	<a id='pe_m' href='index.jsp?middle=./plus_menu/notice.jsp?sp=pv_select.jsp'>이용약관</a>
 	<a href='index.jsp?middle=./plus_menu/notice.jsp?sp=personal_m.jsp'>개인정보 처리방침</a>
 <hr/>
