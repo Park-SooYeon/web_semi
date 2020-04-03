@@ -114,7 +114,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-danger fixed-top justify-content-center">
 	<div class="container p-0">
 				 
-				<a class="navbar-brand ml-2" href="index.jsp?middle=main.jsp">logo</a>
+				<a class="navbar-brand ml-2" href="index.jsp?middle=main.jsp">
+					<img src="./image/logo_white.png">
+				</a>
 					
 					<form class="form-inline ml-auto mr-2" id="frm" name="frm"> 
 						<button class="btn btn-primary my-2 my-sm-0" id="search_k" type="button">
