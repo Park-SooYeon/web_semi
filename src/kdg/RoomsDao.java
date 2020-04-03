@@ -44,6 +44,9 @@ public class RoomsDao {
 			p_f.setTotListSize(totList);
 			p_f.pageCompute();
 			
+			ps.close();
+			rs.close();
+			
 			
 			sql	=" select * from ( "
 				+" 	select rownum rn , A.* from ("
@@ -70,6 +73,9 @@ public class RoomsDao {
 				vo.setPrice(rs.getInt("price"));
 				list.add(vo);
 			}
+			
+			ps.close();
+			rs.close();
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -119,6 +125,10 @@ public class RoomsDao {
 			if(rs.next()) {
 				totList = rs.getInt("cnt");
 			}
+			
+			ps.close();
+			rs.close();
+			
 			p_f.setTotListSize(totList);
 			p_f.pageCompute();
 			
@@ -181,7 +191,8 @@ public class RoomsDao {
 				vo.setPrice(rs.getInt("price"));
 				list.add(vo);
 			}
-			
+			ps.close();
+			rs.close();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -387,6 +398,8 @@ public class RoomsDao {
 							vo.setPrice(rs.getInt("price"));
 							list.add(vo);
 						}
+						ps.close();
+						rs.close();
 				}else if(p.length==3) {
 					ps = conn.prepareStatement(sql);
 					ps.setInt(1,svo.getaType());
@@ -431,6 +444,8 @@ public class RoomsDao {
 							vo.setPrice(rs.getInt("price"));
 							list.add(vo);
 						}
+						ps.close();
+						rs.close();
 				}
 			}else {//지역 선택 안됬니?
 				//페이징 sql 열기---------------------------------
@@ -471,6 +486,8 @@ public class RoomsDao {
 					vo.setPrice(rs.getInt("price"));
 					list.add(vo);
 				}
+				ps.close();
+				rs.close();
 			}
 		}catch(Exception e) {
 			
@@ -541,6 +558,8 @@ public class RoomsDao {
 				rCode = Integer.toString(rs.getInt("rCode"));
 				map.put("rCode", rCode);
 			}
+			ps.close();
+			rs.close();
 		}catch(Exception e) {
 			conn.rollback();
 			msg = e.toString();
