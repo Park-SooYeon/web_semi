@@ -22,7 +22,9 @@ public class SearchDao {
 	void connClose() {
 		try {
 			ps.close();
-			rs.close();
+			if(rs != null) {
+				rs.close();				
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
