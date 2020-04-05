@@ -40,7 +40,7 @@
 				<h3 class="mb-3">결제수단 선택</h3>
       			<select class="form-control w-25" id="paySelect_k" name="paySelect_k">
        	 			<option value='1'>신용/체크카드</option>
-        			<option value='2'>페이</option>
+        			<option value='2'>카카오페이</option>
       			</select>
 			</section>
 			<input type='hidden' name='rCode' id='rCode' value='${vo.rCode }'/>

@@ -9,10 +9,11 @@ var href_k = ""; // 팝업창으로 띄울 페이지의 url경로
 //-------------------------------------------------------------------
 //결제 API에 쓰이는 함수 및 변수들
 //-------------------------------------------------------------------
-let pay_iamport = function(email) {
+let pay_iamport = function() {
 	var IMP = window.IMP;
 	IMP.init('imp07869343');
-
+	
+	let userID = rsForm_k.email.value;
 	let rName = rsForm_k.roomName.value; // 방이름
 	let price = rsForm_k.price.value; // 가격
 	let uName = rsForm_k.reserve_name_k.value; // 예약자 이름
@@ -23,8 +24,8 @@ let pay_iamport = function(email) {
 	    pay_method : 'card',
 	    merchant_uid : 'merchant_' + new Date().getTime(),
 	    name : rName,
-	    amount : 1000,//price,
-	    buyer_email : email,
+	    amount : price,
+	    buyer_email : userID,
 	    buyer_name : uName,
 	    buyer_tel : uPhone
 	}, function(rsp) {
@@ -37,6 +38,33 @@ let pay_iamport = function(email) {
 	});
 }
 
+let pay_kakao = function(email) {
+	let userID = rsForm_k.email.value; // 유저 아이디
+	let roomName = rsForm_k.roomName.value; // 방이름
+	let price = rsForm_k.price.value; // 가격
+	$.ajax({
+		url : "kakaoPay.kk",
+		method : "post",
+		data : {
+				"email" : userID,
+				"roomName" : roomName,
+				"price" : price
+				},
+		dataType : "text",
+		timeout: 3000, // ajax 대기시간 3초로 설정
+		success : function(data) {
+			// window.name = "부모창 이름"; 
+            window.name = "parentForm";
+            //document.domain = "localhost"; //document.domain 값이 팝업과 부모창 동일해야 합니다.
+            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+            window.open(data, "childForm", "width=570, height=700, resizable = no, scrollbars = no");  
+			//window.open(data);
+		},
+		error : function(e) {
+			//alert(e.responseText);
+		}
+	});
+}
 //-------------------------------------------------------------------
 // reserve.jsp에 사용되는 변수 및 함수, 기능들
 //-------------------------------------------------------------------
@@ -299,8 +327,13 @@ let btnFunc_k = function() {
 	// reserve_ck.jsp의 동의 후 결제 버튼
 	if($('#btnPayOk_k') != null) {
 		$('#btnPayOk_k').click(function() {
-			//pay_iamport();
-			insertAjax_k();
+			let cnt = $('#paySelect_k').val();
+			if(cnt == 1) {
+				pay_iamport();				
+			} else if(cnt == 2) {
+				pay_kakao();
+			}
+			//insertAjax_k();
 		});
 	}
 

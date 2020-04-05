@@ -35,6 +35,9 @@
 
 <script>
 btnFunc_k();
+function parentFunc() {
+	insertAjax_k();
+}
 </script>
 </body>
 </html>

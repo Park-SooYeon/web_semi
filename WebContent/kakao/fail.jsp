@@ -4,12 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+결제 실패
 </body>
-<script>
-document.location.href="index.jsp?middle=./plus_menu/notice.jsp";
-</script>
 </html>
