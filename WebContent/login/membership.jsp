@@ -24,7 +24,7 @@
 			<form id='frm_c' name='frm_c' method='post'>
 				<div class='mform_c'>
 					<label class='label_c'>이메일 아이디</label><br/>
-					<input type='text'  id='email_c' name='email_c' value='<%=request.getParameter("email_c") %>' disabled>
+					<input type='text'  id='email_c' name='email_c' value='<%=request.getParameter("email_c") %>' readonly/>
 					<br/>
 					<label class='label_c'>생년월일</label><br/>
 					<input type='date' id="birth_c" name='birth_c' />
@@ -46,15 +46,15 @@
 					<div id='nNameM_c' class='nNameM_c'></div>
 					<br/>
 				</div>
+			</form>
 				<div class='mNotice_c' align='center'>
 					로그인 / 회원가입시<br/>
-					<a href='http://localhost:8888/web_semi/index.jsp?middle=./plus_menu/pervjsp.jsp' target='_blank'>이용약관,</a> 
-					<a href='http://localhost:8888/web_semi/index.jsp?middle=./plus_menu/pv_sele.jsp' target='_blank'>개인정보처리방침</a>에 동의하게 됩니다.
+					<a href='http://192.168.0.27:8888/semiProject/index.jsp?middle=./plus_menu/notice.jsp?sp=pv_select.jsp' target='_blank'>이용약관,</a> 
+					<a href='http://192.168.0.27:8888/semiProject/index.jsp?middle=./plus_menu/notice.jsp?personal_m.jsp' target='_blank'>개인정보처리방침</a>에 동의하게 됩니다.
 				</div>
 				<div align='center'>
 					<button type="button" id='btnMember_c' class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>동의하고 회원가입</button>
 				</div>
-			</form>
 		</div>
 	</div>
 </div>

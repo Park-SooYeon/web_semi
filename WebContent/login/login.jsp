@@ -58,7 +58,7 @@
 </div>
 
 
-<script type="text/javascript">
+<script>
 //네이버로 로그인 버튼
 var naverLogin = new naver.LoginWithNaverId(
 		{

@@ -7,6 +7,7 @@
 <title>pw_email</title>
 <link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'>
 <link rel='stylesheet' type='text/css' href='../css/login.css'>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src='../js/jquery-3.4.1.js'></script>
 <script src='../js/login.js'></script>
 </head>
@@ -23,7 +24,7 @@
 				<div id='pwEmailM_c' class='pwEmailM_c'></div>
 				<button type="button" id='btnPwEmail_c' class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)' disabled>이메일 전송</button>
 			</div>
-			<div class='error' style='display:none;bottom:590px;'></div>
+			
 		</div>
 	</div>
 </div>

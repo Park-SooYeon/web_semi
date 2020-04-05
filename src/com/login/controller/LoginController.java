@@ -90,17 +90,11 @@ public class LoginController extends HttpServlet{
 				vo.setnName(req.getParameter("nName_c"));				
 			} catch (ParseException e) { e.printStackTrace();}
 			flag =  dao.membership(vo);
+			req.getSession().setAttribute("email", vo.getEmail());
+			req.getSession().setAttribute("nName", vo.getnName());
 			if(flag) {
-				req.getSession().setAttribute("email", vo.getEmail());
-				req.getSession().setAttribute("nName", vo.getnName());
-				if(pwd_c == "naver") { //네이버로 로그인이면
-					out.print(flag);
-					out.flush();
-					return;					
-				}else { //페이지 로그인이면
 					path = "../index.jsp";
 					break;
-				}
 			}else {
 				out.print(flag);
 				out.flush();

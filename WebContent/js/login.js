@@ -16,15 +16,14 @@ function btnFunc(){
 		});
 	}*/
 	
-	
 	//엔터키 로그인
-	$('#L_emailM_c').keypress(function(event){
-	     if ( event.which == 13 ) {
+	$('#L_email_c').keypress(function(event){
+	     if ( event.keyCode == 13 ) {
 	         $('#btnLogin_c').click();
 	     }
 	});
-	$('#L_pwdM_c').keypress(function(event){
-	     if ( event.which == 13 ) {
+	$('#L_pwd_c').keypress(function(event){
+	     if ( event.keyCode == 13 ) {
 	         $('#btnLogin_c').click();
 	     }
 	});
@@ -63,37 +62,24 @@ function btnFunc(){
 	//네이버로 로그인
 	if($('#btnOk_c') != null){
 		$('#btnOk_c').click(function(){
-			var email = $('#email_c').val();
-			var birth = $('#birth_c').val();
-			var pwd = 'naver';
-			var phone = $('#phone_c').val();
-			var nName = $('#nName_c').val();
-			if($('#birth_c').val() == "" && $('#phone_c').val() == ""){//생년월일 핸드폰번호가 null
-				$('#birth_c').css('border', '1px solid #ff0055');
+			var birth = $('#birth_c');
+			var phone = $('#phone_c');
+			if(birth.val() == "" && phone.val() == ""){//생년월일 핸드폰번호가 null
+				birth.css('border', '1px solid #ff0055');
 				$('#birthM_c').text('생년월일을 선택해주세요.');
-				$('#phone_c').css('border', '1px solid #ff0055');
+				phone.css('border', '1px solid #ff0055');
 				$('#phoneM_c').text('핸드폰번호를 입력해주세요.');
-				$('#birth_c').focus();
-			}else if($('#birth_c').val() == ""){ //생년월일이 null
-				$('#birth_c').css('border', '1px solid #ff0055');
+				birth.focus();
+			}else if(birth.val() == ""){ //생년월일이 null
+				birth.css('border', '1px solid #ff0055');
 				$('#birthM_c').text('생년월일을 선택해주세요.');
-				$('#birth_c').focus();
-			}else if($('#phone_c').val() == ""){ //핸드폰번호가  null
-				$('#phone_c').css('border', '1px solid #ff0055');
+				birth.focus();
+			}else if(phone.val() == ""){ //핸드폰번호가  null
+				phone.css('border', '1px solid #ff0055');
 				$('#phoneM_c').text('핸드폰번호를 입력해주세요.');
-				$('#phone_c').focus();
+				phone.focus();
 			}else if($('#birthM_c').text()=="" && $('#phoneM_c').text()==""){ //정보가 모두 정상적으로 입력되었을 때
-				console.log(1);
-				$.post('member.lg', {'email_c':email, 'birth_c':birth, 'pwd_c':pwd, 'phone_c':phone, 'nName_c':nName},
-						function(data, status){
-					console.log(2);
-					if(data == 'false'){ //회원정보 DB저장 실패
-						location.href = "./login.jsp";
-						return;
-					}else{
-						location.href="../index.jsp"; //로그인 성공
-					}
-				});
+				$('#frm_c').attr('action','member.lg').submit();
 			}
 		});
 	}
@@ -193,12 +179,9 @@ function btnFunc(){
 			$.post("pwResetMail.lg", {'email':email}, 
 				function(data, status){
 					if(data){
-						$('.error').text('메일이 전송되었습니다.');
-						$('.error').fadeIn(0).delay(1000).fadeOut(800);
-						setTimeout(location.href = "../index.jsp", 30000);
+						changeTime(); //페이지이동 안내 메세지
 					}else{
-						$('.error').text('메일 전송을 다시 시도해주세요.');
-						$('.error').fadeIn(400).delay(1000).fadeOut(400);	
+						swal("메일전송을 실패하였습니다.", "", "error");
 					}
 			});
 		});
@@ -213,26 +196,31 @@ function btnFunc(){
 				$('#pwdM_c').text('비밀번호를 입력해주세요.');
 				$('#pwd_ck_c').css('border', '1px solid #ff0055');
 				$('#pwdM_ck_c').text('비밀번호를 한번 더 입력해주세요.');
-			}else if($('#pwd_c').val()==""){
+			} else if ($('#pwd_c').val() == ""){
 				$('#pwd_c').focus();
 				$('#pwd_c').css('border', '1px solid #ff0055');
 				$('#pwdM_c').text('비밀번호를 입력해주세요.');
-			}else if($('#pwd_ck_c').val()==""){
+			} else if ($('#pwd_ck_c').val() == ""){
 				$('#pwd_ck_c').focus();
 				$('#pwd_ck_c').css('border', '1px solid #ff0055');
 				$('#pwdM_ck_c').text('비밀번호를 한번 더 입력해주세요.');
-			}else if($('#pwdM_c').text()=="" && $('#pwdM_ck_c').text()==""){
-				var email = $('#email_c').val();
-				var pwd = $('#pwd_c').val();
-				$.post("pwReset.lg", {'email':email, 'pwd':pwd},
-					function(data, status){
-							if(data == 'true'){
-								var yn = confirm("비밀번호를 변경하시겠습니까?");
-								if(yn){ //확인
-									window.close();									
-								}
-							}
-						});
+			} else if ($('#pwdM_c').text() == "" && $('#pwdM_ck_c').text() == ""){
+				swal("비밀번호를 변경하시겠습니까?", "","warning",{
+					buttons: {catch: {text: "네"}, cancel: "아니요"},
+				}).then((value) => {
+					  if (value == "catch") { //"네" 버튼
+					    	var email = $('#email_c').val();
+							var pwd = $('#pwd_c').val();
+							$.post("pwReset.lg", {'email': email, 'pwd': pwd},
+								function(data, status){
+										if (data == 'true'){ //DB저장 성공
+											closeTime(); //타이머 함수실행
+										}
+									});
+					  }else{ //"아니요"버튼						  
+						  swal("비밀번호 변경 취소", "", "error");
+					  }
+					});
 			}
 		});
 	}
@@ -275,7 +263,7 @@ function agree(){
 
 function emailCk(){
 	//로그인 이메일
-	$('#L_email_c').on('keyup', function(){
+	$('#L_email_c').on('keyup', function(e){
 		var email = $(this).val();
 		var msg = $('#L_emailM_c');
 		var emailRule = $(this).val().search(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i);
@@ -365,6 +353,41 @@ function time(){
     		$('#btnSend_c').attr('disabled', false);
     	}
     	num--;
+    }
+}
+//비밀번호 재설정 이메일 보낸 뒤 뜨는 타이머메세지
+function changeTime(){
+	var sec = 10; // 10초로 설정
+    var myVal = setInterval(timeFunc, 1000);
+    
+    function timeFunc() {
+    	//$('.mseTime_c').css('display','block');
+    	//$('#mseTime_c').text('해당페이지는 ' + sec + '초 뒤에 메인페이지로 이동됩니다.');
+    	swal("비밀번호 재설정 메일 전송", "해당 페이지가 " + sec + "초 후 메인페이지로 이동합니다.", "success",{
+			  buttons: "바로이동"
+		}).then((text) => { sec = 0; }); //"바로이동"버튼 눌렀을 때.
+    	if(sec == 0){
+    		clearInterval(myVal);
+    		location.href = "../index.jsp";
+    	}
+    	sec--;
+    }
+}
+
+//재설정 후 화면 꺼지는 타이머
+function closeTime(){
+	var sec = 10; // 10초로 설정
+    var myVal = setInterval(timeFunc, 1000);
+    
+    function timeFunc() {
+    	swal("비밀번호가 변경 성공", "해당 페이지가 " + sec + "초 후 자동으로 종료됩니다.", "success",{
+			  buttons: "바로종료"
+		}).then((text) => { sec = 0; }); //"바로종료"버튼 눌렀을 때.
+    	if(sec == 0){
+    		clearInterval(myVal);
+    		window.close();
+    	}
+    	sec--;
     }
 }
 

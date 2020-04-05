@@ -203,7 +203,6 @@
 			})
 		}
 		$('#logout_c').click(function(){
-			<%-- <% session.removeAttribute("email"); %> --%>
 			location.href = './login/logout.jsp';
 		});
 		

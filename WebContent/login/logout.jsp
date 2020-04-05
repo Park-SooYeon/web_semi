@@ -7,10 +7,10 @@
 <title>로그아웃</title>
 </head>
 <body>
-<% session.removeAttribute("email"); %>
 <script>
-alert("로그아웃 됨!");
-location.href = "../index.jsp";
+	<% session.removeAttribute("email"); %>
+	location.href = '../index.jsp';
 </script>
+
 </body>
 </html>
