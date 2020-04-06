@@ -9,7 +9,7 @@
 <body>
 결제 성공
 <script>
-window.opener.parent.parentFunc(); 
+window.opener.parent.parentFunc();
 self.close();
 </script>
 </body>

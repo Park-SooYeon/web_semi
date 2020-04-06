@@ -439,6 +439,19 @@ function member(){
 		}
 	});
 	
+	//비밀번호 보기 | 숨기기
+	if($('#viewPw_c') != null){
+		$('#viewPw_c').click(function(){
+			if($(this).val() == '보기'){
+				$(this).val('숨기기');
+				$('#pwd_c').attr('type', 'text');				
+			}else{
+				$(this).val('보기');
+				$('#pwd_c').attr('type', 'password');
+			}
+		});
+	}
+	
 	//비밀번호 확인
 	$('#pwd_ck_c').on('keyup', function(){
 		var msg = $('#pwdM_ck_c');
@@ -456,6 +469,19 @@ function member(){
 			$(this).css('border', '1px solid #000');
 		};
 	});
+	
+	//비밀번호확인 보기 | 숨기기
+	if($('#viewPw_ck_c') != null){
+		$('#viewPw_ck_c').click(function(){
+			if($(this).val() == '보기'){
+				$(this).val('숨기기');
+				$('#pwd_ck_c').attr('type', 'text');				
+			}else{
+				$(this).val('보기');
+				$('#pwd_ck_c').attr('type', 'password');
+			}
+		});
+	}
 	
 	//핸드폰번호
 	$('#phone_c').on('keyup', function(){

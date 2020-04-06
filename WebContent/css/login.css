@@ -40,6 +40,8 @@ input:focusout{border:1px solid #a6a6a6;}
 .birthM_c{position:fixed;top:357px;font-size:15px;color:rgb(255, 0, 85)}
 .pwdM_c{position:fixed;top:453px;font-size:15px;color:rgb(255, 0, 85)}
 .pwdM_ck_c{position:fixed;top:550px;font-size:15px;color:rgb(255, 0, 85)}
+.viewPw_c{width:60px;position:fixed;top:419px;left:55%;border:none;}
+.viewPw_ck_c{width:60px;position:fixed;top:516px;left:55%;border:none;}
 .phoneM_c{position:fixed;top:647px;font-size:15px;color:rgb(255, 0, 85)}
 .nNameM_c{position:fixed;top:745px;font-size:15px;color:rgb(255, 0, 85)}
 .mNotice_c{margin: 15px 0 10px 0;}
@@ -50,6 +52,8 @@ input:focusout{border:1px solid #a6a6a6;}
 /* pw_reset */
 .pwdResetM_c{position:fixed;top:195px;left:798px;font-size:15px;color:rgb(255, 0, 85)}
 .pwdResetM_ck_c{position:fixed;top:268px;left:798px;font-size:15px;color:rgb(255, 0, 85)}
+.viewPwR_c{width:60px;position:fixed;top:159px;left:55%;border:none;}
+.viewPwR_ck_c{width:60px;position:fixed;top:235px;left:55%;border:none;}
 /* naver_add_info */
 .birthN_c{position:fixed;top:259px;font-size:15px;color:rgb(255, 0, 85)}
 .phoneN_c{position:fixed;top:355px;font-size:15px;color:rgb(255, 0, 85)}

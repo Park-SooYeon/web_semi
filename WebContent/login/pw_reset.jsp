@@ -26,6 +26,8 @@
 				<div id='pwdM_ck_c' class='pwdResetM_ck_c'></div>
 				<button type="button" id='btnPwReset_c' class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>비밀번호 재설정</button>
 			</form>
+			<input type='button' id='viewPw_c' class='viewPwR_c' value='보기'/>
+			<input type='button' id='viewPw_ck_c' class='viewPwR_ck_c' value='보기'/>
 		</div>
 	</div>
 </div>

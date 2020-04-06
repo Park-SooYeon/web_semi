@@ -19,15 +19,15 @@
 	<label for="exampleInputPassword1">아이디</label>
 	<input type="text" class="form-control" id="exampleInputPassword1" placeholder="아이디" name="eMail" value="${vo.eMail}" readonly>
 </div>
-<%-- <div class="starRev">
+<div class="starRev">
 	<span class="starR on" id="star1_s">★</span>
 	<span class="starR" id="star2_s">★</span>
 	<span class="starR" id="star3_s">★</span>
 	<span class="starR" id="star4_s">★</span>
 	<span class="starR" id="star5_s">★</span>
 	<input type="hidden" name="star" id="star_s" value="${vo.stars}" />
-</div> --%>
-<input type="hidden" name="star" id="star_s" value="${vo.stars}" />
+	<input type="hidden" name="star" id="star_s" value="${vo.stars}" />
+</div>
 <div class="form-group">
 	<label for="exampleTextarea">리뷰 내용</label>
 	<textarea class="form-control" id="exampleTextarea" rows="5" name="content" >${vo.rContent}</textarea>

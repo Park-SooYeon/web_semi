@@ -47,14 +47,16 @@
 					<br/>
 				</div>
 			</form>
-				<div class='mNotice_c' align='center'>
-					로그인 / 회원가입시<br/>
-					<a href='http://192.168.0.27:8888/semiProject/index.jsp?middle=./plus_menu/notice.jsp?sp=pv_select.jsp' target='_blank'>이용약관,</a> 
-					<a href='http://192.168.0.27:8888/semiProject/index.jsp?middle=./plus_menu/notice.jsp?personal_m.jsp' target='_blank'>개인정보처리방침</a>에 동의하게 됩니다.
-				</div>
-				<div align='center'>
-					<button type="button" id='btnMember_c' class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>동의하고 회원가입</button>
-				</div>
+			<input type='button' id='viewPw_c' class='viewPw_c' value='보기'/>
+			<input type='button' id='viewPw_ck_c' class='viewPw_ck_c' value='보기'/>
+			<div class='mNotice_c' align='center'>
+				로그인 / 회원가입시<br/>
+				<a href='http://192.168.0.27:8888/semiProject/index.jsp?middle=./plus_menu/notice.jsp?sp=pv_select.jsp' target='_blank'>이용약관,</a> 
+				<a href='http://192.168.0.27:8888/semiProject/index.jsp?middle=./plus_menu/notice.jsp?personal_m.jsp' target='_blank'>개인정보처리방침</a>에 동의하게 됩니다.
+			</div>
+			<div align='center'>
+				<button type="button" id='btnMember_c' class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>동의하고 회원가입</button>
+			</div>
 		</div>
 	</div>
 </div>
