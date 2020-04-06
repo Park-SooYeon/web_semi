@@ -71,7 +71,7 @@ public class PwSendEmail {
         		"		  비밀번호 재설정을 하시려면 아래의 버튼을 클릭해주세요.	\n" + 
         		"	</div>\n");
         sb.append("<div style='width:272px;background-color:#f45858;margin:25px 0 25px 0;padding:20px 0 20px 0;border-radius:10px;'>\n");
-        sb.append("<a href='http://localhost:8888/web_semi/login/pw_reset.jsp?e=" + toEmail + "\'");
+        sb.append("<a href='http://192.168.0.27:8888/semiProject/login/pw_reset.jsp?e=" + toEmail + "\'");
         sb.append(" style='padding-left:70px; text-decoration:none;color:#fff;font-size:18px;font-weight:bold;'>비밀번호 재설정</a></div>\n");
         sb.append("<div style='font-size:18px;'>\n" + 
         		"		회원님의 요청 없이 해당 메일이 수신되었다면,<br/>\n" + 

@@ -55,9 +55,12 @@ public class KakaoAPI  extends HttpServlet{
 		params.put("quantity", "1"); // 상품 수량
 		params.put("total_amount", price); // 상품 총 가격
 		params.put("tax_free_amount", price); // 비과세 금액
-		params.put("approval_url", "http://localhost:8888/semiProject/kakao/approval.jsp");
+/*		params.put("approval_url", "http://localhost:8888/semiProject/kakao/approval.jsp");
 		params.put("cancel_url", "http://localhost:8888/semiProject/kakao/cancel.jsp");
-		params.put("fail_url", "http://localhost:8888/semiProject/kakao/fail.jsp");
+		params.put("fail_url", "http://localhost:8888/semiProject/kakao/fail.jsp");*/
+		params.put("approval_url", "http://192.168.0.27:8888/semiProject/kakao/approval.jsp");
+		params.put("cancel_url", "http://192.168.0.27:8888/semiProject/kakao/cancel.jsp");
+		params.put("fail_url", "http://192.168.0.27:8888/semiProject/kakao/fail.jsp");
 		
 		// param값 생성
 		String string_params = new String();

@@ -60,8 +60,9 @@ public class KDGServlet extends HttpServlet {
 			break;
 		case "/fillter.ff":
 			fillter(req,resp);
-		case "/insert.ff":
-			insert(req,resp);
+			break;
+/*		case "/insert.ff":
+			insert(req,resp);*/
 		}
 	}
 	public void hotel(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
@@ -703,7 +704,7 @@ public class KDGServlet extends HttpServlet {
 		rd.forward(req, resp);
 	}
 	
-	public void insert(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+/*	public void insert(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		FileUpload upload = new FileUpload(req,resp);
 		if(upload.uploadFormCheck()) {
 			InsertRoomsVo vo = upload.roomsUploading();
@@ -722,7 +723,7 @@ public class KDGServlet extends HttpServlet {
 		String path ="rooms_insert_result.jsp";
 		RequestDispatcher rd = req.getRequestDispatcher(path);
 		rd.forward(req, resp);
-	}
+	}*/
 }
 
 

@@ -420,7 +420,8 @@
 					</div>
 				</c:forEach>
 			<hr/>
-		    <input type="hidden" id="rCode" name="rCode" value="${rCode_a}">
+		    <input type="hidden" id="rCode1" name="rCode" value="${rCode_a}">
+		    <input type="hidden" id="rCode2" name="rCode2" value="${param.rCode}"/>
 		    <input type="hidden" name="indent" id="indent_s"/>
 			<input type="hidden" name="rno" id="rno_s"/>
 			<input type="hidden" name="rGro" id="rGro_s"/>

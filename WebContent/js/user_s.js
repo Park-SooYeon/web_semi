@@ -10,7 +10,7 @@ let user = function(){
 	
 	if($('#btnMp_sec_s')!=null){
 		$('#btnMp_sec_s').click(function(){
-			let result = confirm("삭제하시겠습니까?");
+			let result = confirm("탈퇴하시겠습니까?");
 			if(result){
 				$('#frm_up_s').attr('action', 'mpSecession.mp').submit();
 			}else{
@@ -96,11 +96,14 @@ let btnSelect = function(rCode){
 }*/
 
 let rvDelete = function(rNo, rIndent, rGroup){
-	let result = confirm("탈퇴하시겠습니까?");
+	let result = confirm("삭제하시겠습니까?");
 	if(result){
 		let no = rNo.value;
 		let rin = rIndent.value;
 		let rgro = rGroup.value;
+		let rCode2 = $('#rCode2').val();
+	    $('#rCode1').val(rCode2);
+	    let asd = $('#rCode1').val();
 		$('#rno_s').val(no);
 		$('#indent_s').val(rin);
 		$('#rGro_s').val(rgro);
@@ -112,6 +115,8 @@ let rvDelete = function(rNo, rIndent, rGroup){
 
 let btnRvMo = function(rNo){
 	let no = rNo.value;
+	let rCode2 = $('#rCode2').val();
+	$('#rCode1').val(rCode2);
 	$('#rno_s').val(no);
 	$('#frm_rvR_s').attr('action', 'reviewModifyform.rv').submit();
 }
@@ -132,6 +137,8 @@ let btnReview = function(rCode){
 let btnRv_Reply = function(rGroup, rIndent){
 	let group = rGroup.value;
 	let indent = rIndent.value;
+	let rCode2 = $('#rCode2').val();
+	$('#rCode1').val(rCode2);
 	$('#rGro_s').val(group);
 	$('#indent_s').val(indent);
 	$('#frm_rvR_s').attr('action', 'reviewReplyView.rv').submit();

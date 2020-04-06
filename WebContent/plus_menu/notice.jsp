@@ -50,7 +50,7 @@ if(request.getParameter("sp") != null){
 		<jsp:include page="<%=inc %>"/>
 	</ul>
     </div>
-    <div class="col-9" >
+    <div class="col-9" style="padding-top : 50px;">
     
 		<jsp:include page="<%=sp %>"/>
 	
