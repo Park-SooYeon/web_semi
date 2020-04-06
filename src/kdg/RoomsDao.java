@@ -500,6 +500,7 @@ public class RoomsDao {
 	
 	
 	//건물입력
+	/*
 	public Map<String,String> roomsInsert(InsertRoomsVo vo) {
 		Map<String,String> map = new HashMap<String, String>();
 		String rCode="";
@@ -584,7 +585,7 @@ public class RoomsDao {
 		String msg ="";
 		return msg;
 	}
-	
+	*/
 	
 	
 	
