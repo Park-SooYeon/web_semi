@@ -33,7 +33,13 @@ let user = function(){
 	 
 	 if($('#btnRee_s')!=null){
 		$('#btnRee_s').click(function(){
-			$('#frm_rv_s').attr('action', 'reviewInsert.rv').submit();
+			if($('#title_s').val()==""){
+				alert('제목을 입력해주세요!!');
+			}else if($('#content_s').val()==""){
+				alert('내용을 입력해주세요!!');
+			}else{
+				$('#frm_rv_s').attr('action', 'reviewInsert.rv').submit();
+			}
 		})
 	 }
 	 
@@ -51,7 +57,8 @@ let user = function(){
 	 }
 	 
 	 
-	 
+	 //별점을 클릭할시 모든 span클래스에 있는 'on'이라는 클래스를 제거한다.
+	 //그리고 클릭 이전에 있는 모든 span요소들과 클릭한 span에 'on'클래스를 추가하여 별점을 채워준다.
 	$('.starRev span').click(function(){
 		  $(this).parent().children('span').removeClass('on');
 		  $(this).addClass('on').prevAll('span').addClass('on');

@@ -37,6 +37,7 @@ public class MpDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
 			if(set!=null) try { set.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
@@ -72,6 +73,7 @@ public class MpDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
 			if(set!=null) try { set.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
@@ -104,6 +106,7 @@ public class MpDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
 			if(set!=null) try { set.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
@@ -137,6 +140,7 @@ public class MpDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
 			if(set!=null) try { set.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
@@ -171,6 +175,7 @@ public class MpDao {
 			int rn = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
 		}

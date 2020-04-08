@@ -13,7 +13,7 @@
 <form method="post" name="frm_rv_s" id="frm_rv_s">
 <div class="form-group">
 	<label for="exampleInputPassword1">제목</label>
-	<input type="text" class="form-control" id="exampleInputPassword1" placeholder="제목" name="title" name="title">
+	<input type="text" class="form-control" id="title_s" placeholder="제목" name="title">
 </div>
 <div class="form-group">
 	<label for="exampleInputPassword1">아이디</label>
@@ -29,7 +29,7 @@
 </div>
 <div class="form-group">
 	<label for="exampleTextarea">리뷰 내용</label>
-	<textarea class="form-control" id="exampleTextarea" rows="5" name="content"></textarea>
+	<textarea class="form-control" id="content_s" rows="5" name="content"></textarea>
 </div>
 <input type="hidden" name="eMail" value="${param.eMail}"/>
 <input type="hidden" name="rCode" value="${param.rCode}"/>

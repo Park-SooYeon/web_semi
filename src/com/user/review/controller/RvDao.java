@@ -54,6 +54,7 @@ public class RvDao {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
 		}
@@ -90,9 +91,9 @@ public class RvDao {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
 			if(set!=null) try { set.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
-			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
 		}
 		
 		return list;
@@ -124,6 +125,7 @@ public class RvDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
 			if(set!=null) try { set.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
@@ -146,6 +148,7 @@ public class RvDao {
 			starCh(rCode);
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
 		}
@@ -168,6 +171,7 @@ public class RvDao {
 			int rn = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
 		}
@@ -192,6 +196,7 @@ public class RvDao {
 			starCh(rCode);
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
 		}
@@ -238,10 +243,9 @@ public class RvDao {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			if(set!=null) try { set.close();} catch (Exception e2) {e2.printStackTrace();}
-			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
-			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
 		}
+		if(set!=null) try { set.close();} catch (Exception e2) {e2.printStackTrace();}
+		if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
 		
 	}
 	
@@ -260,6 +264,7 @@ public class RvDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
 			if(set!=null) try { set.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
@@ -280,11 +285,12 @@ public class RvDao {
 			if(set.next()) {
 				rvCnt = set.getInt("cnt");
 			}
+			System.out.println("왜안나오니:"+set);
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
 			if(set!=null) try { set.close();} catch (Exception e2) {e2.printStackTrace();}
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {e2.printStackTrace();}
-			if(conn!=null) try { conn.close();} catch (Exception e2) {e2.printStackTrace();}
 		}
 		return rvCnt;
 	}
