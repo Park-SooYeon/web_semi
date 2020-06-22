@@ -1,23 +1,36 @@
 package com.user.mypage.contoroller;
 
 public class ReListVo {
+	int rNo;
+	int rCode;
 	String rName;
 	String rPlace;
 	String gInfo;
 	String oriFile;
 	String sysFile;
 	String address;
+	int price;
 	
 	public ReListVo(){};
-	public ReListVo(String rName, String rPlace, String gInfo, String oriFile, String sysFile, String address){
+	public ReListVo(int rNo, int rCode, String rName, String rPlace, String gInfo, String oriFile, String sysFile, String address, int price){
+		this.rNo = rNo;
+		this.rCode=rCode;
 		this.rName=rName;
 		this.rPlace=rPlace;
 		this.gInfo=gInfo;
 		this.oriFile=oriFile;
 		this.sysFile=sysFile;
 		this.address=address;
+		this.price=price;
 	}
-
+	
+	
+	public int getrNo() {
+		return rNo;
+	}
+	public void setrNo(int rNo) {
+		this.rNo = rNo;
+	}
 	public String getrName() {
 		return rName;
 	}
@@ -65,7 +78,18 @@ public class ReListVo {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+	public int getrCode() {
+		return rCode;
+	}
+	public void setrCode(int rCode) {
+		this.rCode = rCode;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	
 	
 }

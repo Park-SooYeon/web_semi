@@ -6,9 +6,10 @@
 <meta charset="UTF-8">
 <title>로그인  | 어때</title>
 <link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'>
-<link rel='stylesheet' type='text/css' href='../login/login.css'>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<link rel='stylesheet' type='text/css' href='../css/login.css'>
 <script src='../js/jquery-3.4.1.js'></script>
+<script src='../js/login.js'></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 </head>
 <body>
 
@@ -16,11 +17,9 @@
 	<div class='row justify-content-md-center'>
 		<div class='col-4' align='center'>
 			<div class='title_c'>
-				<strong class='logo center'>
-					<a href="../index.jsp">여기어때</a>
-				</strong>
+				<a href="../index.jsp"><img src="../image/logo_nlbo2.png"></a>
 			</div>
-			<button type='button' class='btn_kakao_c'>
+			<!-- <button type='button' class='btn_kakao_c'>
 				<span class='kakao_c'>
 					<i class='icon_kakao_c'></i>
 					카카오톡으로 로그인
@@ -31,56 +30,61 @@
 					<i class='icon_face_c'></i>
 					facebook으로 로그인
 				</span>
-			</button>
-			<button type='button' class='btn_naver_c'>
-				<span class='naver_c'>
-					<i class='icon_naver_c'></i>
-					네이버로 로그인
-				</span>
-			</button>
+			</button> -->
+			<div id="naverIdLogin">
+    			<a id="naver-login-btn" href="#" role="button">
+        			<img src="https://static.nid.naver.com/oauth/big_g.PNG" width="330px" height="45"/> 
+   				 </a>
+			</div>
             <p class="space_or">
             	<span>또는</span>
             </p>
-            <form class="was-validated">
-            <div class="form-group">
-			      <input type="text" class="form-control" id="uname_c" placeholder="이메일 주소" name="uname"
-			      pattern="^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[a-zA-Z])*.[a-zA-Z]{2,3}$"
-			      title="형식  semi@abc.abc" autofocus required>
-			     <!--  <div class="valid-feedback" id="chkOk">Valid.</div> -->
-			      <div class="invalid-feedback" id="chkFail">유효하지 않은 E-Mail주소입니다.</div>
-			</div>
-			<div class="form-group">
-			    <input type="password" class="form-control" id="pwd" placeholder="비밀번호" name="pswd" required>
-			    <!-- <div class="valid-feedback">Valid.</div> -->
-				<div class="invalid-feedback">비밀번호를 입력해 주세요.</div>
-			</div>
+            <form id='frm_c' name='frm_c' method='post' class="was-validated">
+		        <input type='text' id='L_email_c' name='L_email_c' class='email_c' placeholder="이메일 주소" style='width:330px;'>
+				<div id='L_emailM_c' class='L_emailM_c'></div>
+				<input type='password' id='L_pwd_c' name='L_pwd_c' class='pwd_c' placeholder="비밀번호" style='width:330px;'/>
+				<div id='L_pwdM_c' class='L_pwdM_c'></div>
 			</form>
-            <button type="button" class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>로그인</button>
+            <button id='btnLogin_c' type="submit" class="btn btn-primary btn-lg btn-block" style='width:330px;background-color:rgb(255,0,85)'>로그인</button>
             <div class='pw_email_c'>
-            	<a href="./pw_email.jsp">비밀번호 재설정</a>
+            	<a href="./pw_email.jsp" >비밀번호 재설정</a>
             </div>
             <div class='member_c'>
             	<a href="./agree.jsp">회원가입</a>
             </div>
+            <div class='error' style='display:none;'>일치하는 회원이 없습니다.</div>
 		</div>
 	</div>
 </div>
+
+
+<script>
+//네이버로 로그인 버튼
+var naverLogin = new naver.LoginWithNaverId(
+		{
+			clientId: "zhK7B0bjhXk0U10lDW0c",
+			callbackUrl: "http://192.168.0.27:8888/semiProject/login/naver_callback.jsp",
+			isPopup: false, /* 팝업을 통한 연동처리 여부 */
+			loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
+		}
+	);
+
+naverLogin.init();//설정정보를 초기화하고 연동을 준비 
+
+emailCk(); //이메일 체크
+btnFunc(); //버튼 이벤트
+
 	
-<!-- <script>
-function validateEmail(sEmail) {
-	var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-	if (filter.test(sEmail)) {
-		return true;
-	}else {
-		return false;
+
+/* 쿠키로 url받아 올 때 사용
+$(function() {
+	var url = $cookie('url');
+	alert(url);
+	if (url != null && url != "") {
+		$('#redirectUrl').val(url);
 	}
-};
-	
-$('#uname_c').keypress(function() {
-	let str = $('#uname_c').val();
-	validateEmail(str);
-});
-</script> -->
+}); */
+</script>
 <script src='../js/bootstrap.bundle.min.js'></script>
 <body>
 

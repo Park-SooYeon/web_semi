@@ -10,14 +10,10 @@ public class MpView implements MpCommand{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) {
-		String mId = req.getParameter("mId");
+		String eMail = req.getParameter("eMail");
 		MpDao dao = new MpDao();
-		MpVo vo = dao.mpView(mId);
-		
-		System.out.println(vo.getmName());
-		System.out.println(vo.getuName());
-		System.out.println(vo.geteMail());
-		System.out.println(vo.getPhone());
+		MpVo vo = dao.mpView(eMail);
+	
 		req.setAttribute("vo", vo);
 	}
 }

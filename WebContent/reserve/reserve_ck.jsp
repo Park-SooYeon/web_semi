@@ -5,23 +5,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-
-</style>
 </head>
 <body>
+
 <div class="p-0" id="reserve_ck_k">
 	<strong class="m-3 mb-3">예약내역 확인</strong>
 	<div class="border-top border-bottom p-3 m-0">
-		<p class="mb-1">숙소 이름</p>
-		<p>객실타입/기간</p>
+		<p class="mb-1">${param.rName }</p>
+		<p>${param.roomName } / ${param.period }박</p>
 		<p class="text-right mb-1">
 			<span class="text-secondary float-left">체크인</span>
-			<b class="text-right">체크인 날짜 및 시간</b>
+			<b class="text-right">${param.checkIn }</b>
 		</p>
 		<p class="border-bottom pb-3 text-right">
 			<span class="text-secondary float-left">체크아웃</span>
-			<b>체크아웃 날짜 및 시간</b>
+			<b>${param.checkOut }</b>
 		</p>
 		
 		<ul class="pl-4 mb-0">
@@ -36,7 +34,10 @@
 </div>
 
 <script>
-btnFunc();
+btnFunc_k();
+function parentFunc() {
+	insertAjax_k();
+}
 </script>
 </body>
 </html>

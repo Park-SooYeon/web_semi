@@ -18,6 +18,4 @@ public class ReserveList implements MpCommand{
 		
 		req.setAttribute("list", list);
 	}
-
-	
 }

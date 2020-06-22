@@ -8,14 +8,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.user.mypage.command.LastPlaceView;
 import com.user.mypage.command.MpCommand;
+import com.user.mypage.command.MpSecession;
+import com.user.mypage.command.MpUpdate;
 import com.user.mypage.command.MpView;
 import com.user.mypage.command.ReserveList;
+import com.user.mypage.command.ReserveView;
 
-/**
- * Servlet implementation class mp_controller
- */
 @WebServlet("*.mp")
 public class MpController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -44,7 +46,7 @@ public class MpController extends HttpServlet {
 	
 	private void actionMp(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
-		String url = "/user/mpindex.jsp?inc2=";
+		String url = "index.jsp?middle=./user/u_subtitle.jsp?inc2=";
 		String viewPage = null;
 		MpCommand command = null;
 		
@@ -52,14 +54,36 @@ public class MpController extends HttpServlet {
 		String conPath = req.getContextPath();
 		String com = uri.substring(conPath.length());
 		
-		if(com.equals("/user/mpview.mp")) {
+		if(com.equals("/mpview.mp")) {
 			command = new MpView();
 			command.execute(req, res);
 			viewPage = url+"mypage.jsp";
-		}else if(com.equals("/user/reserveList.mp")) {
+		}else if(com.equals("/mpUp.mp")){
+			command = new MpView();
+			command.execute(req, res);
+			viewPage = url+"mpUpdate.jsp";
+		}else if(com.equals("/mpUpdate.mp")) {
+			command = new MpUpdate();
+			command.execute(req, res);
+			viewPage = "mpview.mp";
+		}else if(com.equals("/reserveList.mp")) {
 			command = new ReserveList();
 			command.execute(req, res);
 			viewPage =  url+"reserveList.jsp";
+		}else if(com.equals("/resView.mp")) {
+			command = new ReserveView();
+			command.execute(req, res);
+			viewPage = url+"resView.jsp";
+		}else if(com.equals("/lastPlace.mp")) {
+			command = new LastPlaceView();
+			command.execute(req, res);
+			viewPage = url+"lastPlace.jsp";
+		}else if(com.equals("/mpSecession.mp")) {
+			HttpSession session = req.getSession();
+			command = new MpSecession();
+			command.execute(req, res);
+			session.invalidate();
+			viewPage = "index.jsp";
 		}
 		RequestDispatcher dis = req.getRequestDispatcher(viewPage);
 		dis.forward(req, res);

@@ -5,8 +5,8 @@ body, html {
 	height: 100%;
 }
 
-#main-f {
-	
+#main_f {
+	height: 2000px;
 }
 /*---main > top-------------------------------------------------------------------*/
 #top_f {
@@ -24,8 +24,11 @@ body, html {
 
 #top_in_f h1 {
 	margin-top: 0px; padding-top : 74px;
+	font-size:2em;
+	font-weight:bold;
 	color: #fff;
 	padding-top: 74px;
+	margin-bottom: 40px;
 }
 
 #goo_f {
@@ -76,10 +79,10 @@ body, html {
 #topImg_f {
 	width: 170px;
 	height: 110px;
-	background-image: url("../image/top_f.JPG");
+	background-image: url("../image/top_f1.png");
 	position: relative;
 	left: 700px;
-	top: -158px;
+	top: -170px;
 }
 
 /*-----main > mid > left-----------------------------------------------------------------*/
@@ -120,10 +123,14 @@ body, html {
 
 #mid_in_f #left_f #check_f h3:first-child {
 	margin-top: 0px;
+	font-size:1.17em;
+	font-weight: bold;
 }
 
 #mid_in_f #left_f #check_f h3 {
 	margin-top: 30px;
+	font-size:1.17em;
+	font-weight: bold;
 }
 
 #mid_in_f #left_f #check_f hr {
@@ -163,18 +170,45 @@ body, html {
 	background-size : cover;
 	box-shadow : 0.2px 0.2px 1px 1px #f62a4b inset;
 }
+#mid_in_f #left_f #check_f input[type='radio'] {
+	display: none;
+}
+#mid_in_f #left_f #check_f input[type='radio']+label span{
+	display: inline-block;
+	width:20px;
+	height: 20px;
+	background-color:#fff;
+	border: 1px solid #aaa;
+	cursor:pointer;
+	border-radius: 3px;
+	vertical-align:middle;
+	box-shadow : 0.2px 0.2px 1px 1px #ccc inset;
+}
+#mid_in_f #left_f #check_f input[type='radio']:checked+label span{
+	background-image: url("../image/checked_f.JPG");
+	border: 1px solid #f62a4b;
+	background-repeat : no-repeat;
+	background-size : cover;
+	box-shadow : 0.2px 0.2px 1px 1px #f62a4b inset;
+}
+
+
 #mid_in_f #left_f #check_f label{
 	margin-bottom:50px;
 	font-size: 0.8em;
 	color:#666;
 	cursor: pointer;
+	display: unset;
 }
 #mid_in_f #left_f #check_f #chk_f{
 	margin-bottom: 20px;
 }
 #mid_in_f #left_f #check_f h4{
 	margin-top: 40px;
+	font-size:1em;
+	font-weight:bold;
 	color:#444;
+	margin-bottom: 20px;
 }
 #mid_in_f #left_f #check_f .bed_f{
 	margin-top: 0px;
@@ -238,7 +272,7 @@ body, html {
 	height: 60px;
 	text-align: center;
 }
-#mid_in_f #search_f #price_order_f .btnDsc_f{
+#mid_in_f #search_f #price_order_f #btnDsc_f{
 	width:150px;
 	height: 40px;
 	border : 1px solid #aaa;
@@ -246,22 +280,21 @@ body, html {
 	border-radius: 5px 5px 5px 5px;
 	font-size: 1.1em;	
 	margin-right: 0px;
-	color:#aaa;
 	cursor: pointer;
 }
-#mid_in_f #search_f #price_order_f .btnAsc_f{
+#mid_in_f #search_f #price_order_f #btnAsc_f{
 	width:150px;
 	height: 40px;
 	border : 1px solid #aaa;
 	background-color: #fffa;
 	border-radius: 5px 5px 5px 5px;
-	color:#f62a4b;
 	font-size: 1.1em;
 	margin-left: 0px;
 	cursor: pointer;
 }
 #mid_in_f #search_f h4{
 	color:#999;
+	font-size:1.2em;
 	font-weight: 800;
 }
 #mid_in_f #search_f #searched_frame_f{
@@ -286,7 +319,7 @@ body, html {
 #mid_in_f #search_f #searched_f #info_f{
 }
 #mid_in_f #search_f #searched_f #info_f span{
-	opacity: 0.1;
+	opacity: 0.6;
 	background-color: #000;
 	color:#fff;
 	font-size: 1.1em;	
@@ -472,6 +505,58 @@ body, html {
 	background-repeat:no-repeat;
 	background-size:cover;
 }
+
+/*---------------------------페이징--------------------------*/
+#paging_f{
+	margin-top : 50px;
+	text-align:center;
+	width: auto;
+	height: auto;
+	margin-top:50px;
+	
+	
+}
+.btnBefore_f{
+	width:20px;
+	height:20px;
+	background-image: url("../image/back_f.jpg");
+	background-repeat : no-repeat;
+	background-size : cover;
+	border:0;
+	outline:0;
+}
+.here_f{
+	background-image: url("../image/selected_f.jpg") ;
+}
+.btnMiddle_f{
+	width:20px;
+	height:20px;
+	background-image: url("../image/select_f.jpg");
+	background-repeat : no-repeat;
+	background-size : cover;
+	border:0;
+	outline:0;
+}
+.btnAfter_f{
+	width:20px;
+	height:20px;
+	background-image: url("../image/go_f.jpg");
+	background-repeat : no-repeat;
+	background-size : cover;
+	border:0;
+	outline:0;
+}
+/*--------------동적 스타일--------------------------------------------------------------------------*/
+.asc_selected_f{
+	color:#f62a4b;
+}
+.asc_select_f{
+	color:#aaa;
+}
+
+
+
+
 /*객실 안내 페이지  */
 #room_w{
 	border : 1px solid #eee;
@@ -480,7 +565,7 @@ body, html {
 	height: 275px;
 }
 #room_w > #roomview_photo_w {
-	border : 2px solid #aaaaff;
+	overflow : hidden;
 	width: 376px;
 	height: 226px;
 	float: left;
@@ -496,6 +581,12 @@ body, html {
 	float: left;
 	width : 400px;
 	
+}
+
+#jsform{
+	width: 960px;
+	
+	margin: auto;
 }
 
 #price_w{
@@ -519,17 +610,38 @@ body, html {
 }
 
 #checkIn_w , #checkOut_w {
+	display:inline-block;
 	width: 225px;
 	height: 30px;
 	border: 1px solid #ddd;
 	background-color: #eee;
 	border-radius: 4px;
 	text-align: center;
-	margin-left: 30px;
+}
+#checkIn_w{
+	margin-left: 230px;
+}
+#checkOut_w{
+	margin-left: 50px;
+}
+#btnSearch_k{
+	position: relative;
+	left: 750px;
+	top: -30px;
+}
+#dateBox div label:first-child{
+	margin-left: 320px;
+}
+#dateBox div label:nth-child(2){
+	margin-left: 220px;
 }
 
 #check_w , #check2_w{
 	margin-left: 30px;
+}
+
+#dateBox{
+	margin-top: 21px;
 }
 
 #photo_w{
@@ -581,6 +693,54 @@ body, html {
 	background-image: url("../image/sei.png");
 }
 
+#roomview_photo_w img {
+	max-width: 100%;
+	height: auto;
+}
+
+#review_re_f span{
+	font-size:1.3em;
+	font-weight: bold;
+	color:#333;
+}
+
+
+.modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 400px; /* Full width */
+            height: 300px; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+    
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%; /* Could be more or less, depending on screen size */                          
+        }
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+  
 
 
 
@@ -588,10 +748,10 @@ body, html {
 
 
 
-
-
-
-
+/*datepicer 버튼 롤오버 시 손가락 모양 표시*/
+.ui-datepicker-trigger{cursor: pointer;}
+/*datepicer input 롤오버 시 손가락 모양 표시*/
+.hasDatepicker{cursor: pointer;}
 
 
 
